@@ -10,7 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var shouldScramble = true
+    private var shouldScramble = true
+    private var animateDuration = Double()
+    private var labelCenters = [CGPoint]()
 
     @IBOutlet weak var lambdaLogo: UIImageView!
     @IBOutlet weak var lLabel: UILabel!
@@ -23,8 +25,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        setCenters()
+    }
 
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+        
+        animateDuration = Double.random(in: 2...4)
         
         if shouldScramble {
             scramble()
@@ -37,46 +47,70 @@ class ViewController: UIViewController {
     
     private func scramble() {
         
-        // Scatter the letters
-        
-        // Randomize the letters colors
-        randomizeLabel(lLabel)
-        randomizeLabel(firstALabel)
-        randomizeLabel(mLabel)
-        randomizeLabel(bLabel)
-        randomizeLabel(dLabel)
-        randomizeLabel(lastALabel)
-        
-        // Hide the logo
+        UIView.animate(withDuration: animateDuration) {
+            self.scatterLetter(self.lLabel)
+            self.scatterLetter(self.firstALabel)
+            self.scatterLetter(self.mLabel)
+            self.scatterLetter(self.bLabel)
+            self.scatterLetter(self.dLabel)
+            self.scatterLetter(self.lastALabel)
+            self.randomizeLabel(self.lLabel)
+            self.randomizeLabel(self.firstALabel)
+            self.randomizeLabel(self.mLabel)
+            self.randomizeLabel(self.bLabel)
+            self.randomizeLabel(self.dLabel)
+            self.randomizeLabel(self.lastALabel)
+            self.lambdaLogo.alpha = 0
+        }
     }
     
     private func gather() {
         
-        // Gather the letters
-        
-        // Revert the letter colors to original
-        revertToOriginal(for: lLabel)
-        revertToOriginal(for: firstALabel)
-        revertToOriginal(for: mLabel)
-        revertToOriginal(for: bLabel)
-        revertToOriginal(for: dLabel)
-        revertToOriginal(for: lastALabel)
-        
-        // Show the logo
+        UIView.animate(withDuration: animateDuration) {
+            self.revertToOriginal(for: self.lLabel)
+            self.revertToOriginal(for: self.firstALabel)
+            self.revertToOriginal(for: self.mLabel)
+            self.revertToOriginal(for: self.bLabel)
+            self.revertToOriginal(for: self.dLabel)
+            self.revertToOriginal(for: self.lastALabel)
+            self.lambdaLogo.alpha = 1.0
+        }
+    }
+    
+    private func scatterLetter(_ letter: UILabel) {
+        letter.center = self.randomPoint()
+        letter.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360) * .pi / 180)
+    }
+    
+    private func randomPoint() -> CGPoint {
+        let yBounds = Int(view.frame.height) - 50
+        let xBounds = Int(view.frame.width) - 50
+        return CGPoint(x: Int.random(in: 50...xBounds), y: Int.random(in: 50...yBounds))
     }
     
     private func revertToOriginal(for label: UILabel) {
-        label.backgroundColor = .clear
-        label.textColor = .black
+        label.layer.backgroundColor = UIColor.clear.cgColor
+        label.textColor = UIColor.black
+        label.transform = .identity
+        label.center = labelCenters[label.tag]
     }
     
     private func randomizeLabel(_ label: UILabel) {
-        label.backgroundColor = randomColor()
+        label.layer.backgroundColor = randomColor().cgColor
         label.textColor = randomColor()
     }
     
     private func randomColor() -> UIColor {
         return UIColor(red:  CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
+    }
+    
+    private func setCenters() {
+        labelCenters.append(lLabel.center)
+        labelCenters.append(firstALabel.center)
+        labelCenters.append(mLabel.center)
+        labelCenters.append(bLabel.center)
+        labelCenters.append(dLabel.center)
+        labelCenters.append(lastALabel.center)
     }
 }
 
