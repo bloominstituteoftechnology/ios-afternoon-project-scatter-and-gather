@@ -45,11 +45,7 @@ class ViewController: UIViewController {
 
 			for letter in stackViewLetters.subviews {
 				guard let letter = letter as? UILabel else { return }
-				UIView.animate(withDuration: duration, animations: {
-					letter.transform = .identity
-					letter.layer.backgroundColor = UIColor.clear.cgColor
-				})
-				
+
 				let changeColor = CATransition()
 				changeColor.duration = duration
 				CATransaction.begin()
@@ -58,6 +54,13 @@ class ViewController: UIViewController {
 					letter.textColor = .black
 				}
 				CATransaction.commit()
+
+
+				UIView.animate(withDuration: duration, animations: {
+					letter.transform = .identity
+					letter.layer.backgroundColor = UIColor.clear.cgColor
+				})
+
 			}
 		}
 		shouldScramble.toggle()
@@ -68,6 +71,15 @@ class ViewController: UIViewController {
 			guard let letter = letter as? UILabel else { return }
 			UIView.animate(withDuration: duration, animations: { [weak self] in
 				guard let self = self else { return }
+				let changeColor = CATransition()
+				changeColor.duration = duration
+				CATransaction.begin()
+				CATransaction.setCompletionBlock {
+					letter.layer.add(changeColor, forKey: nil)
+					letter.textColor = UIColor(hue: CGFloat.random(in: 0..<1), saturation: CGFloat.random(in: 0.25...1), brightness: CGFloat.random(in: 0.5...1), alpha: 1)
+				}
+				CATransaction.commit()
+
 				let x = CATransform3DMakeRotation(CGFloat.random(in: 0..<CGFloat.pi), 1, 0, 0)
 				let y = CATransform3DMakeRotation(CGFloat.random(in: 0..<CGFloat.pi), 0, 1, 0)
 				let z = CATransform3DMakeRotation(CGFloat.random(in: 0..<CGFloat.pi), 0, 0, 1)
@@ -80,19 +92,12 @@ class ViewController: UIViewController {
 
 				let trans = CATransform3DMakeTranslation(localLocation.x, localLocation.y, 0)
 				let total = CATransform3DConcat(xyzRot, trans)
-				print(self.view.bounds.minX...self.view.bounds.maxX, xTrans, yTrans)
+
 				letter.layer.transform = total
 				letter.layer.backgroundColor = UIColor(hue: CGFloat.random(in: 0..<1), saturation: CGFloat.random(in: 0.25...1), brightness: CGFloat.random(in: 0...1), alpha: 1).cgColor
 			})
 
-			let changeColor = CATransition()
-			changeColor.duration = duration
-			CATransaction.begin()
-			CATransaction.setCompletionBlock {
-				letter.layer.add(changeColor, forKey: nil)
-				letter.textColor = UIColor(hue: CGFloat.random(in: 0..<1), saturation: CGFloat.random(in: 0.25...1), brightness: CGFloat.random(in: 0.5...1), alpha: 1)
-			}
-			CATransaction.commit()
+
 		}
 	}
 }
