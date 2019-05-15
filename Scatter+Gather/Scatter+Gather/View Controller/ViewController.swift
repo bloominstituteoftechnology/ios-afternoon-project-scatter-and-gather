@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lambdaD: UILabel!
     @IBOutlet weak var lambdA: UILabel!
     
+    // MARK: - Veiw Loading
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +38,7 @@ class ViewController: UIViewController {
         view.addSubview(logo)
     }
 
+    // MARK: - Actions
     @IBAction func toggle(_ sender: Any) {
         
         if shouldScramble == false {
@@ -44,10 +46,11 @@ class ViewController: UIViewController {
                 self.logo.alpha = 0.0
                 
                 for label in self.labels {
-                    let index = Int(arc4random_uniform(UInt32(self.colorArray.count)))
+                    let index = Int.random(in: 1..<self.colorArray.count)
                     label.textColor = self.colorArray[index]
-                    let backgroundIndex = Int(arc4random_uniform(UInt32(self.colorArray.count)))
+                    let backgroundIndex = Int.random(in: 1..<self.colorArray.count)
                     label.layer.backgroundColor = self.colorArray[backgroundIndex].cgColor
+                    label.scatter()
                 }
             }
             
@@ -59,6 +62,7 @@ class ViewController: UIViewController {
                 for label in self.labels {
                     label.textColor = .black
                     label.layer.backgroundColor = UIColor.clear.cgColor
+                    label.gather()
                 }
             }
             
@@ -68,3 +72,17 @@ class ViewController: UIViewController {
     
 }
 
+// MARK: UIView Extension
+
+extension UIView {
+    
+    func scatter() {
+        let translate = CGAffineTransform(translationX: CGFloat(arc4random_uniform(UInt32(superview?.bounds.width ?? 300))) - frame.minX, y: CGFloat(arc4random_uniform(UInt32(superview?.bounds.height ?? 300))) - frame.minY)
+        transform = translate.rotated(by: CGFloat(arc4random_uniform(361)) / CGFloat.pi*2).scaledBy(x: 1.6, y: 1.6)
+    }
+    
+    func gather() {
+        transform = .identity
+    }
+    
+}
