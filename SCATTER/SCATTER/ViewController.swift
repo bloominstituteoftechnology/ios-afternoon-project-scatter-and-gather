@@ -49,6 +49,7 @@ class ViewController: UIViewController {
 					letter.transform = .identity
 					letter.layer.backgroundColor = UIColor.clear.cgColor
 				})
+				
 				let changeColor = CATransition()
 				changeColor.duration = duration
 				CATransaction.begin()
@@ -83,6 +84,7 @@ class ViewController: UIViewController {
 				letter.layer.transform = total
 				letter.layer.backgroundColor = UIColor(hue: CGFloat.random(in: 0..<1), saturation: CGFloat.random(in: 0.25...1), brightness: CGFloat.random(in: 0...1), alpha: 1).cgColor
 			})
+
 			let changeColor = CATransition()
 			changeColor.duration = duration
 			CATransaction.begin()
