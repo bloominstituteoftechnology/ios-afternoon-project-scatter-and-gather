@@ -8,16 +8,31 @@
 
 import UIKit
 
+struct LabelsCenter {
+	let x: CGFloat
+	let y: CGFloat
+}
+
 class ViewController: UIViewController {
 	var shouldScramble = false
 	var labels: [UILabel] = []
-	
 	var stackView = UIStackView()
+
+	var labelsCenter: [LabelsCenter] = []
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		createLabels()
 		createImageView()
+		setStruct()
+	}
+	
+	private func setStruct() {
+		labels.forEach( {
+			let center = LabelsCenter(x: $0.center.x, y: $0.center.y)
+			labelsCenter.append(center)
+			
+		})
 	}
 	
 	private func createImageView() {
@@ -74,7 +89,7 @@ class ViewController: UIViewController {
 		shouldScramble.toggle()
 		print(shouldScramble)
 		let labelscpy = labels
-		for (i, label) in labelscpy.enumerated() {
+		for (i,label) in labelscpy.enumerated() {
 			let x = label.center.x
 			let y = label.center.y
 			
@@ -86,14 +101,13 @@ class ViewController: UIViewController {
 				}
 			}) { _ in
 				
-//				if !self.shouldScramble {
-					UIView.animate(withDuration: 2, animations: {
-//						label.transform = .identity
-						
-						label.center = CGPoint(x: x, y: y)
-						label.transform = .identity
-					})
-//				}
+
+				UIView.animate(withDuration: 2, animations: {
+					print(i)
+					label.center = CGPoint(x: x, y: x)
+					label.transform = .identity
+				})
+
 
 			}
 			
