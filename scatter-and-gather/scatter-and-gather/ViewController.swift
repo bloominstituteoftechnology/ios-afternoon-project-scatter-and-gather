@@ -9,12 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+	var shouldScramble = false
+	
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view.
+		
 	}
 
-
+	@IBAction func toggle(_ sender: UIBarButtonItem) {
+		shouldScramble.toggle()
+		print(shouldScramble)
+	}
+	
 }
 
