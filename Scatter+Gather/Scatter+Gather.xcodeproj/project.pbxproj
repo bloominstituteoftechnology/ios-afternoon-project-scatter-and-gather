@@ -54,14 +54,38 @@
 		FF2E04C5228C8FA00001D190 /* Scatter+Gather */ = {
 			isa = PBXGroup;
 			children = (
-				FF2E04C6228C8FA00001D190 /* AppDelegate.swift */,
-				FF2E04C8228C8FA00001D190 /* ViewController.swift */,
-				FF2E04CA228C8FA00001D190 /* Main.storyboard */,
-				FF2E04CD228C8FA10001D190 /* Assets.xcassets */,
-				FF2E04CF228C8FA10001D190 /* LaunchScreen.storyboard */,
-				FF2E04D2228C8FA10001D190 /* Info.plist */,
+				FF2E04D8228CB0680001D190 /* Storyboards */,
+				FF2E04DA228CB18B0001D190 /* View Controller */,
+				FF2E04D9228CB08B0001D190 /* Resources */,
 			);
 			path = "Scatter+Gather";
+			sourceTree = "<group>";
+		};
+		FF2E04D8228CB0680001D190 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E04CA228C8FA00001D190 /* Main.storyboard */,
+				FF2E04CF228C8FA10001D190 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FF2E04D9228CB08B0001D190 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E04C6228C8FA00001D190 /* AppDelegate.swift */,
+				FF2E04CD228C8FA10001D190 /* Assets.xcassets */,
+				FF2E04D2228C8FA10001D190 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FF2E04DA228CB18B0001D190 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FF2E04C8228C8FA00001D190 /* ViewController.swift */,
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
