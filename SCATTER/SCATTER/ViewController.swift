@@ -20,12 +20,41 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 
-		for subview in stackViewLetters.subviews {
-			print(subview)
-		}
+
 	}
 
 	@IBAction func togglePressed(_ sender: UIBarButtonItem) {
+		let duration = TimeInterval.random(in: 2...4)
+		let myCompleter = { (_: Bool) in
+			sender.isEnabled = true
+		}
+		sender.isEnabled = false
+		print(sender.isEnabled)
+
+		if shouldScramble {
+			//crazy animation
+			UIView.animate(withDuration: duration, animations: { [weak self] in
+				self?.logoView.alpha = 0
+			}, completion: myCompleter)
+
+			animateCrazy(withDuration: duration)
+
+		} else {
+			UIView.animate(withDuration: duration, animations: { [weak self] in
+				self?.logoView.alpha = 1
+			}, completion: myCompleter)
+
+			for letter in stackViewLetters.subviews {
+				UIView.animate(withDuration: duration, animations: {
+					letter.transform = .identity
+				})
+			}
+		}
+		shouldScramble.toggle()
+	}
+
+	private func animateCrazy(withDuration duration: TimeInterval, completion: ((Bool) -> Void)? = nil) {
+
 	}
 
 }
