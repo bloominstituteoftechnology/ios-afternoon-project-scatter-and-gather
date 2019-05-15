@@ -20,10 +20,11 @@ class ViewController: UIViewController {
 	func createLabels() {
 		let str = Array("LAMBDA")
 		for char in str {
-			let label = UILabel(frame: CGRect(x: 8, y: 0, width: 40, height: 40))
+			let label = UILabel()
 			label.translatesAutoresizingMaskIntoConstraints = false
 			label.text = String(char)
-			
+			label.font = UIFont.boldSystemFont(ofSize: 60)
+			label.backgroundColor = .red
 			view.addSubview(label)
 			labels.append(label)
 			print(char)
@@ -35,14 +36,14 @@ class ViewController: UIViewController {
 		
 		stackView.axis = .horizontal
 		stackView.distribution = .equalSpacing
-		
+		stackView.spacing = 4
 		labels.forEach( {
 			stackView.addArrangedSubview( $0 )
 		})
 		
 		NSLayoutConstraint.activate([
-			stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-			stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+			stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 60),
+			stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -60),
 			stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
 			
 			])
