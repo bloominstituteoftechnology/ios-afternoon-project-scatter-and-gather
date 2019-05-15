@@ -55,14 +55,12 @@ class ViewController: UIViewController {
     }
     
     private func scatterLetter(_ letter: UILabel) {
-        letter.center = self.randomPoint()
+        let labelHeight = Int(letter.bounds.height)
+        let yMax = Int(view.frame.height) - labelHeight
+        let xMax = Int(view.frame.width) - labelHeight
+        
+        letter.center = CGPoint.random(inX: labelHeight...xMax, inY: labelHeight...yMax)
         letter.transform = CGAffineTransform(rotationAngle: .randomAngle)
-    }
-    
-    private func randomPoint() -> CGPoint {
-        let yBounds = Int(view.frame.height) - 50
-        let xBounds = Int(view.frame.width) - 50
-        return CGPoint(x: Int.random(in: 50...xBounds), y: Int.random(in: 50...yBounds))
     }
     
     private func revertToOriginal(for label: UILabel) {

@@ -15,3 +15,9 @@ extension UIColor {
 extension CGFloat {
     static var randomAngle: CGFloat { return CGFloat.random(in: 0...360) * CGFloat.pi / 180 }
 }
+
+extension CGPoint {
+    static func random(inX: ClosedRange<Int>, inY: ClosedRange<Int>) -> CGPoint {
+        return CGPoint(x: Int.random(in: inX), y: Int.random(in: inY))
+    }
+}
