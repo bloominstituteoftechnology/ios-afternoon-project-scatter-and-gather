@@ -90,18 +90,14 @@ class ViewController: UIViewController {
     
     private func revertToOriginal(for label: UILabel) {
         label.layer.backgroundColor = UIColor.clear.cgColor
-        label.textColor = UIColor.black
+        label.textColor = .black
         label.transform = .identity
         label.center = labelCenters[label.tag]
     }
     
     private func randomizeLabelColors(_ label: UILabel) {
-        label.layer.backgroundColor = randomColor().cgColor
-        label.textColor = randomColor()
-    }
-    
-    private func randomColor() -> UIColor {
-        return UIColor(red:  CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
+        label.layer.backgroundColor = UIColor.random().cgColor
+        label.textColor = .random()
     }
     
     private func setCenters() {
