@@ -12,25 +12,44 @@ class ViewController: UIViewController {
 	var shouldScramble = false
 	var labels: [UILabel] = []
 	
+	var stackView = UIStackView()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		createLabels()
+		createImageView()
 	}
 	
-	func createLabels() {
+	private func createImageView() {
+		
+		let imageview = UIImageView(image: #imageLiteral(resourceName: "Lambda_Logo"))
+		imageview.translatesAutoresizingMaskIntoConstraints = false
+		
+		view.addSubview(imageview)
+		NSLayoutConstraint.activate([
+			imageview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 60),
+			imageview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -60),
+			imageview.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
+			imageview.heightAnchor.constraint(equalToConstant: 100)
+			
+			])
+		
+	}
+	
+	private func createLabels() {
 		let str = Array("LAMBDA")
 		for char in str {
 			let label = UILabel()
 			label.translatesAutoresizingMaskIntoConstraints = false
 			label.text = String(char)
 			label.font = UIFont.boldSystemFont(ofSize: 60)
-			label.backgroundColor = .red
+			
 			view.addSubview(label)
 			labels.append(label)
 			print(char)
 		}
 		
-		let stackView = UIStackView()
+		stackView = UIStackView()
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(stackView)
 		
