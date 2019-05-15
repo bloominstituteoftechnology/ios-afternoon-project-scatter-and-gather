@@ -73,34 +73,33 @@ class ViewController: UIViewController {
 	@IBAction func toggle(_ sender: UIBarButtonItem) {
 		shouldScramble.toggle()
 		print(shouldScramble)
-		
-		
-		for label in labels {
-			UIView.animateKeyframes(withDuration: 5, delay: 0, options: [], animations: {
-				
-				UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
-					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
-				})
-				
-				UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
-					label.transform = .identity
-				})
-				
-				UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25, animations: {
-					label.center = CGPoint(x: self.view.center.x, y: self.view.center.y - 50)
-				})
-				
-				UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
-					label.center = self.view.center
-				})
+		let labelscpy = labels
+		for (i, label) in labelscpy.enumerated() {
+			let x = label.center.x
+			let y = label.center.y
 			
-			}, completion: {
-				_ in
-				label.transform = .identity
-			})
-		}
+			
+			UIView.animate(withDuration: 2, animations: {
+				if self.shouldScramble {
+					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
+					label.center = CGPoint(x: label.center.x - 100, y:  label.center.y + 300)
+				}
+			}) { _ in
+				
+//				if !self.shouldScramble {
+					UIView.animate(withDuration: 2, animations: {
+//						label.transform = .identity
+						
+						label.center = CGPoint(x: x, y: y)
+						label.transform = .identity
+					})
+//				}
+
+			}
+			
 		
 	}
 	
 }
 
+}
