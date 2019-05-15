@@ -25,47 +25,33 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    
+        
         labels = [lLabel, firstALabel, mLabel, bLabel, dLabel, lastALabel]
-        setCenters()
+        getCenters()
     }
-
+    
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         
         animateDuration = Double.random(in: 2...4)
         
         if shouldScramble {
-            scramble()
+            UIView.animate(withDuration: animateDuration) {
+                for label in self.labels {
+                    self.scatterLetter(label)
+                    self.randomizeLabelColors(label)
+                }
+                self.lambdaLogo.alpha = 0
+            }
         } else {
-            gather()
+            UIView.animate(withDuration: animateDuration) {
+                for label in self.labels {
+                    self.revertToOriginal(for: label)
+                }
+                self.lambdaLogo.alpha = 1.0
+            }
         }
         
         shouldScramble.toggle()
-    }
-    
-    private func scramble() {
-        
-        UIView.animate(withDuration: animateDuration) {
-            for label in self.labels {
-                self.scatterLetter(label)
-                self.randomizeLabelColors(label)
-            }
-            self.lambdaLogo.alpha = 0
-        }
-    }
-    
-    private func gather() {
-        
-        UIView.animate(withDuration: animateDuration) {
-            for label in self.labels {
-                self.revertToOriginal(for: label)
-            }
-            self.lambdaLogo.alpha = 1.0
-        }
     }
     
     private func scatterLetter(_ letter: UILabel) {
@@ -91,7 +77,7 @@ class ViewController: UIViewController {
         label.textColor = .random
     }
     
-    private func setCenters() {
+    private func getCenters() {
         for label in labels {
             labelCenters.append(label.center)
         }
