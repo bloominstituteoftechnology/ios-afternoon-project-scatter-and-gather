@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     private var shouldScramble = true
     private var animateDuration = Double()
     private var labelCenters = [CGPoint]()
+    private var labels = [UILabel]()
 
     @IBOutlet weak var lambdaLogo: UIImageView!
     @IBOutlet weak var lLabel: UILabel!
@@ -29,6 +30,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     
+        labels = [lLabel, firstALabel, mLabel, bLabel, dLabel, lastALabel]
         setCenters()
     }
 
@@ -48,18 +50,10 @@ class ViewController: UIViewController {
     private func scramble() {
         
         UIView.animate(withDuration: animateDuration) {
-            self.scatterLetter(self.lLabel)
-            self.scatterLetter(self.firstALabel)
-            self.scatterLetter(self.mLabel)
-            self.scatterLetter(self.bLabel)
-            self.scatterLetter(self.dLabel)
-            self.scatterLetter(self.lastALabel)
-            self.randomizeLabelColors(self.lLabel)
-            self.randomizeLabelColors(self.firstALabel)
-            self.randomizeLabelColors(self.mLabel)
-            self.randomizeLabelColors(self.bLabel)
-            self.randomizeLabelColors(self.dLabel)
-            self.randomizeLabelColors(self.lastALabel)
+            for label in self.labels {
+                self.scatterLetter(label)
+                self.randomizeLabelColors(label)
+            }
             self.lambdaLogo.alpha = 0
         }
     }
@@ -67,12 +61,9 @@ class ViewController: UIViewController {
     private func gather() {
         
         UIView.animate(withDuration: animateDuration) {
-            self.revertToOriginal(for: self.lLabel)
-            self.revertToOriginal(for: self.firstALabel)
-            self.revertToOriginal(for: self.mLabel)
-            self.revertToOriginal(for: self.bLabel)
-            self.revertToOriginal(for: self.dLabel)
-            self.revertToOriginal(for: self.lastALabel)
+            for label in self.labels {
+                self.revertToOriginal(for: label)
+            }
             self.lambdaLogo.alpha = 1.0
         }
     }
@@ -101,12 +92,9 @@ class ViewController: UIViewController {
     }
     
     private func setCenters() {
-        labelCenters.append(lLabel.center)
-        labelCenters.append(firstALabel.center)
-        labelCenters.append(mLabel.center)
-        labelCenters.append(bLabel.center)
-        labelCenters.append(dLabel.center)
-        labelCenters.append(lastALabel.center)
+        for label in labels {
+            labelCenters.append(label.center)
+        }
     }
 }
 
