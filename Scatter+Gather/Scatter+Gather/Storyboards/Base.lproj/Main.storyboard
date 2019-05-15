@@ -17,7 +17,63 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Lambda_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="7pj-VA-fpM">
+                                <rect key="frame" x="20" y="354.5" width="374" height="187"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7pj-VA-fpM" secondAttribute="height" multiplier="180:90" id="uPg-mf-Oko"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3ng-0X-dZp">
+                                <rect key="frame" x="119.5" y="296" width="175" height="38.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bY1-Sy-Wb5">
+                                        <rect key="frame" x="0.0" y="0.0" width="18" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKU-BN-CcP">
+                                        <rect key="frame" x="26" y="0.0" width="22.5" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jD-38-qZ5">
+                                        <rect key="frame" x="56.5" y="0.0" width="28" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eqz-IJ-8ag">
+                                        <rect key="frame" x="92.5" y="0.0" width="21" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uOZ-jm-6gG">
+                                        <rect key="frame" x="121.5" y="0.0" width="23" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iWu-fT-Glq">
+                                        <rect key="frame" x="152.5" y="0.0" width="22.5" height="38.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7pj-VA-fpM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Igm-8K-NFv"/>
+                            <constraint firstItem="3ng-0X-dZp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SPN-Ln-woC"/>
+                            <constraint firstItem="7pj-VA-fpM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="boL-dm-ek5"/>
+                            <constraint firstItem="7pj-VA-fpM" firstAttribute="top" secondItem="3ng-0X-dZp" secondAttribute="bottom" constant="20" id="vqW-BQ-44P"/>
+                            <constraint firstItem="7pj-VA-fpM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yRG-FC-RvS"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="xKZ-qd-x93">
@@ -27,6 +83,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lambdA" destination="iWu-fT-Glq" id="85Z-5V-Xds"/>
+                        <outlet property="lambdaA" destination="jKU-BN-CcP" id="Ug3-a6-nLi"/>
+                        <outlet property="lambdaB" destination="Eqz-IJ-8ag" id="baI-eG-Mwd"/>
+                        <outlet property="lambdaD" destination="uOZ-jm-6gG" id="XvH-od-dp9"/>
+                        <outlet property="lambdaL" destination="bY1-Sy-Wb5" id="BOc-ye-MSR"/>
+                        <outlet property="lambdaM" destination="4jD-38-qZ5" id="Qi5-7G-CY0"/>
+                        <outlet property="logo" destination="7pj-VA-fpM" id="9Pc-yh-1gy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -51,4 +116,7 @@
             <point key="canvasLocation" x="341" y="139"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Lambda_Logo" width="2000" height="558"/>
+    </resources>
 </document>
