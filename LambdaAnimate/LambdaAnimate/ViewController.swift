@@ -87,8 +87,8 @@ class ViewController: UIViewController {
     }
     
     private func randomizeLabelColors(_ label: UILabel) {
-        label.layer.backgroundColor = UIColor.random().cgColor
-        label.textColor = .random()
+        label.layer.backgroundColor = UIColor.random.cgColor
+        label.textColor = .random
     }
     
     private func setCenters() {
