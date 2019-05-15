@@ -70,7 +70,7 @@ class ViewController: UIViewController {
     
     private func scatterLetter(_ letter: UILabel) {
         letter.center = self.randomPoint()
-        letter.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360) * .pi / 180)
+        letter.transform = CGAffineTransform(rotationAngle: .randomAngle)
     }
     
     private func randomPoint() -> CGPoint {
