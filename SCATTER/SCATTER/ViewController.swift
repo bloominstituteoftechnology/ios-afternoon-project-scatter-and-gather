@@ -10,11 +10,23 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	var shouldScramble = true
+
+	@IBOutlet var stackViewLetters: UIStackView!
+
+	@IBOutlet var logoView: UIImageView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
+
+		for subview in stackViewLetters.subviews {
+			print(subview)
+		}
 	}
 
+	@IBAction func togglePressed(_ sender: UIBarButtonItem) {
+	}
 
 }
 
