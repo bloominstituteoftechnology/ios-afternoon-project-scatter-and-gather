@@ -42,22 +42,22 @@ class ViewController: UIViewController {
     
     func scramble() {
         UIView.animate(withDuration: 3) {
-            self.lLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: 0..<self.view.frame.width), y: CGFloat.random(in: 0..<self.view.frame.height)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
+            self.lLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: -100...300), y: CGFloat.random(in: -100...700)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
         }
         UIView.animate(withDuration: 3) {
-            self.aLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: 0..<self.view.frame.width), y: CGFloat.random(in: 0..<self.view.frame.height)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
+            self.aLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: -150...250), y: CGFloat.random(in: -100...700)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
         }
         UIView.animate(withDuration: 3) {
-            self.mLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: 0..<self.view.frame.width), y: CGFloat.random(in: 0..<self.view.frame.height)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
+            self.mLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: -200...200), y: CGFloat.random(in: -100...700)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
         }
         UIView.animate(withDuration: 3) {
-            self.bLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: 0..<self.view.frame.width), y: CGFloat.random(in: 0..<self.view.frame.height)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
+            self.bLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: -250...150), y: CGFloat.random(in: -100...700)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
         }
         UIView.animate(withDuration: 3) {
-            self.dLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: 0..<self.view.frame.width), y: CGFloat.random(in: 0..<self.view.frame.height)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
+            self.dLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: -300...100), y: CGFloat.random(in: -100...700)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
         }
         UIView.animate(withDuration: 3) {
-            self.finalALabel.transform = CGAffineTransform(translationX: CGFloat.random(in: 0..<self.view.frame.width), y: CGFloat.random(in: 0..<self.view.frame.height)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
+            self.finalALabel.transform = CGAffineTransform(translationX: CGFloat.random(in: -350...50), y: CGFloat.random(in: -100...700)).rotated(by: CGFloat.pi / CGFloat.random(in: 0...16))
         }
         
     }
@@ -65,6 +65,21 @@ class ViewController: UIViewController {
     func reset() {
         UIView.animate(withDuration: 3) {
             self.lLabel.transform = .identity
+        }
+        UIView.animate(withDuration: 3) {
+            self.aLabel.transform = .identity
+        }
+        UIView.animate(withDuration: 3) {
+            self.mLabel.transform = .identity
+        }
+        UIView.animate(withDuration: 3) {
+            self.bLabel.transform = .identity
+        }
+        UIView.animate(withDuration: 3) {
+            self.dLabel.transform = .identity
+        }
+        UIView.animate(withDuration: 3) {
+            self.finalALabel.transform = .identity
         }
     }
     
