@@ -84,7 +84,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="aLabel" destination="mDk-9S-zT2" id="BIl-64-ZN7"/>
                         <outlet property="bLabel" destination="lXe-eQ-JJo" id="620-UF-ROB"/>
                         <outlet property="dLabel" destination="4TJ-22-cQp" id="EJs-ua-to2"/>
                         <outlet property="firstALabel" destination="OaD-OJ-IuE" id="6yZ-2i-VdP"/>
