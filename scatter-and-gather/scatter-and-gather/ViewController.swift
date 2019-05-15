@@ -27,6 +27,7 @@ class ViewController: UIViewController {
 		
 		view.addSubview(imageview)
 		NSLayoutConstraint.activate([
+			
 			imageview.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 60),
 			imageview.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -60),
 			imageview.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 60),
@@ -46,7 +47,6 @@ class ViewController: UIViewController {
 			
 			view.addSubview(label)
 			labels.append(label)
-			print(char)
 		}
 		
 		stackView = UIStackView()
@@ -73,6 +73,33 @@ class ViewController: UIViewController {
 	@IBAction func toggle(_ sender: UIBarButtonItem) {
 		shouldScramble.toggle()
 		print(shouldScramble)
+		
+		
+		for label in labels {
+			UIView.animateKeyframes(withDuration: 5, delay: 0, options: [], animations: {
+				
+				UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
+					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
+				})
+				
+				UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
+					label.transform = .identity
+				})
+				
+				UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25, animations: {
+					label.center = CGPoint(x: self.view.center.x, y: self.view.center.y - 50)
+				})
+				
+				UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
+					label.center = self.view.center
+				})
+			
+			}, completion: {
+				_ in
+				label.transform = .identity
+			})
+		}
+		
 	}
 	
 }
