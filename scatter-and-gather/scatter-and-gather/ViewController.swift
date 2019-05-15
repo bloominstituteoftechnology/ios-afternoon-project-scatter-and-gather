@@ -89,6 +89,8 @@ class ViewController: UIViewController {
 		shouldScramble.toggle()
 		print(shouldScramble)
 		let labelscpy = labels
+
+		
 		for (i,label) in labelscpy.enumerated() {
 			let x = label.center.x
 			let y = label.center.y
@@ -96,15 +98,15 @@ class ViewController: UIViewController {
 			
 			UIView.animate(withDuration: 2, animations: {
 				if self.shouldScramble {
-					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/2)
-					label.center = CGPoint(x: label.center.x - 100, y:  label.center.y + 300)
+					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/CGFloat.random(in: 1...8))
+					label.center = CGPoint(x: label.center.x - CGFloat.random(in: 10...50), y:  label.center.y + CGFloat.random(in: 50...400))
 				}
 			}) { _ in
 				
 
 				UIView.animate(withDuration: 2, animations: {
 					print(i)
-					label.center = CGPoint(x: x, y: x)
+					label.center = CGPoint(x: x, y: y)
 					label.transform = .identity
 				})
 
