@@ -54,12 +54,12 @@ class ViewController: UIViewController {
             self.scatterLetter(self.bLabel)
             self.scatterLetter(self.dLabel)
             self.scatterLetter(self.lastALabel)
-            self.randomizeLabel(self.lLabel)
-            self.randomizeLabel(self.firstALabel)
-            self.randomizeLabel(self.mLabel)
-            self.randomizeLabel(self.bLabel)
-            self.randomizeLabel(self.dLabel)
-            self.randomizeLabel(self.lastALabel)
+            self.randomizeLabelColors(self.lLabel)
+            self.randomizeLabelColors(self.firstALabel)
+            self.randomizeLabelColors(self.mLabel)
+            self.randomizeLabelColors(self.bLabel)
+            self.randomizeLabelColors(self.dLabel)
+            self.randomizeLabelColors(self.lastALabel)
             self.lambdaLogo.alpha = 0
         }
     }
@@ -95,7 +95,7 @@ class ViewController: UIViewController {
         label.center = labelCenters[label.tag]
     }
     
-    private func randomizeLabel(_ label: UILabel) {
+    private func randomizeLabelColors(_ label: UILabel) {
         label.layer.backgroundColor = randomColor().cgColor
         label.textColor = randomColor()
     }
