@@ -87,6 +87,7 @@ class ViewController: UIViewController {
 	@IBAction func toggle(_ sender: UIBarButtonItem) {
 		shouldScramble.toggle()
 		
+	
 		for (i,label) in labels.enumerated() {
 			let x = CGFloat.random(in: 10...50)
 			let y =  CGFloat.random(in: 50...500)
@@ -94,8 +95,9 @@ class ViewController: UIViewController {
 			
 			
 			if shouldScramble {
+				
 				labelsCenter.append(LabelsCenter(x: x, y: y))
-			
+				
 				UIView.animate(withDuration: 2, animations: {
 					
 					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/CGFloat.random(in: 1...8))
@@ -108,14 +110,17 @@ class ViewController: UIViewController {
 				}, completion: nil)
 				
 			} else {
+				
 				UIView.animate(withDuration: 2, animations: {
 							label.backgroundColor = self.colors.randomElement()
 							label.center = CGPoint(x:  label.center.x + self.labelsCenter[i].x, y: label.center.y - self.labelsCenter[i].y)
 							label.alpha = 1
 							label.transform = .identity
 							label.backgroundColor = .white
-					
-				}) 
+				}, completion: {
+					_ in
+					self.labelsCenter = []
+				} )
 				
 				
 			}
