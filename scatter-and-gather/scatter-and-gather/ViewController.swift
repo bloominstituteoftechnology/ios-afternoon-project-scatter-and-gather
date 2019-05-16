@@ -17,6 +17,7 @@ class ViewController: UIViewController {
 	var shouldScramble = false
 	var labels: [UILabel] = []
 	var stackView = UIStackView()
+	let colors: [UIColor] = [.gray, .green, .orange, .red , .purple, .blue, .black, .yellow]
 
 	var labelsCenter: [LabelsCenter] = []
 	
@@ -24,16 +25,14 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
 		createLabels()
 		createImageView()
-		setStruct()
+		
 	}
 	
-	private func setStruct() {
-		labels.forEach( {
-			let center = LabelsCenter(x: $0.center.x, y: $0.center.y)
-			labelsCenter.append(center)
-			
-		})
+	private func createColor() {
+		
+		
 	}
+	
 	
 	private func createImageView() {
 		
@@ -92,27 +91,37 @@ class ViewController: UIViewController {
 
 		
 		for (i,label) in labelscpy.enumerated() {
-			let x = label.center.x
-			let y = label.center.y
+			let x = CGFloat.random(in: 10...50)
+			let y =  CGFloat.random(in: 50...500)
 			
 			
-			UIView.animate(withDuration: 2, animations: {
-				if self.shouldScramble {
-					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/CGFloat.random(in: 1...8))
-					label.center = CGPoint(x: label.center.x - CGFloat.random(in: 10...50), y:  label.center.y + CGFloat.random(in: 50...400))
-				}
-			}) { _ in
-				
-
+			
+			if shouldScramble {
+				labelsCenter.append(LabelsCenter(x: x, y: y))
+			
 				UIView.animate(withDuration: 2, animations: {
-					print(i)
-					label.center = CGPoint(x: x, y: y)
-					label.transform = .identity
-				})
-
-
+					
+					label.transform = CGAffineTransform(rotationAngle: CGFloat.pi/CGFloat.random(in: 1...8))
+					label.center = CGPoint(x: label.center.x - x, y:  label.center.y + y)
+						
+					label.alpha = 0.1
+						
+					label.backgroundColor = self.colors.randomElement()!
+					
+				}, completion: nil)
+				
+			} else {
+				UIView.animate(withDuration: 2, animations: {
+							print(i)
+							label.center = CGPoint(x:  label.center.x + self.labelsCenter[i].x, y: label.center.y - self.labelsCenter[i].y)
+							label.alpha = 1
+							label.transform = .identity
+							label.backgroundColor = .white
+					
+				}) 
+				
+				
 			}
-			
 		
 	}
 	
