@@ -70,6 +70,7 @@ class ViewController: UIViewController {
             
             letter?.backgroundColor = getRandomColor()
             letter?.textColor = getRandomColor()
+            letter?.layer.shadowOpacity = 0.5
         }
     }
     
@@ -98,6 +99,7 @@ class ViewController: UIViewController {
             letter.element?.transform = CGAffineTransform(rotationAngle: CGFloat(0.0))
             letter.element?.frame.origin.y = 0.0
             letter.element?.frame.origin.x = originalX[letter.offset]
+            letter.element?.layer.shadowOpacity = 0.0
         }
     }
 }
