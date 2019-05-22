@@ -89,6 +89,7 @@
                         <outlet property="label4" destination="23t-iy-tCu" id="ndm-Bj-Gsx"/>
                         <outlet property="label5" destination="pQc-oy-9Vw" id="TFX-Zp-azM"/>
                         <outlet property="label6" destination="C2m-rB-7S5" id="gc9-ze-CIy"/>
+                        <outlet property="lambdaLogo" destination="28M-BD-lnM" id="Gnw-zE-H6O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
