@@ -18,10 +18,13 @@ class ViewController: UIViewController {
     var isScattered: Bool = true
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-        if isScattered {
+        print(isScattered)
+        if isScattered == true {
             scatterAnimation()
-        } else {
+            isScattered = false
+        } else if isScattered == false {
             gatherAnimation()
+            isScattered = true
         }
     }
     
@@ -35,11 +38,16 @@ class ViewController: UIViewController {
     var lambdaLogoImage = UIImage(named: "lambda_logo")
     
     func scatterAnimation() {
-        
+        UIView.animate(withDuration: 1) {
+            self.logoImageView.alpha = 0
+        }
     }
     
     func gatherAnimation() {
-        
+        logoImageView.alpha = 0
+        UIView.animate(withDuration: 1) {
+            self.logoImageView.alpha = 1
+        }
     }
 }
 
