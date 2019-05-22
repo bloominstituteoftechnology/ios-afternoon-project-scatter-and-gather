@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-
+    //Properties
     @IBOutlet weak var lambdaLogo: UIImageView!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: UILabel!
@@ -18,17 +18,15 @@ class ViewController: UIViewController {
     @IBOutlet weak var label4: UILabel!
     @IBOutlet weak var label5: UILabel!
     @IBOutlet weak var label6: UILabel!
-
     var labelLocations: [CGPoint] = []
-
     var isScattered: Bool = false
-    
+
+
+    //Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         getLocation()
         navigationItem.title = "Hello!"
-
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
@@ -36,13 +34,11 @@ class ViewController: UIViewController {
             colorLabels()
             fadeOutLogo()
             scatterLabels()
-
             isScattered = true
         } else {
             unColorLabels()
             fadeInLogo()
             unScatterLabels()
-
             isScattered = false
         }
     }
@@ -97,6 +93,7 @@ class ViewController: UIViewController {
                 let randCGFloat = CGFloat(randInt)
             label.center = CGPoint(x: Int.random(in: 0...300), y: Int.random(in: 0...700))
             label.transform = CGAffineTransform(rotationAngle: randCGFloat.toRadians())
+
             }
         })
     }
