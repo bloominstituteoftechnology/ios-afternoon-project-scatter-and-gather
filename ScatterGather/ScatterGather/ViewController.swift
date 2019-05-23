@@ -96,7 +96,7 @@ class ViewController: UIViewController {
         for letter in letters.enumerated() {
             letter.element?.backgroundColor = .white
             letter.element?.textColor = UIColor.black
-            letter.element?.transform = CGAffineTransform(rotationAngle: CGFloat(0.0))
+            letter.element?.transform = CGAffineTransform.identity
             letter.element?.frame.origin.y = 0.0
             letter.element?.frame.origin.x = originalX[letter.offset]
             letter.element?.layer.shadowOpacity = 0.0
