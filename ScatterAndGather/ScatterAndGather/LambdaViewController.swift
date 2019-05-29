@@ -21,34 +21,35 @@ class LambdaViewController: UIViewController {
             self.imageView.alpha = 0.0
         }, completion: nil)
         
-        // Create a random point based on the view
-        //generate a different random point for each label
-        //use that point to set a random coordinate for the label to move
+//         Create a random point based on the view
+//        generate a different random point for each label
+//        use that point to set a random coordinate for the label to move
         
-//        let x = Int.random(in: 0...Int(view.bounds.size.width))
-//        let y = Int.random(in: 0...Int(view.bounds.size.height))
-//        let randomPoint = CGPoint(x: x, y: y)
-//
-//        UIView.animate(withDuration: 2.0) {
-//            self.labelL.transform = CGAffineTransform(translationX: randomPoint.x, y: randomPoint.y)
-//        }
+        let x = Int.random(in: 0...Int(view.bounds.size.width))
+        let y = Int.random(in: 0...Int(view.bounds.size.height))
+        let randomPoint = CGPoint(x: x, y: y)
+
+        UIView.animate(withDuration: 2.0) {
+            self.labelL.transform = CGAffineTransform(translationX: randomPoint.x, y: randomPoint.y)
+            self.labelA.transform = CGAffineTransform(translationX: randomPoint.x, y: randomPoint.y)
+        }
         
         
         
         
         //Assign a random background color to labels
-        self.labelL.backgroundColor = .random
-        self.labelL.textColor = .random
-        self.labelA.backgroundColor = .random
-        self.labelA.textColor = .random
-        self.labelM.backgroundColor = .random
-        self.labelM.textColor = .random
-        self.labelB.backgroundColor = .random
-        self.labelB.textColor = .random
-        self.labelD.backgroundColor = .random
-        self.labelD.textColor = .random
-        self.labelA2.backgroundColor = .random
-        self.labelA2.textColor = .random
+        self.labelL.backgroundColor = .randomColor
+        self.labelL.textColor = .randomColor
+        self.labelA.backgroundColor = .randomColor
+        self.labelA.textColor = .randomColor
+        self.labelM.backgroundColor = .randomColor
+        self.labelM.textColor = .randomColor
+        self.labelB.backgroundColor = .randomColor
+        self.labelB.textColor = .randomColor
+        self.labelD.backgroundColor = .randomColor
+        self.labelD.textColor = .randomColor
+        self.labelA2.backgroundColor = .randomColor
+        self.labelA2.textColor = .randomColor
         
         // Rotate labels
         
@@ -123,7 +124,7 @@ class LambdaViewController: UIViewController {
 }
 
 extension UIColor {
-    static var random: UIColor {
+    static var randomColor: UIColor {
         return UIColor(red: .random(in: 0...1),
                        green: .random(in: 0...1),
                        blue: .random(in: 0...1),
