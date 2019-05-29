@@ -18,13 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lambda_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-cq-ssU">
-                                <rect key="frame" x="87" y="327" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="cqm-xY-yxl">
-                                <rect key="frame" x="101" y="266" width="212" height="20.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="cqm-xY-yxl">
+                                <rect key="frame" x="101" y="438" width="212" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOz-sY-VYn">
                                         <rect key="frame" x="0.0" y="0.0" width="14.5" height="20.5"/>
@@ -64,8 +59,16 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lambda_logo" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-cq-ssU">
+                                <rect key="frame" x="87" y="493" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cqm-xY-yxl" firstAttribute="centerY" secondItem="vxn-qn-dbx" secondAttribute="centerY" id="BaT-AN-xAY"/>
+                            <constraint firstItem="cqm-xY-yxl" firstAttribute="centerX" secondItem="vxn-qn-dbx" secondAttribute="centerX" id="v7j-8R-gU5"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="D2E-Qr-qeY"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ugg-HR-Ik7">

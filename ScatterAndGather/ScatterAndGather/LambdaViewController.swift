@@ -21,27 +21,44 @@ class LambdaViewController: UIViewController {
             self.imageView.alpha = 0.0
         }, completion: nil)
         
-//        UIView.animate(withDuration: 2.0) {
-//            let randomX = Int.random(in: 1...300)
-//            let randomY = Int.random(in: 1...300)
-//            let randomL = CGPoint(x: randomX, y: randomY)
-//            self.labelL.transform = CGAffineTransform(translationX: randomL.x, y: randomL.y)
-//           let randomA = CGPoint(x: randomX, y: randomY)
-//            self.labelA.transform = CGAffineTransform(translationX: randomA.x, y: randomA.y)
-//            let randomM = CGPoint(x: randomX, y: randomY)
-//            self.labelM.transform = CGAffineTransform(translationX: randomM.x, y: randomM.y)
-//          let randomB = CGPoint(x: randomX, y: randomY)
-//            self.labelB.transform = CGAffineTransform(translationX: randomB.x, y: randomB.y)
-//            let randomD = CGPoint(x: randomX, y: randomY)
-//            self.labelD.transform = CGAffineTransform(translationX: randomD.x, y: randomD.y)
-//            let randomA2 = CGPoint(x: randomX, y: randomY)
-//            self.labelA2.transform = CGAffineTransform(translationX: randomA2.x, y: randomA2.y)
-//        }
-    }
-    
-        // Create a random point based on the view.
+        // Create a random point based on the view
         //generate a different random point for each label
         //use that point to set a random coordinate for the label to move
+        
+//        let x = Int.random(in: 0...Int(view.bounds.size.width))
+//        let y = Int.random(in: 0...Int(view.bounds.size.height))
+//        let randomPoint = CGPoint(x: x, y: y)
+//
+//        UIView.animate(withDuration: 2.0) {
+//            self.labelL.transform = CGAffineTransform(translationX: randomPoint.x, y: randomPoint.y)
+//        }
+        
+        
+        
+        
+        //Assign a random background color to labels
+        self.labelL.backgroundColor = .random
+        self.labelA.backgroundColor = .random
+        self.labelM.backgroundColor = .random
+        self.labelB.backgroundColor = .random
+        self.labelD.backgroundColor = .random
+        self.labelA2.backgroundColor = .random
+        
+        // Rotate labels
+        
+        UIView.animate(withDuration: 2.0) {
+            self.labelL.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
+            self.labelA.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
+            self.labelM.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
+            self.labelB.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
+            self.labelD.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
+            self.labelA2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
+        }
+        
+        
+    }
+    
+   
         
         
     func gather() {
@@ -65,4 +82,13 @@ class LambdaViewController: UIViewController {
     @IBOutlet weak var labelD: UILabel!
     @IBOutlet weak var labelA2: UILabel!
     
+}
+
+extension UIColor {
+    static var random: UIColor {
+        return UIColor(red: .random(in: 0...1),
+                       green: .random(in: 0...1),
+                       blue: .random(in: 0...1),
+                       alpha:  1.0)
+    }
 }
