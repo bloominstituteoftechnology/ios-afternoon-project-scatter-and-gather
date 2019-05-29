@@ -38,11 +38,17 @@ class LambdaViewController: UIViewController {
         
         //Assign a random background color to labels
         self.labelL.backgroundColor = .random
+        self.labelL.textColor = .random
         self.labelA.backgroundColor = .random
+        self.labelA.textColor = .random
         self.labelM.backgroundColor = .random
+        self.labelM.textColor = .random
         self.labelB.backgroundColor = .random
+        self.labelB.textColor = .random
         self.labelD.backgroundColor = .random
+        self.labelD.textColor = .random
         self.labelA2.backgroundColor = .random
+        self.labelA2.textColor = .random
         
         // Rotate labels
         
@@ -54,7 +60,7 @@ class LambdaViewController: UIViewController {
             self.labelD.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
             self.labelA2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...360))
         }
-        
+        isScattered = true
         
     }
     
@@ -62,11 +68,43 @@ class LambdaViewController: UIViewController {
         
         
     func gather() {
+        UIView.animate(withDuration: 2.0) {
+            self.imageView.alpha = 1.0
+        }
         
+        UIView.animate(withDuration: 2.0) {
+            self.labelL.transform = .identity
+            self.labelA.transform = .identity
+            self.labelM.transform = .identity
+            self.labelB.transform = .identity
+            self.labelD.transform = .identity
+            self.labelA2.transform = .identity
+            
+            self.labelL.backgroundColor = .white
+            self.labelL.textColor = .black
+            self.labelA.backgroundColor = .white
+            self.labelA.textColor = .black
+            self.labelM.backgroundColor = .white
+            self.labelM.textColor = .black
+            self.labelB.backgroundColor = .white
+            self.labelB.textColor = .black
+            self.labelD.backgroundColor = .white
+            self.labelD.textColor = .black
+            self.labelA2.backgroundColor = .white
+            self.labelA2.textColor = .black
+        }
+        
+        
+        
+        isScattered = false
     }
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
-        scatter()
+        if isScattered == true {
+            gather()
+        } else {
+            scatter()
+        }
     }
     
     
