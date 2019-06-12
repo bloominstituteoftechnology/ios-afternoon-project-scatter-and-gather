@@ -54,14 +54,38 @@
 		D695296C22B086FD006D60D2 /* Scatter and Gather */ = {
 			isa = PBXGroup;
 			children = (
-				D695296D22B086FD006D60D2 /* AppDelegate.swift */,
-				D695296F22B086FD006D60D2 /* ViewController.swift */,
-				D695297122B086FD006D60D2 /* Main.storyboard */,
-				D695297422B086FE006D60D2 /* Assets.xcassets */,
-				D695297622B086FE006D60D2 /* LaunchScreen.storyboard */,
-				D695297922B086FE006D60D2 /* Info.plist */,
+				D695298122B0878B006D60D2 /* View Controllers */,
+				D695298022B08780006D60D2 /* Storyboards */,
+				D695297F22B08773006D60D2 /* Resources */,
 			);
 			path = "Scatter and Gather";
+			sourceTree = "<group>";
+		};
+		D695297F22B08773006D60D2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D695296D22B086FD006D60D2 /* AppDelegate.swift */,
+				D695297422B086FE006D60D2 /* Assets.xcassets */,
+				D695297922B086FE006D60D2 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D695298022B08780006D60D2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D695297122B086FD006D60D2 /* Main.storyboard */,
+				D695297622B086FE006D60D2 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D695298122B0878B006D60D2 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D695296F22B086FD006D60D2 /* ViewController.swift */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
