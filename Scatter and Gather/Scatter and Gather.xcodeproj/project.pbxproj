@@ -12,6 +12,7 @@
 		D695297322B086FD006D60D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D695297122B086FD006D60D2 /* Main.storyboard */; };
 		D695297522B086FE006D60D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D695297422B086FE006D60D2 /* Assets.xcassets */; };
 		D695297822B086FE006D60D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D695297622B086FE006D60D2 /* LaunchScreen.storyboard */; };
+		D695298322B088F3006D60D2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D695298222B088F3006D60D2 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		D695297422B086FE006D60D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D695297722B086FE006D60D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D695297922B086FE006D60D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D695298222B088F3006D60D2 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 		D695297F22B08773006D60D2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D695298222B088F3006D60D2 /* Default-568h@2x.png */,
 				D695296D22B086FD006D60D2 /* AppDelegate.swift */,
 				D695297422B086FE006D60D2 /* Assets.xcassets */,
 				D695297922B086FE006D60D2 /* Info.plist */,
@@ -147,6 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D695297822B086FE006D60D2 /* LaunchScreen.storyboard in Resources */,
+				D695298322B088F3006D60D2 /* Default-568h@2x.png in Resources */,
 				D695297522B086FE006D60D2 /* Assets.xcassets in Resources */,
 				D695297322B086FD006D60D2 /* Main.storyboard in Resources */,
 			);
@@ -308,7 +312,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
-				INFOPLIST_FILE = "Scatter and Gather/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Scatter and Gather/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,7 +330,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XVDLP5XYQ;
-				INFOPLIST_FILE = "Scatter and Gather/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Scatter and Gather/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
