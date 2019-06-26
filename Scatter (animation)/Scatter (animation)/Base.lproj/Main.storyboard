@@ -10,85 +10,92 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Scatter__animation_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="Scatter__animation_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9ZH-DL-V7T">
-                                <rect key="frame" x="88" y="132" width="235" height="58.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lambda_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="JiX-8l-m7l">
+                                <rect key="frame" x="31" y="384" width="352" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="1kF-CI-yyY"/>
+                                    <constraint firstAttribute="width" constant="352" id="rYh-co-Skh"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Stc-Pj-6Bm">
+                                <rect key="frame" x="70" y="300" width="274" height="54"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nTg-yM-g1H">
-                                        <rect key="frame" x="0.0" y="0.0" width="26.5" height="58.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZP-Rd-6vt">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QMA-05-iUX">
-                                        <rect key="frame" x="34.5" y="0.0" width="31.5" height="58.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDW-BG-k6z" userLabel="A">
+                                        <rect key="frame" x="43" y="0.0" width="29" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BL8-hr-hdZ">
-                                        <rect key="frame" x="74" y="0.0" width="41.5" height="58.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S12-fj-oq5">
+                                        <rect key="frame" x="91" y="0.0" width="38" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkl-oI-nbA">
-                                        <rect key="frame" x="123.5" y="0.0" width="30" height="58.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntK-4P-vfb">
+                                        <rect key="frame" x="148" y="0.0" width="28" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zB5-Bq-01L">
-                                        <rect key="frame" x="161.5" y="0.0" width="34" height="58.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4t-tU-IpB">
+                                        <rect key="frame" x="195" y="0.0" width="31" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iNt-vA-PqH">
-                                        <rect key="frame" x="203.5" y="0.0" width="31.5" height="58.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="49"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaU-rM-ndV">
+                                        <rect key="frame" x="245" y="0.0" width="29" height="54"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lambda_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="h3I-FS-DGz">
-                                <rect key="frame" x="85" y="384" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.88610359936159777" green="0.89242163834975174" blue="0.91137575531421322" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JiX-8l-m7l" firstAttribute="top" secondItem="Stc-Pj-6Bm" secondAttribute="bottom" constant="30" id="Nzm-kC-Gaa"/>
+                            <constraint firstItem="JiX-8l-m7l" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WuY-fw-VdL"/>
+                            <constraint firstItem="Stc-Pj-6Bm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aP9-6Z-ZD2"/>
+                            <constraint firstItem="JiX-8l-m7l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xIo-81-niI"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="hxC-hk-cbR">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="9N0-98-vvh">
+                        <barButtonItem key="rightBarButtonItem" title="toggle" id="faK-Tc-4kt">
                             <connections>
-                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="xK5-jx-g13"/>
+                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="q2X-gN-T9g"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="a2Label" destination="iNt-vA-PqH" id="K8o-YX-8DZ"/>
-                        <outlet property="aLabel" destination="QMA-05-iUX" id="L3y-sB-0RV"/>
-                        <outlet property="bLabel" destination="fkl-oI-nbA" id="afv-iD-Wds"/>
-                        <outlet property="dLabel" destination="zB5-Bq-01L" id="gSS-iO-Aoy"/>
-                        <outlet property="lLabel" destination="nTg-yM-g1H" id="Cas-Fu-U0s"/>
-                        <outlet property="logo" destination="h3I-FS-DGz" id="HJT-vn-hjH"/>
-                        <outlet property="mLabel" destination="BL8-hr-hdZ" id="hBG-h9-Ny2"/>
+                        <outlet property="a2Label" destination="OaU-rM-ndV" id="9Mx-n9-89i"/>
+                        <outlet property="aLabel" destination="wDW-BG-k6z" id="TtC-90-47z"/>
+                        <outlet property="bLabel" destination="ntK-4P-vfb" id="dxP-RE-ysB"/>
+                        <outlet property="dLabel" destination="z4t-tU-IpB" id="Oa2-Sg-7CF"/>
+                        <outlet property="lLabel" destination="fZP-Rd-6vt" id="EtJ-km-xZg"/>
+                        <outlet property="logo" destination="JiX-8l-m7l" id="Hv7-aH-kgG"/>
+                        <outlet property="mLabel" destination="S12-fj-oq5" id="iV7-6k-AEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="615"/>
+            <point key="canvasLocation" x="305.79710144927537" y="614.0625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nnd-WM-LXB">
