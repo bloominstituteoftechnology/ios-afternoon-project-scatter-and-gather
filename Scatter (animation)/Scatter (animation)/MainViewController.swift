@@ -30,6 +30,8 @@ class MainViewController: UIViewController {
         
     }
     
+    
+    
     @IBAction func toggleButtonPressed(_ sender: Any) {
         
         if isPressed {
@@ -98,25 +100,20 @@ extension MainViewController {
         }, completion: nil)
         
         //Background Color
-        UIView.animate(withDuration: 2, animations: {
+        UILabel.animate(withDuration: 2, animations: {
             label.layer.backgroundColor = UIColor.random(from: colors)?.cgColor
         }, completion: nil)
         
-        //Rotation
-        UIView.animate(withDuration: 2, animations: {
+        //Rotation And Position
+        UILabel.animate(withDuration: 2) {
             label.transform = CGAffineTransform(rotationAngle: .random(in: 0...10))
-        }, completion: nil)
+            .concatenating(CGAffineTransform(translationX: CGFloat.random(in: -50...50), y: CGFloat.random(in: -150...400)))
+        }
         
         //Text Color
-        UIView.animate(withDuration: 2, animations: {
+        UILabel.animate(withDuration: 2, animations: {
             label.textColor = UIColor.random(from: colors)
         }, completion: nil)
-        
-        //Position
-        UIView.animate(withDuration: 2, animations: {
-            label.transform = CGAffineTransform(translationX: CGFloat.random(in: -50...50), y: CGFloat.random(in: -150...400))
-        }, completion: nil)
-        
     }
     
     func reset(label: UILabel) {
