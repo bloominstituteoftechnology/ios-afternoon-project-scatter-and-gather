@@ -12,6 +12,7 @@
 		6FD4F19122DFA96E009E8E2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD4F18F22DFA96E009E8E2F /* Main.storyboard */; };
 		6FD4F19322DFA970009E8E2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6FD4F19222DFA970009E8E2F /* Assets.xcassets */; };
 		6FD4F19622DFA970009E8E2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6FD4F19422DFA970009E8E2F /* LaunchScreen.storyboard */; };
+		6FD4F19E22DFAD69009E8E2F /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FD4F19D22DFAD69009E8E2F /* lambda_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		6FD4F19222DFA970009E8E2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6FD4F19522DFA970009E8E2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6FD4F19722DFA970009E8E2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6FD4F19D22DFAD69009E8E2F /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lambda_logo.png; path = ../../lambda_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				6FD4F19222DFA970009E8E2F /* Assets.xcassets */,
 				6FD4F19422DFA970009E8E2F /* LaunchScreen.storyboard */,
 				6FD4F19722DFA970009E8E2F /* Info.plist */,
+				6FD4F19D22DFAD69009E8E2F /* lambda_logo.png */,
 			);
 			path = ScatterAndGather;
 			sourceTree = "<group>";
@@ -125,6 +128,7 @@
 				6FD4F19622DFA970009E8E2F /* LaunchScreen.storyboard in Resources */,
 				6FD4F19322DFA970009E8E2F /* Assets.xcassets in Resources */,
 				6FD4F19122DFA96E009E8E2F /* Main.storyboard in Resources */,
+				6FD4F19E22DFAD69009E8E2F /* lambda_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
