@@ -11,8 +11,8 @@ import UIKit
 class ViewController: UIViewController {
 
     var isScattered: Bool!
-    
-    
+    var imageView: UIImageView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLabels()
@@ -82,7 +82,7 @@ class ViewController: UIViewController {
     }
 
     func configureImage() {
-        let imageView = UIImageView()
+        imageView = UIImageView()
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
@@ -99,6 +99,18 @@ class ViewController: UIViewController {
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+        fadeLogo()
+    }
+    
+    @objc func fadeLogo() {
+        UIView.animate(withDuration: 1.5, animations: {
+            self.imageView.alpha = 0
+        }) { (_) in
+            UIView.animate(withDuration: 2.0, animations: {
+                self.imageView.alpha = 1
+            })
+            
+        }
         
     }
 
