@@ -135,41 +135,31 @@ class ViewController: UIViewController {
     // Animate logo and letters
     func animate(label: UILabel) {
         // Letter background colors
-        UILabel.animate(withDuration: 2, animations: {
+        
+        UILabel.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
             label.layer.backgroundColor = UIColor.random(from: self.colors)?.cgColor
-        }, completion: nil)
-        
-        // Image view
-        
-        UIImageView.animate(withDuration: 0.5, animations: {
-            self.imageView.alpha = 0
-        }, completion: nil)
-        
-        // rotation and position of letters
-        UILabel.animate(withDuration: 2) {
-            label.transform = CGAffineTransform(rotationAngle: .random(in: 0...40))
-                .concatenating(CGAffineTransform(translationX: CGFloat.random(in: 0...100), y: CGFloat.random(in: -10...400)))
-        }
-        
-        // text colors
-        UILabel.animate(withDuration: 2, animations: {
+            label.transform = CGAffineTransform(rotationAngle: .random(in: 0...40)).concatenating(CGAffineTransform(translationX: CGFloat.random(in: 0...100), y: CGFloat.random(in: -10...400)))
             label.textColor = UIColor.random(from: self.colors)
         }, completion: nil)
+        
+        UIImageView.animateKeyframes(withDuration: 0.5, delay: 0, options: [], animations: {
+            self.imageView.alpha = 0
+        }, completion: nil)
     }
-    
+        
+
     // animation to return to original state.
     func reset(label: UILabel) {
-        UIView.animate(withDuration: 2, animations: {
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
             self.imageView.alpha = 1
-            label.transform = .identity
-            label.textColor = UIColor.black
-            label.layer.backgroundColor = UIColor.clear.cgColor
+                        label.transform = .identity
+                        label.textColor = UIColor.black
+                        label.layer.backgroundColor = UIColor.clear.cgColor
         }, completion: nil)
-        
-    }
+
     
 }
-
+}
 
 // Extension to randomize colors
 extension UIColor {
