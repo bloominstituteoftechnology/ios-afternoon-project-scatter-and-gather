@@ -10,8 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var isScattered: Bool!
+    var isScattered: Bool = false
     var imageView: UIImageView!
+    let colors: [UIColor] = [.yellow, .blue, .lightGray, .magenta, .purple, .cyan, .orange, .darkGray, .green, .red]
+    var labels: [UILabel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,36 +30,42 @@ class ViewController: UIViewController {
         lLabel.text = "L"
         lLabel.textAlignment = .center
         lLabel.font = UIFont.systemFont(ofSize: 56)
+        labels.append(lLabel)
         
         let a1Label = UILabel()
         a1Label.translatesAutoresizingMaskIntoConstraints = false
         a1Label.text = "a"
         a1Label.textAlignment = .center
         a1Label.font = UIFont.systemFont(ofSize: 56)
+        labels.append(a1Label)
         
         let mLabel = UILabel()
         mLabel.translatesAutoresizingMaskIntoConstraints = false
         mLabel.text = "m"
         mLabel.textAlignment = .center
         mLabel.font = UIFont.systemFont(ofSize: 56)
+        labels.append(mLabel)
         
         let bLabel = UILabel()
         bLabel.translatesAutoresizingMaskIntoConstraints = false
         bLabel.text = "b"
         bLabel.textAlignment = .center
         bLabel.font = UIFont.systemFont(ofSize: 56)
+        labels.append(bLabel)
         
         let dLabel = UILabel()
         dLabel.translatesAutoresizingMaskIntoConstraints = false
         dLabel.text = "d"
         dLabel.textAlignment = .center
         dLabel.font = UIFont.systemFont(ofSize: 56)
+        labels.append(dLabel)
         
         let a2Label = UILabel()
         a2Label.translatesAutoresizingMaskIntoConstraints = false
         a2Label.text = "a"
         a2Label.textAlignment = .center
         a2Label.font = UIFont.systemFont(ofSize: 56)
+        labels.append(a2Label)
         
         // Stack view Setup
         let stackView = UIStackView()
@@ -74,6 +82,7 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(dLabel)
         stackView.addArrangedSubview(a2Label)
         
+        // Stackview constraints
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
@@ -98,21 +107,73 @@ class ViewController: UIViewController {
 
     }
     
-    @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-        fadeLogo()
-    }
+    // MARK: - IBAction
     
-    @objc func fadeLogo() {
-        UIView.animate(withDuration: 1.5, animations: {
-            self.imageView.alpha = 0
-        }) { (_) in
-            UIView.animate(withDuration: 2.0, animations: {
-                self.imageView.alpha = 1
-            })
-            
+    @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+        if isScattered {
+            gather()
+        } else {
+            scatter()
         }
         
+        isScattered = !isScattered
     }
+    
 
+    func scatter() {
+        for i in labels {
+            animate(label: i)
+        }
+    }
+    
+    func gather() {
+        for i in labels {
+            reset(label: i)
+        }
+    }
+    
+    // Animate logo and letters
+    func animate(label: UILabel) {
+        // Letter background colors
+        UILabel.animate(withDuration: 2, animations: {
+            label.layer.backgroundColor = UIColor.random(from: self.colors)?.cgColor
+        }, completion: nil)
+        
+        // Image view
+        
+        UIImageView.animate(withDuration: 0.5, animations: {
+            self.imageView.alpha = 0
+        }, completion: nil)
+        
+        // rotation and position of letters
+        UILabel.animate(withDuration: 2) {
+            label.transform = CGAffineTransform(rotationAngle: .random(in: 0...40))
+                .concatenating(CGAffineTransform(translationX: CGFloat.random(in: 0...100), y: CGFloat.random(in: -10...400)))
+        }
+        
+        // text colors
+        UILabel.animate(withDuration: 2, animations: {
+            label.textColor = UIColor.random(from: self.colors)
+        }, completion: nil)
+    }
+    
+    // animation to return to original state.
+    func reset(label: UILabel) {
+        UIView.animate(withDuration: 2, animations: {
+            self.imageView.alpha = 1
+            label.transform = .identity
+            label.textColor = UIColor.black
+            label.layer.backgroundColor = UIColor.clear.cgColor
+        }, completion: nil)
+        
+    }
+    
 }
 
+
+// Extension to randomize colors
+extension UIColor {
+    static func random(from colors: [UIColor]) -> UIColor? {
+        return colors.randomElement()
+    }
+}
