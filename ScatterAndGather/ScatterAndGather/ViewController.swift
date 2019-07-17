@@ -140,6 +140,10 @@ class ViewController: UIViewController {
             label.layer.backgroundColor = UIColor.random(from: self.colors)?.cgColor
             label.transform = CGAffineTransform(rotationAngle: .random(in: 0...40)).concatenating(CGAffineTransform(translationX: CGFloat.random(in: 0...100), y: CGFloat.random(in: -10...400)))
             label.textColor = UIColor.random(from: self.colors)
+            label.layer.shadowOffset = .zero
+            label.layer.shadowColor = UIColor.darkGray.cgColor
+            label.layer.shadowRadius = 6
+            label.layer.shadowOpacity = 1
         }, completion: nil)
         
         UIImageView.animateKeyframes(withDuration: 0.5, delay: 0, options: [], animations: {
@@ -155,6 +159,10 @@ class ViewController: UIViewController {
                         label.transform = .identity
                         label.textColor = UIColor.black
                         label.layer.backgroundColor = UIColor.clear.cgColor
+            label.layer.shadowOffset = .zero
+            label.layer.shadowColor = UIColor.clear.cgColor
+            label.layer.shadowRadius = 0
+            label.layer.shadowOpacity = 0
         }, completion: nil)
 
     
