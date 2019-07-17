@@ -166,7 +166,7 @@ class ViewController: UIViewController {
         }, completion: nil)
 
     
-}
+    }
 }
 
 // Extension to randomize colors
