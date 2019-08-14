@@ -15,12 +15,18 @@ class ViewController: UIViewController {
 		return .lightContent
 	}
 
+	let labelStackView = UIStackView()
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		navigationController?.navigationBar.barTintColor = UIColor(red: 0.61, green: 0.06, blue: 0.16, alpha: 1.00)
 		configureLabels()
+		configureImageView()
 	}
 
 	func configureLabels() {
+		// Making individual labels to spell "LAMBDA"
+
 		let lLabel = UILabel()
 		lLabel.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(lLabel)
@@ -63,7 +69,7 @@ class ViewController: UIViewController {
 		lastALabel.textAlignment = .center
 		lastALabel.font = .boldSystemFont(ofSize: 25)
 
-		let labelStackView = UIStackView(arrangedSubviews: [lLabel, aLabel, mLabel, bLabel, dlabel, lastALabel])
+		[lLabel, aLabel, mLabel, bLabel, dlabel, lastALabel].forEach { labelStackView.addArrangedSubview($0) }
 
 		labelStackView.translatesAutoresizingMaskIntoConstraints = false
 		labelStackView.axis = .horizontal
@@ -82,6 +88,14 @@ class ViewController: UIViewController {
 	func configureImageView() {
 		let imageView = UIImageView()
 		imageView.image = UIImage(named: "lambda_logo")
+		imageView.contentMode = .scaleAspectFit
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		view.addSubview(imageView)
+		imageView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 50).isActive = true
+		imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
+		imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
+		imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+//		imageView.widthAnchor.constraint(equalToConstant: 100).isActive = true
 	}
 
 	@IBAction func togglePressed(_ sender: UIBarButtonItem) {
