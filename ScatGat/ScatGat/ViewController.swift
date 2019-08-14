@@ -10,10 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 	
+	//MARK: - IBOutlets
+	
+	@IBOutlet weak var toggleBtn: UIBarButtonItem!
+	
 	//MARK: - Properties
 	
-	var letterLbls = [UILabel]()
 	var logoImgView: UIImageView!
+	var letterStackView: UIStackView!
+	var letterLbls = [UILabel]()
 	var isScattered = false
 	
 	//MARK: - Life Cycle
@@ -23,12 +28,15 @@ class ViewController: UIViewController {
 		
 		configLabels()
 		configImgView()
+		configLetterStack()
 	}
 	
 	//MARK: - IBActions
 	
 	@IBAction func toggleButtonPressed(_ sender: Any) {
-		UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
+		toggleBtn.isEnabled = false
+		
+		UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: {
 			if self.isScattered {
 				self.reassemble()
 			} else {
@@ -36,6 +44,7 @@ class ViewController: UIViewController {
 			}
 		}) { (_) in
 			self.isScattered.toggle()
+			self.toggleBtn.isEnabled = true
 		}
 	}
 	
@@ -69,35 +78,64 @@ class ViewController: UIViewController {
 			label.textColor = UIColor(displayP3Red: colorFloat, green: colorFloat, blue: colorFloat, alpha: 1)
 			label.textAlignment = .center
 			label.font = UIFont(name: label.font.fontName, size: 50)
+			label.backgroundColor = .clear
 			label.tag = index
 			
 			view.addSubview(label)
 			letterLbls.append(label)
 		}
+	}
+	
+	private func configLetterStack() {
+		letterStackView = UIStackView(arrangedSubviews: letterLbls)
+		letterStackView.translatesAutoresizingMaskIntoConstraints = false
+		letterStackView.distribution = .fillEqually
 		
-		let stackView = UIStackView(arrangedSubviews: letterLbls)
-		stackView.translatesAutoresizingMaskIntoConstraints = false
-		stackView.distribution = .fillEqually
-		
-		view.addSubview(stackView)
+		view.addSubview(letterStackView)
 		
 		NSLayoutConstraint.activate([
-				stackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.7),
-				stackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1),
-				stackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-				stackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
+			letterStackView.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.7),
+			letterStackView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.1),
+			letterStackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+			letterStackView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
 			])
 	}
 	
 	private func fadeAndScatter() {
 		UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
 			self.logoImgView.alpha = 0
+			
+			for letterLbl in self.letterLbls {
+				guard let outerFrame = self.letterStackView.superview?.frame else { return }
+				
+				let remainingX = (outerFrame.maxX) - self.letterStackView.frame.maxX
+				let remainingY = (outerFrame.maxY) - self.letterStackView.frame.maxY
+				
+				let randomX = CGFloat.random(in: -(self.letterStackView.frame.minX)...remainingX)
+				let randomY = CGFloat.random(in: -(self.letterStackView.frame.minY)...remainingY)
+				
+				letterLbl.transform = CGAffineTransform(translationX: randomX, y: randomY)
+					.concatenating(CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: -1...4)))
+				
+				letterLbl.backgroundColor = #colorLiteral(red: 0.8409243226, green: 0.7375088334, blue: 1, alpha: 1)
+			}
 		})
+		
+		UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+			for letterLbl in self.letterLbls {
+				letterLbl.backgroundColor?.withAlphaComponent(1)
+			}
+		}
 	}
 	
 	private func reassemble() {
 		UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
 			self.logoImgView.alpha = 1
+			
+			for letterLbl in self.letterLbls {
+				letterLbl.backgroundColor = .clear
+				letterLbl.transform = .identity
+			}
 		})
 	}
 	
