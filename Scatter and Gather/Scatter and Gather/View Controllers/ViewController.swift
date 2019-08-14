@@ -10,9 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    //
     // MARK: - IBOutlets & Properties
-    //
 
     @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var labelL: UILabel!
@@ -26,18 +24,14 @@ class ViewController: UIViewController {
     var labelArray: [UILabel]      = []
     var ogLabelPosition: [CGPoint] = []
     
-    //
     // MARK: - View LifeCycle
-    //
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadLabelArray()
     }
     
-    //
     // MARK: - IBActions & Methods
-    //
 
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         isScattered.toggle()
@@ -56,10 +50,8 @@ class ViewController: UIViewController {
         labelArray.append(contentsOf: [labelL, labelA1, labelM, labelB, labelD, labelA2])
         ogLabelPosition = [labelL.center, labelA1.center, labelM.center, labelB.center, labelD.center, labelA2.center]
     }
-    
-    //
+
     // MARK: - Animation Methods
-    //
     
     func scatter() {
         let scatterBlock = {

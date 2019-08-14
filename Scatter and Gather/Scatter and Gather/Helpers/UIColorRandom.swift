@@ -10,7 +10,6 @@ import UIKit
 
 extension UIColor {
     
-    // generate random color
     static func random() -> UIColor {
         let red = CGFloat.random(in: 0...255) / 255
         let green = CGFloat.random(in: 0...255) / 255
