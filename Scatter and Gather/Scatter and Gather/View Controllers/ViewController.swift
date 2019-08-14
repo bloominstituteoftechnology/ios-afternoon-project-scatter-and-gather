@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     var isScattered = false
 
     var labelArray: [UILabel] = []
+    var ogLabelPosition: [CGPoint] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadLabelArray()
@@ -31,43 +33,47 @@ class ViewController: UIViewController {
         
         if isScattered {
             scatter()
+            toggleButton.title = "Reset"
+            title = "Scatter!!!"
         } else {
             reset()
+            toggleButton.title = "Yes?"
+            title = "Scatter?"
         }
         
     }
     
     private func loadLabelArray() {
         labelArray.append(contentsOf: [labelL, labelA1, labelM, labelB, labelD, labelA2])
+        ogLabelPosition = [labelL.center, labelA1.center, labelM.center, labelB.center, labelD.center, labelA2.center]
     }
     
     func scatter() {
         let scatterBlock = {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 2.0, animations: {
                 for label in self.labelArray {
-                    let randomX = CGFloat.random(in: 1...100)
+                    let randomX = CGFloat.random(in: 1...400)
                     let randomY = CGFloat.random(in: 118...800)
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+                    let randomRotation = CGFloat.random(in: 1...100)
+                    label.transform = CGAffineTransform(rotationAngle: randomRotation)
                     label.center.x = randomX
                     label.center.y = randomY
+                    
                 }
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
                 for label in self.labelArray {
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+                    let randomRotation = CGFloat.random(in: 1...100)
+                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
                 }
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25, animations: {
                 for label in self.labelArray {
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
-                }
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
-                for label in self.labelArray {
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+                    let randomRotation = CGFloat.random(in: 1...100)
+                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
+                    
                 }
             })
         }
@@ -77,8 +83,11 @@ class ViewController: UIViewController {
     
     func reset() {
         UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-            for label in self.labelArray {
+            
+            for (index, label) in self.labelArray.enumerated() {
                 label.transform = .identity
+                label.center = self.ogLabelPosition[index]
+
             }
         }, completion: nil)
     }
