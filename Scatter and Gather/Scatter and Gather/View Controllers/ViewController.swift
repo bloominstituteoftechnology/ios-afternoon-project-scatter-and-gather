@@ -50,43 +50,40 @@ class ViewController: UIViewController {
     
     func scatter() {
         let scatterBlock = {
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 2.0, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.8, animations: {
                 for label in self.labelArray {
+                    let randomColor = UIColor(red: CGFloat.random(in: 0...255) / 255, green: CGFloat.random(in: 0...255) / 255, blue: CGFloat.random(in: 0...255) / 255, alpha: 1)
                     let randomX = CGFloat.random(in: 1...400)
                     let randomY = CGFloat.random(in: 118...800)
                     let randomRotation = CGFloat.random(in: 1...100)
                     label.transform = CGAffineTransform(rotationAngle: randomRotation)
                     label.center.x = randomX
                     label.center.y = randomY
-                    
+                    label.textColor = randomColor
+                    label.alpha = 0.3
                 }
             })
             
-            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5, animations: {
                 for label in self.labelArray {
-                    let randomRotation = CGFloat.random(in: 1...100)
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                }
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25, animations: {
-                for label in self.labelArray {
-                    let randomRotation = CGFloat.random(in: 1...100)
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                    
+                    let randomColor = UIColor(red: CGFloat.random(in: 0...255) / 255, green: CGFloat.random(in: 0...255) / 255, blue: CGFloat.random(in: 0...255) / 255, alpha: 1)
+                    label.backgroundColor = randomColor
                 }
             })
         }
         
-        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: scatterBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 4, delay: 0, options: [], animations: scatterBlock, completion: nil)
     }
     
     func reset() {
-        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
+        UIView.animateKeyframes(withDuration: 4, delay: 0, options: [], animations: {
             
             for (index, label) in self.labelArray.enumerated() {
                 label.transform = .identity
                 label.center = self.ogLabelPosition[index]
+                label.backgroundColor = .clear
+                label.textColor = .black
+                label.alpha = 1.0
 
             }
         }, completion: nil)
