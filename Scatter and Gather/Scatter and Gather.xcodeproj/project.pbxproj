@@ -12,6 +12,7 @@
 		32BCF69A2304A15200E760D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BCF6982304A15200E760D9 /* Main.storyboard */; };
 		32BCF69C2304A15300E760D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BCF69B2304A15300E760D9 /* Assets.xcassets */; };
 		32BCF69F2304A15300E760D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BCF69D2304A15300E760D9 /* LaunchScreen.storyboard */; };
+		32BCF6AA2304C6EC00E760D9 /* UIColorRandom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BCF6A92304C6EC00E760D9 /* UIColorRandom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		32BCF69B2304A15300E760D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32BCF69E2304A15300E760D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32BCF6A02304A15300E760D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32BCF6A92304C6EC00E760D9 /* UIColorRandom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorRandom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +41,6 @@
 			isa = PBXGroup;
 			children = (
 				32BCF6932304A15200E760D9 /* Scatter and Gather */,
-				32BCF6A72304A22100E760D9 /* Resources */,
 				32BCF6922304A15200E760D9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,6 +58,8 @@
 			children = (
 				32BCF6A82304A22F00E760D9 /* View Controllers */,
 				32BCF6A62304A21300E760D9 /* Views */,
+				32BCF6AB2304C6F300E760D9 /* Helpers */,
+				32BCF6A72304A22100E760D9 /* Resources */,
 			);
 			path = "Scatter and Gather";
 			sourceTree = "<group>";
@@ -86,6 +89,14 @@
 				32BCF6962304A15200E760D9 /* ViewController.swift */,
 			);
 			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		32BCF6AB2304C6F300E760D9 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				32BCF6A92304C6EC00E760D9 /* UIColorRandom.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				32BCF6972304A15200E760D9 /* ViewController.swift in Sources */,
+				32BCF6AA2304C6EC00E760D9 /* UIColorRandom.swift in Sources */,
 				32BCF6952304A15200E760D9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM84C6XKT7;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Scatter and Gather/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,7 +338,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YM84C6XKT7;
-				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Scatter and Gather/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
