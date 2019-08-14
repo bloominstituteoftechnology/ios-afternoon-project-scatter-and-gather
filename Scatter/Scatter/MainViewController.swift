@@ -15,7 +15,6 @@ class MainViewController: UIViewController {
     var animationTime: Double = 1
     
     @IBOutlet weak var logo: UIImageView!
-    
     @IBOutlet weak var lLabel: UILabel!
     @IBOutlet weak var aLabel: UILabel!
     @IBOutlet weak var mLabel: UILabel!
@@ -24,7 +23,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var a2Label: UILabel!
     
     var isPressed: Bool = false
-
+    
 }
 
 extension MainViewController {
@@ -37,18 +36,14 @@ extension MainViewController {
         
     }
     
+    
     @IBAction func toggleButtonPressed(_ sender: Any) {
         
         if isPressed {
-            
             gather()
-            
         } else {
-            
             scatter()
-            
         }
-        
         isPressed = !isPressed
     }
     
@@ -72,8 +67,26 @@ extension MainViewController {
         UILabel.animate(withDuration: animationTime) {
             label.transform = CGAffineTransform(rotationAngle: .random(in: 0...10))
                 .concatenating(CGAffineTransform(translationX: CGFloat.random(in: -50...50), y: CGFloat.random(in: -150...400)))
-            
+        }
+        
+        //Text Color
+        UILabel.animate(withDuration: animationTime, animations: {
+            label.textColor = UIColor.random(from: colors)
+        }, completion: nil)
+    }
+    
+    func reset(label: UILabel) {
+        UIView.animate(withDuration: animationTime, animations: {
+            self.logo.alpha = 1
+            label.transform = .identity
+            label.layer.backgroundColor = UIColor.clear.cgColor
+            label.textColor = UIColor.black
+        }, completion: nil)
+    }
+}
+    
+    extension UIColor {
+        static func random(from colors: [UIColor]) -> UIColor? {
+            return colors.randomElement()
         }
 }
-
-
