@@ -29,11 +29,19 @@ class MainViewController: UIViewController {
 extension MainViewController {
     
     func scatter() {
-        
+        let labelArray: [UILabel] = [lLabel, aLabel, mLabel, bLabel, dLabel, a2Label]
+
+        for x in labelArray {
+            animate(label: x)
+        }
     }
     
     func gather() {
+        let labelArray: [UILabel] = [lLabel, aLabel, mLabel, bLabel, dLabel, a2Label]
         
+        for x in labelArray {
+            reset(label: x)
+        }
     }
     
     
@@ -41,26 +49,23 @@ extension MainViewController {
         
         if isPressed {
             gather()
+            UIView.animate(withDuration: animationTime, animations: {
+                self.logo.alpha = 1
+            }, completion: nil)
         } else {
             scatter()
+            UIView.animate(withDuration: 0.5, animations: {
+                self.logo.alpha = 0
+            }, completion: nil)
         }
         isPressed = !isPressed
     }
     
     func animate(label: UILabel) {
         
-        
-        let colors: [UIColor] = [.red, .blue, .white, .gray, .lightGray, .orange, .black, .purple, .cyan, .magenta, .brown, .clear, .darkGray, .green, .yellow]
-        
-        
-        //Logo alpha
-        UIView.animate(withDuration: 0.5, animations: {
-            self.logo.alpha = 0
-        }, completion: nil)
-        
         //Background Color
         UILabel.animate(withDuration: animationTime, animations: {
-            label.layer.backgroundColor = UIColor.random(from: colors)?.cgColor
+            label.layer.backgroundColor = UIColor.random().cgColor
         }, completion: nil)
         
         //Rotation And Position
@@ -71,13 +76,12 @@ extension MainViewController {
         
         //Text Color
         UILabel.animate(withDuration: animationTime, animations: {
-            label.textColor = UIColor.random(from: colors)
+            label.textColor = UIColor.random()
         }, completion: nil)
     }
     
     func reset(label: UILabel) {
         UIView.animate(withDuration: animationTime, animations: {
-            self.logo.alpha = 1
             label.transform = .identity
             label.layer.backgroundColor = UIColor.clear.cgColor
             label.textColor = UIColor.black
@@ -86,7 +90,15 @@ extension MainViewController {
 }
     
     extension UIColor {
-        static func random(from colors: [UIColor]) -> UIColor? {
-            return colors.randomElement()
+
+        static func random() -> UIColor {
+            let hue = CGFloat.random(in: 0...1)
+            let saturation = CGFloat.random(in: 0.2...1)
+            let brightness = CGFloat.random(in: 0.2...1)
+            let alpha = CGFloat.random(in: 0.5...1)
+            
+            let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+            
+            return color
         }
 }
