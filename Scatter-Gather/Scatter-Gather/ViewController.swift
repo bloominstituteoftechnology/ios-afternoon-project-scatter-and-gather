@@ -10,7 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	// MARK: - Properties
+
 	var isScattered: Bool = false
+
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return .lightContent
 	}
@@ -28,12 +31,17 @@ class ViewController: UIViewController {
 
 	var labelArray: [UILabel] = []
 
+	// MARK: - Lifecycle
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		navigationController?.navigationBar.barTintColor = UIColor(red: 0.61, green: 0.06, blue: 0.16, alpha: 1.00)
 		configureLabels()
 		configureImageView()
 	}
+
+
+	// MARK: - Configure Views
 
 	func configureLabels() {
 		[lLabel, aLabel, mLabel, bLabel, dlabel, lastALabel].forEach {
@@ -66,22 +74,25 @@ class ViewController: UIViewController {
 		imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
 	}
 
+
+	// MARK: - IBActions
+
 	@IBAction func togglePressed(_ sender: UIBarButtonItem) {
 		if isScattered {
 			for label in labelArray {
 				deAnimate(label: label)
 			}
-
+			deAnimateImage(image: imageView)
 		} else {
 			for label in labelArray {
 				animate(label: label)
 			}
 			animateImage(image: imageView)
 		}
-
-
 	}
-	
+
+
+	// MARK: - Animation Functions
 
 	func animate(label: UIView) {
 		isScattered = true
@@ -103,7 +114,7 @@ class ViewController: UIViewController {
 							  green: .random(in: 0...1.00),
 							  blue: .random(in: 0...1.00),
 							  alpha: 1.00)
-		UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 5.0, initialSpringVelocity: 2.0, options: [], animations: {
+		UIView.animate(withDuration: 1.0, delay: 0.0, usingSpringWithDamping: 5.0, initialSpringVelocity: 1.0, options: [], animations: {
 			label.layer.backgroundColor = bgColor.withAlphaComponent(0.0).cgColor
 			label.transform = .identity
 		}, completion: nil)
@@ -111,12 +122,19 @@ class ViewController: UIViewController {
 
 
 	func animateImage(image: UIImageView) {
-		UIView.animate(withDuration: 1.0) {
-			image.transform = CGAffineTransform(scaleX: 500, y: 700)
+		UIView.animate(withDuration: 0.3) {
+			image.transform = CGAffineTransform(translationX: 0.0, y: 700.0)
+//			image.transform = CGAffineTransform(scaleX: 500, y: 700)
 			image.alpha = 0.00
 		}
 	}
 
+	func deAnimateImage(image: UIImageView) {
+		UIView.animate(withDuration: 1.2, delay: 0.0, usingSpringWithDamping: 5.0, initialSpringVelocity: 2.0, options: .curveEaseOut, animations: {
+			image.alpha = 1.00
+			image.transform = .identity
+		}, completion: nil)
+	}
 }
 
 
