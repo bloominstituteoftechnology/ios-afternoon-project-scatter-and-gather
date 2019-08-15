@@ -41,6 +41,7 @@ class ViewController: UIViewController {
 		configureImageView()
 		let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onTapAndHoldImageView))
 		imageView.addGestureRecognizer(panGesture)
+
 	}
 
 
@@ -78,20 +79,23 @@ class ViewController: UIViewController {
 		imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
 	}
 
-	@objc func onTapAndHoldImageView(recognizer: UIPanGestureRecognizer) {
-		let translation = recognizer.translation(in: self.view)
-		if let view = recognizer.view {
-			view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
-		}
-		recognizer.setTranslation(.zero, in: self.view)
-		if recognizer.state == .ended {
-			UIView.animate(withDuration: 1, delay: 0.0, options: .curveEaseOut, animations: {
-				self.imageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
-				self.imageView.topAnchor.constraint(equalTo: self.labelStackView.bottomAnchor, constant: 50).isActive = true
-				self.imageView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
-				self.view.layoutIfNeeded()
+	var initialPoint: CGPoint?
 
-			}, completion: nil)
+	@objc func onTapAndHoldImageView(recognizer: UIPanGestureRecognizer) {
+		if let view = recognizer.view {
+			if recognizer.state == .began {
+				initialPoint = view.center
+			} else if recognizer.state == .ended {
+				guard let initialPoint = initialPoint else { return }
+				UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 5.0, initialSpringVelocity: 1.0, options: [.curveEaseOut], animations: {
+					view.center = initialPoint
+				}, completion: nil)
+				return
+			}
+
+			let translation = recognizer.translation(in: view)
+			view.center =  CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+			recognizer.setTranslation(.zero, in: view)
 		}
 	}
 
