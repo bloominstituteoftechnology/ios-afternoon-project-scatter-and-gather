@@ -13,6 +13,7 @@
 		373FB983230497C8009EF31C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 373FB982230497C8009EF31C /* Assets.xcassets */; };
 		373FB986230497C8009EF31C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 373FB984230497C8009EF31C /* LaunchScreen.storyboard */; };
 		373FB98E23049B07009EF31C /* UiNavigationContoller+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373FB98D23049B07009EF31C /* UiNavigationContoller+StatusBar.swift */; };
+		373FB9902304D9A2009EF31C /* GenericLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373FB98F2304D9A2009EF31C /* GenericLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		373FB985230497C8009EF31C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		373FB987230497C8009EF31C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		373FB98D23049B07009EF31C /* UiNavigationContoller+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiNavigationContoller+StatusBar.swift"; sourceTree = "<group>"; };
+		373FB98F2304D9A2009EF31C /* GenericLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				373FB97B230497C7009EF31C /* AppDelegate.swift */,
 				373FB97D230497C7009EF31C /* ViewController.swift */,
 				373FB98D23049B07009EF31C /* UiNavigationContoller+StatusBar.swift */,
+				373FB98F2304D9A2009EF31C /* GenericLabel.swift */,
 				373FB97F230497C7009EF31C /* Main.storyboard */,
 				373FB982230497C8009EF31C /* Assets.xcassets */,
 				373FB984230497C8009EF31C /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				373FB97E230497C7009EF31C /* ViewController.swift in Sources */,
 				373FB98E23049B07009EF31C /* UiNavigationContoller+StatusBar.swift in Sources */,
+				373FB9902304D9A2009EF31C /* GenericLabel.swift in Sources */,
 				373FB97C230497C7009EF31C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

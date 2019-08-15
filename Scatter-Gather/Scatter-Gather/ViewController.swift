@@ -17,13 +17,14 @@ class ViewController: UIViewController {
 
 	let labelStackView = UIStackView()
 
-	// Making individual labels to spell "LAMBDA"
-	let lLabel = UILabel()
-	let aLabel = UILabel()
-	let mLabel = UILabel()
-	let bLabel = UILabel()
-	let dlabel = UILabel()
-	let lastALabel = UILabel()
+	let lLabel = GenericLabel(text: "L")
+	let aLabel = GenericLabel(text: "A")
+	let mLabel = GenericLabel(text: "M")
+	let bLabel = GenericLabel(text: "B")
+	let dlabel = GenericLabel(text: "D")
+	let lastALabel = GenericLabel(text: "A")
+
+	let imageView = UIImageView()
 
 	var labelArray: [UILabel] = []
 
@@ -35,49 +36,11 @@ class ViewController: UIViewController {
 	}
 
 	func configureLabels() {
-		lLabel.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(lLabel)
-		lLabel.text = "L"
-		lLabel.textAlignment = .center
-		lLabel.font = .boldSystemFont(ofSize: 25)
-		labelArray.append(lLabel)
-
-		aLabel.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(aLabel)
-		aLabel.text = "A"
-		aLabel.textAlignment = .center
-		aLabel.font = .boldSystemFont(ofSize: 25)
-		labelArray.append(aLabel)
-
-		mLabel.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(mLabel)
-		mLabel.text = "M"
-		mLabel.textAlignment = .center
-		mLabel.font = .boldSystemFont(ofSize: 25)
-		labelArray.append(mLabel)
-
-		bLabel.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(bLabel)
-		bLabel.text = "B"
-		bLabel.textAlignment = .center
-		bLabel.font = .boldSystemFont(ofSize: 25)
-		labelArray.append(bLabel)
-
-		dlabel.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(dlabel)
-		dlabel.text = "D"
-		dlabel.textAlignment = .center
-		dlabel.font = .boldSystemFont(ofSize: 25)
-		labelArray.append(dlabel)
-
-		lastALabel.translatesAutoresizingMaskIntoConstraints = false
-		view.addSubview(lastALabel)
-		lastALabel.text = "A"
-		lastALabel.textAlignment = .center
-		lastALabel.font = .boldSystemFont(ofSize: 25)
-		labelArray.append(lastALabel)
-
-		[lLabel, aLabel, mLabel, bLabel, dlabel, lastALabel].forEach { labelStackView.addArrangedSubview($0) }
+		[lLabel, aLabel, mLabel, bLabel, dlabel, lastALabel].forEach {
+			view.addSubview($0)
+			labelArray.append($0)
+			labelStackView.addArrangedSubview($0)
+		}
 
 		labelStackView.translatesAutoresizingMaskIntoConstraints = false
 		labelStackView.axis = .horizontal
@@ -93,7 +56,6 @@ class ViewController: UIViewController {
 	}
 
 	func configureImageView() {
-		let imageView = UIImageView()
 		imageView.image = UIImage(named: "lambda_logo")
 		imageView.contentMode = .scaleAspectFit
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -105,24 +67,55 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func togglePressed(_ sender: UIBarButtonItem) {
-		for label in labelArray {
-			animate(label: label)
+		if isScattered {
+			for label in labelArray {
+				deAnimate(label: label)
+			}
+
+		} else {
+			for label in labelArray {
+				animate(label: label)
+			}
+			animateImage(image: imageView)
 		}
+
+
 	}
+	
 
 	func animate(label: UIView) {
+		isScattered = true
+		let bgColor = UIColor(red: .random(in: 0...1.00),
+							  green: .random(in: 0...1.00),
+							  blue: .random(in: 0...1.00),
+							  alpha: 0)
+		UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 5.0, initialSpringVelocity: 2.0, options: [], animations: {
+			label.layer.backgroundColor = bgColor.withAlphaComponent(1.00).cgColor
+			label.transform = CGAffineTransform(translationX: .random(in: -20...350), y: .random(in: -100...200))
+								.concatenating(CGAffineTransform(rotationAngle: CGFloat.pi / 2))
+								.concatenating(CGAffineTransform(scaleX: 2.4, y: 1.7))
+		}, completion: nil)
+	}
+
+	func deAnimate(label: UIView) {
+		isScattered = false
 		let bgColor = UIColor(red: .random(in: 0...1.00),
 							  green: .random(in: 0...1.00),
 							  blue: .random(in: 0...1.00),
 							  alpha: 1.00)
-		UIView.animate(withDuration: 2, delay: 0.0, options: [.repeat, .autoreverse], animations: {
-			label.backgroundColor = bgColor
+		UIView.animate(withDuration: 2.0, delay: 0.0, usingSpringWithDamping: 5.0, initialSpringVelocity: 2.0, options: [], animations: {
+			label.layer.backgroundColor = bgColor.withAlphaComponent(0.0).cgColor
+			label.transform = .identity
 		}, completion: nil)
 	}
 
 
-
-
+	func animateImage(image: UIImageView) {
+		UIView.animate(withDuration: 1.0) {
+			image.transform = CGAffineTransform(scaleX: 500, y: 700)
+			image.alpha = 0.00
+		}
+	}
 
 }
 
