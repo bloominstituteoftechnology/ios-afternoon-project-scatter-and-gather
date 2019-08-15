@@ -26,10 +26,11 @@ class ViewController: UIViewController {
 	let bLabel = GenericLabel(text: "B")
 	let dlabel = GenericLabel(text: "D")
 	let lastALabel = GenericLabel(text: "A")
-
 	let imageView = UIImageView()
 
 	var labelArray: [UILabel] = []
+
+
 
 	// MARK: - Lifecycle
 
@@ -38,6 +39,8 @@ class ViewController: UIViewController {
 		navigationController?.navigationBar.barTintColor = UIColor(red: 0.61, green: 0.06, blue: 0.16, alpha: 1.00)
 		configureLabels()
 		configureImageView()
+		let panGesture = UIPanGestureRecognizer(target: self, action: #selector(onTapAndHoldImageView))
+		imageView.addGestureRecognizer(panGesture)
 	}
 
 
@@ -66,12 +69,30 @@ class ViewController: UIViewController {
 	func configureImageView() {
 		imageView.image = UIImage(named: "lambda_logo")
 		imageView.contentMode = .scaleAspectFit
+		imageView.isUserInteractionEnabled = true
 		imageView.translatesAutoresizingMaskIntoConstraints = false
 		view.addSubview(imageView)
 		imageView.topAnchor.constraint(equalTo: labelStackView.bottomAnchor, constant: 50).isActive = true
 		imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
 		imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
 		imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+	}
+
+	@objc func onTapAndHoldImageView(recognizer: UIPanGestureRecognizer) {
+		let translation = recognizer.translation(in: self.view)
+		if let view = recognizer.view {
+			view.center = CGPoint(x: view.center.x + translation.x, y: view.center.y + translation.y)
+		}
+		recognizer.setTranslation(.zero, in: self.view)
+		if recognizer.state == .ended {
+			UIView.animate(withDuration: 1, delay: 0.0, options: .curveEaseOut, animations: {
+				self.imageView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
+				self.imageView.topAnchor.constraint(equalTo: self.labelStackView.bottomAnchor, constant: 50).isActive = true
+				self.imageView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
+				self.view.layoutIfNeeded()
+
+			}, completion: nil)
+		}
 	}
 
 
