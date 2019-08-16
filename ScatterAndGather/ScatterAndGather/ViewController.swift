@@ -67,17 +67,17 @@ class ViewController: UIViewController {
         }, completion: nil)
         
         UIView.animate(withDuration: 0.82) {
-            self.firstLabel.center.x += CGFloat.random(in: -20...400)
+            self.firstLabel.center.x += CGFloat.random(in: -20...150)
             self.firstLabel.center.y += CGFloat.random(in: -20...750)
-            self.aLabel.center.x += CGFloat.random(in: -20...400)
+            self.aLabel.center.x += CGFloat.random(in: -20...150)
             self.aLabel.center.y += CGFloat.random(in: -20...750)
-            self.mLabel.center.x += CGFloat.random(in: -20...400)
+            self.mLabel.center.x += CGFloat.random(in: -20...150)
             self.mLabel.center.y += CGFloat.random(in: -20...750)
-            self.bLabel.center.x += CGFloat.random(in: -20...400)
+            self.bLabel.center.x += CGFloat.random(in: -20...150)
             self.bLabel.center.y += CGFloat.random(in: -20...750)
-            self.dLabel.center.x += CGFloat.random(in: -20...400)
+            self.dLabel.center.x += CGFloat.random(in: -20...150)
             self.dLabel.center.y += CGFloat.random(in: -20...750)
-            self.secondALabel.center.x -= CGFloat.random(in: -20...400)
+            self.secondALabel.center.x -= CGFloat.random(in: -20...150)
             self.secondALabel.center.y += CGFloat.random(in: -20...750)
         }
     }
