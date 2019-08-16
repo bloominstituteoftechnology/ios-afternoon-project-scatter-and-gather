@@ -30,10 +30,12 @@ class ViewController: UIViewController {
         if isScattered {
             gather()
             labelReturn()
+            randomColor()
             isScattered = false
         } else {
             scatter()
             labelRandomizer()
+            randomColor()
             isScattered = true
         }
     }
@@ -44,18 +46,18 @@ class ViewController: UIViewController {
         }, completion: nil)
         
         UIView.animate(withDuration: 0.82) {
-            self.firstLabel.center.x -= 100
-            self.firstLabel.center.y -= 57
-            self.aLabel.center.x -= 300
-            self.aLabel.center.y -= 200
-            self.mLabel.center.x -= 65
-            self.mLabel.center.y -= 20
-            self.bLabel.center.x -= 20
-            self.bLabel.center.y -= 475
-            self.dLabel.center.x -= 20
-            self.dLabel.center.y -= 157
-            self.secondALabel.center.x += 200
-            self.secondALabel.center.y -= 500
+            self.firstLabel.center.x = 19.75
+            self.firstLabel.center.y = 43.0
+            self.aLabel.center.x = 69.5
+            self.aLabel.center.y = 43.0
+            self.mLabel.center.x = 130.75
+            self.mLabel.center.y = 43.0
+            self.bLabel.center.x = 193.75
+            self.bLabel.center.y = 43.0
+            self.dLabel.center.x = 247.0
+            self.dLabel.center.y = 43.0
+            self.secondALabel.center.x = 298.5
+            self.secondALabel.center.y = 43.0
         }
     }
     
@@ -65,18 +67,18 @@ class ViewController: UIViewController {
         }, completion: nil)
         
         UIView.animate(withDuration: 0.82) {
-            self.firstLabel.center.x += 100
-            self.firstLabel.center.y += 57
-            self.aLabel.center.x += 300
-            self.aLabel.center.y += 200
-            self.mLabel.center.x += 65
-            self.mLabel.center.y += 20
-            self.bLabel.center.x += 20
-            self.bLabel.center.y += 475
-            self.dLabel.center.x += 20
-            self.dLabel.center.y += 157
-            self.secondALabel.center.x -= 200
-            self.secondALabel.center.y += 500
+            self.firstLabel.center.x += CGFloat.random(in: -20...400)
+            self.firstLabel.center.y += CGFloat.random(in: -20...750)
+            self.aLabel.center.x += CGFloat.random(in: -20...400)
+            self.aLabel.center.y += CGFloat.random(in: -20...750)
+            self.mLabel.center.x += CGFloat.random(in: -20...400)
+            self.mLabel.center.y += CGFloat.random(in: -20...750)
+            self.bLabel.center.x += CGFloat.random(in: -20...400)
+            self.bLabel.center.y += CGFloat.random(in: -20...750)
+            self.dLabel.center.x += CGFloat.random(in: -20...400)
+            self.dLabel.center.y += CGFloat.random(in: -20...750)
+            self.secondALabel.center.x -= CGFloat.random(in: -20...400)
+            self.secondALabel.center.y += CGFloat.random(in: -20...750)
         }
     }
     
@@ -84,27 +86,27 @@ class ViewController: UIViewController {
         UIView.animateKeyframes(withDuration: 0.82, delay: 0, options: [], animations: {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.82, animations: {
-                self.firstLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+                self.firstLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...30))
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.82, animations: {
-                self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 2)
+                self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...30))
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.82, animations: {
-                self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 3)
+                self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...30))
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.82, animations: {
-                self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 1)
+                self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...30))
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.82, animations: {
-                self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 0.5)
+                self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...30))
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.82, animations: {
-                self.secondALabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 7)
+                self.secondALabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...30))
             })
         })
     }
@@ -118,6 +120,27 @@ class ViewController: UIViewController {
             self.dLabel.transform = .identity
             self.secondALabel.transform = .identity
         }
+    }
+    
+    func randomColor() {
+        self.firstLabel.textColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        self.firstLabel.backgroundColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        
+        self.aLabel.textColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        self.aLabel.backgroundColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        
+        self.mLabel.textColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        self.mLabel.backgroundColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        
+        self.bLabel.textColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        self.bLabel.backgroundColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        
+        self.dLabel.textColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        self.dLabel.backgroundColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        
+        self.secondALabel.textColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
+        
+        self.secondALabel.backgroundColor = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
     }
 }
 
