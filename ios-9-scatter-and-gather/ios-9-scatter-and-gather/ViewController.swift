@@ -74,27 +74,13 @@ class ViewController: UIViewController {
             self.lambdaImageView.alpha = 0
         }, completion: nil)
         
-        let rotation = CATransform3DMakeRotation(randomRadian(), 0, randomRadian(), 0)
-        
         UIView.animate(withDuration: 0.82) {
-            self.firstLabel.center.x += CGFloat.random(in: -20...150)
-            self.firstLabel.center.y += CGFloat.random(in: -20...750)
-            self.firstLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
-            self.aLabel.center.x += CGFloat.random(in: -20...150)
-            self.aLabel.center.y += CGFloat.random(in: -20...750)
-            self.aLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
-            self.mLabel.center.x += CGFloat.random(in: -20...150)
-            self.mLabel.center.y += CGFloat.random(in: -20...750)
-            self.mLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
-            self.bLabel.center.x += CGFloat.random(in: -20...150)
-            self.bLabel.center.y += CGFloat.random(in: -20...750)
-            self.bLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
-            self.dLabel.center.x += CGFloat.random(in: -20...150)
-            self.dLabel.center.y += CGFloat.random(in: -20...750)
-            self.dLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
-            self.secondALabel.center.x -= CGFloat.random(in: -20...150)
-            self.secondALabel.center.y += CGFloat.random(in: -20...750)
-            self.secondALabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
+            self.randomRotation(self.firstLabel)
+            self.randomRotation(self.aLabel)
+            self.randomRotation(self.mLabel)
+            self.randomRotation(self.bLabel)
+            self.randomRotation(self.dLabel)
+            self.randomRotation(self.secondALabel)
         }
         
     }
@@ -171,8 +157,12 @@ class ViewController: UIViewController {
         return CGFloat(200 * Double.pi /  Double.random(in: 1...360))
     }
     
-    func randomRotation() {
+    func randomRotation(_ label: UILabel) {
+        let rotation = CATransform3DMakeRotation(randomRadian(), 0, randomRadian(), 0)
         
+        label.center.x += CGFloat.random(in: -20...150)
+        label.center.y += CGFloat.random(in: -20...750)
+        label.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
     }
 }
 
