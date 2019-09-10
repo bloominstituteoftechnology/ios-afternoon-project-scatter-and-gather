@@ -18,6 +18,7 @@ class ViewController: UIViewController {
 	@IBOutlet weak var a2Label: UILabel!
 	@IBOutlet weak var imageView: UIImageView!
 	
+	
 	var isScattered: Bool = false
 
 	override func viewDidLoad() {
@@ -27,7 +28,14 @@ class ViewController: UIViewController {
 
 	@IBAction func toggleButtonPressed(_ sender: Any) {
 		
+		scatterLabels()
+		
 	}
 	
+	func scatterLabels() {
+		UIView.animate(withDuration: 2) {
+			self.imageView.alpha = 0
+			}
+		}
 }
 

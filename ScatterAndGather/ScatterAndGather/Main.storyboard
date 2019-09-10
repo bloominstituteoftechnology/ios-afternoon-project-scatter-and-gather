@@ -81,16 +81,13 @@
                         <outlet property="aLabel" destination="lh3-3G-71M" id="DVh-NM-W5k"/>
                         <outlet property="bLabel" destination="Bw6-sR-Goc" id="giJ-Vk-0Lt"/>
                         <outlet property="dLabel" destination="k9M-s9-sTl" id="IPD-EW-43N"/>
-                        <outlet property="firstLabel" destination="65o-0d-ROs" id="2kB-G2-4zF"/>
                         <outlet property="imageView" destination="Mb1-Zt-fji" id="6IR-eC-p2z"/>
-                        <outlet property="lambdaImageView" destination="Mb1-Zt-fji" id="dma-fr-tTF"/>
                         <outlet property="mLabel" destination="sIt-id-Jmu" id="wSj-oq-p8t"/>
-                        <outlet property="secondALabel" destination="u4m-N1-cmW" id="09M-Os-cEb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="luK-hC-EGj" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2008.6956521739132" y="-536.38392857142856"/>
+            <point key="canvasLocation" x="1997" y="-536"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NQ4-BU-fPJ">
