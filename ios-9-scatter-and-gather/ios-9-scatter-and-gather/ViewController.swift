@@ -45,19 +45,27 @@ class ViewController: UIViewController {
             self.lambdaImageView.alpha = 1
         }, completion: nil)
         
+        let rotation = CATransform3DMakeRotation(randomRadian(), 0, randomRadian(), 0)
+        
         UIView.animate(withDuration: 0.82) {
             self.firstLabel.center.x = 19.75
             self.firstLabel.center.y = 43.0
+            self.firstLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.aLabel.center.x = 69.5
             self.aLabel.center.y = 43.0
+            self.aLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.mLabel.center.x = 130.75
             self.mLabel.center.y = 43.0
+            self.mLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.bLabel.center.x = 193.75
             self.bLabel.center.y = 43.0
+            self.bLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.dLabel.center.x = 247.0
             self.dLabel.center.y = 43.0
+            self.dLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.secondALabel.center.x = 298.5
             self.secondALabel.center.y = 43.0
+            self.secondALabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
         }
     }
     
@@ -66,20 +74,29 @@ class ViewController: UIViewController {
             self.lambdaImageView.alpha = 0
         }, completion: nil)
         
+        let rotation = CATransform3DMakeRotation(randomRadian(), 0, randomRadian(), 0)
+        
         UIView.animate(withDuration: 0.82) {
             self.firstLabel.center.x += CGFloat.random(in: -20...150)
             self.firstLabel.center.y += CGFloat.random(in: -20...750)
+            self.firstLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.aLabel.center.x += CGFloat.random(in: -20...150)
             self.aLabel.center.y += CGFloat.random(in: -20...750)
+            self.aLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.mLabel.center.x += CGFloat.random(in: -20...150)
             self.mLabel.center.y += CGFloat.random(in: -20...750)
+            self.mLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.bLabel.center.x += CGFloat.random(in: -20...150)
             self.bLabel.center.y += CGFloat.random(in: -20...750)
+            self.bLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.dLabel.center.x += CGFloat.random(in: -20...150)
             self.dLabel.center.y += CGFloat.random(in: -20...750)
+            self.dLabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
             self.secondALabel.center.x -= CGFloat.random(in: -20...150)
             self.secondALabel.center.y += CGFloat.random(in: -20...750)
+            self.secondALabel.layer.transform = CATransform3DConcat(self.firstLabel.layer.transform, rotation)
         }
+        
     }
     
     func labelRandomizer() {
@@ -148,6 +165,14 @@ class ViewController: UIViewController {
         let randomColorSelection = UIColor(red: CGFloat.random(in: 0...255)/255, green: CGFloat.random(in: 0...255)/255, blue: CGFloat.random(in: 0...255)/255, alpha: CGFloat.random(in: 0...1))
         
         return randomColorSelection
+    }
+    
+    func randomRadian() -> CGFloat {
+        return CGFloat(200 * Double.pi /  Double.random(in: 1...360))
+    }
+    
+    func randomRotation() {
+        
     }
 }
 
