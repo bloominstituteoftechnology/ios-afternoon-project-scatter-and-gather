@@ -9,12 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+	
+	var isScattered: Bool
+	
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view.
 	}
 
-
+	@IBAction func toggleButtonPressed(_ sender: Any) {
+	}
+	
 }
 
