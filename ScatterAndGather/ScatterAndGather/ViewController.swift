@@ -35,7 +35,27 @@ class ViewController: UIViewController {
 	func scatterLabels() {
 		UIView.animate(withDuration: 2) {
 			self.imageView.alpha = 0
-			}
 		}
+		
+		self.Llabel.transform = CGAffineTransform(translationX: .random(in: 0...300), y: .random(in: 0...300))
+		self.aLabel.transform = CGAffineTransform(translationX: .random(in: 0...300), y: .random(in: 0...300))
+		self.mLabel.transform = CGAffineTransform(translationX: .random(in: 0...300), y: .random(in: 0...300))
+		self.bLabel.transform = CGAffineTransform(translationX: .random(in: 0...300), y: .random(in: 0...300))
+		self.dLabel.transform = CGAffineTransform(translationX: .random(in: 0...300), y: .random(in: 0...300))
+		self.a2Label.transform = CGAffineTransform(translationX: .random(in: 0...300), y: .random(in: 0...300))
+		
+		UIView.animate(withDuration: 2, delay: 0, options: .curveEaseOut, animations: {
+			self.Llabel.transform = .identity
+			self.aLabel.transform = .identity
+			self.mLabel.transform = .identity
+			self.bLabel.transform = .identity
+			self.dLabel.transform = .identity
+			self.a2Label.transform = .identity
+
+			
+		}, completion: nil)
+
+		
+	}
 }
 
