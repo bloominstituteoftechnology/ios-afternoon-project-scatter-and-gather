@@ -9,6 +9,15 @@
 import UIKit
 
 class LambdaScatterViewController: UIViewController {
+    
+    @IBOutlet weak var lLabel: UILabel!
+    @IBOutlet weak var aLabel: UILabel!
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var bLabel: UILabel!
+    @IBOutlet weak var dLabel: UILabel!
+    @IBOutlet weak var lastALabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,6 +26,8 @@ class LambdaScatterViewController: UIViewController {
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+        
+        var isScattered: Bool
         
     }
     
