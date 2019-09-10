@@ -41,6 +41,10 @@ class LambdaScatterViewController: UIViewController {
         if isScattered {
             isScattered.toggle()
             
+            UIView.animate(withDuration: 1.5) {
+                self.logoImageView.alpha = 1
+            }
+            
         } else {
             isScattered.toggle()
             letterScramble()
