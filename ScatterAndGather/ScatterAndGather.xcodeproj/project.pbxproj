@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		F52C122B23283F590032677A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C122A23283F590032677A /* AppDelegate.swift */; };
 		F52C122D23283F590032677A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52C122C23283F590032677A /* ViewController.swift */; };
-		F52C123023283F590032677A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52C122E23283F590032677A /* Main.storyboard */; };
 		F52C123323283F590032677A /* ScatterAndGather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F52C123123283F590032677A /* ScatterAndGather.xcdatamodeld */; };
 		F52C123523283F5B0032677A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F52C123423283F5B0032677A /* Assets.xcassets */; };
 		F52C123823283F5B0032677A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52C123623283F5B0032677A /* LaunchScreen.storyboard */; };
+		F52C1264232849360032677A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F52C1263232849360032677A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F52C122723283F590032677A /* ScatterAndGather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScatterAndGather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F52C122A23283F590032677A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F52C122C23283F590032677A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F52C122F23283F590032677A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F52C123223283F590032677A /* ScatterAndGather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScatterAndGather.xcdatamodel; sourceTree = "<group>"; };
 		F52C123423283F5B0032677A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F52C123723283F5B0032677A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F52C123923283F5B0032677A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F52C1263232849360032677A /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +58,9 @@
 			children = (
 				F52C122A23283F590032677A /* AppDelegate.swift */,
 				F52C122C23283F590032677A /* ViewController.swift */,
-				F52C122E23283F590032677A /* Main.storyboard */,
 				F52C123423283F5B0032677A /* Assets.xcassets */,
 				F52C123623283F5B0032677A /* LaunchScreen.storyboard */,
+				F52C1263232849360032677A /* Main.storyboard */,
 				F52C123923283F5B0032677A /* Info.plist */,
 				F52C123123283F590032677A /* ScatterAndGather.xcdatamodeld */,
 			);
@@ -125,9 +125,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F52C1264232849360032677A /* Main.storyboard in Resources */,
 				F52C123823283F5B0032677A /* LaunchScreen.storyboard in Resources */,
 				F52C123523283F5B0032677A /* Assets.xcassets in Resources */,
-				F52C123023283F590032677A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F52C122E23283F590032677A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F52C122F23283F590032677A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F52C123623283F5B0032677A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

@@ -10,11 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 	
-	var isScattered: Bool
-	
-	required init?(coder aDecoder: NSCoder) {
-		super.init(coder: aDecoder)
-	}
+	var isScattered: Bool = false
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -22,6 +18,7 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func toggleButtonPressed(_ sender: Any) {
+		
 	}
 	
 }
