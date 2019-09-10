@@ -49,6 +49,13 @@ class ViewController: UIViewController {
         bCenter = bLabel.center
         dCetner = dLabel.center
         secondACenter = secondALabel.center
+        
+        lLabel.layer.cornerRadius = 8
+        firstALabel.layer.cornerRadius = 8
+        mLabel.layer.cornerRadius = 8
+        bLabel.layer.cornerRadius = 8
+        dLabel.layer.cornerRadius = 8
+        secondALabel.layer.cornerRadius = 8
     }
     
     func returnPositions() {
@@ -67,14 +74,21 @@ class ViewController: UIViewController {
             self.secondALabel.center = secondA
             self.secondALabel.textColor = self.lambda
             
+            self.lLabel.transform = .identity
+            self.firstALabel.transform = .identity
+            self.mLabel.transform = .identity
+            self.bLabel.transform = .identity
+            self.dLabel.transform = .identity
+            self.secondALabel.transform = .identity
+            
             self.lambdaLogoImageView.alpha = 1.00
         }
-        self.lLabel.backgroundColor = .clear
-        self.firstALabel.backgroundColor = .clear
-        self.mLabel.backgroundColor = .clear
-        self.bLabel.backgroundColor = .clear
-        self.dLabel.backgroundColor = .clear
-        self.secondALabel.backgroundColor = .clear
+        lLabel.backgroundColor = .clear
+        firstALabel.backgroundColor = .clear
+        mLabel.backgroundColor = .clear
+        bLabel.backgroundColor = .clear
+        dLabel.backgroundColor = .clear
+        secondALabel.backgroundColor = .clear
     }
     
     func getRandomX() -> Int {
@@ -103,6 +117,8 @@ class ViewController: UIViewController {
                 self.dLabel.center = CGPoint(x: self.getRandomX(), y: self.getRandomY())
                 self.secondALabel.center = CGPoint(x: self.getRandomX(), y: self.getRandomY())
                 
+                
+                
                 self.lLabel.textColor = self.randomColor()
                 self.lLabel.backgroundColor = self.randomColor()
                 self.firstALabel.textColor = self.randomColor()
@@ -117,6 +133,16 @@ class ViewController: UIViewController {
                 self.secondALabel.backgroundColor = self.randomColor()
                 
             }
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
+                    self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...4))
+                    self.firstALabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...8))
+                    self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...4))
+                    self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...4))
+                    self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...4))
+                    self.secondALabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...4))
+                })
+            }, completion: nil)
         } else {
             returnPositions()
         }
