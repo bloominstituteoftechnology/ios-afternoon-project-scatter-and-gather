@@ -14,39 +14,37 @@ class ViewController: UIViewController {
     
     let isScattered : Bool = false
     
-    private var letter1: UILabel!
+    var label = UILabel()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSubViews()
+        
+        // Sample code from YouTube to test why my labels aren't working.
+        label.frame = CGRect(x: 0, y: 600, width: self.view.frame.width, height: 120)
+        label.text = "Welcome to My Channel"
+        label.textAlignment = .center
+        label.textColor = UIColor.white
+        label.backgroundColor = UIColor.darkGray
+        label.font = UIFont(name: "Copperplate-Bold", size: 22)
+        
+        self.view.addSubview(label)
     }
     
     
-    private func setUpSubViews() {
+    func setUpSubViews() {
+        
         
         let letter1 = UILabel()
         letter1.translatesAutoresizingMaskIntoConstraints = false
         letter1.text = "Hello"
         view.addSubview(letter1)
         
-        self.letter1 = letter1
-        
-        
-        let letter2 = UILabel()
-        letter2.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(letter2)
-        
-        let letter3 = UILabel()
-        letter3.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(letter3)
-        
-        let letter4 = UILabel()
-        letter4.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(letter4)
-        
-        let letter5 = UILabel()
-        letter5.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(letter5)
+        letter1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
+
+
+
     }
 
 
