@@ -29,6 +29,7 @@ class ViewController: UIViewController {
 	@IBAction func toggleButtonPressed(_ sender: Any) {
 		
 		scatterLabels()
+		randomBackgroundColor()
 		
 	}
 	
@@ -54,8 +55,59 @@ class ViewController: UIViewController {
 
 			
 		}, completion: nil)
-
+	}
+	
+	func randomBackgroundColor() {
+		
+		let backgroundColor = CABasicAnimation(
+			keyPath: #keyPath(CALayer.backgroundColor))
+		
+		backgroundColor.fromValue = Llabel.layer.backgroundColor
+		backgroundColor.fromValue = aLabel.layer.backgroundColor
+		backgroundColor.fromValue = mLabel.layer.backgroundColor
+		backgroundColor.fromValue = bLabel.layer.backgroundColor
+		backgroundColor.fromValue = dLabel.layer.backgroundColor
+		backgroundColor.fromValue = a2Label.layer.backgroundColor
+		
+		let newBackgroundColor = randomColor()
+		let newBackgroundColor1 = randomColor()
+		let newBackgroundColor2 = randomColor()
+		let newBackgroundColor3 = randomColor()
+		let newBackgroundColor4 = randomColor()
+		let newBackgroundColor5 = randomColor()
+		
+		backgroundColor.toValue = newBackgroundColor
+		backgroundColor.duration = 1.5
+		
+		Llabel.layer.backgroundColor = newBackgroundColor
+		aLabel.layer.backgroundColor = newBackgroundColor1
+		mLabel.layer.backgroundColor = newBackgroundColor2
+		bLabel.layer.backgroundColor = newBackgroundColor3
+		dLabel.layer.backgroundColor = newBackgroundColor4
+		a2Label.layer.backgroundColor = newBackgroundColor5
+		
+		Llabel.layer.add(backgroundColor, forKey: nil)
+		aLabel.layer.add(backgroundColor, forKey: nil)
+		mLabel.layer.add(backgroundColor, forKey: nil)
+		bLabel.layer.add(backgroundColor, forKey: nil)
+		dLabel.layer.add(backgroundColor, forKey: nil)
+		a2Label.layer.add(backgroundColor, forKey: nil)
 		
 	}
+	
+	func textColorChange() {
+		
+		
+		
+	}
+	
+	private func randomColor() -> CGColor {
+		let red = CGFloat.random(in: 0...255)
+		let green = CGFloat.random(in: 0...255)
+		let blue = CGFloat.random(in: 0...255)
+		
+		return UIColor(red: red / 255, green: green / 255, blue: blue / 255, alpha: 1.0).cgColor
+	}
+	
 }
 
