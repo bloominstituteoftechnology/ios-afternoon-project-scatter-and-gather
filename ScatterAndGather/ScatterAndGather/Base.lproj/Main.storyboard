@@ -83,14 +83,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="a" destination="Uj8-OB-aOh" id="ZX8-A6-3PR"/>
-                        <outlet property="a2" destination="Uj8-OB-aOh" id="fFh-Y8-abo"/>
-                        <outlet property="b" destination="pVO-eC-tdo" id="kWL-cH-z3Q"/>
-                        <outlet property="d" destination="uNW-Dx-uYV" id="gHN-7h-U6E"/>
-                        <outlet property="l" destination="sxt-Hf-bKz" id="0EQ-gn-RFJ"/>
-                        <outlet property="lambdaLogoImage" destination="fv5-Gg-r8P" id="TCj-cd-eOs"/>
-                        <outlet property="m" destination="LBw-Wt-2Yu" id="e39-Mz-ujI"/>
-                        <outlet property="toggleButtonPressed" destination="Tfy-bb-cUb" id="EJz-4o-qBv"/>
+                        <outlet property="a2Label" destination="Uj8-OB-aOh" id="InR-Rz-FDu"/>
+                        <outlet property="aLabel" destination="JxO-o0-ZlQ" id="5Ai-Q4-nbH"/>
+                        <outlet property="bLabel" destination="pVO-eC-tdo" id="REj-NC-fFP"/>
+                        <outlet property="dLabel" destination="uNW-Dx-uYV" id="ODs-A4-czO"/>
+                        <outlet property="lLabel" destination="sxt-Hf-bKz" id="n3l-Ob-PJQ"/>
+                        <outlet property="lambdaLogoImage" destination="fv5-Gg-r8P" id="m0R-tC-KBM"/>
+                        <outlet property="mLabel" destination="LBw-Wt-2Yu" id="4U0-Gd-V7M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
