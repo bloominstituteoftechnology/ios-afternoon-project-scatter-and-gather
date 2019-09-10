@@ -12,6 +12,7 @@
 		846638B1232826F9001FDB6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846638B0232826F9001FDB6F /* Assets.xcassets */; };
 		846638B4232826F9001FDB6F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846638B2232826F9001FDB6F /* LaunchScreen.storyboard */; };
 		846638BC23282981001FDB6F /* LambdaScatterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846638BB23282981001FDB6F /* LambdaScatterViewController.swift */; };
+		846638BE23285C90001FDB6F /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846638BD23285C90001FDB6F /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		846638B3232826F9001FDB6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846638B5232826F9001FDB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		846638BB23282981001FDB6F /* LambdaScatterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LambdaScatterViewController.swift; sourceTree = "<group>"; };
+		846638BD23285C90001FDB6F /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				846638BB23282981001FDB6F /* LambdaScatterViewController.swift */,
+				846638BD23285C90001FDB6F /* ImageModel.swift */,
 				846638A9232826F3001FDB6F /* AppDelegate.swift */,
 				846638AD232826F3001FDB6F /* Main.storyboard */,
 				846638B0232826F9001FDB6F /* Assets.xcassets */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846638BC23282981001FDB6F /* LambdaScatterViewController.swift in Sources */,
+				846638BE23285C90001FDB6F /* ImageModel.swift in Sources */,
 				846638AA232826F3001FDB6F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
