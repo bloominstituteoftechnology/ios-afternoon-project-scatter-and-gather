@@ -76,12 +76,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="aLabel" destination="lh3-3G-71M" id="irx-9v-e0r"/>
-                        <outlet property="bLabel" destination="Bw6-sR-Goc" id="rrV-Y9-KYA"/>
-                        <outlet property="dLabel" destination="k9M-s9-sTl" id="jbj-ae-HW1"/>
+                        <outlet property="Llabel" destination="65o-0d-ROs" id="fUG-1E-h4s"/>
+                        <outlet property="a2Label" destination="u4m-N1-cmW" id="hVQ-px-RmH"/>
+                        <outlet property="aLabel" destination="lh3-3G-71M" id="DVh-NM-W5k"/>
+                        <outlet property="bLabel" destination="Bw6-sR-Goc" id="giJ-Vk-0Lt"/>
+                        <outlet property="dLabel" destination="k9M-s9-sTl" id="IPD-EW-43N"/>
                         <outlet property="firstLabel" destination="65o-0d-ROs" id="2kB-G2-4zF"/>
+                        <outlet property="imageView" destination="Mb1-Zt-fji" id="6IR-eC-p2z"/>
                         <outlet property="lambdaImageView" destination="Mb1-Zt-fji" id="dma-fr-tTF"/>
-                        <outlet property="mLabel" destination="sIt-id-Jmu" id="ME8-Z7-fyG"/>
+                        <outlet property="mLabel" destination="sIt-id-Jmu" id="wSj-oq-p8t"/>
                         <outlet property="secondALabel" destination="u4m-N1-cmW" id="09M-Os-cEb"/>
                     </connections>
                 </viewController>
