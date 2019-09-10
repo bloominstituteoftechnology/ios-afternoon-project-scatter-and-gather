@@ -69,6 +69,12 @@ class ViewController: UIViewController {
             
             self.lambdaLogoImageView.alpha = 1.00
         }
+        self.lLabel.backgroundColor = .clear
+        self.firstALabel.backgroundColor = .clear
+        self.mLabel.backgroundColor = .clear
+        self.bLabel.backgroundColor = .clear
+        self.dLabel.backgroundColor = .clear
+        self.secondALabel.backgroundColor = .clear
     }
     
     func getRandomX() -> Int {
@@ -87,44 +93,6 @@ class ViewController: UIViewController {
     
     @IBAction func toggleButtonTapped(_ sender: UIBarButtonItem) {
         if (!isScattered) {
-            let ltextLayer = CATextLayer()
-            let atextLayer = CATextLayer()
-            let mtextLayer = CATextLayer()
-            let btextLayer = CATextLayer()
-            let dtextLayer = CATextLayer()
-            let aatextLayer = CATextLayer()
-            
-
-            ltextLayer.string = "L"
-            ltextLayer.foregroundColor = lambda.cgColor
-            ltextLayer.frame = lLabel.bounds
-            lLabel.layer.addSublayer(ltextLayer)
-
-            atextLayer.string = "a"
-            atextLayer.foregroundColor = lambda.cgColor
-            atextLayer.frame = firstALabel.bounds
-            firstALabel.layer.addSublayer(atextLayer)
-
-            mtextLayer.string = "m"
-            mtextLayer.foregroundColor = lambda.cgColor
-            mtextLayer.frame = mLabel.bounds
-            mLabel.layer.addSublayer(mtextLayer)
-
-            btextLayer.string = "b"
-            btextLayer.foregroundColor = lambda.cgColor
-            btextLayer.frame = bLabel.bounds
-            bLabel.layer.addSublayer(btextLayer)
-
-            dtextLayer.string = "d"
-            dtextLayer.foregroundColor = lambda.cgColor
-            dtextLayer.frame = dLabel.bounds
-            dLabel.layer.addSublayer(dtextLayer)
-
-            aatextLayer.string = "a"
-            aatextLayer.foregroundColor = lambda.cgColor
-            aatextLayer.frame = secondALabel.bounds
-            secondALabel.layer.addSublayer(aatextLayer)
-            
             UIView.animate(withDuration: 1.5) {
                 self.lambdaLogoImageView.alpha = 0.00
                 
@@ -135,12 +103,19 @@ class ViewController: UIViewController {
                 self.dLabel.center = CGPoint(x: self.getRandomX(), y: self.getRandomY())
                 self.secondALabel.center = CGPoint(x: self.getRandomX(), y: self.getRandomY())
                 
-                ltextLayer.foregroundColor = self.randomColor().cgColor
-                atextLayer.foregroundColor = self.randomColor().cgColor
-                mtextLayer.foregroundColor = self.randomColor().cgColor
-                btextLayer.foregroundColor = self.randomColor().cgColor
-                dtextLayer.foregroundColor = self.randomColor().cgColor
-                aatextLayer.foregroundColor = self.randomColor().cgColor
+                self.lLabel.textColor = self.randomColor()
+                self.lLabel.backgroundColor = self.randomColor()
+                self.firstALabel.textColor = self.randomColor()
+                self.firstALabel.backgroundColor = self.randomColor()
+                self.mLabel.textColor = self.randomColor()
+                self.mLabel.backgroundColor = self.randomColor()
+                self.bLabel.textColor = self.randomColor()
+                self.bLabel.backgroundColor = self.randomColor()
+                self.dLabel.textColor = self.randomColor()
+                self.dLabel.backgroundColor = self.randomColor()
+                self.secondALabel.textColor = self.randomColor()
+                self.secondALabel.backgroundColor = self.randomColor()
+                
             }
         } else {
             returnPositions()
