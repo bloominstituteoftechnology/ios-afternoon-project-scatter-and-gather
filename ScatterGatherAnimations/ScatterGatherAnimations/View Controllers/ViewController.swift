@@ -55,48 +55,54 @@ class ViewController: UIViewController {
 	private func configureLabels() {
 
 		lLabel.translatesAutoresizingMaskIntoConstraints = false
-		lLabel.text = "M"
-		setupFontColor()
+		lLabel.text = "L"
+		lLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+
 
 		view.addSubview(lLabel)
 
 
 		aaLabel.translatesAutoresizingMaskIntoConstraints = false
 		aaLabel.text = "A"
-		setupFontColor()
+		aaLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+
 
 		view.addSubview(aaLabel)
 
 
 		mLabel.translatesAutoresizingMaskIntoConstraints = false
 		mLabel.text = "M"
-		setupFontColor()
+		mLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+
 
 		view.addSubview(mLabel)
 
 
 		bLabel.translatesAutoresizingMaskIntoConstraints = false
 		bLabel.text = "B"
-		setupFontColor()
+		bLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+
 
 		view.addSubview(bLabel)
 
 
 		dLabel.translatesAutoresizingMaskIntoConstraints = false
 		dLabel.text = "D"
-		setupFontColor()
+		dLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+
 
 		view.addSubview(dLabel)
 
 
 		aLabel.translatesAutoresizingMaskIntoConstraints = false
 		aLabel.text = "A"
-		setupFontColor()
+		aLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+
 
 		view.addSubview(aLabel)
 
 
-		let stackView = UIStackView(arrangedSubviews: [lLabel, aaLabel, mLabel, bLabel, dLabel, aaLabel])
+		let stackView = UIStackView(arrangedSubviews: [lLabel, aaLabel, mLabel, bLabel, dLabel, aLabel])
 
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		stackView.axis = .horizontal
@@ -108,6 +114,21 @@ class ViewController: UIViewController {
 		stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
 		stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30).isActive = true
 
+
+		logoImage.image = #imageLiteral(resourceName: "lambda_logo.png")
+		logoImage.translatesAutoresizingMaskIntoConstraints = false
+		logoImage.backgroundColor = .clear
+		logoImage.contentMode = .scaleAspectFit
+
+		view.addSubview(logoImage)
+
+		logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
+		logoImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 100).isActive = true
+		logoImage.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -100).isActive = true
+		// TODO: See if the heightAnchor makes a difference for aspectRatio
+		//logoImage.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: 0).isActive = true
+
+
 	}
 
 
@@ -116,14 +137,6 @@ class ViewController: UIViewController {
 	//@IBOutlet weak var toogleButtonPressed: UIImageView!
 
 
-
-
-
-
-	private func setupFontColor() {
-
-		UIFont.systemFont(ofSize: 35, weight: .bold)
-	}
 }
 
 
