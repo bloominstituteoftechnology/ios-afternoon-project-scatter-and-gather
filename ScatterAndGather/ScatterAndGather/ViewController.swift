@@ -27,10 +27,14 @@ class ViewController: UIViewController {
 	}
 
 	@IBAction func toggleButtonPressed(_ sender: Any) {
-		
-		scatterLabels()
-		randomBackgroundColor()
-		
+		if isScattered {
+			gather()
+			labelReturn()
+		} else {
+			scatterLabels()
+			textColorChange()
+			randomBackgroundColor()
+		}
 	}
 	
 	func scatterLabels() {
@@ -96,11 +100,31 @@ class ViewController: UIViewController {
 	}
 	
 	func textColorChange() {
-		
+		self.Llabel.textColor = UIColor(red: CGFloat.random(in: 0...255), green: CGFloat.random(in: 0...255), blue: CGFloat.random(in: 0...255), alpha: CGFloat.random(in: 0...1))
+		self.aLabel.textColor = UIColor(red: CGFloat.random(in: 0...255), green: CGFloat.random(in: 0...255), blue: CGFloat.random(in: 0...255), alpha: CGFloat.random(in: 0...1))
+		self.mLabel.textColor = UIColor(red: CGFloat.random(in: 0...255), green: CGFloat.random(in: 0...255), blue: CGFloat.random(in: 0...255), alpha: CGFloat.random(in: 0...1))
+		self.bLabel.textColor = UIColor(red: CGFloat.random(in: 0...255), green: CGFloat.random(in: 0...255), blue: CGFloat.random(in: 0...255), alpha: CGFloat.random(in: 0...1))
+		self.dLabel.textColor = UIColor(red: CGFloat.random(in: 0...255), green: CGFloat.random(in: 0...255), blue: CGFloat.random(in: 0...255), alpha: CGFloat.random(in: 0...1))
+		self.a2Label.textColor = UIColor(red: CGFloat.random(in: 0...255), green: CGFloat.random(in: 0...255), blue: CGFloat.random(in: 0...255), alpha: CGFloat.random(in: 0...1))
+	}
+	
+	func labelReturn() {
+		UIView.animate(withDuration: 0.82) {
+			self.Llabel.transform = .identity
+			self.aLabel.transform = .identity
+			self.mLabel.transform = .identity
+			self.bLabel.transform = .identity
+			self.dLabel.transform = .identity
+			self.a2Label.transform = .identity
+		}
+	}
+	
+	func gather() {
+
 		
 		
 	}
-	
+
 	private func randomColor() -> CGColor {
 		let red = CGFloat.random(in: 0...255)
 		let green = CGFloat.random(in: 0...255)
