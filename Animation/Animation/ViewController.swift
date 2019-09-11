@@ -19,8 +19,9 @@ class ViewController: UIViewController {
     private var b: UILabel!
     private var d: UILabel!
     private var a2: UILabel!
+    private var moveMe: UILabel!
     private var imageView: UIImageView!
-    
+    private var recognizer: UIPanGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,48 +30,71 @@ class ViewController: UIViewController {
     
     private func setSubViews() {
         
+        navigationController?.navigationBar.barStyle = .blackTranslucent
+        
+        view.backgroundColor = .black
+        
         let toggleButton = UIBarButtonItem(title: "Toggle", style: .done, target: self, action: #selector(togglePressed))
         navigationItem.rightBarButtonItem = toggleButton
+        toggleButton.tintColor = #colorLiteral(red: 1, green: 0, blue: 0, alpha: 1)
         
         let lLabel = UILabel()
+        lLabel.layer.cornerRadius = 6
+        lLabel.layer.masksToBounds = true
         lLabel.translatesAutoresizingMaskIntoConstraints = false
         lLabel.text = "L"
-        lLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        lLabel.textColor = .lightGray
+        lLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         
         self.l = lLabel
         
         let aLabel = UILabel()
+        aLabel.layer.cornerRadius = 6
+        aLabel.layer.masksToBounds = true
         aLabel.translatesAutoresizingMaskIntoConstraints = false
         aLabel.text = "A"
-        aLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        aLabel.textColor = .lightGray
+        aLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         
         self.a = aLabel
         
         let mLabel = UILabel()
+        mLabel.layer.cornerRadius = 6
+        mLabel.layer.masksToBounds = true
         mLabel.translatesAutoresizingMaskIntoConstraints = false
         mLabel.text = "M"
-        mLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        mLabel.textColor = .lightGray
+        mLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         
         self.m = mLabel
         
         let bLabel = UILabel()
+        bLabel.layer.cornerRadius = 6
+        bLabel.layer.masksToBounds = true
         bLabel.translatesAutoresizingMaskIntoConstraints = false
         bLabel.text = "B"
-        bLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        bLabel.textColor = .lightGray
+        bLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         
         self.b = bLabel
         
         let dLabel = UILabel()
+        dLabel.layer.cornerRadius = 6
+        dLabel.layer.masksToBounds = true
         dLabel.translatesAutoresizingMaskIntoConstraints = false
         dLabel.text = "D"
-        dLabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        dLabel.textColor = .lightGray
+        dLabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         
         self.d = dLabel
         
         let lastALabel = UILabel()
+        lastALabel.layer.cornerRadius = 6
+        lastALabel.layer.masksToBounds = true
         lastALabel.translatesAutoresizingMaskIntoConstraints = false
         lastALabel.text = "A"
-        lastALabel.font = UIFont.systemFont(ofSize: 25, weight: .bold)
+        lastALabel.textColor = .lightGray
+        lastALabel.font = UIFont.systemFont(ofSize: 40, weight: .bold)
         
         self.a2 = lastALabel
         
@@ -82,11 +106,28 @@ class ViewController: UIViewController {
         
         view.addSubview(stackView)
         
-        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
+        
+        let moveMe = UILabel()
+        moveMe.translatesAutoresizingMaskIntoConstraints = false
+        moveMe.text = "Move Me:"
+        moveMe.textColor = .lightGray
+        moveMe.font = UIFont.systemFont(ofSize: 20, weight: .bold)
+        moveMe.textAlignment = .center
+        moveMe.isHidden = true
+        
+        view.addSubview(moveMe)
+        
+        moveMe.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
+        moveMe.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30).isActive = true
+        moveMe.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 30).isActive = true
+        
+        self.moveMe = moveMe
         
         let imageView = UIImageView()
+        imageView.backgroundColor = .clear
         imageView.image = #imageLiteral(resourceName: "lambda_logo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
@@ -94,25 +135,76 @@ class ViewController: UIViewController {
         
         view.addSubview(imageView)
         
-        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30).isActive = true
-        
-        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
+        imageView.topAnchor.constraint(equalTo: moveMe.bottomAnchor, constant: 20).isActive = true
         imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor, multiplier: 1, constant: 0).isActive = true
         
         self.imageView = imageView
         
+        let recognizer = UIPanGestureRecognizer()
         
+        view.addGestureRecognizer(recognizer)
+        
+        self.recognizer = UIPanGestureRecognizer(target: self, action: #selector(self.handlePan))
     }
     
     func generateRandomColor() -> UIColor{
         var random: UIColor{
             let r: CGFloat = .random(in: 0...1)
-            let g: CGFloat = .random(in: 0...1)
-            let b: CGFloat = .random(in: 0...1)
+            let g: CGFloat = .random(in: 0...0.2)
+            let b: CGFloat = .random(in: 0...0.2)
             return UIColor(red: r, green: g, blue: b, alpha: 1)
         }
         return random
+    }
+    
+    func scatter(label: UILabel) {
+        
+        let minX = Int(self.view.bounds.minX)
+        let maxX = Int(self.view.bounds.maxX - 50)
+        
+        let minY = Int(self.view.bounds.minY)
+        let maxY = Int(self.view.bounds.maxY - 150)
+        
+        let X = Int.random(in: minX...maxX)
+        let Y = Int.random(in: minY...maxY)
+        
+        let newCenter = CGPoint(x: X, y: Y)
+        
+        label.center = newCenter
+        label.textColor = self.generateRandomColor()
+        
+        let rotationTransform = CATransform3DRotate(label.layer.transform, CGFloat.pi, 1, 0, 0)
+        label.layer.transform = rotationTransform
+        
+        label.alpha = 0
+        label.backgroundColor = self.generateRandomColor()
+        
+        label.layer.cornerRadius = 6
+        label.layer.masksToBounds = true
+    }
+    
+    func bringBack(label: UILabel) {
+        
+        label.textColor = .lightGray
+        label.backgroundColor = .clear
+        label.transform = .identity
+        label.alpha = 1
+        
+    }
+    
+    @objc func handlePan() {
+        
+        let translation = recognizer.translation(in: self.view)
+        if let view = recognizer.view {
+            view.center = CGPoint(x:view.center.x + translation.x,
+                                  y:view.center.y + translation.y)
+        }
+        recognizer.setTranslation(CGPoint.zero, in: self.view)
+        
+        imageView.isUserInteractionEnabled = true
+    
     }
     
     @objc func togglePressed() {
@@ -121,94 +213,29 @@ class ViewController: UIViewController {
             
             UIView.animateKeyframes(withDuration: 3, delay: 0, options: [], animations: {
                 
-                let minX = Int(self.view.bounds.minX)
-                let maxX = Int(self.view.bounds.maxX - 50)
+                let labels = [self.l, self.a, self.m, self.b, self.d, self.a2]
                 
-                let minY = Int(self.view.bounds.minY)
-                let maxY = Int(self.view.bounds.maxY - 150)
+                for label in labels {
+                    label?.isHidden = false
+                }
                 
+                self.moveMe.isHidden = true
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
                     self.imageView.alpha = 0
+                    self.imageView.isUserInteractionEnabled = true
+                    self.imageView.gestureRecognizerShouldBegin(self.recognizer)
+                    self.imageView.addGestureRecognizer(self.recognizer)
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    self.scatter(label: self.l)
+                    self.scatter(label: self.a)
+                    self.scatter(label: self.m)
+                    self.scatter(label: self.b)
+                    self.scatter(label: self.d)
+                    self.scatter(label: self.a2)
                     
-                    let X = Int.random(in: minX...maxX)
-                    let Y = Int.random(in: minY...maxY)
-                    
-                    let newCenter = CGPoint(x: X, y: Y)
-                    
-                    self.l.center = newCenter
-                    self.l.textColor = self.generateRandomColor()
-                    self.l.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
-                    self.l.alpha = 0
-                    self.l.backgroundColor = self.generateRandomColor()
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    let X = Int.random(in: minX...maxX)
-                    let Y = Int.random(in: minY...maxY)
-                    
-                    let newCenter = CGPoint(x: X, y: Y)
-                    
-                    self.a.center = newCenter
-                    self.a.textColor = self.generateRandomColor()
-                    self.a.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
-                    self.a.alpha = 0
-                    self.a.backgroundColor = self.generateRandomColor()
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    let X = Int.random(in: minX...maxX)
-                    let Y = Int.random(in: minY...maxY)
-                    
-                    let newCenter = CGPoint(x: X, y: Y)
-                    
-                    self.m.center = newCenter
-                    self.m.textColor = self.generateRandomColor()
-                    self.m.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
-                    self.m.backgroundColor = self.generateRandomColor()
-                    self.m.alpha = 0
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    let X = Int.random(in: minX...maxX)
-                    let Y = Int.random(in: minY...maxY)
-                    
-                    let newCenter = CGPoint(x: X, y: Y)
-                    
-                    self.b.center = newCenter
-                    self.b.textColor = self.generateRandomColor()
-                    self.b.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
-                    self.b.backgroundColor = self.generateRandomColor()
-                    self.b.alpha = 0
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    let X = Int.random(in: minX...maxX)
-                    let Y = Int.random(in: minY...maxY)
-                    
-                    let newCenter = CGPoint(x: X, y: Y)
-                    
-                    self.d.center = newCenter
-                    self.d.textColor = self.generateRandomColor()
-                    self.d.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
-                    self.d.backgroundColor = self.generateRandomColor()
-                    self.d.alpha = 0
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    let X = Int.random(in: minX...maxX)
-                    let Y = Int.random(in: minY...maxY)
-                    
-                    let newCenter = CGPoint(x: X, y: Y)
-                    
-                    self.a2.center = newCenter
-                    self.a2.textColor = self.generateRandomColor()
-                    self.a2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
-                    self.a2.backgroundColor = self.generateRandomColor()
-                    self.a2.alpha = 0
                 })
                 
             })
@@ -218,63 +245,42 @@ class ViewController: UIViewController {
             UIView.animateKeyframes(withDuration: 3, delay: 0, options: [], animations: {
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
+                    
                     self.imageView.alpha = 1
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    self.l.center =  CGPoint(x: 11.25, y: 24)
+                    self.bringBack(label: self.l)
                     
-                    self.l.center =  CGPoint(x: 7, y: 15)
-                    self.l.backgroundColor = .clear
-                    self.l.textColor = .black
-                    self.l.transform = .identity
-                    self.l.alpha = 1
-                   
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    self.a.center =  CGPoint(x: 76.5, y: 15)
-                    self.a.backgroundColor = .clear
-                    self.a.textColor = .black
-                    self.a.transform = .identity
-                    self.a.alpha = 1
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    self.m.center =  CGPoint(x: 150, y: 15)
-                    self.m.backgroundColor = .clear
-                    self.m.textColor = .black
-                    self.m.transform = .identity
-                    self.m.alpha = 1
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    self.b.center =  CGPoint(x: 225.75, y: 15)
-                    self.b.backgroundColor = .clear
-                    self.b.textColor = .black
-                    self.b.transform = .identity
-                    self.b.alpha = 1
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    self.d.center =  CGPoint(x: 293.5, y: 15)
-                    self.d.backgroundColor = .clear
-                    self.d.textColor = .black
-                    self.d.transform = .identity
-                    self.d.alpha = 1
-                })
-                
-                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-                    self.a2.center =  CGPoint(x: 365, y: 15)
-                    self.a2.backgroundColor = .clear
-                    self.a2.textColor = .black
-                    self.a2.transform = .identity
-                    self.a2.alpha = 1
-                })
-                
-                
-            })
-        }
+                    self.a.center =  CGPoint(x: 65.5, y: 24)
+                    self.bringBack(label: self.a)
+                    
+                    self.m.center =  CGPoint(x: 126.5, y: 24)
+                    self.bringBack(label: self.m)
+                    
+                    self.b.center =  CGPoint(x: 186, y: 24)
+                    self.bringBack(label: self.b)
+                    
+                    self.d.center =  CGPoint(x: 242.75, y: 24)
+                    self.bringBack(label: self.d)
+                    
+                    self.a2.center =  CGPoint(x: 300, y: 24)
+                    self.bringBack(label: self.a2)
         
+                })
+                
+            }) { (_) in
+                
+                let labels = [self.l, self.a, self.m, self.b, self.d, self.a2]
+                
+                for label in labels {
+                    label?.isHidden = true
+                }
+                
+                self.moveMe.isHidden = false
+            }
+        }
         self.isScattered = !self.isScattered
     }
     
