@@ -11,7 +11,7 @@ import SpriteKit
 
 class ViewController: UIViewController {
     
-    var isScattered: Bool = false
+    var isScattered: Bool = true
     
     private var l: UILabel!
     private var a: UILabel!
@@ -105,40 +105,8 @@ class ViewController: UIViewController {
         
     }
     
-    func reorganizeLetters(label: UILabel) {
-        
-        UIView.animate(withDuration: 2.5) {
-            label.transform = .identity
-            label.alpha = 1
-        }
-        
-    }
-    
-    func randomLetters(label: UILabel) {
-        
-        let minX = Int(self.view.bounds.minX)
-        let maxX = Int(self.view.bounds.maxX - 50)
-        
-        let minY = Int(self.view.bounds.minY)
-        let maxY = Int(self.view.bounds.maxY - 150)
-        
-        let randomX = Int.random(in: minX...maxX)
-        let randomY = Int.random(in: minY...maxY)
-        
-        let randomPoint = CGPoint(x: randomX, y: randomY)
-        
-        UIView.animate(withDuration: 2.5) {
-            
-            label.center = randomPoint
-            label.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
-            label.textColor = self.generateRandomColor()
-            label.backgroundColor = self.generateRandomColor()
-        }
-        
-    }
-    
     func generateRandomColor() -> UIColor{
-        var random: UIColor {
+        var random: UIColor{
             let r: CGFloat = .random(in: 0...1)
             let g: CGFloat = .random(in: 0...1)
             let b: CGFloat = .random(in: 0...1)
@@ -147,89 +115,167 @@ class ViewController: UIViewController {
         return random
     }
     
-    func clearSettings(label: UILabel) {
-        
-        label.backgroundColor = .clear
-        label.textColor = .black
-        
-    }
-    
     @objc func togglePressed() {
         
+        if self.isScattered {
+            
+            UIView.animateKeyframes(withDuration: 3, delay: 0, options: [], animations: {
+                
+                let minX = Int(self.view.bounds.minX)
+                let maxX = Int(self.view.bounds.maxX - 50)
+                
+                let minY = Int(self.view.bounds.minY)
+                let maxY = Int(self.view.bounds.maxY - 150)
+                
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
+                    self.imageView.alpha = 0
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    
+                    let X = Int.random(in: minX...maxX)
+                    let Y = Int.random(in: minY...maxY)
+                    
+                    let newCenter = CGPoint(x: X, y: Y)
+                    
+                    self.l.center = newCenter
+                    self.l.textColor = self.generateRandomColor()
+                    self.l.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                    self.l.alpha = 0
+                    self.l.backgroundColor = self.generateRandomColor()
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    let X = Int.random(in: minX...maxX)
+                    let Y = Int.random(in: minY...maxY)
+                    
+                    let newCenter = CGPoint(x: X, y: Y)
+                    
+                    self.a.center = newCenter
+                    self.a.textColor = self.generateRandomColor()
+                    self.a.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                    self.a.alpha = 0
+                    self.a.backgroundColor = self.generateRandomColor()
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    let X = Int.random(in: minX...maxX)
+                    let Y = Int.random(in: minY...maxY)
+                    
+                    let newCenter = CGPoint(x: X, y: Y)
+                    
+                    self.m.center = newCenter
+                    self.m.textColor = self.generateRandomColor()
+                    self.m.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                    self.m.backgroundColor = self.generateRandomColor()
+                    self.m.alpha = 0
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    let X = Int.random(in: minX...maxX)
+                    let Y = Int.random(in: minY...maxY)
+                    
+                    let newCenter = CGPoint(x: X, y: Y)
+                    
+                    self.b.center = newCenter
+                    self.b.textColor = self.generateRandomColor()
+                    self.b.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                    self.b.backgroundColor = self.generateRandomColor()
+                    self.b.alpha = 0
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    let X = Int.random(in: minX...maxX)
+                    let Y = Int.random(in: minY...maxY)
+                    
+                    let newCenter = CGPoint(x: X, y: Y)
+                    
+                    self.d.center = newCenter
+                    self.d.textColor = self.generateRandomColor()
+                    self.d.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                    self.d.backgroundColor = self.generateRandomColor()
+                    self.d.alpha = 0
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    let X = Int.random(in: minX...maxX)
+                    let Y = Int.random(in: minY...maxY)
+                    
+                    let newCenter = CGPoint(x: X, y: Y)
+                    
+                    self.a2.center = newCenter
+                    self.a2.textColor = self.generateRandomColor()
+                    self.a2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                    self.a2.backgroundColor = self.generateRandomColor()
+                    self.a2.alpha = 0
+                })
+                
+            })
+            
+        } else {
+            
+            UIView.animateKeyframes(withDuration: 3, delay: 0, options: [], animations: {
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
+                    self.imageView.alpha = 1
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    
+                    self.l.center =  CGPoint(x: 7, y: 15)
+                    self.l.backgroundColor = .clear
+                    self.l.textColor = .black
+                    self.l.transform = .identity
+                    self.l.alpha = 1
+                   
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    self.a.center =  CGPoint(x: 76.5, y: 15)
+                    self.a.backgroundColor = .clear
+                    self.a.textColor = .black
+                    self.a.transform = .identity
+                    self.a.alpha = 1
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    self.m.center =  CGPoint(x: 150, y: 15)
+                    self.m.backgroundColor = .clear
+                    self.m.textColor = .black
+                    self.m.transform = .identity
+                    self.m.alpha = 1
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    self.b.center =  CGPoint(x: 225.75, y: 15)
+                    self.b.backgroundColor = .clear
+                    self.b.textColor = .black
+                    self.b.transform = .identity
+                    self.b.alpha = 1
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    self.d.center =  CGPoint(x: 293.5, y: 15)
+                    self.d.backgroundColor = .clear
+                    self.d.textColor = .black
+                    self.d.transform = .identity
+                    self.d.alpha = 1
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
+                    self.a2.center =  CGPoint(x: 365, y: 15)
+                    self.a2.backgroundColor = .clear
+                    self.a2.textColor = .black
+                    self.a2.transform = .identity
+                    self.a2.alpha = 1
+                })
+                
+                
+            })
+        }
+        
         self.isScattered = !self.isScattered
-        
-        UIView.animateKeyframes(withDuration: 3, delay: 0, options: [], animations: {
-            
-            
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
-                self.imageView.alpha = 0
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.1, animations: {
-                self.imageView.alpha = 1
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 0.8, animations: {
-                self.randomLetters(label: self.l)
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 0.8, animations: {
-                self.randomLetters(label: self.a)
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 0.8, animations: {
-                self.randomLetters(label: self.m)
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 0.8, animations: {
-                self.randomLetters(label: self.b)
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 0.8, animations: {
-                self.randomLetters(label: self.d)
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 0.8, animations: {
-                self.randomLetters(label: self.a2)
-            })
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
-                self.reorganizeLetters(label: self.l)
-            })
-
-            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
-               self.reorganizeLetters(label: self.a)
-            })
-
-            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
-               self.reorganizeLetters(label: self.m)
-            })
-
-            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
-                self.reorganizeLetters(label: self.b)
-            })
-
-            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
-               self.reorganizeLetters(label: self.d)
-            })
-
-            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.3, animations: {
-                self.reorganizeLetters(label: self.a2)
-            })
-
-            
-            
-        }, completion: { (_) in
-            self.clearSettings(label: self.l)
-            self.clearSettings(label: self.a)
-            self.clearSettings(label: self.m)
-            self.clearSettings(label: self.b)
-            self.clearSettings(label: self.d)
-            self.clearSettings(label: self.a2)
-            
-            
-        })
-        
     }
     
 }
