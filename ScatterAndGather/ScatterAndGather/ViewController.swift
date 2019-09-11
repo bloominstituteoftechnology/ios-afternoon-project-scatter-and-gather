@@ -34,6 +34,7 @@ class ViewController: UIViewController {
 			scatterLabels()
 			textColorChange()
 			randomBackgroundColor()
+			rotateLetters()
 		}
 	}
 	
@@ -123,6 +124,30 @@ class ViewController: UIViewController {
 
 		
 		
+	}
+	
+	func rotateLetters() {
+		
+		
+		UIView.animate(withDuration: 2, animations: {
+			// 45 degree roation
+			self.Llabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4).concatenating(CGAffineTransform(scaleX: 1.2, y: 3))
+			self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4).concatenating(CGAffineTransform(scaleX: 1.2, y: 3))
+			self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4).concatenating(CGAffineTransform(scaleX: 1.2, y: 3))
+			self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4).concatenating(CGAffineTransform(scaleX: 1.2, y: 3))
+			self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4).concatenating(CGAffineTransform(scaleX: 1.2, y: 3))
+			self.a2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4).concatenating(CGAffineTransform(scaleX: 1.2, y: 3))
+
+		}) { (isFinished) in
+			UIView.animate(withDuration: 2, animations: {
+				self.Llabel.transform = .identity
+				self.aLabel.transform = .identity
+				self.mLabel.transform = .identity
+				self.bLabel.transform = .identity
+				self.dLabel.transform = .identity
+				self.a2Label.transform = .identity
+			})
+		}
 	}
 
 	private func randomColor() -> CGColor {
