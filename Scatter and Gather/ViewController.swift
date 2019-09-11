@@ -14,36 +14,54 @@ class ViewController: UIViewController {
     
     let isScattered : Bool = false
     
-    var label = UILabel()
+    var imageView: UIImageView!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSubViews()
-        
-        // Sample code from YouTube to test why my labels aren't working.
-        label.frame = CGRect(x: 0, y: 600, width: self.view.frame.width, height: 120)
-        label.text = "Welcome to My Channel"
-        label.textAlignment = .center
-        label.textColor = UIColor.white
-        label.backgroundColor = UIColor.darkGray
-        label.font = UIFont(name: "Copperplate-Bold", size: 22)
-        
-        self.view.addSubview(label)
     }
     
     
     func setUpSubViews() {
         
+        // Adding imageView
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
+        imageView.image = UIImage(named: "lambda_logo")
+        
+        imageView.widthAnchor.constraint(equalToConstant: 180).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 180).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 28).isActive = true
+        
+        self.imageView = imageView
+        
         
         let letter1 = UILabel()
         letter1.translatesAutoresizingMaskIntoConstraints = false
-        letter1.text = "Hello"
+        letter1.text = "L"
         view.addSubview(letter1)
         
-        letter1.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-
-
+        let letter1TopConstraint = NSLayoutConstraint(item: letter1,
+                                                         attribute: .top,
+                                                         relatedBy: .equal,
+                                                         toItem: view.safeAreaLayoutGuide,
+                                                         attribute: .top,
+                                                         multiplier: 1,
+                                                         constant: 20)
+        
+        let letter1LeftConstraint = NSLayoutConstraint(item: letter1,
+                                                      attribute: .left,
+                                                      relatedBy: .equal,
+                                                      toItem: view.safeAreaLayoutGuide,
+                                                      attribute: .left,
+                                                      multiplier: 1,
+                                                      constant: 20)
+        
+        NSLayoutConstraint.activate([letter1TopConstraint, letter1LeftConstraint])
 
     }
 
