@@ -25,14 +25,15 @@ class ViewController: UIViewController {
 	// MARK: - Properties
 
 	var isScattered: Bool = true
+	let toggleButton = UIBarButtonItem()
 
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		title = "Scatter Me and Bring Me Back"
 		initializeViews()
 		setupSubViews()
-		setupNavigationBar()
 		
 	}
 
@@ -52,11 +53,11 @@ class ViewController: UIViewController {
 	}
 
 
-	private func setupSubViews() {
+	func setupSubViews() {
 
-		// Setup the toogle switch in the nagivation bar
 
 		let toggleButton = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonPressed))
+
 
 		self.navigationItem.rightBarButtonItem = toggleButton
 
@@ -66,14 +67,12 @@ class ViewController: UIViewController {
 		lLabel.text = "L"
 		lLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
 
-
 		view.addSubview(lLabel)
 
 
 		aaLabel.translatesAutoresizingMaskIntoConstraints = false
 		aaLabel.text = "A"
 		aaLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
-
 
 		view.addSubview(aaLabel)
 
@@ -82,14 +81,12 @@ class ViewController: UIViewController {
 		mLabel.text = "M"
 		mLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
 
-
 		view.addSubview(mLabel)
 
 
 		bLabel.translatesAutoresizingMaskIntoConstraints = false
 		bLabel.text = "B"
 		bLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
-
 
 		view.addSubview(bLabel)
 
@@ -98,13 +95,12 @@ class ViewController: UIViewController {
 		dLabel.text = "D"
 		dLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
 
-
 		view.addSubview(dLabel)
 
 
 		aLabel.translatesAutoresizingMaskIntoConstraints = false
 		aLabel.text = "A"
-		aLabel.font = UIFont.systemFont(ofSize: 30, weight: .heavy)
+		aLabel.font = UIFont.systemFont(ofSize: 30, weight: .semibold)
 
 
 		view.addSubview(aLabel)
@@ -130,18 +126,13 @@ class ViewController: UIViewController {
 
 		logoImage.image = #imageLiteral(resourceName: "lambda_logo.png")
 		logoImage.translatesAutoresizingMaskIntoConstraints = false
-		logoImage.backgroundColor = .clear
 		logoImage.contentMode = .scaleAspectFit
 
 		view.addSubview(logoImage)
 
 		logoImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
-		logoImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 100).isActive = true
-		logoImage.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -100).isActive = true
-		// TODO: See if the heightAnchor makes a difference for aspectRatio
-		//logoImage.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1, constant: 0).isActive = true
-
-
+		logoImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50).isActive = true
+		logoImage.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
 	}
 
 
@@ -151,127 +142,173 @@ class ViewController: UIViewController {
 
 	@objc func toggleButtonPressed() {
 
-		if self.isScattered {
-
-			UIView.animateKeyframes(withDuration: 4, delay: 0, options: [], animations: {
-
-				let minimumXCoordinate = Int(self.view.bounds.minX)
-				let maximumXCoordinate = Int(self.view.bounds.maxX - 10)
-
-				let minimumYCoordinate = Int(self.view.bounds.minY)
-				let maximumYCoordiante = Int(self.view.bounds.maxY - 10)
-
-				UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations:{ self.logoImage.alpha = 0 })
-
-				UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-
-					let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
-					let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
-
-					let newCenter = CGPoint(x: X, y: Y)
-
-					self.lLabel.center = newCenter
-					self.lLabel.textColor = self.randomColor()
-					self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
-					self.lLabel.alpha = 0
-					//self.backToStart(label: self.lLabel)
-				})
-
-				UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-
-					let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
-					let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
-
-					let newCenter = CGPoint(x: X, y: Y)
-
-					self.aaLabel.center = newCenter
-					self.aaLabel.textColor = self.randomColor()
-					self.aaLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
-					self.aaLabel.alpha = 0
-				})
-
-				UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-
-					let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
-					let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
-
-					let newCenter = CGPoint(x: X, y: Y)
-
-					self.mLabel.center = newCenter
-					self.mLabel.textColor = self.randomColor()
-					self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
-					self.mLabel.alpha = 0
-				})
-
-				UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-
-					let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
-					let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
-
-					let newCenter = CGPoint(x: X, y: Y)
-
-					self.bLabel.center = newCenter
-					self.bLabel.textColor = self.randomColor()
-					self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
-					self.bLabel.alpha = 0
-				})
-
-				UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-
-					let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
-					let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
-
-					let newCenter = CGPoint(x: X, y: Y)
-
-					self.dLabel.center = newCenter
-					self.dLabel.textColor = self.randomColor()
-					self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
-					self.dLabel.alpha = 0
-				})
-
-				UIView.addKeyframe(withRelativeStartTime: Double.random(in: 0...0.5), relativeDuration: 1, animations: {
-
-					let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
-					let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
-
-					let newCenter = CGPoint(x: X, y: Y)
-
-					self.aLabel.center = newCenter
-					self.aLabel.textColor = self.randomColor()
-					self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
-					self.aLabel.alpha = 0
-				})
-
-
-
-
-
-
-
-
-
-
-			}, completion: nil)
+		if isScattered == true {
+			scatterLetters()
+			isScattered = false
+		} else {
+			gatherLetters()
+			isScattered = true
 		}
-
 	}
 
-	private func setupNavigationBar() {
 
-		navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-		navigationController?.navigationBar.barTintColor = randomColor()
-		
+	func scatterLetters() {
+
+		UIView.animateKeyframes(withDuration: 3, delay: 0, options: [], animations: {
+
+			let minimumXCoordinate = Int(self.view.bounds.minX)
+			let maximumXCoordinate = Int(self.view.bounds.maxX - 10)
+
+			let minimumYCoordinate = Int(self.view.bounds.minY)
+			let maximumYCoordiante = Int(self.view.bounds.maxY - 10)
+
+			UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations:{ self.logoImage.alpha = 0 })
+
+				UIView.addKeyframe(withRelativeStartTime: .random(in: 0...1), relativeDuration: 1, animations: {
+
+				let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
+				let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
+
+				let center2 = CGPoint(x: X, y: Y)
+
+				self.lLabel.center = center2
+				self.lLabel.alpha = 0
+				self.lLabel.textColor = self.randomColor()
+				self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
+
+			})
+
+			UIView.addKeyframe(withRelativeStartTime:.random(in: 0...0.1), relativeDuration: 1, animations: {
+
+				let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
+				let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
+
+				let center2 = CGPoint(x: X, y: Y)
+
+				self.aaLabel.center = center2
+				self.aaLabel.alpha = 0
+				self.aaLabel.textColor = self.randomColor()
+				self.aaLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
+			})
+
+			UIView.addKeyframe(withRelativeStartTime: .random(in: 0...1), relativeDuration: 1, animations: {
+
+				let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
+				let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
+
+				let newCenter = CGPoint(x: X, y: Y)
+
+				self.mLabel.center = newCenter
+				self.mLabel.alpha = 0
+				self.mLabel.textColor = self.randomColor()
+				self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
+
+			})
+
+			UIView.addKeyframe(withRelativeStartTime: .random(in: 0...0.1), relativeDuration: 1, animations: {
+
+				let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
+				let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
+
+				let newCenter = CGPoint(x: X, y: Y)
+
+				self.bLabel.center = newCenter
+				self.bLabel.alpha = 0
+				self.bLabel.textColor = self.randomColor()
+				self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
+
+			})
+
+			UIView.addKeyframe(withRelativeStartTime: .random(in: 0...1), relativeDuration: 1, animations: {
+
+				let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
+				let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
+
+				let newCenter = CGPoint(x: X, y: Y)
+
+				self.dLabel.center = newCenter
+				self.dLabel.alpha = 0
+				self.dLabel.textColor = self.randomColor()
+				self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
+
+			})
+
+			UIView.addKeyframe(withRelativeStartTime: .random(in: 0...0.1), relativeDuration: 1, animations: {
+
+				let X = Int.random(in: minimumXCoordinate...maximumXCoordinate)
+				let Y = Int.random(in: minimumYCoordinate...maximumYCoordiante)
+
+				let newCenter = CGPoint(x: X, y: Y)
+
+				self.aLabel.center = newCenter
+				self.aLabel.alpha = 0
+				self.aLabel.textColor = self.randomColor()
+				self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in:  -2 * CGFloat.pi...2 * CGFloat.pi))
+
+			})
+		}, completion: nil)
 	}
 
-	private func backToStart(label: UILabel) {
+
+	func gatherLetters() {
 
 		UIView.animate(withDuration: 4) {
-			label.transform = .identity
-			label.alpha = 1
+
+			self.lLabel.center = CGPoint(x: 12, y: 20)
+			self.lLabel.alpha = 1
+			self.lLabel.textColor = .black
+			self.lLabel.transform = .identity
+		}
+
+		UIView.animate(withDuration: 4) {
+
+			self.aaLabel.center = CGPoint(x: 72.25, y: 20)
+			self.aaLabel.alpha = 1
+			self.aaLabel.textColor = .black
+			self.aaLabel.transform = .identity
+		}
+
+		UIView.animate(withDuration: 4) {
+
+			self.mLabel.center = CGPoint(x: 141.5, y: 20)
+			self.mLabel.alpha = 1
+			self.mLabel.textColor = .black
+			self.mLabel.transform = .identity
+		}
+
+		UIView.animate(withDuration: 4) {
+
+			self.bLabel.center = CGPoint(x: 208.75, y: 20)
+			self.bLabel.alpha = 1
+			self.bLabel.textColor = .black
+			self.bLabel.transform = .identity
+		}
+
+		UIView.animate(withDuration: 4) {
+
+			self.dLabel.center = CGPoint(x: 274, y: 20)
+			self.dLabel.alpha = 1
+			self.dLabel.textColor = .black
+			self.dLabel.transform = .identity
+		}
+
+		UIView.animate(withDuration: 4) {
+
+			self.aLabel.center = CGPoint(x: 339.25, y: 20)
+			self.aLabel.alpha = 1
+			self.aLabel.textColor = .black
+			self.aLabel.transform = .identity
+		}
+
+		UIView.animate(withDuration: 4) {
+
+			self.logoImage.alpha = 1
+
 		}
 	}
 
-	private func randomColor() -> UIColor {
+
+	func randomColor() -> UIColor {
 
 		var random: UIColor {
 
@@ -284,12 +321,6 @@ class ViewController: UIViewController {
 		}
 		return random
 	}
-
-
-
-
-
-
 }
 
 
