@@ -87,12 +87,12 @@ class ViewController: UIViewController {
     
     func runAnimation() {
         
-        var updatedLetter1Position: CGPoint = CGPoint(x: view.frame.width/7, y: 20)
-        var updatedLetter2Position: CGPoint = CGPoint(x: 2*(view.frame.width/7), y: 20)
-        var updatedLetter3Position: CGPoint = CGPoint(x: 3*(view.frame.width/7), y: 20)
-        var updatedLetter4Position: CGPoint = CGPoint(x: 4*(view.frame.width/7), y: 20)
-        var updatedLetter5Position: CGPoint = CGPoint(x: 5*(view.frame.width/7), y: 20)
-        var updatedLetter6Position: CGPoint = CGPoint(x: 6*(view.frame.width/7), y: 20)
+        var updatedLetter1Position: CGPoint = CGPoint(x: view.frame.width/6-60, y: 20)
+        var updatedLetter2Position: CGPoint = CGPoint(x: 2*(view.frame.width/6)-60, y: 20)
+        var updatedLetter3Position: CGPoint = CGPoint(x: 3*(view.frame.width/6)-60, y: 20)
+        var updatedLetter4Position: CGPoint = CGPoint(x: 4*(view.frame.width/6)-60, y: 20)
+        var updatedLetter5Position: CGPoint = CGPoint(x: 5*(view.frame.width/6)-60, y: 20)
+        var updatedLetter6Position: CGPoint = CGPoint(x: 6*(view.frame.width/6)-60, y: 20)
         
         var letter1BackgroundColor: UIColor = .clear
         var letter2BackgroundColor: UIColor = .clear
