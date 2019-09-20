@@ -147,22 +147,22 @@ class ViewController: UIViewController {
                 UIView.addKeyframe(withRelativeStartTime: 0.01, relativeDuration: 0.99, animations: {
                     self.image.alpha = 0
                     
-                    updatedLetter1Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    updatedLetter1Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-(self.view.frame.width/6)), y: CGFloat.random(in: 0...self.view.frame.height-60))
                     self.letter1.center = updatedLetter1Position
                     
-                    updatedLetter2Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    updatedLetter2Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-2*(self.view.frame.width/6)), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                     self.letter2.center = updatedLetter2Position
                     
-                    updatedLetter3Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    updatedLetter3Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-3*(self.view.frame.width/6)), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                     self.letter3.center = updatedLetter3Position
                     
-                    updatedLetter4Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    updatedLetter4Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-4*(self.view.frame.width/6)), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                     self.letter4.center = updatedLetter4Position
                     
-                    updatedLetter5Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    updatedLetter5Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-5*(self.view.frame.width/6)), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                     self.letter5.center = updatedLetter5Position
                     
-                    updatedLetter6Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    updatedLetter6Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-6*(self.view.frame.width/6)), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                     self.letter6.center = updatedLetter6Position
                     
                 })
