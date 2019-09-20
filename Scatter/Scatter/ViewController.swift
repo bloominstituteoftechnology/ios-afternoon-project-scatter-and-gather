@@ -101,6 +101,13 @@ class ViewController: UIViewController {
         var letter5BackgroundColor: UIColor = .clear
         var letter6BackgroundColor: UIColor = .clear
         
+        var letter1TextColor: UIColor = .black
+        var letter2TextColor: UIColor = .black
+        var letter3TextColor: UIColor = .black
+        var letter4TextColor: UIColor = .black
+        var letter5TextColor: UIColor = .black
+        var letter6TextColor: UIColor = .black
+        
         if isScattered {
             isScattered = false
             UIView.animate(withDuration: 2) {
@@ -108,26 +115,32 @@ class ViewController: UIViewController {
                 
                 self.letter1.center = updatedLetter1Position
                 self.letter1.backgroundColor = letter1BackgroundColor
+                self.letter1.textColor = letter1TextColor
                 self.letter1.transform = .identity
                 
                 self.letter2.center = updatedLetter2Position
                 self.letter2.backgroundColor = letter2BackgroundColor
+                self.letter2.textColor = letter2TextColor
                 self.letter2.transform = .identity
                 
                 self.letter3.center = updatedLetter3Position
                 self.letter3.backgroundColor = letter3BackgroundColor
+                self.letter3.textColor = letter3TextColor
                 self.letter3.transform = .identity
                 
                 self.letter4.center = updatedLetter4Position
                 self.letter4.backgroundColor = letter4BackgroundColor
+                self.letter4.textColor = letter4TextColor
                 self.letter4.transform = .identity
                 
                 self.letter5.center = updatedLetter5Position
                 self.letter5.backgroundColor = letter5BackgroundColor
+                self.letter5.textColor = letter5TextColor
                 self.letter5.transform = .identity
                 
                 self.letter6.center = updatedLetter6Position
                 self.letter6.backgroundColor = letter6BackgroundColor
+                self.letter6.textColor = letter6TextColor
                 self.letter6.transform = .identity
             }
         } else {
@@ -185,6 +198,26 @@ class ViewController: UIViewController {
                     
                     letter6BackgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
                     self.letter6.backgroundColor = letter6BackgroundColor
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.03, relativeDuration: 0.97, animations: {
+                    letter1TextColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter1.textColor = letter1TextColor
+                    
+                    letter2TextColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter2.textColor = letter2TextColor
+                    
+                    letter3TextColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter3.textColor = letter3TextColor
+                    
+                    letter4TextColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter4.textColor = letter4TextColor
+                    
+                    letter5TextColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter5.textColor = letter5TextColor
+                    
+                    letter6TextColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter6.textColor = letter6TextColor
                 })
                 
             }
