@@ -10,51 +10,52 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let letter1 = UILabel()
+    let letter2 = UILabel()
+    let letter3 = UILabel()
+    let letter4 = UILabel()
+    let letter5 = UILabel()
+    let letter6 = UILabel()
+    let image = UIImageView()
+    
     var isScattered = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        createLabelsAndImage()
+        configureLabelsAndImage()
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-        
+        runAnimation()
     }
     
-    private func createLabelsAndImage() {
+    private func configureLabelsAndImage() {
         
-        let letter1 = UILabel()
         letter1.translatesAutoresizingMaskIntoConstraints = false
 //        view.addSubview(letter1)
         letter1.text = "L"
         
-        let letter2 = UILabel()
         letter2.translatesAutoresizingMaskIntoConstraints = false
 //        view.addSubview(letter2)
         letter2.text = "a"
         
-        let letter3 = UILabel()
         letter3.translatesAutoresizingMaskIntoConstraints = false
 //        view.addSubview(letter3)
         letter3.text = "m"
         
-        let letter4 = UILabel()
         letter4.translatesAutoresizingMaskIntoConstraints = false
 //        view.addSubview(letter4)
         letter4.text = "b"
         
-        let letter5 = UILabel()
         letter5.translatesAutoresizingMaskIntoConstraints = false
 //        view.addSubview(letter5)
         letter5.text = "d"
         
-        let letter6 = UILabel()
         letter6.translatesAutoresizingMaskIntoConstraints = false
 //        view.addSubview(letter6)
         letter6.text = "a"
         
-        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(image)
         image.image = UIImage(named: "lambda_logo")
@@ -82,6 +83,24 @@ class ViewController: UIViewController {
         image.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         image.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
+    }
+    
+    func runAnimation() {
+        if isScattered {
+            isScattered = false
+            UIView.animate(withDuration: 2) {
+                self.image.alpha = 1
+                self.letter1.transform = .identity
+            }
+        } else {
+            isScattered = true
+            
+            
+            UIView.animate(withDuration: 2) {
+                self.image.alpha = 0
+                self.letter1.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
+            }
+        }
     }
     
 
