@@ -33,28 +33,28 @@ class ViewController: UIViewController {
     private func configureLabelsAndImage() {
         
         letter1.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(letter1)
         letter1.text = "L"
+        letter1.font = UIFont.systemFont(ofSize: 40)
         
         letter2.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(letter2)
         letter2.text = "a"
+        letter2.font = UIFont.systemFont(ofSize: 40)
         
         letter3.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(letter3)
         letter3.text = "m"
+        letter3.font = UIFont.systemFont(ofSize: 40)
         
         letter4.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(letter4)
         letter4.text = "b"
+        letter4.font = UIFont.systemFont(ofSize: 40)
         
         letter5.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(letter5)
         letter5.text = "d"
+        letter5.font = UIFont.systemFont(ofSize: 40)
         
         letter6.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(letter6)
         letter6.text = "a"
+        letter6.font = UIFont.systemFont(ofSize: 40)
         
         image.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(image)
@@ -91,15 +91,42 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 2) {
                 self.image.alpha = 1
                 self.letter1.transform = .identity
+                self.letter2.transform = .identity
+                self.letter3.transform = .identity
+                self.letter4.transform = .identity
+                self.letter5.transform = .identity
+                self.letter6.transform = .identity
             }
         } else {
             isScattered = true
             
-            
-            UIView.animate(withDuration: 2) {
-                self.image.alpha = 0
-                self.letter1.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
+            let animationBlock = {
+                
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
+                    self.letter1.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                    self.letter2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                    self.letter3.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                    self.letter4.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                    self.letter5.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                    self.letter6.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.9, animations: {
+                    self.image.alpha = 0
+                    self.letter1.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter2.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter3.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter4.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter5.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter6.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+//                    self.letter1.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                })
+                
+                
+                
             }
+            
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animationBlock, completion: nil)
         }
     }
     
