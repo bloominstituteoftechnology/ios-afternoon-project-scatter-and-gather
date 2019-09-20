@@ -86,15 +86,48 @@ class ViewController: UIViewController {
     }
     
     func runAnimation() {
+        
+        var updatedLetter1Position: CGPoint = CGPoint(x: view.frame.minX, y: 20)
+        var updatedLetter2Position: CGPoint = CGPoint(x: view.frame.width/6, y: 20)
+        var updatedLetter3Position: CGPoint = CGPoint(x: 3*(view.frame.width/6) - view.frame.width/6, y: 20)
+        var updatedLetter4Position: CGPoint = CGPoint(x: 4*(view.frame.width/6) - view.frame.width/6, y: 20)
+        var updatedLetter5Position: CGPoint = CGPoint(x: 5*(view.frame.width/6) - view.frame.width/6, y: 20)
+        var updatedLetter6Position: CGPoint = CGPoint(x: view.frame.maxX, y: 20)
+        
+        var letter1BackgroundColor: UIColor = .clear
+        var letter2BackgroundColor: UIColor = .clear
+        var letter3BackgroundColor: UIColor = .clear
+        var letter4BackgroundColor: UIColor = .clear
+        var letter5BackgroundColor: UIColor = .clear
+        var letter6BackgroundColor: UIColor = .clear
+        
         if isScattered {
             isScattered = false
             UIView.animate(withDuration: 2) {
                 self.image.alpha = 1
+                
+                self.letter1.center = updatedLetter1Position
+                self.letter1.backgroundColor = letter1BackgroundColor
                 self.letter1.transform = .identity
+                
+                self.letter2.center = updatedLetter2Position
+                self.letter2.backgroundColor = letter2BackgroundColor
                 self.letter2.transform = .identity
+                
+                self.letter3.center = updatedLetter3Position
+                self.letter3.backgroundColor = letter3BackgroundColor
                 self.letter3.transform = .identity
+                
+                self.letter4.center = updatedLetter4Position
+                self.letter4.backgroundColor = letter4BackgroundColor
                 self.letter4.transform = .identity
+                
+                self.letter5.center = updatedLetter5Position
+                self.letter5.backgroundColor = letter5BackgroundColor
                 self.letter5.transform = .identity
+                
+                self.letter6.center = updatedLetter6Position
+                self.letter6.backgroundColor = letter6BackgroundColor
                 self.letter6.transform = .identity
             }
         } else {
@@ -102,7 +135,7 @@ class ViewController: UIViewController {
             
             let animationBlock = {
                 
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1, animations: {
                     self.letter1.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
                     self.letter2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
                     self.letter3.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
@@ -111,18 +144,48 @@ class ViewController: UIViewController {
                     self.letter6.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
                 })
                 
-                UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.9, animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.01, relativeDuration: 0.99, animations: {
                     self.image.alpha = 0
-                    self.letter1.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
-                    self.letter2.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
-                    self.letter3.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
-                    self.letter4.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
-                    self.letter5.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
-                    self.letter6.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
-//                    self.letter1.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    
+                    updatedLetter1Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter1.center = updatedLetter1Position
+                    
+                    updatedLetter2Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter2.center = updatedLetter2Position
+                    
+                    updatedLetter3Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter3.center = updatedLetter3Position
+                    
+                    updatedLetter4Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter4.center = updatedLetter4Position
+                    
+                    updatedLetter5Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter5.center = updatedLetter5Position
+                    
+                    updatedLetter6Position = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width), y: CGFloat.random(in: 0...self.view.frame.height))
+                    self.letter6.center = updatedLetter6Position
+                    
                 })
                 
-                
+                UIView.addKeyframe(withRelativeStartTime: 0.02, relativeDuration: 0.98, animations: {
+                    letter1BackgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter1.backgroundColor = letter1BackgroundColor
+                    
+                    letter2BackgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter2.backgroundColor = letter2BackgroundColor
+                    
+                    letter3BackgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter3.backgroundColor = letter3BackgroundColor
+                    
+                    letter4BackgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter4.backgroundColor = letter4BackgroundColor
+                    
+                    letter5BackgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter5.backgroundColor = letter5BackgroundColor
+                    
+                    letter6BackgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                    self.letter6.backgroundColor = letter6BackgroundColor
+                })
                 
             }
             
