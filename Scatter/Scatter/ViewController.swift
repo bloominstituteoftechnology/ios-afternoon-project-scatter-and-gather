@@ -35,7 +35,6 @@ class ViewController: UIViewController {
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         runAnimation()
-//        animateTextColor()
     }
     
     private func configureLabelsAndImage() {
@@ -93,12 +92,6 @@ class ViewController: UIViewController {
         
     }
     
-//    func animateTextColor() {
-//        let letter1TextColorAnimation = CABasicAnimation(keyPath: "textColor")
-//        letter1TextColorAnimation.fromValue = letter1TextColor
-//        letter1TextColorAnimation.toValue = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-//    }
-    
     func runAnimation() {
         
         let updatedLetter1Position: CGPoint = CGPoint(x: view.frame.width/6-60, y: 20)
@@ -153,65 +146,38 @@ class ViewController: UIViewController {
         } else {
             isScattered = true
             
-            let animationBlock = {
+            UIView.animate(withDuration: 2) {
+                self.image.alpha = 0
                 
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25, animations: {
-                    self.letter1.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
-                    self.letter2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
-                    self.letter3.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
-                    self.letter4.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
-                    self.letter5.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
-                    self.letter6.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
-                })
+                self.letter1.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                self.letter2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                self.letter3.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                self.letter4.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                self.letter5.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
+                self.letter6.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
                 
-                UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
-                    self.image.alpha = 0
-                    
-                    self.letter1.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...self.view.frame.height-60))
-                    
-                    self.letter2.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
-                    
-                    self.letter3.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
-                    
-                    self.letter4.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
-                    
-                    self.letter5.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
-                    
-                    self.letter6.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
-                    
-                })
+                self.letter1.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...self.view.frame.height-60))
+                self.letter2.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
+                self.letter3.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
+                self.letter4.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
+                self.letter5.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
+                self.letter6.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                 
-                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25, animations: {
-                    self.letter1.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter2.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter3.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter4.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter5.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter6.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-                })
+                self.letter1.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter2.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter3.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter4.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter5.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter6.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
                 
-                UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25, animations: {
-                    self.letter1.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter2.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter3.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter4.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter5.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-
-                    self.letter6.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-                })
-                
+                self.letter1.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter2.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter3.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter4.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter5.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
+                self.letter6.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
             }
             
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animationBlock, completion: nil)
         }
     }
     
