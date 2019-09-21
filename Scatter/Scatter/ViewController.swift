@@ -18,13 +18,6 @@ class ViewController: UIViewController {
     let letter6 = UILabel()
     let image = UIImageView()
     
-    var letter1TextColor: UIColor = .black
-    var letter2TextColor: UIColor = .black
-    var letter3TextColor: UIColor = .black
-    var letter4TextColor: UIColor = .black
-    var letter5TextColor: UIColor = .black
-    var letter6TextColor: UIColor = .black
-    
     var isScattered = false
 
     override func viewDidLoad() {
@@ -92,8 +85,29 @@ class ViewController: UIViewController {
         
     }
     
+    func animateBackgroundColor() {
+        if isScattered {
+            UIView.animate(withDuration: 2.0) {
+                self.letter1.layer.backgroundColor = UIColor.clear.cgColor
+                self.letter2.layer.backgroundColor = UIColor.clear.cgColor
+                self.letter3.layer.backgroundColor = UIColor.clear.cgColor
+                self.letter4.layer.backgroundColor = UIColor.clear.cgColor
+                self.letter5.layer.backgroundColor = UIColor.clear.cgColor
+                self.letter6.layer.backgroundColor = UIColor.clear.cgColor
+            }
+        } else {
+            UIView.animate(withDuration: 2.0) {
+                self.letter1.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1).cgColor
+                self.letter2.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1).cgColor
+                self.letter3.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1).cgColor
+                self.letter4.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1).cgColor
+                self.letter5.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1).cgColor
+                self.letter6.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1).cgColor
+            }
+        }
+    }
+    
     func runAnimation() {
-        
         let updatedLetter1Position: CGPoint = CGPoint(x: view.frame.width/6-60, y: 20)
         let updatedLetter2Position: CGPoint = CGPoint(x: 2*(view.frame.width/6)-60, y: 20)
         let updatedLetter3Position: CGPoint = CGPoint(x: 3*(view.frame.width/6)-60, y: 20)
@@ -101,49 +115,39 @@ class ViewController: UIViewController {
         let updatedLetter5Position: CGPoint = CGPoint(x: 5*(view.frame.width/6)-60, y: 20)
         let updatedLetter6Position: CGPoint = CGPoint(x: 6*(view.frame.width/6)-60, y: 20)
         
-        let letter1BackgroundColor: UIColor = .clear
-        let letter2BackgroundColor: UIColor = .clear
-        let letter3BackgroundColor: UIColor = .clear
-        let letter4BackgroundColor: UIColor = .clear
-        let letter5BackgroundColor: UIColor = .clear
-        let letter6BackgroundColor: UIColor = .clear
-        
         if isScattered {
+            animateBackgroundColor()
             isScattered = false
+            
             UIView.animate(withDuration: 2) {
                 self.image.alpha = 1
                 
                 self.letter1.center = updatedLetter1Position
-                self.letter1.backgroundColor = letter1BackgroundColor
-                self.letter1.textColor = self.letter1TextColor
+                self.letter1.textColor = .black
                 self.letter1.transform = .identity
                 
                 self.letter2.center = updatedLetter2Position
-                self.letter2.backgroundColor = letter2BackgroundColor
-                self.letter2.textColor = self.letter2TextColor
+                self.letter2.textColor = .black
                 self.letter2.transform = .identity
                 
                 self.letter3.center = updatedLetter3Position
-                self.letter3.backgroundColor = letter3BackgroundColor
-                self.letter3.textColor = self.letter3TextColor
+                self.letter3.textColor = .black
                 self.letter3.transform = .identity
                 
                 self.letter4.center = updatedLetter4Position
-                self.letter4.backgroundColor = letter4BackgroundColor
-                self.letter4.textColor = self.letter4TextColor
+                self.letter4.textColor = .black
                 self.letter4.transform = .identity
                 
                 self.letter5.center = updatedLetter5Position
-                self.letter5.backgroundColor = letter5BackgroundColor
-                self.letter5.textColor = self.letter5TextColor
+                self.letter5.textColor = .black
                 self.letter5.transform = .identity
                 
                 self.letter6.center = updatedLetter6Position
-                self.letter6.backgroundColor = letter6BackgroundColor
-                self.letter6.textColor = self.letter6TextColor
+                self.letter6.textColor = .black
                 self.letter6.transform = .identity
             }
         } else {
+            animateBackgroundColor()
             isScattered = true
             
             UIView.animate(withDuration: 2) {
@@ -155,20 +159,13 @@ class ViewController: UIViewController {
                 self.letter4.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
                 self.letter5.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
                 self.letter6.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...2*CGFloat.pi))
-                
+
                 self.letter1.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...self.view.frame.height-60))
                 self.letter2.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                 self.letter3.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                 self.letter4.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                 self.letter5.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
                 self.letter6.center = CGPoint(x: CGFloat.random(in: 0...self.view.frame.width-60), y: CGFloat.random(in: 0...(self.view.frame.height-60)))
-                
-                self.letter1.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-                self.letter2.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-                self.letter3.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-                self.letter4.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-                self.letter5.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
-                self.letter6.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
                 
                 self.letter1.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
                 self.letter2.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
@@ -177,11 +174,7 @@ class ViewController: UIViewController {
                 self.letter5.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
                 self.letter6.textColor = UIColor(red: CGFloat.random(in: 1...255)/255, green: CGFloat.random(in: 1...255)/255, blue: CGFloat.random(in: 1...255)/255, alpha: 1)
             }
-            
         }
     }
-    
-
-
 }
 
