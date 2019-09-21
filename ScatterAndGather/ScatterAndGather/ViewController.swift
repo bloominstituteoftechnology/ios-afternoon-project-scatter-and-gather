@@ -47,8 +47,21 @@ class ViewController: UIViewController {
     }
 
     @IBAction func toggleButtonTapped(_ sender: Any) {
-        
+        if isScattered {
+            // return things to normal
+            UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
+                    self.imgLogo.alpha = 1.0
+                })
+            }, completion: nil)
+        } else {
+            UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
+                    self.imgLogo.alpha = 0.0
+                })
+            }, completion: nil)
+        }
+        isScattered = !isScattered
     }
-    
 }
 
