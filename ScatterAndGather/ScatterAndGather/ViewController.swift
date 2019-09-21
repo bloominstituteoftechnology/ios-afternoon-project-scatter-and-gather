@@ -59,7 +59,7 @@ class ViewController: UIViewController {
                 })
                 
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
-                    // rotate back
+                    // rotate back and move back
                     self.lblL.transform = .identity
                     self.lblA1.transform = .identity
                     self.lblM.transform = .identity
@@ -124,6 +124,32 @@ class ViewController: UIViewController {
                                                               blue: CGFloat.random(in: 1...255)/255,
                                                               alpha: 1.0).cgColor
                     
+                    // position
+                    let x0 = self.view.safeAreaInsets.left
+                    let x1 = self.view.frame.width - self.view.safeAreaInsets.right
+                    let y0 = self.view.safeAreaInsets.top
+                    let y1 = self.view.frame.height - self.view.safeAreaInsets.bottom
+                    
+                    
+                    let tlx = CGFloat.random(in: x0...x1) - self.lblL.center.x
+                    let tly = CGFloat.random(in: y0...y1) - self.lblL.center.y
+                    print("x: \(tlx), y: \(tly)")
+                    
+//                    self.lblL.transform = self.lblL.transform.translatedBy(x: CGFloat.random(in: x0...x1) - self.lblL.center.x,
+//                                                                           y: CGFloat.random(in: y0...y1) - self.lblL.center.y)
+                    self.lblL.transform = self.lblL.transform.translatedBy(x: tlx,
+                                                                           y: tly)
+
+                    self.lblA1.transform = self.lblL.transform.translatedBy(x: self.lblL.center.x - CGFloat.random(in: x0...x1),
+                                                                           y: self.lblL.center.y - CGFloat.random(in: y0...y1))
+                    self.lblM.transform = self.lblL.transform.translatedBy(x: CGFloat.random(in: x0...x1) - self.lblL.center.x,
+                                                                           y: CGFloat.random(in: y0...y1) - self.lblL.center.y)
+                    self.lblB.transform = self.lblL.transform.translatedBy(x: CGFloat.random(in: x0...x1) - self.lblL.center.x,
+                                                                           y: CGFloat.random(in: y0...y1) - self.lblL.center.y)
+                    self.lblD.transform = self.lblL.transform.translatedBy(x: CGFloat.random(in: x0...x1) - self.lblL.center.x,
+                                                                           y: CGFloat.random(in: y0...y1) - self.lblL.center.y)
+                    self.lblA2.transform = self.lblL.transform.translatedBy(x: CGFloat.random(in: x0...x1) - self.lblL.center.x,
+                                                                           y: CGFloat.random(in: y0...y1) - self.lblL.center.y)
                 }
                 
             }, completion: nil)
