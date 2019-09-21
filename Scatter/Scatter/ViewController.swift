@@ -107,6 +107,45 @@ class ViewController: UIViewController {
         }
     }
     
+    func animateShadows() {
+        if isScattered {
+            UIView.animate(withDuration: 2.0) {
+                self.letter1.layer.shadowOpacity = 0
+                self.letter2.layer.shadowOpacity = 0
+                self.letter3.layer.shadowOpacity = 0
+                self.letter4.layer.shadowOpacity = 0
+                self.letter5.layer.shadowOpacity = 0
+                self.letter6.layer.shadowOpacity = 0
+            }
+        } else {
+            UIView.animate(withDuration: 2.0) {
+                self.letter1.layer.shadowColor = UIColor.black.cgColor
+                self.letter1.layer.shadowOffset = CGSize(width: 6, height: 6)
+                self.letter1.layer.shadowOpacity = 1
+                
+                self.letter2.layer.shadowColor = UIColor.black.cgColor
+                self.letter2.layer.shadowOffset = CGSize(width: 6, height: 6)
+                self.letter2.layer.shadowOpacity = 1
+                
+                self.letter3.layer.shadowColor = UIColor.black.cgColor
+                self.letter3.layer.shadowOffset = CGSize(width: 6, height: 6)
+                self.letter3.layer.shadowOpacity = 1
+                
+                self.letter4.layer.shadowColor = UIColor.black.cgColor
+                self.letter4.layer.shadowOffset = CGSize(width: 6, height: 6)
+                self.letter4.layer.shadowOpacity = 1
+                
+                self.letter5.layer.shadowColor = UIColor.black.cgColor
+                self.letter5.layer.shadowOffset = CGSize(width: 6, height: 6)
+                self.letter5.layer.shadowOpacity = 1
+                
+                self.letter6.layer.shadowColor = UIColor.black.cgColor
+                self.letter6.layer.shadowOffset = CGSize(width: 6, height: 6)
+                self.letter6.layer.shadowOpacity = 1
+            }
+        }
+    }
+    
     func runAnimation() {
         let updatedLetter1Position: CGPoint = CGPoint(x: view.frame.width/6-60, y: 20)
         let updatedLetter2Position: CGPoint = CGPoint(x: 2*(view.frame.width/6)-60, y: 20)
@@ -117,6 +156,7 @@ class ViewController: UIViewController {
         
         if isScattered {
             animateBackgroundColor()
+            animateShadows()
             isScattered = false
             
             UIView.animate(withDuration: 2) {
@@ -148,6 +188,7 @@ class ViewController: UIViewController {
             }
         } else {
             animateBackgroundColor()
+            animateShadows()
             isScattered = true
             
             UIView.animate(withDuration: 2) {
