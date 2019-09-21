@@ -47,19 +47,89 @@ class ViewController: UIViewController {
     }
 
     @IBAction func toggleButtonTapped(_ sender: Any) {
+        NSLayoutConstraint.deactivate(labelConstraints)
+        
         if isScattered {
             // return things to normal
-            UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: {
+            
+            UIView.animateKeyframes(withDuration: 1.0, delay: 0, options: [], animations: {
+                // fade in logo
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                     self.imgLogo.alpha = 1.0
                 })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    // rotate back
+                    self.lblL.transform = .identity
+                    self.lblA1.transform = .identity
+                    self.lblM.transform = .identity
+                    self.lblB.transform = .identity
+                    self.lblD.transform = .identity
+                    self.lblA2.transform = .identity
+                    
+                    // remove background colors
+                    self.lblL.layer.backgroundColor = UIColor.white.cgColor
+                    self.lblA1.layer.backgroundColor = UIColor.white.cgColor
+                    self.lblM.layer.backgroundColor = UIColor.white.cgColor
+                    self.lblB.layer.backgroundColor = UIColor.white.cgColor
+                    self.lblD.layer.backgroundColor = UIColor.white.cgColor
+                    self.lblA2.layer.backgroundColor = UIColor.white.cgColor
+                }
             }, completion: nil)
+            
+            
+            
+            
         } else {
-            UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: {
+            // fade and scatter
+            
+            UIView.animateKeyframes(withDuration: 1.0, delay: 0, options: [], animations: {
+                // fade out logo
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0, animations: {
                     self.imgLogo.alpha = 0.0
                 })
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    // rotate
+                    self.lblL.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -180...180) * CGFloat.pi / 180)
+                    self.lblA1.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -180...180) * CGFloat.pi / 180)
+                    self.lblM.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -180...180) * CGFloat.pi / 180)
+                    self.lblB.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -180...180) * CGFloat.pi / 180)
+                    self.lblD.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -180...180) * CGFloat.pi / 180)
+                    self.lblA2.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: -180...180) * CGFloat.pi / 180)
+                    
+                    // background colors
+                    self.lblL.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255,
+                                               green: CGFloat.random(in: 1...255)/255,
+                                               blue: CGFloat.random(in: 1...255)/255,
+                                               alpha: 1.0).cgColor
+                    self.lblA1.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255,
+                                                              green: CGFloat.random(in: 1...255)/255,
+                                                              blue: CGFloat.random(in: 1...255)/255,
+                                                              alpha: 1.0).cgColor
+                    self.lblM.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255,
+                                                              green: CGFloat.random(in: 1...255)/255,
+                                                              blue: CGFloat.random(in: 1...255)/255,
+                                                              alpha: 1.0).cgColor
+                    self.lblB.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255,
+                                                              green: CGFloat.random(in: 1...255)/255,
+                                                              blue: CGFloat.random(in: 1...255)/255,
+                                                              alpha: 1.0).cgColor
+                    self.lblD.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255,
+                                                              green: CGFloat.random(in: 1...255)/255,
+                                                              blue: CGFloat.random(in: 1...255)/255,
+                                                              alpha: 1.0).cgColor
+                    self.lblA2.layer.backgroundColor = UIColor(red: CGFloat.random(in: 1...255)/255,
+                                                              green: CGFloat.random(in: 1...255)/255,
+                                                              blue: CGFloat.random(in: 1...255)/255,
+                                                              alpha: 1.0).cgColor
+                    
+                }
+                
             }, completion: nil)
+            
+            
+            
         }
         isScattered = !isScattered
     }
