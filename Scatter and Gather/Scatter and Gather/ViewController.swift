@@ -20,6 +20,8 @@ class ViewController: UIViewController {
     let dLabel = UILabel()
     let a2Label = UILabel()
     var labelArray: [UILabel] = []
+    var originalCoordinates: [CGPoint] = []
+    var labelIndex: Int = 0
     
     //MARK: - IBOutlets
     @IBOutlet weak var toggleButton: UIBarButtonItem!
@@ -36,59 +38,10 @@ class ViewController: UIViewController {
 
         //Disable toggleButton
         toggleButton.isEnabled = false
+    
+        scatterAnimation()
+        //gatherAnimation()
         
-        //Create Array to hold orginal label positions, and index to iterate through array
-        var originalCoordinates: [CGPoint] = []
-        var labelIndex = 0
-            
-        //Scatter Animation
-        UIView.animate(withDuration: 1.5, delay: 0.0, options: [], animations: {
-            //Fade Lambda Logo out
-            self.lambdaLogo.alpha = 0.0
-            
-            //Iterate through each label, setting new position, changing colors, and changing rotation angle.
-            for label in self.labelArray {
-                
-                //Move label to new random coordinates
-                originalCoordinates.append(label.center)
-                let newCoordinates = self.getRandomCoordinates(for: label)
-                label.center = CGPoint(x: newCoordinates[0], y: newCoordinates[1])
-                
-                //Set textColor and layer.backgroundColor for each label to a random color
-                let randomTextColorInt = Int.random(in: 1...6)
-                var randomLabelColorInt = Int.random(in: 1...6)
-                
-                while randomTextColorInt == randomLabelColorInt {
-                    randomLabelColorInt = Int.random(in: 1...6)
-                }
-                
-                label.textColor = self.setColors(for: randomTextColorInt)
-                label.layer.backgroundColor = self.setColors(for: randomLabelColorInt).cgColor
-            }
-        }, completion: nil)
-        
-        UIView.animate(withDuration: 1.5, delay: 0.0, options: [], animations: {
-            for label in self.labelArray {
-                label.transform = CGAffineTransform(rotationAngle: self.getRandomAngle())
-            }
-        }, completion: nil)
-        
-        //Gather Animation
-        UIView.animate(withDuration: 2.00, delay: 2.5, options: .curveEaseOut, animations: {
-            self.lambdaLogo.alpha = 1.0
-            
-            for label in self.labelArray {
-                
-                //Move label to associated previous coordinates
-                label.center = originalCoordinates[labelIndex]
-                labelIndex += 1
-                
-                label.transform = .identity
-            }
-            
-        }, completion: { (_) in
-            self.toggleButton.isEnabled = true
-        })
     }
     
     //MARK: - Constraints Functions
@@ -180,6 +133,92 @@ class ViewController: UIViewController {
     
     //MARK: - Animation Functions
     
+    private func scatterAnimation() {
+        
+        //Begin logo fading and label scattering
+        UIView.animateKeyframes(withDuration: 2.0, delay: 0.0, options: [], animations: {
+            
+            //Fade out Lambda Logo
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                self.lambdaLogo.alpha = 0.0
+            }
+            
+            //Scatter each label to a randomly generated location, with new backgroundColor and textColor
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+               for label in self.labelArray {
+                   //Move label to new random coordinates
+                   self.originalCoordinates.append(label.center)
+                   let newCoordinates = self.getRandomCoordinates(for: label)
+                   label.center = CGPoint(x: newCoordinates[0], y: newCoordinates[1])
+               }
+            }
+            
+            //Randomly color each labels background color
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                for label in self.labelArray {
+                    let randomLabelColorInt = Int.random(in: 0...5)
+                    label.layer.backgroundColor = self.setColors(for: randomLabelColorInt).cgColor
+                }
+            }
+            
+            //Randomly set the textColor property of each label
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                for label in self.labelArray {
+                    var randomTextColorInt = Int.random(in: 0...5)
+                    
+                    while self.setColors(for: randomTextColorInt).cgColor == label.layer.backgroundColor {
+                        randomTextColorInt = Int.random(in: 0...5)
+                    }
+                    
+                    label.textColor = self.setColors(for: randomTextColorInt)
+                }
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+               for label in self.labelArray {
+                   label.transform = CGAffineTransform(rotationAngle: self.getRandomAngle())
+               }
+            }
+            
+        }, completion: { (_) in
+            self.gatherAnimation()
+        })
+        
+    }
+    
+    //Animation to gather letters to original position, and reset label color properties
+    private func gatherAnimation() {
+        
+        UIView.animateKeyframes(withDuration: 2.2, delay: 0.0, options: [], animations: {
+            
+            //Fade Lambda Logo back in
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 1.0) {
+                self.lambdaLogo.alpha = 1.0
+            }
+            
+            //Reset Labels to original properties.
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 1.0) {
+                
+                self.labelIndex = 0
+                
+                for label in self.labelArray {
+                    
+                    //Reset labels to original values
+                    label.center = self.originalCoordinates[self.labelIndex]
+                    self.labelIndex += 1
+                    
+                    label.transform = .identity
+                    label.layer.backgroundColor = UIColor.clear.cgColor
+                    label.textColor = .black
+                }
+            }
+            
+        }, completion: { (_) in
+            self.toggleButton.isEnabled = true
+        })
+        
+    }
+    
     //Generate random coordinates and return in array
     private func getRandomCoordinates(for label: UILabel) -> [CGFloat] {
         
@@ -207,22 +246,16 @@ class ViewController: UIViewController {
 
     //Generate UIColor depending on randomnly selected number, passed into function
     private func setColors(for int: Int) -> UIColor {
-        switch int {
-        case 1:
-            return UIColor.red
-        case 2:
-            return UIColor.blue
-        case 3:
-            return UIColor.yellow
-        case 4:
-            return UIColor.green
-        case 5:
-            return UIColor.orange
-        case 6:
-            return UIColor.darkGray
-        default:
-            return UIColor.black
-        }
+        
+        //Create array of colors to allow random number to choose random color
+        let colorArray: [UIColor] = [UIColor.red,
+                                     UIColor.blue,
+                                     UIColor.yellow,
+                                     UIColor.green,
+                                     UIColor.orange,
+                                     UIColor.darkGray]
+        
+        return colorArray[int]
     }
     
 }
