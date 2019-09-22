@@ -9,6 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var lLabel: UILabel!
+    @IBOutlet weak var aLabel: UILabel!
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var bLabel: UILabel!
+    @IBOutlet weak var dLabel: UILabel!
+    @IBOutlet weak var a2Label: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     
     private var isScattered: Bool = false
 
