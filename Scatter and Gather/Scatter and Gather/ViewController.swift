@@ -11,15 +11,25 @@ import UIKit
 class ViewController: UIViewController {
 
     //MARK: - Properties
+    
+    //Boolen to hold value for current state of UILabels
     var isScattered: Bool = false
+    
+    //UIImageView to display Lambda Logo
     let lambdaLogo = UIImageView()
+    
+    //Create individual UILabels for each letter in "LAMBDA"
     let lLabel = UILabel()
     let aLabel = UILabel()
     let mLabel = UILabel()
     let bLabel = UILabel()
     let dLabel = UILabel()
     let a2Label = UILabel()
+    
+    //Array to hold UILabels for manipulation later
     var labelArray: [UILabel] = []
+    
+    //Array to hold original coordinates for each UILabel, and a counting index, used in "Gather" animation
     var originalCoordinates: [CGPoint] = []
     var labelIndex: Int = 0
     
@@ -94,7 +104,7 @@ class ViewController: UIViewController {
             lLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: leadingSpacing),
             lLabel.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
-
+        
         NSLayoutConstraint.activate([
             aLabel.heightAnchor.constraint(equalToConstant: labelDimension),
             aLabel.widthAnchor.constraint(equalToConstant: labelDimension),
