@@ -88,6 +88,7 @@
                         <outlet property="lLabel" destination="SC0-Z7-MWD" id="Y5h-7a-sak"/>
                         <outlet property="logoImageView" destination="tDe-Zc-WxW" id="p3y-uy-ql6"/>
                         <outlet property="mLabel" destination="7OM-8q-vhY" id="Uf9-lU-wof"/>
+                        <outlet property="stackView" destination="TxL-Vr-Kd9" id="VM3-ok-bGJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
