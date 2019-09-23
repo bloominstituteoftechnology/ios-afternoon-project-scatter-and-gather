@@ -112,54 +112,47 @@ class ViewController: UIViewController {
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         if isScattered == false {
-            gatherAnimation()
+            scatterAnimation()
             isScattered = !isScattered
         } else {
-            scatterAnimation()
+            gatherAnimation()
             isScattered = !isScattered
         }
     }
     
     func scatterAnimation() {
         
-        UIView.animate(withDuration: 2.5, animations: {
-            func logoAnimation() {
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, options: [], animations: {
+            
+            // Image fade out
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
                 self.imageView.alpha = 0.0
             }
             
-            func locationAnimation() {
-                
+            // Labels
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                <#code#>
             }
             
-            func attributesAnimation() {
-                
-            }
-            
-            func rotateAnimation() {
-                
-            }
         }, completion: nil)
-        
     }
 
     
     func gatherAnimation() {
         
-        func returnLogoAnimation() {
-            self.imageView.alpha = 0.0
-        }
-        
-        func returnLocationAnimation() {
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, options: [], animations: {
             
-        }
-        
-        func returnAttributesAnimation() {
+            // Image fade in
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                self.imageView.alpha = 1.0
+            }
             
-        }
-        
-        func returnRotateAnimation() {
+            // Labels
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                <#code#>
+            }
             
-        }
+        }, completion: nil)
         
         
     }
