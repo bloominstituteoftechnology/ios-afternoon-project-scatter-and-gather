@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     
-    let toggleButton = UIBarButtonItem()
     let imageView = UIImageView()
     let letter1 = UILabel()
     let letter2 = UILabel()
@@ -32,8 +31,7 @@ class ViewController: UIViewController {
     
     func setUpSubviews() {
         
-        self.toggleButton.title = "Toggle"
-        navigationItem.rightBarButtonItem = toggleButton
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonPressed(_:)))
         navigationItem.title = "Scatter & Gather"
         
         
@@ -121,40 +119,112 @@ class ViewController: UIViewController {
     }
     
     func scatterAnimation() {
-        
+
         UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, options: [], animations: {
-            
+
             // Image fade out
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
                 self.imageView.alpha = 0.0
             }
-            
+
             // Labels
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
-                <#code#>
+
+
+                // Location
+
+                self.letter1.center = // random position
+                self.letter2.center =
+                self.letter3.center =
+                self.letter4.center =
+                self.letter5.center =
+                self.letter6.center =
+
+                // Background color
+
+                self.letter1.backgroundColor = // random color
+                self.letter2.backgroundColor =
+                self.letter3.backgroundColor =
+                self.letter4.backgroundColor =
+                self.letter5.backgroundColor =
+                self.letter6.backgroundColor =
+
+                // Text color
+
+                self.letter1.textColor = // random color
+                self.letter2.textColor =
+                self.letter3.textColor =
+                self.letter4.textColor =
+                self.letter5.textColor =
+                self.letter6.textColor =
+
+                // Rotate views
+                self.letter1.transform = CGAffineTransform(rotationAngle: 1)
+                self.letter2.transform = CGAffineTransform(rotationAngle: 1)
+                self.letter3.transform = CGAffineTransform(rotationAngle: 1)
+                self.letter4.transform = CGAffineTransform(rotationAngle: 1)
+                self.letter5.transform = CGAffineTransform(rotationAngle: 1)
+                self.letter6.transform = CGAffineTransform(rotationAngle: 1)
             }
-            
+
         }, completion: nil)
     }
 
-    
+
     func gatherAnimation() {
-        
+
         UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, options: [], animations: {
-            
+
             // Image fade in
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
                 self.imageView.alpha = 1.0
             }
-            
+
             // Labels
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
-                <#code#>
+
+                // Location
+
+                self.letter1.center = // need to set to original position
+                self.letter2.center =
+                self.letter3.center =
+                self.letter4.center =
+                self.letter5.center =
+                self.letter6.center =
+
+                // Background color
+
+                self.letter1.backgroundColor = .white
+                self.letter2.backgroundColor = .white
+                self.letter3.backgroundColor = .white
+                self.letter4.backgroundColor = .white
+                self.letter5.backgroundColor = .white
+                self.letter6.backgroundColor = .white
+
+                // Text color
+
+                self.letter1.textColor = .black
+                self.letter2.textColor = .black
+                self.letter3.textColor = .black
+                self.letter4.textColor = .black
+                self.letter5.textColor = .black
+                self.letter6.textColor = .black
+
+                // Rotate views
+
+                self.letter1.transform = .identity
+                self.letter2.transform = .identity
+                self.letter3.transform = .identity
+                self.letter4.transform = .identity
+                self.letter5.transform = .identity
+                self.letter6.transform = .identity
+
+
             }
-            
+
         }, completion: nil)
-        
-        
+
+
     }
 
 }
