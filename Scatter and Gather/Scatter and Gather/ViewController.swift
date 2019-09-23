@@ -53,21 +53,14 @@ class ViewController: UIViewController {
         }
     }
     
-    // to move a letter
-    private func movedLetter() -> CGPoint {
-        let point = randomPoint(from: self)
-        let convertedPoint = self.view.convert(point, to: stackView)
-        return convertedPoint
-    }
-    
     // to move all letters at once
     private func movedAll(forward: Bool) {
-        self.lLabel.center = forward ? movedLetter() : self.origins[self.lLabel] ?? .zero
-        self.aLabel.center = forward ? movedLetter() : self.origins[self.aLabel] ?? .zero
-        self.mLabel.center = forward ? movedLetter() : self.origins[self.mLabel] ?? .zero
-        self.bLabel.center = forward ? movedLetter() : self.origins[self.bLabel] ?? .zero
-        self.dLabel.center = forward ? movedLetter() : self.origins[self.dLabel] ?? .zero
-        self.a2Label.center = forward ? movedLetter() : self.origins[self.a2Label] ?? .zero
+        let labels = [self.lLabel, self.aLabel, self.mLabel, self.bLabel, self.dLabel, self.a2Label]
+        
+        for label in labels {
+            guard let label = label else { return }
+            label.center = forward ? movedLetter() : origins[label] ?? .zero
+        }
     }
     
     // random colors
@@ -83,21 +76,20 @@ class ViewController: UIViewController {
     private func changeBgColor(forward: Bool) {
         let labels = [self.lLabel, self.aLabel, self.mLabel, self.bLabel, self.dLabel, self.a2Label]
         for label in labels {
-            label?.backgroundColor = forward ? randomColor() : UIColor.clear
-            label?.textColor = forward ? randomColor() : UIColor.black
+            guard let label = label else { return }
+            label.backgroundColor = forward ? randomColor() : UIColor.clear
+            label.textColor = forward ? randomColor() : UIColor.black
         }
     }
     
     // rotate the views
     private func rotateLetter(forward: Bool) {
         
-        self.lLabel.transform = forward ? CGAffineTransform(rotationAngle: CGFloat.random(in: -CGFloat.pi...CGFloat.pi)) : .identity
-        self.aLabel.transform = forward ? CGAffineTransform(rotationAngle: CGFloat.random(in: -CGFloat.pi...CGFloat.pi)) : .identity
-            self.mLabel.transform = forward ? CGAffineTransform(rotationAngle: CGFloat.random(in: -CGFloat.pi...CGFloat.pi)) : .identity
-            self.bLabel.transform = forward ? CGAffineTransform(rotationAngle: CGFloat.random(in: -CGFloat.pi...CGFloat.pi)) : .identity
-            self.dLabel.transform = forward ? CGAffineTransform(rotationAngle: CGFloat.random(in: -CGFloat.pi...CGFloat.pi)) : .identity
-            self.a2Label.transform = forward ? CGAffineTransform(rotationAngle: CGFloat.random(in: -CGFloat.pi...CGFloat.pi)) : .identity
-        
+        let labels = [self.lLabel, self.aLabel, self.mLabel, self.bLabel, self.dLabel, self.a2Label]
+        for label in labels {
+            guard let label = label else { return }
+            label.transform = forward ? CGAffineTransform(rotationAngle: CGFloat.random(in: -CGFloat.pi...CGFloat.pi)) : .identity
+        }
     }
     
     // random point
@@ -111,6 +103,13 @@ class ViewController: UIViewController {
         let randomY = CGFloat.random(in: minY...vc.view.frame.maxY)
         let randomPoint = CGPoint(x: randomX, y: randomY)
         return randomPoint
+    }
+    
+    // to move a letter
+    private func movedLetter() -> CGPoint {
+        let point = randomPoint(from: self)
+        let convertedPoint = self.view.convert(point, to: stackView)
+        return convertedPoint
     }
 }
 
