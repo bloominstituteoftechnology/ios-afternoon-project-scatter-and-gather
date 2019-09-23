@@ -12,6 +12,13 @@ class ViewController: UIViewController {
     
     
     let toggleButton = UIBarButtonItem()
+    let imageView = UIImageView()
+    let letter1 = UILabel()
+    let letter2 = UILabel()
+    let letter3 = UILabel()
+    let letter4 = UILabel()
+    let letter5 = UILabel()
+    let letter6 = UILabel()
  
     
     
@@ -20,17 +27,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSubviews()
-        // Do any additional setup after loading the view.
+        
     }
     
     func setUpSubviews() {
         
-        let toggleButton = UIBarButtonItem()
-        toggleButton.title = "Toggle"
+        self.toggleButton.title = "Toggle"
         navigationItem.rightBarButtonItem = toggleButton
         navigationItem.title = "Scatter & Gather"
         
-        let imageView = UIImageView()
+        
         imageView.image = UIImage(named: "lambda_logo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
@@ -39,7 +45,7 @@ class ViewController: UIViewController {
         imageView.heightAnchor.constraint(equalToConstant: 75).isActive = true
         imageView.centerYAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor, constant: 0).isActive = true
         
-        let letter1 = UILabel()
+        
         letter1.font = UIFont.systemFont(ofSize: 30)
         letter1.text = "L"
         letter1.translatesAutoresizingMaskIntoConstraints = false
@@ -49,7 +55,7 @@ class ViewController: UIViewController {
         letter1.widthAnchor.constraint(equalToConstant: 25).isActive = true
         
         
-        let letter2 = UILabel()
+        
         letter2.font = UIFont.systemFont(ofSize: 30)
         letter2.text = "a"
         letter2.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +65,7 @@ class ViewController: UIViewController {
         letter2.widthAnchor.constraint(equalToConstant: 25).isActive = true
       
         
-        let letter3 = UILabel()
+        
         letter3.font = UIFont.systemFont(ofSize: 30)
         letter3.text = "m"
         letter3.translatesAutoresizingMaskIntoConstraints = false
@@ -69,7 +75,7 @@ class ViewController: UIViewController {
         letter3.widthAnchor.constraint(equalToConstant: 25).isActive = true
         
         
-        let letter4 = UILabel()
+        
         letter4.font = UIFont.systemFont(ofSize: 30)
         letter4.text = "b"
         letter4.translatesAutoresizingMaskIntoConstraints = false
@@ -79,7 +85,7 @@ class ViewController: UIViewController {
         letter4.widthAnchor.constraint(equalToConstant: 25).isActive = true
         
         
-        let letter5 = UILabel()
+        
         letter5.font = UIFont.systemFont(ofSize: 30)
         letter5.text = "d"
         letter5.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +95,7 @@ class ViewController: UIViewController {
         letter5.widthAnchor.constraint(equalToConstant: 25).isActive = true
        
         
-        let letter6 = UILabel()
+        
         letter6.font = UIFont.systemFont(ofSize: 30)
         letter6.text = "a"
         letter6.translatesAutoresizingMaskIntoConstraints = false
@@ -105,9 +111,58 @@ class ViewController: UIViewController {
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+        if isScattered == false {
+            gatherAnimation()
+            isScattered = !isScattered
+        } else {
+            scatterAnimation()
+            isScattered = !isScattered
+        }
+    }
+    
+    func scatterAnimation() {
+        
+        UIView.animate(withDuration: 2.5, animations: {
+            func logoAnimation() {
+                self.imageView.alpha = 0.0
+            }
+            
+            func locationAnimation() {
+                
+            }
+            
+            func attributesAnimation() {
+                
+            }
+            
+            func rotateAnimation() {
+                
+            }
+        }, completion: nil)
         
     }
 
+    
+    func gatherAnimation() {
+        
+        func returnLogoAnimation() {
+            self.imageView.alpha = 0.0
+        }
+        
+        func returnLocationAnimation() {
+            
+        }
+        
+        func returnAttributesAnimation() {
+            
+        }
+        
+        func returnRotateAnimation() {
+            
+        }
+        
+        
+    }
 
 }
 
