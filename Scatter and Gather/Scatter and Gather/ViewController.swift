@@ -84,6 +84,7 @@ class ViewController: UIViewController {
         let labels = [self.lLabel, self.aLabel, self.mLabel, self.bLabel, self.dLabel, self.a2Label]
         for label in labels {
             label?.backgroundColor = forward ? randomColor() : UIColor.clear
+            label?.textColor = forward ? randomColor() : UIColor.black
         }
     }
     
