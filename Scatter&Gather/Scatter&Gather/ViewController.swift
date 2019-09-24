@@ -186,7 +186,7 @@ class ViewController: UIViewController {
                 // Location
 
                 self.letter1.center = // need to set to original position
-                self.letter2.center =
+                self.letter2.center = 
                 self.letter3.center =
                 self.letter4.center =
                 self.letter5.center =
