@@ -13,6 +13,7 @@
 		84212E85234D42E7006437F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84212E84234D42E7006437F6 /* Assets.xcassets */; };
 		84212E88234D42E7006437F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84212E86234D42E7006437F6 /* LaunchScreen.storyboard */; };
 		84212E90234D431D006437F6 /* LambdaScatterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84212E8F234D431D006437F6 /* LambdaScatterViewController.swift */; };
+		84212E92234D5002006437F6 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84212E91234D5002006437F6 /* ImageModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		84212E87234D42E7006437F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84212E89234D42E7006437F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84212E8F234D431D006437F6 /* LambdaScatterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LambdaScatterViewController.swift; sourceTree = "<group>"; };
+		84212E91234D5002006437F6 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				84212E7B234D42E6006437F6 /* AppDelegate.swift */,
 				84212E7D234D42E6006437F6 /* SceneDelegate.swift */,
 				84212E8F234D431D006437F6 /* LambdaScatterViewController.swift */,
+				84212E91234D5002006437F6 /* ImageModel.swift */,
 				84212E81234D42E6006437F6 /* Main.storyboard */,
 				84212E84234D42E7006437F6 /* Assets.xcassets */,
 				84212E86234D42E7006437F6 /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				84212E7C234D42E6006437F6 /* AppDelegate.swift in Sources */,
 				84212E90234D431D006437F6 /* LambdaScatterViewController.swift in Sources */,
 				84212E7E234D42E6006437F6 /* SceneDelegate.swift in Sources */,
+				84212E92234D5002006437F6 /* ImageModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

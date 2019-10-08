@@ -22,7 +22,7 @@ class LambdaScatterViewController: UIViewController {
     
     var isScattered: Bool = false
     
-    
+    let imageLogo: ImageModel = ImageModel(name: "lambda_logo")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +31,7 @@ class LambdaScatterViewController: UIViewController {
     }
     
     func updateViews() {
-        
+        logoImageView.image = imageLogo.image
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
@@ -60,53 +60,78 @@ class LambdaScatterViewController: UIViewController {
             self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
         }
         
-        backgroundColorChange(aLabel: lLabel)
+        backgroundColorChange(theLabel: lLabel)
         
         UIView.animate(withDuration: 3) {
             self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
         }
         
-        backgroundColorChange(aLabel: aLabel)
+        backgroundColorChange(theLabel: aLabel)
         
         UIView.animate(withDuration: 3) {
             self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
         }
         
-        backgroundColorChange(aLabel: mLabel)
+        backgroundColorChange(theLabel: mLabel)
         
         UIView.animate(withDuration: 3) {
             self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
         }
         
-        backgroundColorChange(aLabel: bLabel)
+        backgroundColorChange(theLabel: bLabel)
         
         UIView.animate(withDuration: 3) {
             self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
         }
         
-        backgroundColorChange(aLabel: dLabel)
+        backgroundColorChange(theLabel: dLabel)
         
         UIView.animate(withDuration: 3) {
             self.lastALabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
         }
         
-        backgroundColorChange(aLabel: lastALabel)
+        backgroundColorChange(theLabel: lastALabel)
         
     }
     
     func gatherLetters() {
+       
+        UIView.animate(withDuration: 1.5) {
+            self.lLabel.transform = .identity
+        }
+        
+        UIView.animate(withDuration: 1.5) {
+            self.aLabel.transform = .identity
+        }
+        
+        UIView.animate(withDuration: 1.5) {
+            self.mLabel.transform = .identity
+        }
+        
+        UIView.animate(withDuration: 1.5) {
+            self.bLabel.transform = .identity
+        }
+        
+        UIView.animate(withDuration: 1.5) {
+            self.dLabel.transform = .identity
+        }
+        
+        UIView.animate(withDuration: 1.5) {
+            self.lastALabel.transform = .identity
+        }
         
     }
     
-    func backgroundColorChange(aLabel: UILabel) {
+    func backgroundColorChange(theLabel: UILabel) {
         
-        let label = aLabel
+        let label = theLabel
         
         let colorAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.backgroundColor))
         colorAnimation.fromValue = label.layer.backgroundColor
         
         let color = randomColor()
         
+        label.textColor = UIColor(cgColor: color)
         label.layer.borderColor = color
         colorAnimation.toValue = color
         colorAnimation.duration = 1
