@@ -9,18 +9,18 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-// MARK: Properties
+    
+    // MARK: Properties
     
     var isScattered = false
     var labels: [UILabel] = []
     
-// MARK: Outlets
+    // MARK: Outlets
     
     @IBOutlet var lLabel: UILabel!
     @IBOutlet var firstALabel: UILabel!
     @IBOutlet var mLabel: UILabel!
-   
+    
     @IBOutlet var bLabel: UILabel!
     @IBOutlet var dLabel: UILabel!
     @IBOutlet var secondALabel: UILabel!
@@ -33,25 +33,22 @@ class ViewController: UIViewController {
         
         
     }
-// MARK: Actions
+    // MARK: Actions
     
     // isScattered = boolean that can be toggled
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-            if isScattered {
-                gatherAnimation()
-                UIView.animate(withDuration: 4, animations: {
-                    self.lambdaLogoImageView.alpha = 1
-                }, completion: nil)
-            } else {
-                scatterAnimation()
-                UIView.animate(withDuration: 0.5, animations: {
-                    self.lambdaLogoImageView.alpha = 0
-                }, completion: nil)
-            }
-            isScattered = !isScattered
+        if isScattered {
+            gatherAnimation()
+            fadeLogo()
+        } else {
+            scatterAnimation()
+            fadeLogo()
         }
-    
-        func gatherAnimation() {
+        isScattered = !isScattered
+    }
+
+// MARK: Gather
+    func gatherAnimation() {
         let labels: [UILabel] = [lLabel, firstALabel, mLabel, bLabel, dLabel, secondALabel]
         
         for i in labels {
@@ -59,57 +56,63 @@ class ViewController: UIViewController {
         }
     }
     
+// MARK: Scatter
     func scatterAnimation() {
         let labels: [UILabel] = [lLabel, firstALabel, mLabel, bLabel, dLabel, secondALabel]
         for i in labels {
             animate(label: i)
         }
     }
-    
+ 
+// MARK: Fade Logo
     func fadeLogo() {
         UIView.animateKeyframes(withDuration: 4, delay: 0,options: [], animations: {
-           
+            
             UIView.addKeyframe(withRelativeStartTime: 0,
-                               relativeDuration: 2) {
+                               relativeDuration: 1) {
                                 self.lambdaLogoImageView.alpha = 0
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 2,
+            UIView.addKeyframe(withRelativeStartTime: 1,
                                relativeDuration: 2) {
                                 self.lambdaLogoImageView.alpha = 1
             }
         },
-        completion: nil)
-}
-    
-    func animate(label: UILabel) {
-            
-            //Background Color
-            UILabel.animate(withDuration: 4, animations: {
-                label.layer.backgroundColor = UIColor.random().cgColor
-            }, completion: nil)
-        
-            //Rotation And Position
-            UILabel.animate(withDuration: 4) {
-                label.transform = CGAffineTransform(rotationAngle: .random(in: 0...10))
-                    .concatenating(CGAffineTransform(translationX: CGFloat.random(in: -250...300), y: CGFloat.random(in: -300...400)))
-            }
-            
-            //Text Color
-            UILabel.animate(withDuration: 4, animations: {
-                label.textColor = UIColor.random()
-            }, completion: nil)
-        }
+                                completion: nil)
     }
-        func reset(label: UILabel) {
-            UIView.animate(withDuration: 4, animations: {
-                label.transform = .identity
-                label.layer.backgroundColor = UIColor.clear.cgColor
-                label.textColor = UIColor.yellow
-            }, completion: nil)
+// MARK: Animate
+    func animate(label: UILabel) {
+        
+        //Background Color
+        UILabel.animate(withDuration: 4, animations: {
+            label.layer.backgroundColor = UIColor.random().cgColor
+        }, completion: nil)
+        
+        //Rotation And Position
+        UILabel.animate(withDuration: 4) {
+            label.transform = CGAffineTransform(rotationAngle: .random(in: 0...10))
+                .concatenating(CGAffineTransform(translationX: CGFloat.random(in: -250...300), y: CGFloat.random(in: -300...400)))
         }
-            
-            extension UIColor {
+        
+        //Text Color
+        UILabel.animate(withDuration: 4, animations: {
+            label.textColor = UIColor.random()
+        }, completion: nil)
+    }
+}
+
+// MARK: Reset
+
+    func reset(label: UILabel) {
+        UIView.animate(withDuration: 4, animations: {
+        label.transform = .identity
+        label.layer.backgroundColor = UIColor.clear.cgColor
+        label.textColor = UIColor.yellow
+        }, completion: nil)
+    }
+
+// MARK: Random Color
+extension UIColor {
 
                 static func random() -> UIColor {
                     let hue = CGFloat.random(in: 0...1)
@@ -122,5 +125,3 @@ class ViewController: UIViewController {
                     return color
                 }
         }
-
-
