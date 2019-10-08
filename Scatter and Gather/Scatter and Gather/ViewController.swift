@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     
     var isScattered = false
-    let labelText: String = "Lambda"
+    // Any string can be placed below and it should automatically scale to the string length
+    let labelText: String = "Lambda School"
     var labels: [UILabel] = []
     var imageView: UIImageView!
 
@@ -72,7 +73,7 @@ class ViewController: UIViewController {
                 
                 label.backgroundColor = self.randomColor()
                 label.textColor = self.randomColor()
-                label.transform = CGAffineTransform(rotationAngle: self.randomAngle())
+                label.transform = CGAffineTransform(rotationAngle: self.randomAngle()).concatenating(CGAffineTransform(scaleX: CGFloat.random(in: 0.1...2), y: CGFloat.random(in: 0.1...2)))
             }
         }
     }
@@ -93,7 +94,7 @@ class ViewController: UIViewController {
             
             label.backgroundColor = UIColor(white: 1, alpha: 0)
             label.textColor = .black
-            label.transform = CGAffineTransform(rotationAngle: 0)
+            label.transform = CGAffineTransform(rotationAngle: 0).concatenating(CGAffineTransform(scaleX: 1, y: 1))
             
             i += 1
         }
