@@ -23,13 +23,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let totalLetters = labelText.count
-        var i: CGFloat = 1
-        for label in labels {
-             let xPosition = UIScreen.main.bounds.width / CGFloat(totalLetters + 1) * i
-            label.center = CGPoint(x: xPosition, y: 200)
-            i += 1
-        }
+        resetLabels()
     }
     
     private func configureViews() {
@@ -77,9 +71,20 @@ class ViewController: UIViewController {
     private func gather() {
         UIView.animate(withDuration: 2) {
             self.imageView.alpha = 100
+            self.resetLabels()
         }
     }
-
+    
+    private func resetLabels() {
+        let totalLetters = labelText.count
+        var i: CGFloat = 1
+        for label in labels {
+             let xPosition = UIScreen.main.bounds.width / CGFloat(totalLetters + 1) * i
+            label.center = CGPoint(x: xPosition, y: 200)
+            i += 1
+        }
+    }
+    
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         isScattered.toggle()
         if isScattered {
