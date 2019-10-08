@@ -51,9 +51,6 @@ class ViewController: UIViewController {
             label.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(label)
             
-            label.layer.borderWidth = 2
-            label.layer.cornerRadius = 12
-            
             label.text = "\(letter)"
             label.textAlignment = .center
             label.font = UIFont.monospacedSystemFont(ofSize: 48, weight: .medium)
@@ -72,6 +69,9 @@ class ViewController: UIViewController {
                 let screenHeight = Int(UIScreen.main.bounds.height)
                 let yPosition = Int.random(in: 0...screenHeight)
                 label.center = CGPoint(x: xPosition, y: yPosition)
+                
+                label.backgroundColor = self.randomColor()
+                label.textColor = self.randomColor()
             }
         }
     }
@@ -89,8 +89,20 @@ class ViewController: UIViewController {
         for label in labels {
              let xPosition = UIScreen.main.bounds.width / CGFloat(totalLetters + 1) * i
             label.center = CGPoint(x: xPosition, y: 200)
+            
+            label.backgroundColor = UIColor(white: 1, alpha: 0)
+            label.textColor = .black
+            
             i += 1
         }
+    }
+    
+    private func randomColor() -> UIColor {
+        let red = CGFloat.random(in: 0...255)
+        let green = CGFloat.random(in: 0...255)
+        let blue = CGFloat.random(in: 0...255)
+        
+        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
