@@ -68,13 +68,13 @@ class ViewController: UIViewController {
     func fadeLogo() {
         UIView.animateKeyframes(withDuration: 4, delay: 0,options: [], animations: {
             
-            UIView.addKeyframe(withRelativeStartTime: 0,
-                               relativeDuration: 1) {
+            UIView.addKeyframe(withRelativeStartTime: 0.1,
+                               relativeDuration: 0.4) {
                                 self.lambdaLogoImageView.alpha = 0
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 1,
-                               relativeDuration: 2) {
+            UIView.addKeyframe(withRelativeStartTime: 0.25,
+                               relativeDuration: 0.4) {
                                 self.lambdaLogoImageView.alpha = 1
             }
         },
@@ -115,13 +115,16 @@ class ViewController: UIViewController {
 extension UIColor {
 
                 static func random() -> UIColor {
-                    let hue = CGFloat.random(in: 0...1)
-                    let saturation = CGFloat.random(in: 0.2...1)
-                    let brightness = CGFloat.random(in: 0.2...1)
+                    let red = CGFloat.random(in: 0...255)
+                    let green = CGFloat.random(in: 0...255)
+                    let blue = CGFloat.random(in:0...255)
+//                    let hue = CGFloat.random(in: 0...1)
+//                    let saturation = CGFloat.random(in: 0...1)
+//                    let brightness = CGFloat.random(in: 0...1)
                     let alpha = CGFloat.random(in: 0.5...1)
                     
-                    let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
-                    
+//                    let color = UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: alpha)
+                    let color = UIColor(displayP3Red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha)
                     return color
                 }
         }
