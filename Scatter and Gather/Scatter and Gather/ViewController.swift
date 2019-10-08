@@ -65,6 +65,14 @@ class ViewController: UIViewController {
     private func scatter() {
         UIView.animate(withDuration: 2) {
             self.imageView.alpha = 0
+            
+            for label in self.labels {
+                let screenWidth = Int(UIScreen.main.bounds.width)
+                let xPosition = Int.random(in: 0...screenWidth)
+                let screenHeight = Int(UIScreen.main.bounds.height)
+                let yPosition = Int.random(in: 0...screenHeight)
+                label.center = CGPoint(x: xPosition, y: yPosition)
+            }
         }
     }
     
