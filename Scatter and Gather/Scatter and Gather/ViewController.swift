@@ -23,8 +23,12 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
+        let totalLetters = labelText.count
+        var i: CGFloat = 1
         for label in labels {
-            label.center = self.view.center
+             let xPosition = UIScreen.main.bounds.width / CGFloat(totalLetters + 1) * i
+            label.center = CGPoint(x: xPosition, y: 200)
+            i += 1
         }
     }
     
@@ -46,7 +50,6 @@ class ViewController: UIViewController {
         
         labels = []
         
-        //let totalLetters = labelText.count
         for letter in labelText {
             print(letter)
             let label = UILabel()
