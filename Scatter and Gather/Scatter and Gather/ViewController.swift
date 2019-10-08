@@ -63,8 +63,6 @@ class ViewController: UIViewController {
     
     private func scatter() {
         UIView.animate(withDuration: 2) {
-            self.imageView.alpha = 0
-            
             for label in self.labels {
                 let screenWidth = Int(UIScreen.main.bounds.width)
                 let xPosition = Int.random(in: 0...screenWidth)
@@ -76,6 +74,8 @@ class ViewController: UIViewController {
                 
                 label.transform = CGAffineTransform(rotationAngle: self.randomAngle()).concatenating(CGAffineTransform(scaleX: CGFloat.random(in: 0.1...2), y: CGFloat.random(in: 0.1...2)))
             }
+            
+            self.imageView.alpha = 0
         }
         
         for label in labels {
@@ -115,7 +115,7 @@ class ViewController: UIViewController {
         label.layer.backgroundColor = color
         colorAnimation.toValue = color
         
-        colorAnimation.duration = 1
+        colorAnimation.duration = 2
         colorAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
         
         label.layer.add(colorAnimation, forKey: "backgroundColorAnimation")
