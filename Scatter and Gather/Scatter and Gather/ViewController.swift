@@ -72,6 +72,7 @@ class ViewController: UIViewController {
                 
                 label.backgroundColor = self.randomColor()
                 label.textColor = self.randomColor()
+                label.transform = CGAffineTransform(rotationAngle: self.randomAngle())
             }
         }
     }
@@ -92,6 +93,7 @@ class ViewController: UIViewController {
             
             label.backgroundColor = UIColor(white: 1, alpha: 0)
             label.textColor = .black
+            label.transform = CGAffineTransform(rotationAngle: 0)
             
             i += 1
         }
@@ -103,6 +105,10 @@ class ViewController: UIViewController {
         let blue = CGFloat.random(in: 0...255)
         
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+    }
+    
+    private func randomAngle() -> CGFloat {
+        return CGFloat.random(in: 0...CGFloat.pi * 2)
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
