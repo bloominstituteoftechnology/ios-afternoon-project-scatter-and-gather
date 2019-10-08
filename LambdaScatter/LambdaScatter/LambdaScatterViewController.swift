@@ -98,26 +98,32 @@ class LambdaScatterViewController: UIViewController {
        
         UIView.animate(withDuration: 1.5) {
             self.lLabel.transform = .identity
+            self.lLabel.textColor = .black
         }
         
         UIView.animate(withDuration: 1.5) {
             self.aLabel.transform = .identity
+            self.aLabel.textColor = .black
         }
         
         UIView.animate(withDuration: 1.5) {
             self.mLabel.transform = .identity
+            self.mLabel.textColor = .black
         }
         
         UIView.animate(withDuration: 1.5) {
             self.bLabel.transform = .identity
+            self.bLabel.textColor = .black
         }
         
         UIView.animate(withDuration: 1.5) {
             self.dLabel.transform = .identity
+            self.dLabel.textColor = .black
         }
         
         UIView.animate(withDuration: 1.5) {
             self.lastALabel.transform = .identity
+            self.lastALabel.textColor = .black
         }
         
     }
@@ -128,6 +134,7 @@ class LambdaScatterViewController: UIViewController {
         
         let colorAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.backgroundColor))
         colorAnimation.fromValue = label.layer.backgroundColor
+        
         
         let color = randomColor()
         
