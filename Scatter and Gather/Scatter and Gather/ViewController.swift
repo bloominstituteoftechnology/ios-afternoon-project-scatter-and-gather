@@ -33,8 +33,6 @@ class ViewController: UIViewController {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
         
-        //imageView.layer.borderWidth = 2
-        //imageView.layer.cornerRadius = 12
         NSLayoutConstraint.activate([
             imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
@@ -51,6 +49,9 @@ class ViewController: UIViewController {
             label.widthAnchor.constraint(equalTo: label.heightAnchor).isActive = true
             label.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(label)
+            
+            //label.layer.borderWidth = 2
+            label.layer.cornerRadius = 12
             
             label.text = "\(letter)"
             label.textAlignment = .center
@@ -71,10 +72,14 @@ class ViewController: UIViewController {
                 let yPosition = Int.random(in: 0...screenHeight)
                 label.center = CGPoint(x: xPosition, y: yPosition)
                 
-                label.backgroundColor = self.randomColor()
-                label.textColor = self.randomColor()
+                label.textColor = UIColor(cgColor: self.randomColor())
+                
                 label.transform = CGAffineTransform(rotationAngle: self.randomAngle()).concatenating(CGAffineTransform(scaleX: CGFloat.random(in: 0.1...2), y: CGFloat.random(in: 0.1...2)))
             }
+        }
+        
+        for label in labels {
+            animateBackgroundColor(label: label, color: randomColor())
         }
     }
     
@@ -92,20 +97,36 @@ class ViewController: UIViewController {
              let xPosition = UIScreen.main.bounds.width / CGFloat(totalLetters + 1) * i
             label.center = CGPoint(x: xPosition, y: 200)
             
-            label.backgroundColor = UIColor(white: 1, alpha: 0)
             label.textColor = .black
             label.transform = CGAffineTransform(rotationAngle: 0).concatenating(CGAffineTransform(scaleX: 1, y: 1))
+            
+            animateBackgroundColor(label: label, color: UIColor(white: 1, alpha: 0).cgColor)
             
             i += 1
         }
     }
     
-    private func randomColor() -> UIColor {
+    private func animateBackgroundColor(label: UILabel, color: CGColor) {
+        let colorAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.backgroundColor))
+        colorAnimation.fromValue = label.layer.backgroundColor
+        
+        let color = color
+        
+        label.layer.backgroundColor = color
+        colorAnimation.toValue = color
+        
+        colorAnimation.duration = 1
+        colorAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        
+        label.layer.add(colorAnimation, forKey: "backgroundColorAnimation")
+    }
+    
+    private func randomColor() -> CGColor {
         let red = CGFloat.random(in: 0...255)
         let green = CGFloat.random(in: 0...255)
         let blue = CGFloat.random(in: 0...255)
         
-        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1).cgColor
     }
     
     private func randomAngle() -> CGFloat {
