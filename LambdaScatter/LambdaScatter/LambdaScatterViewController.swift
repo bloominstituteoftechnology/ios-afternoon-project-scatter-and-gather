@@ -56,38 +56,38 @@ class LambdaScatterViewController: UIViewController {
     
     func letterScramble() {
         
-        UIView.animate(withDuration: 3) {
-            self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
+        UIView.animate(withDuration: .random(in: 0...4)) {
+            self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...5), y: .random(in: 0...5)))
         }
         
         backgroundColorChange(theLabel: lLabel)
         
-        UIView.animate(withDuration: 3) {
-            self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
+        UIView.animate(withDuration: .random(in: 0...4)) {
+            self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...5), y: .random(in: 0...5)))
         }
         
         backgroundColorChange(theLabel: aLabel)
         
-        UIView.animate(withDuration: 3) {
-            self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
+        UIView.animate(withDuration: .random(in: 0...4)) {
+            self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...5), y: .random(in: 0...5)))
         }
         
         backgroundColorChange(theLabel: mLabel)
         
-        UIView.animate(withDuration: 3) {
-            self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
+        UIView.animate(withDuration: .random(in: 0...4)) {
+            self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...5), y: .random(in: 0...5)))
         }
         
         backgroundColorChange(theLabel: bLabel)
         
-        UIView.animate(withDuration: 3) {
-            self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
+        UIView.animate(withDuration: .random(in: 0...4)) {
+            self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...5), y: .random(in: 0...5)))
         }
         
         backgroundColorChange(theLabel: dLabel)
         
-        UIView.animate(withDuration: 3) {
-            self.lastALabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...10), y: .random(in: 0...10)))
+        UIView.animate(withDuration: .random(in: 0...4)) {
+            self.lastALabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...20)).concatenating(CGAffineTransform(scaleX: .random(in: 0...5), y: .random(in: 0...5)))
         }
         
         backgroundColorChange(theLabel: lastALabel)
