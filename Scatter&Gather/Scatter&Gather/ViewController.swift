@@ -18,7 +18,9 @@ class ViewController: UIViewController {
     let letter4 = UILabel()
     let letter5 = UILabel()
     let letter6 = UILabel()
- 
+    
+    
+   
     
     
     var isScattered = false
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
     
     func setUpSubviews() {
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonPressed(_:)))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Scatter", style: .plain, target: self, action: #selector(toggleButtonPressed(_:)))
         navigationItem.title = "Scatter & Gather"
         
         
@@ -54,6 +56,7 @@ class ViewController: UIViewController {
         
         
         
+        
         letter2.font = UIFont.systemFont(ofSize: 30)
         letter2.text = "a"
         letter2.translatesAutoresizingMaskIntoConstraints = false
@@ -61,6 +64,7 @@ class ViewController: UIViewController {
         letter2.leadingAnchor.constraint(equalTo: letter1.trailingAnchor, constant: 20).isActive = true
         letter2.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
         letter2.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        
       
         
         
@@ -74,6 +78,7 @@ class ViewController: UIViewController {
         
         
         
+        
         letter4.font = UIFont.systemFont(ofSize: 30)
         letter4.text = "b"
         letter4.translatesAutoresizingMaskIntoConstraints = false
@@ -81,6 +86,7 @@ class ViewController: UIViewController {
         letter4.leadingAnchor.constraint(equalTo: letter3.trailingAnchor, constant: 20).isActive = true
         letter4.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
         letter4.widthAnchor.constraint(equalToConstant: 25).isActive = true
+        
         
         
         
@@ -92,6 +98,7 @@ class ViewController: UIViewController {
         letter5.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
         letter5.widthAnchor.constraint(equalToConstant: 25).isActive = true
        
+       
         
         
         letter6.font = UIFont.systemFont(ofSize: 30)
@@ -101,8 +108,7 @@ class ViewController: UIViewController {
         letter6.leadingAnchor.constraint(equalTo: letter5.trailingAnchor, constant: 20).isActive = true
         letter6.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50).isActive = true
         letter6.widthAnchor.constraint(equalToConstant: 25).isActive = true
-        letter6.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50).isActive = true
-        
+        letter6.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -75).isActive = true
         
         
         
@@ -111,12 +117,16 @@ class ViewController: UIViewController {
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         if isScattered == false {
             scatterAnimation()
+            navigationItem.rightBarButtonItem?.title = "Gather"
             isScattered = !isScattered
         } else {
             gatherAnimation()
+            navigationItem.rightBarButtonItem?.title = "Scatter"
             isScattered = !isScattered
         }
     }
+    
+    
     
     func scatterAnimation() {
 
@@ -133,38 +143,39 @@ class ViewController: UIViewController {
 
                 // Location
 
-                self.letter1.center = // random position
-                self.letter2.center =
-                self.letter3.center =
-                self.letter4.center =
-                self.letter5.center =
-                self.letter6.center =
+                self.letter1.center = CGPoint(x: Int.random(in: 10...300), y: Int.random(in: 25...900))
+                self.letter2.center = CGPoint(x: Int.random(in: 10...300), y: Int.random(in: 25...900))
+                self.letter3.center = CGPoint(x: Int.random(in: 10...300), y: Int.random(in: 25...900))
+                self.letter4.center = CGPoint(x: Int.random(in: 10...300), y: Int.random(in: 25...900))
+                self.letter5.center = CGPoint(x: Int.random(in: 10...300), y: Int.random(in: 25...900))
+                self.letter6.center = CGPoint(x: Int.random(in: 10...300), y: Int.random(in: 25...900))
 
+                
                 // Background color
 
-                self.letter1.backgroundColor = // random color
-                self.letter2.backgroundColor =
-                self.letter3.backgroundColor =
-                self.letter4.backgroundColor =
-                self.letter5.backgroundColor =
-                self.letter6.backgroundColor =
+                self.letter1.backgroundColor = .randomColor
+                self.letter2.backgroundColor = .randomColor
+                self.letter3.backgroundColor = .randomColor
+                self.letter4.backgroundColor = .randomColor
+                self.letter5.backgroundColor = .randomColor
+                self.letter6.backgroundColor = .randomColor
 
                 // Text color
 
-                self.letter1.textColor = // random color
-                self.letter2.textColor =
-                self.letter3.textColor =
-                self.letter4.textColor =
-                self.letter5.textColor =
-                self.letter6.textColor =
+                self.letter1.textColor = .randomColor
+                self.letter2.textColor = .randomColor
+                self.letter3.textColor = .randomColor
+                self.letter4.textColor = .randomColor
+                self.letter5.textColor = .randomColor
+                self.letter6.textColor = .randomColor
 
                 // Rotate views
-                self.letter1.transform = CGAffineTransform(rotationAngle: 1)
-                self.letter2.transform = CGAffineTransform(rotationAngle: 1)
-                self.letter3.transform = CGAffineTransform(rotationAngle: 1)
-                self.letter4.transform = CGAffineTransform(rotationAngle: 1)
-                self.letter5.transform = CGAffineTransform(rotationAngle: 1)
-                self.letter6.transform = CGAffineTransform(rotationAngle: 1)
+                self.letter1.transform = CGAffineTransform(rotationAngle: .random)
+                self.letter2.transform = CGAffineTransform(rotationAngle: .random)
+                self.letter3.transform = CGAffineTransform(rotationAngle: .random)
+                self.letter4.transform = CGAffineTransform(rotationAngle: .random)
+                self.letter5.transform = CGAffineTransform(rotationAngle: .random)
+                self.letter6.transform = CGAffineTransform(rotationAngle: .random)
             }
 
         }, completion: nil)
@@ -184,13 +195,8 @@ class ViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
 
                 // Location
-
-                self.letter1.center = // need to set to original position
-                self.letter2.center = 
-                self.letter3.center =
-                self.letter4.center =
-                self.letter5.center =
-                self.letter6.center =
+                
+                self.setUpSubviews()
 
                 // Background color
 
@@ -228,4 +234,14 @@ class ViewController: UIViewController {
     }
 
 }
+extension CGFloat {
+    static var random: CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
 
+extension UIColor {
+    static var randomColor: UIColor {
+        return UIColor(red: .random, green: .random, blue: .random, alpha: 1.0)
+    }
+}
