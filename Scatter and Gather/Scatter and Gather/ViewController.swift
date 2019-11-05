@@ -9,12 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    // MARK: - Properties
+    
+    var isScattered: Bool = false
+    
+    // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    // MARK: - IB Actions
 
-
+    @IBAction func toggleButtonTapped(_ sender: UIBarButtonItem) {
+    }
+    
 }
 
