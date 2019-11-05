@@ -10,7 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    
+    // UILabels
+    @IBOutlet weak var charLLabel: UILabel!
+    @IBOutlet weak var charALabel: UILabel!
+    @IBOutlet weak var charMLabel: UILabel!
+    @IBOutlet weak var charBLabel: UILabel!
+    @IBOutlet weak var charDLabel: UILabel!
+    @IBOutlet weak var charAALabel: UILabel!
+
+    // ImageViews
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     // MARK: - Properties
+    
     var isScattered = false
     
     override func viewDidLoad() {
