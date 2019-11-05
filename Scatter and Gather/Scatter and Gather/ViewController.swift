@@ -12,15 +12,15 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var logoHorizontalInset: CGFloat = 40
-    private var logoInsets = CGSize(width: 40, height: 100)
-    
     private var isScattered: Bool = false
     
-    private var letterLabelsToScatter = [UILabel]()
-    private var lambdaLetterConstraints = [NSLayoutConstraint]()
-    
     private var logoImageView = UIImageView()
+    private var letterLabelsToScatter = [UILabel]()
+    
+    private var logoHorizontalInset: CGFloat = 40
+    private var logoInsets = CGSize(width: 40, height: 100)
+    private var lambdaLetterConstraints = [NSLayoutConstraint]()
+    private var letterLabelOrigins = [CGPoint]()
     
     // MARK: - View Lifecycle
 
@@ -113,11 +113,13 @@ class ViewController: UIViewController {
                 constraintsForThisLetter.append(trailingConstraint)
             }
             
+            NSLayoutConstraint.activate(constraintsForThisLetter)
             lambdaLetterConstraints.append(contentsOf: constraintsForThisLetter)
             
             letterLabels.append(letterLabel)
+            
+            letterLabel
         }
-        NSLayoutConstraint.activate(lambdaLetterConstraints)
         
         self.letterLabelsToScatter = letterLabels
     }
@@ -131,7 +133,41 @@ class ViewController: UIViewController {
     // MARK: - Animations
     
     private func scatter() {
-        
+        let animationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.logoImageView.alpha = 0
+            }
+            
+            let bounds = self.view.safeAreaLayoutGuide.layoutFrame
+            for letterIndex in 0 ..< self.letterLabelsToScatter.count {
+                let thisLabel = self.letterLabelsToScatter[letterIndex]
+                let goToRandomLocation = {
+                    thisLabel.center = CGPoint(
+                        x: CGFloat.random(in: bounds.minX ... bounds.maxX),
+                        y: CGFloat.random(in: bounds.minY ... bounds.maxY)
+                    )
+                }
+                
+                // bounce around
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.125, animations: goToRandomLocation)
+                UIView.addKeyframe(withRelativeStartTime: 0.125, relativeDuration: 0.25, animations: goToRandomLocation)
+                UIView.addKeyframe(withRelativeStartTime: 0.375, relativeDuration: 0.5, animations: goToRandomLocation)
+                
+                // spin
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                    thisLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0 ..< 2 * CGFloat.pi))
+                }
+                
+                // random colors
+                UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.5) {
+                    thisLabel.layer.backgroundColor = CGColor.random()
+                    thisLabel.textColor = UIColor(cgColor: CGColor.random())
+                }
+            }
+        }
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: animationBlock) { _ in
+            self.isScattered = true
+        }
     }
     
     private func gather() {
