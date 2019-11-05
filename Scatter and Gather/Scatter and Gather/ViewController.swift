@@ -171,7 +171,32 @@ class ViewController: UIViewController {
     }
     
     private func gather() {
-        
+        isScattered = false
+        let animationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.logoImageView.alpha = 1
+            }
+            for letterIndex in 0 ..< self.letterLabelsToScatter.count {
+                let thisLabel = self.letterLabelsToScatter[letterIndex]
+                UIView.addKeyframe(
+                    withRelativeStartTime: Double(letterIndex / self.letterLabelsToScatter.count / 2),
+                    relativeDuration: 0.25
+                ) {
+                    thisLabel.transform = .identity
+                    thisLabel.frame.origin = self.letterLabelOrigins[letterIndex]
+                }
+                UIView.addKeyframe(
+                    withRelativeStartTime: 0.25 + Double(letterIndex / self.letterLabelsToScatter.count / 2),
+                    relativeDuration: 0.25
+                ) {
+                    thisLabel.layer.backgroundColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0)
+                    thisLabel.textColor = nil
+                }
+            }
+        }
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animationBlock) { _ in
+            self.isScattered = false
+        }
     }
 }
 
