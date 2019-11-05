@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var aLabel2: UIStackView!
     @IBOutlet weak var lambdaLogoImage: UIImageView!
     
+    var isScattered: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -25,7 +27,10 @@ class ViewController: UIViewController {
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
         
-        var isScattered: Bool
+
+        isScattered.toggle()
+        print(isScattered)
+        
         lambdaLogoImage.center = view.center
         
         let scatter = {
@@ -33,8 +38,8 @@ class ViewController: UIViewController {
                 self.lambdaLogoImage.alpha = 0.0
             }
         }
-        
         UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: scatter, completion: nil)
+    
     }
     
 
