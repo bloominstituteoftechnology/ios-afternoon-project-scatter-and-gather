@@ -41,7 +41,7 @@ class ViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func toggleButtonTapped(_ sender: Any) {
-        let duration = 2.0
+        let duration = 1.0
         let letters = [label1, label2, label3, label4, label5, label6]
         fadeImage(withDuration: duration, for: isScattered)
         _ = letters.compactMap {
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
         switch direction {
         case true:
             UIView.animate(withDuration: duration) {
-                letter.backgroundColor = .none
+                letter.layer.backgroundColor = .none
                 letter.textColor = .black
                 letter.transform = CGAffineTransform(rotationAngle: 0)
                 switch letter {
@@ -90,18 +90,20 @@ class ViewController: UIViewController {
                 green: CGFloat(Int.random(in: 0...100))/100,
                 blue: CGFloat(Int.random(in: 0...100))/100,
                 alpha: 1)
-            let backgroundColor = UIColor(
-                displayP3Red: CGFloat(Int.random(in: 0...100))/100,
+           
+            let randomAngle = CGFloat(Int.random(in: 0...360))
+//            letter.alpha = 0
+            
+            let backgroundColor = CGColor(
+                srgbRed: CGFloat(Int.random(in: 0...100))/100,
                 green: CGFloat(Int.random(in: 0...100))/100,
                 blue: CGFloat(Int.random(in: 0...100))/100,
                 alpha: 1)
-            let randomAngle = CGFloat(Int.random(in: 0...360))
-//            letter.alpha = 0
             
             UIView.animate(withDuration: duration) {
                 letter.center = CGPoint(x: randomX, y: randomY)
                 letter.textColor = letterColor
-                letter.backgroundColor = backgroundColor
+                letter.layer.backgroundColor = backgroundColor
 //                letter.alpha = 1
                 letter.transform = CGAffineTransform(rotationAngle: randomAngle)
             }
