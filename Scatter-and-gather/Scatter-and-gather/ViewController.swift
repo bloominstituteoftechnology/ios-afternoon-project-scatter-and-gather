@@ -68,13 +68,33 @@ class ViewController: UIViewController {
     
     private func scatter() {
         
+        self.charLLabel.textColor = randomColor()
+        self.charALabel.textColor = randomColor()
+        self.charMLabel.textColor = randomColor()
+        self.charBLabel.textColor = randomColor()
+        self.charDLabel.textColor = randomColor()
+        self.charAALabel.textColor = randomColor()
+        
+        
         UIView.animate(withDuration: 2.0) {
             self.charLLabel.center = self.randomPoint(from: self.charLLabel)
+            self.charLLabel.layer.backgroundColor = self.randomColor().cgColor
+            
             self.charALabel.center = self.randomPoint(from: self.charALabel)
+            self.charALabel.layer.backgroundColor = self.randomColor().cgColor
+            
             self.charMLabel.center = self.randomPoint(from: self.charMLabel)
+            self.charMLabel.layer.backgroundColor = self.randomColor().cgColor
+            
             self.charBLabel.center = self.randomPoint(from: self.charBLabel)
+            self.charBLabel.layer.backgroundColor = self.randomColor().cgColor
+            
             self.charDLabel.center = self.randomPoint(from: self.charDLabel)
+            self.charDLabel.layer.backgroundColor = self.randomColor().cgColor
+            
             self.charAALabel.center = self.randomPoint(from: self.charAALabel)
+            self.charAALabel.layer.backgroundColor = self.randomColor().cgColor
+            
             self.logoImageView.alpha = 0.0
         }
         
@@ -98,16 +118,57 @@ class ViewController: UIViewController {
         return CGPoint(x: randXPoint, y: randYPoint)
     }
     
+    private func randomColor() -> UIColor {
+        let randNum = Int.random(in: 0...6)
+        switch randNum {
+        case 0:
+            return UIColor.red
+        case 1:
+            return UIColor.blue
+        case 2:
+            return UIColor.brown
+        case 3:
+            return UIColor.cyan
+        case 4:
+            return UIColor.green
+        case 5:
+            return UIColor.yellow
+        case 6:
+            return UIColor.orange
+        default:
+            return UIColor.black
+        }
+    }
+    
     
     private func gather() {
         
+        self.charLLabel.textColor = UIColor.black
+        self.charALabel.textColor = UIColor.black
+        self.charMLabel.textColor = UIColor.black
+        self.charBLabel.textColor = UIColor.black
+        self.charDLabel.textColor = UIColor.black
+        self.charAALabel.textColor = UIColor.black
+        
         UIView.animate(withDuration: 2.0) {
             self.charLLabel.center = self.charLOriginPoint
+            self.charLLabel.layer.backgroundColor = UIColor.clear.cgColor
+            
             self.charALabel.center = self.charAOriginPoint
+            self.charALabel.layer.backgroundColor = UIColor.clear.cgColor
+            
             self.charMLabel.center = self.charMOriginPoint
+            self.charMLabel.layer.backgroundColor = UIColor.clear.cgColor
+            
             self.charBLabel.center = self.charBOriginPoint
+            self.charBLabel.layer.backgroundColor = UIColor.clear.cgColor
+            
             self.charDLabel.center = self.charDOriginPoint
+            self.charDLabel.layer.backgroundColor = UIColor.clear.cgColor
+            
             self.charAALabel.center = self.charAAOriginPoint
+            self.charAALabel.layer.backgroundColor = UIColor.clear.cgColor
+            
             self.logoImageView.alpha = 1.0
         }
     }
