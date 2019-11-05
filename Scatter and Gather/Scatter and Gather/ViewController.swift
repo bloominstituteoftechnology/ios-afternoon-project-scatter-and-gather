@@ -56,12 +56,16 @@ class ViewController: UIViewController {
         
         var letterLabels = [UILabel]()
         
+        // set up each letter's label individually
+        
         for letterIndex in 0 ..< wordToScatter.count {
             let letterLabel = UILabel(frame: CGRect(
                 x: 0, y: 0, width: letterWidth, height: letterHeight
             ))
             letterLabel.translatesAutoresizingMaskIntoConstraints = false
             view.addSubview(letterLabel)
+            
+            // set up label text
             
             letterLabel.font = UIFont.monospacedSystemFont(ofSize: 200, weight: .bold)
             letterLabel.adjustsFontSizeToFitWidth = true
@@ -71,6 +75,14 @@ class ViewController: UIViewController {
             
             letterLabel.text = String(lettersToScatter[letterIndex])
             
+            // possibly not needed?
+            // letterLabel.center = CGPoint(
+            //     x: wordInset.width + (letterWidth * 0.5) + (CGFloat(letterIndex) * (letterWidth + letterSpacing)),
+            //     y: wordInset.height
+            // )
+            
+            // set up letter label's constraints
+            
             let widthConstraint = letterLabel.widthAnchor.constraint(equalToConstant: letterWidth)
             widthConstraint.priority -= 1
             let heightConstraint = letterLabel.heightAnchor.constraint(equalToConstant: letterHeight)
@@ -79,11 +91,6 @@ class ViewController: UIViewController {
                 widthConstraint,
                 heightConstraint
             ])
-
-//            letterLabel.center = CGPoint(
-//                x: wordInset.width + (letterWidth * 0.5) + (CGFloat(letterIndex) * (letterWidth + letterSpacing)),
-//                y: wordInset.height
-//            )
             
             let leadingConstraint: NSLayoutConstraint
             if letterIndex == 0 {
@@ -115,11 +122,20 @@ class ViewController: UIViewController {
         self.letterLabelsToScatter = letterLabels
     }
     
-    
     // MARK: - IB Actions
 
     @IBAction func toggleButtonTapped(_ sender: UIBarButtonItem) {
+        if isScattered { gather() } else { scatter() }
     }
     
+    // MARK: - Animations
+    
+    private func scatter() {
+        
+    }
+    
+    private func gather() {
+        
+    }
 }
 
