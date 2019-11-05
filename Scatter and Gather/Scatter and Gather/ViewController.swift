@@ -12,22 +12,39 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
+    private var logoHorizontalInset: CGFloat = 40
+    private var logoInsets = CGSize(width: 40, height: 100)
+    
     private var isScattered: Bool = false
     
-    private var lettersToScatter: [UILabel]?
+    private var letterLabelsToScatter = [UILabel]()
+    private var lambdaLetterConstraints = [NSLayoutConstraint]()
+    
+    private var logoImageView = UIImageView()
     
     // MARK: - View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lettersToScatter = setUpLettersToScatter()
+        setUpLambdaLogo()
+        setUpLettersToScatter()
     }
     
     // MARK: - Subview Setup
     
+    private func setUpLambdaLogo() {
+        logoImageView = UIImageView(image: UIImage(named: "lambdaLogo"))
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(logoImageView)
+        NSLayoutConstraint.activate([
+            logoImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: logoInsets.width),
+            logoImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -logoInsets.width),
+            logoImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: logoInsets.height),
+            logoImageView.widthAnchor.constraint(equalTo: logoImageView.heightAnchor, multiplier: 2000 / 558)
+        ])
+    }
     
     private func setUpLettersToScatter() {
-        /*
         let wordToScatter = "Lambda"
         let wordInset = CGSize(width: 40, height: 60)
         let letterSpacing: CGFloat = 2
@@ -50,24 +67,52 @@ class ViewController: UIViewController {
             letterLabel.adjustsFontSizeToFitWidth = true
             letterLabel.minimumScaleFactor = 0.05
             letterLabel.textAlignment = .center
-            
-            NSLayoutConstraint.activate([
-                letterLabel.widthAnchor.constraint(equalToConstant: letterWidth),
-                letterLabel.heightAnchor.constraint(equalToConstant: letterHeight)
-            ])
-            
-            letterLabel.center = CGPoint(
-                x: wordInset.width + (letterWidth * 0.5) + (CGFloat(letterIndex) * (letterWidth + letterSpacing)),
-                y: wordInset.height
-            )
+            letterLabel.baselineAdjustment = .alignCenters
             
             letterLabel.text = String(lettersToScatter[letterIndex])
             
+            let widthConstraint = letterLabel.widthAnchor.constraint(equalToConstant: letterWidth)
+            widthConstraint.priority -= 1
+            let heightConstraint = letterLabel.heightAnchor.constraint(equalToConstant: letterHeight)
+            heightConstraint.priority -= 1
+            NSLayoutConstraint.activate([
+                widthConstraint,
+                heightConstraint
+            ])
+
+//            letterLabel.center = CGPoint(
+//                x: wordInset.width + (letterWidth * 0.5) + (CGFloat(letterIndex) * (letterWidth + letterSpacing)),
+//                y: wordInset.height
+//            )
+            
+            let leadingConstraint: NSLayoutConstraint
+            if letterIndex == 0 {
+                leadingConstraint = letterLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: wordInset.width)
+            } else {
+                leadingConstraint = letterLabel.leadingAnchor.constraint(equalTo: letterLabels[letterIndex - 1].trailingAnchor, constant: letterSpacing)
+            }
+            
+            var trailingConstraint: NSLayoutConstraint? = nil
+            if letterIndex == wordToScatter.count - 1 {
+                trailingConstraint = letterLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -wordInset.width)
+            }
+            
+            var constraintsForThisLetter = [
+                leadingConstraint,
+                letterLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: letterSpacing),
+                letterLabel.bottomAnchor.constraint(equalTo: logoImageView.topAnchor, constant: letterSpacing)
+            ]
+            if let trailingConstraint = trailingConstraint {
+                constraintsForThisLetter.append(trailingConstraint)
+            }
+            
+            lambdaLetterConstraints.append(contentsOf: constraintsForThisLetter)
+            
             letterLabels.append(letterLabel)
         }
+        NSLayoutConstraint.activate(lambdaLetterConstraints)
         
-        self.lettersToScatter = letterLabels
-     */
+        self.letterLabelsToScatter = letterLabels
     }
     
     
