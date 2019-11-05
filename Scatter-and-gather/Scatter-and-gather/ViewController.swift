@@ -30,11 +30,49 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        logoImageView.isOpaque = false
     }
 
     // MARK: - IBActions
     @IBAction func toggleButtonPressed(sender: UIBarButtonItem) {
+        if isScattered {
+            gather()
+        } else {
+            scatter()
+        }
+        
+        // Call toggle to switch bool after clicked
+        isScattered.toggle()
+    }
+    
+    // MARK: - Actions
+    
+    private func scatter() {
+
+        let minX = Int(self.view.bounds.minX)
+        let maxX = Int(self.view.bounds.maxX)
+        let minY = Int(self.view.bounds.minY)
+        let maxY = Int(self.view.bounds.maxY)
+        
+        
+        let randXPoint = Int.random(in: minX...maxX)
+        let randYPoint = Int.random(in: minY...maxY)
+        
+        
+        
+        UIView.animate(withDuration: 2.0) {
+            self.charLLabel.center = CGPoint(x: CGFloat(randXPoint), y: CGFloat(randYPoint))
+            self.logoImageView.alpha = 0.0
+        }
         
     }
+    
+    private func gather() {
+        
+        UIView.animate(withDuration: 2.0) {
+            self.logoImageView.alpha = 1.0
+        }
+    }
+    
 }
 
