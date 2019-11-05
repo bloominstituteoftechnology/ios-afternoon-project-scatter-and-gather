@@ -79,25 +79,40 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 2.0) {
             self.charLLabel.center = self.randomPoint(from: self.charLLabel)
             self.charLLabel.layer.backgroundColor = self.randomColor().cgColor
+            self.charLLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
             
             self.charALabel.center = self.randomPoint(from: self.charALabel)
             self.charALabel.layer.backgroundColor = self.randomColor().cgColor
+            self.charALabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
             
             self.charMLabel.center = self.randomPoint(from: self.charMLabel)
             self.charMLabel.layer.backgroundColor = self.randomColor().cgColor
+            self.charMLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
             
             self.charBLabel.center = self.randomPoint(from: self.charBLabel)
             self.charBLabel.layer.backgroundColor = self.randomColor().cgColor
+            self.charBLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
             
             self.charDLabel.center = self.randomPoint(from: self.charDLabel)
             self.charDLabel.layer.backgroundColor = self.randomColor().cgColor
+            self.charDLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
             
             self.charAALabel.center = self.randomPoint(from: self.charAALabel)
             self.charAALabel.layer.backgroundColor = self.randomColor().cgColor
+            self.charAALabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
             
             self.logoImageView.alpha = 0.0
         }
         
+    }
+    
+    private func randomAngle() -> CGFloat {
+        let angle = CGFloat(Int.random(in: 1...10))
+        if (Int.random(in: 1...100) % 2) == 0 {
+            return CGFloat.pi / angle
+        } else {
+            return -1 * CGFloat.pi / angle
+        }
     }
     
     private func randomPoint(from label: UILabel) -> CGPoint {
@@ -153,21 +168,27 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 2.0) {
             self.charLLabel.center = self.charLOriginPoint
             self.charLLabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.charLLabel.transform = .identity
             
             self.charALabel.center = self.charAOriginPoint
             self.charALabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.charALabel.transform = .identity
             
             self.charMLabel.center = self.charMOriginPoint
             self.charMLabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.charMLabel.transform = .identity
             
             self.charBLabel.center = self.charBOriginPoint
             self.charBLabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.charBLabel.transform = .identity
             
             self.charDLabel.center = self.charDOriginPoint
             self.charDLabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.charDLabel.transform = .identity
             
             self.charAALabel.center = self.charAAOriginPoint
             self.charAALabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.charAALabel.transform = .identity
             
             self.logoImageView.alpha = 1.0
         }
