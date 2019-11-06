@@ -11,13 +11,13 @@ import UIKit
 
 class lambdaViewController: UIViewController {
     var isScattered: Bool = false
-    var random_angle1 = CGFloat(Int.random(in: 0...360))
-    var random_angle2 = CGFloat(Int.random(in: 0...360))
-    var random_angle3 = CGFloat(Int.random(in: 0...360))
-    var random_angle4 = CGFloat(Int.random(in: 0...360))
-    var random_angle5 = CGFloat(Int.random(in: 0...360))
-    var random_angle6 = CGFloat(Int.random(in: 0...360))
-
+    var random_angle1 = CGFloat(Int.random(in: -360...360))
+    var random_angle2 = CGFloat(Int.random(in: -360...360))
+    var random_angle3 = CGFloat(Int.random(in: -360...360))
+    var random_angle4 = CGFloat(Int.random(in: -360...360))
+    var random_angle5 = CGFloat(Int.random(in: -360...360))
+    var random_angle6 = CGFloat(Int.random(in: -360...360))
+    
     @IBOutlet weak var a2Label: UILabel!
     
     @IBOutlet weak var dLabel: UILabel!
@@ -32,31 +32,45 @@ class lambdaViewController: UIViewController {
     
     @IBOutlet weak var logoImageView: UIImageView!
     
+    var a1Origin: CGPoint!
+    var a2Origin: CGPoint!
+    var dOrigin: CGPoint!
+    var bOrigin: CGPoint!
+    var mOrigin: CGPoint!
+    var lOrigin: CGPoint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       configureLabels()
+        configureLabels()
+        setOrigins()
         
-        let a1Origin = a1Label.cgRect.origin
-        let a20rigin = a2Label.frame.origin
-        let dOrigin = dLabel.frame.origin
+    }
+    
+    private func setOrigins() {
+        a1Origin = a1Label.center
+        a2Origin = a2Label.center
+        dOrigin = dLabel.center
+        bOrigin = bLabel.center
+        mOrigin = mLabel.center
+        lOrigin = lLabel.center
         
     }
     
     private func configureLabels() {
         
-//        lLabel.layer.cornerRadius = 12
-//        a1Label.layer.cornerRadius = 12
-//        mLabel.layer.cornerRadius = 12
-//        bLabel.layer.cornerRadius = 12
-//        dLabel.layer.cornerRadius = 12
-//        a2Label.layer.cornerRadius = 12
-//
-//        lLabel.layer.borderWidth = 2
-//        a1Label.layer.borderWidth = 2
-//        mLabel.layer.borderWidth = 2
-//        bLabel.layer.borderWidth = 2
-//        dLabel.layer.borderWidth = 2
-//        a2Label.layer.borderWidth = 2
+        //        lLabel.layer.cornerRadius = 12
+        //        a1Label.layer.cornerRadius = 12
+        //        mLabel.layer.cornerRadius = 12
+        //        bLabel.layer.cornerRadius = 12
+        //        dLabel.layer.cornerRadius = 12
+        //        a2Label.layer.cornerRadius = 12
+        //
+        //        lLabel.layer.borderWidth = 2
+        //        a1Label.layer.borderWidth = 2
+        //        mLabel.layer.borderWidth = 2
+        //        bLabel.layer.borderWidth = 2
+        //        dLabel.layer.borderWidth = 2
+        //        a2Label.layer.borderWidth = 2
     }
     
     func scatterAnimation(){
@@ -86,35 +100,42 @@ class lambdaViewController: UIViewController {
             
             UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                    self.a1Label.center = CGPoint(x: .random(in: 0...200), y: .random(in: 0...400))
-                    self.a2Label.center = CGPoint(x: .random(in: 0...200), y: .random(in: 0...400))
-                    self.lLabel.center = CGPoint(x: .random(in: 0...200), y: .random(in: 0...400))
-                    self.mLabel.center = CGPoint(x: .random(in: 0...200), y: .random(in: 0...400))
-                    self.bLabel.center = CGPoint(x: .random(in: 0...200), y: .random(in: 0...400))
-                    self.dLabel.center = CGPoint(x: .random(in: 0...200), y: .random(in: 0...400))
+                    self.a1Label.center = CGPoint(x: .random(in: 0...350), y: .random(in: -140...600))
+                    self.a2Label.center = CGPoint(x: .random(in: 0...350), y: .random(in: -140...600))
+                    self.lLabel.center = CGPoint(x: .random(in: 150...350), y: .random(in: -140...600))
+                    self.mLabel.center = CGPoint(x: .random(in: 0...350), y: .random(in: -140...600))
+                    self.bLabel.center = CGPoint(x: .random(in: 0...350), y: .random(in: -140...600))
+                    self.dLabel.center = CGPoint(x: .random(in: 0...350), y: .random(in: -140...600))
                 }
             }, completion: nil)
             
             self.view.backgroundColor = .random
         }
-//        UIView.animate(withDuration: 2, animations: {
-//            self.a1Label.backgroundColor = .random
-//            self.a2Label.backgroundColor = .random
-//            self.dLabel.backgroundColor = .random
-//            self.bLabel.backgroundColor = .random
-//            self.mLabel.backgroundColor = .random
-//            self.lLabel.backgroundColor = .random
-//
-//              }, completion: nil)
-
+        
         isScattered.toggle()
     }
-
+    
     
     func gatherAnimation(){
+        
         UIView.animate(withDuration: 2) {
+            
+            
             self.logoImageView.alpha = 1
             
+            self.a1Label.backgroundColor = .white
+            self.a2Label.backgroundColor = .white
+            self.dLabel.backgroundColor = .white
+            self.bLabel.backgroundColor = .white
+            self.mLabel.backgroundColor = .white
+            self.lLabel.backgroundColor = .white
+            
+            self.a1Label.textColor = .black
+            self.a2Label.textColor = .black
+            self.dLabel.textColor = .black
+            self.bLabel.textColor = .black
+            self.mLabel.textColor = .black
+            self.lLabel.textColor = .black
             
             self.a1Label.transform = .identity
             self.a2Label.transform = .identity
@@ -123,29 +144,33 @@ class lambdaViewController: UIViewController {
             self.lLabel.transform = .identity
             self.dLabel.transform = .identity
             
-            self.a1Label.center =
+            self.a1Label.center = self.a1Origin
+            self.a2Label.center = self.a2Origin
+            self.dLabel.center = self.dOrigin
+            self.bLabel.center = self.bOrigin
+            self.mLabel.center = self.mOrigin
+            self.lLabel.center = self.lOrigin
             
-            
-         
-
         }
         
         
         isScattered.toggle()
-        
-      
     }
+
+// MARK: +IBActions
     @IBAction func toggleButtonPressed(_ sender: Any) {
         if isScattered == false {
             scatterAnimation()
         } else {
-        gatherAnimation()
+            gatherAnimation()
         }
-    
+        
+        
+    }
     
 }
 
-}
+// MARK: +Extensions
 extension UIColor {
     static var random: UIColor {
         return  UIColor(red: .random(in: 0...1),
