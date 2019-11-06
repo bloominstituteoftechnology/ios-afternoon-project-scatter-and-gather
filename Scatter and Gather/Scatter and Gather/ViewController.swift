@@ -46,7 +46,7 @@ class ViewController: UIViewController {
     
     private func setUpLettersToScatter() {
         let wordToScatter = "Lambda"
-        let wordInset = CGSize(width: 40, height: 60)
+        let wordInset = CGSize(width: 40, height: 100)
         let letterSpacing: CGFloat = 2
         
         let lettersToScatter = Array(wordToScatter)
@@ -75,11 +75,13 @@ class ViewController: UIViewController {
             
             letterLabel.text = String(lettersToScatter[letterIndex])
             
-            // possibly not needed?
-            // letterLabel.center = CGPoint(
-            //     x: wordInset.width + (letterWidth * 0.5) + (CGFloat(letterIndex) * (letterWidth + letterSpacing)),
-            //     y: wordInset.height
-            // )
+            // set origin for resetting
+            // MARK: WOULD LOVE TO KNOW THE "RIGHT" WAY TO DO THIS
+            let center = CGPoint(
+                x: view.safeAreaInsets.left + wordInset.width + (letterWidth * 0.5) + (CGFloat(letterIndex) * (letterWidth + letterSpacing)),
+                y: (wordInset.height / 2) + view.safeAreaInsets.top
+            )
+            letterLabelOrigins.append(center)
             
             // set up letter label's constraints
             
@@ -117,8 +119,6 @@ class ViewController: UIViewController {
             lambdaLetterConstraints.append(contentsOf: constraintsForThisLetter)
             
             letterLabels.append(letterLabel)
-            
-            letterLabel
         }
         
         self.letterLabelsToScatter = letterLabels
@@ -147,25 +147,33 @@ class ViewController: UIViewController {
                         y: CGFloat.random(in: bounds.minY ... bounds.maxY)
                     )
                 }
+                let randomSpin = {
+                    thisLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0 ..< 2 * CGFloat.pi))
+                }
                 
                 // bounce around
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.125, animations: goToRandomLocation)
-                UIView.addKeyframe(withRelativeStartTime: 0.125, relativeDuration: 0.25, animations: goToRandomLocation)
+                UIView.addKeyframe(withRelativeStartTime: 0.125, relativeDuration: 0.25) {
+                    thisLabel.textColor = UIColor(cgColor: CGColor.random())
+                    goToRandomLocation()
+                }
                 UIView.addKeyframe(withRelativeStartTime: 0.375, relativeDuration: 0.5, animations: goToRandomLocation)
                 
                 // spin
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                    thisLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0 ..< 2 * CGFloat.pi))
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.125, animations: randomSpin)
+                UIView.addKeyframe(withRelativeStartTime: 0.125, relativeDuration: 0.25, animations: randomSpin)
+                UIView.addKeyframe(withRelativeStartTime: 0.375, relativeDuration: 0.5, animations: randomSpin)
+                UIView.addKeyframe(withRelativeStartTime: 0.875, relativeDuration: 0.125) {
+                    thisLabel.transform = thisLabel.transform.rotated(by: CGFloat.random(in: -CGFloat.pi/4 ..< CGFloat.pi/4))
                 }
                 
                 // random colors
                 UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.5) {
                     thisLabel.layer.backgroundColor = CGColor.random()
-                    thisLabel.textColor = UIColor(cgColor: CGColor.random())
                 }
             }
         }
-        UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: animationBlock) { _ in
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [.calculationModeLinear], animations: animationBlock) { _ in
             self.isScattered = true
         }
     }
@@ -178,19 +186,20 @@ class ViewController: UIViewController {
             }
             for letterIndex in 0 ..< self.letterLabelsToScatter.count {
                 let thisLabel = self.letterLabelsToScatter[letterIndex]
+                let timeConstant = Double(letterIndex) / Double(self.letterLabelsToScatter.count) / 2.0
                 UIView.addKeyframe(
-                    withRelativeStartTime: Double(letterIndex / self.letterLabelsToScatter.count / 2),
+                    withRelativeStartTime: timeConstant,
                     relativeDuration: 0.25
                 ) {
                     thisLabel.transform = .identity
-                    thisLabel.frame.origin = self.letterLabelOrigins[letterIndex]
+                    thisLabel.center = self.letterLabelOrigins[letterIndex]
                 }
                 UIView.addKeyframe(
-                    withRelativeStartTime: 0.25 + Double(letterIndex / self.letterLabelsToScatter.count / 2),
+                    withRelativeStartTime: 0.25 + timeConstant,
                     relativeDuration: 0.25
                 ) {
+                    thisLabel.textColor = .label
                     thisLabel.layer.backgroundColor = CGColor(srgbRed: 1, green: 1, blue: 1, alpha: 0)
-                    thisLabel.textColor = nil
                 }
             }
         }
