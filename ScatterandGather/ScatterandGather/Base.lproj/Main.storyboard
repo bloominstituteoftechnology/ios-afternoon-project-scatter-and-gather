@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Lambda View Controller-->
+        <!--Scatter! 😺👍-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="lambdaViewController" customModule="ScatterandGather" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,7 +73,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="u4f-QB-cgs">
+                    <navigationItem key="navigationItem" title="Scatter! 😺👍" largeTitleDisplayMode="always" id="u4f-QB-cgs">
+                        <barButtonItem key="leftBarButtonItem" title="AltScatter" id="FLe-7N-hCD">
+                            <connections>
+                                <action selector="altScatter:" destination="BYZ-38-t0r" id="0DD-gl-eG2"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Toggle" id="Fgd-nn-Zxd">
                             <connections>
                                 <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="Xqc-9e-Tg3"/>
