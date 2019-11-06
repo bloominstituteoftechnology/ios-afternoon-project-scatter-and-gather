@@ -75,14 +75,6 @@ class ViewController: UIViewController {
             
             letterLabel.text = String(lettersToScatter[letterIndex])
             
-            // set origin for resetting
-            // MARK: WOULD LOVE TO KNOW THE "RIGHT" WAY TO DO THIS
-            let center = CGPoint(
-                x: view.safeAreaInsets.left + wordInset.width + (letterWidth * 0.5) + (CGFloat(letterIndex) * (letterWidth + letterSpacing)),
-                y: (wordInset.height / 2) + view.safeAreaInsets.top
-            )
-            letterLabelOrigins.append(center)
-            
             // set up letter label's constraints
             
             let widthConstraint = letterLabel.widthAnchor.constraint(equalToConstant: letterWidth)
@@ -133,6 +125,9 @@ class ViewController: UIViewController {
     // MARK: - Animations
     
     private func scatter() {
+        letterLabelOrigins = letterLabelsToScatter.map { (label) -> CGPoint in
+            return label.center
+        }
         let animationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.logoImageView.alpha = 0
@@ -151,7 +146,7 @@ class ViewController: UIViewController {
                     thisLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0 ..< 2 * CGFloat.pi))
                 }
                 
-                // bounce around
+                // bounces
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.125, animations: goToRandomLocation)
                 UIView.addKeyframe(withRelativeStartTime: 0.125, relativeDuration: 0.25) {
                     thisLabel.textColor = UIColor(cgColor: CGColor.random())
@@ -159,7 +154,7 @@ class ViewController: UIViewController {
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.375, relativeDuration: 0.5, animations: goToRandomLocation)
                 
-                // spin
+                // spins
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.125, animations: randomSpin)
                 UIView.addKeyframe(withRelativeStartTime: 0.125, relativeDuration: 0.25, animations: randomSpin)
                 UIView.addKeyframe(withRelativeStartTime: 0.375, relativeDuration: 0.5, animations: randomSpin)
@@ -167,7 +162,7 @@ class ViewController: UIViewController {
                     thisLabel.transform = thisLabel.transform.rotated(by: CGFloat.random(in: -CGFloat.pi/4 ..< CGFloat.pi/4))
                 }
                 
-                // random colors
+                // randomize colors
                 UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.5) {
                     thisLabel.layer.backgroundColor = CGColor.random()
                 }
