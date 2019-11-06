@@ -1,0 +1,347 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1CD189AC23721BAB00739F13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD189AB23721BAB00739F13 /* AppDelegate.swift */; };
+		1CD189AE23721BAB00739F13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD189AD23721BAB00739F13 /* SceneDelegate.swift */; };
+		1CD189B023721BAB00739F13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD189AF23721BAB00739F13 /* ViewController.swift */; };
+		1CD189B323721BAB00739F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD189B123721BAB00739F13 /* Main.storyboard */; };
+		1CD189B523721BAB00739F13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1CD189B423721BAB00739F13 /* Assets.xcassets */; };
+		1CD189B823721BAB00739F13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CD189B623721BAB00739F13 /* LaunchScreen.storyboard */; };
+		1CD189C023723C4300739F13 /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 1CD189BF23723C4300739F13 /* lambda_logo.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1CD189A823721BAB00739F13 /* Scatter and Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scatter and Gather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1CD189AB23721BAB00739F13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1CD189AD23721BAB00739F13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		1CD189AF23721BAB00739F13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1CD189B223721BAB00739F13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		1CD189B423721BAB00739F13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1CD189B723721BAB00739F13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		1CD189B923721BAB00739F13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1CD189BF23723C4300739F13 /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lambda_logo.png; path = ../../lambda_logo.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CD189A523721BAB00739F13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1CD1899F23721BAA00739F13 = {
+			isa = PBXGroup;
+			children = (
+				1CD189AA23721BAB00739F13 /* Scatter and Gather */,
+				1CD189A923721BAB00739F13 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1CD189A923721BAB00739F13 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1CD189A823721BAB00739F13 /* Scatter and Gather.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1CD189AA23721BAB00739F13 /* Scatter and Gather */ = {
+			isa = PBXGroup;
+			children = (
+				1CD189AB23721BAB00739F13 /* AppDelegate.swift */,
+				1CD189AD23721BAB00739F13 /* SceneDelegate.swift */,
+				1CD189AF23721BAB00739F13 /* ViewController.swift */,
+				1CD189B123721BAB00739F13 /* Main.storyboard */,
+				1CD189B423721BAB00739F13 /* Assets.xcassets */,
+				1CD189BF23723C4300739F13 /* lambda_logo.png */,
+				1CD189B623721BAB00739F13 /* LaunchScreen.storyboard */,
+				1CD189B923721BAB00739F13 /* Info.plist */,
+			);
+			path = "Scatter and Gather";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1CD189A723721BAB00739F13 /* Scatter and Gather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1CD189BC23721BAB00739F13 /* Build configuration list for PBXNativeTarget "Scatter and Gather" */;
+			buildPhases = (
+				1CD189A423721BAB00739F13 /* Sources */,
+				1CD189A523721BAB00739F13 /* Frameworks */,
+				1CD189A623721BAB00739F13 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Scatter and Gather";
+			productName = "Scatter and Gather";
+			productReference = 1CD189A823721BAB00739F13 /* Scatter and Gather.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1CD189A023721BAA00739F13 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1110;
+				LastUpgradeCheck = 1110;
+				ORGANIZATIONNAME = "Richar Wolter";
+				TargetAttributes = {
+					1CD189A723721BAB00739F13 = {
+						CreatedOnToolsVersion = 11.1;
+					};
+				};
+			};
+			buildConfigurationList = 1CD189A323721BAA00739F13 /* Build configuration list for PBXProject "Scatter and Gather" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1CD1899F23721BAA00739F13;
+			productRefGroup = 1CD189A923721BAB00739F13 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1CD189A723721BAB00739F13 /* Scatter and Gather */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1CD189A623721BAB00739F13 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD189B823721BAB00739F13 /* LaunchScreen.storyboard in Resources */,
+				1CD189B523721BAB00739F13 /* Assets.xcassets in Resources */,
+				1CD189B323721BAB00739F13 /* Main.storyboard in Resources */,
+				1CD189C023723C4300739F13 /* lambda_logo.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1CD189A423721BAB00739F13 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1CD189B023721BAB00739F13 /* ViewController.swift in Sources */,
+				1CD189AC23721BAB00739F13 /* AppDelegate.swift in Sources */,
+				1CD189AE23721BAB00739F13 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1CD189B123721BAB00739F13 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CD189B223721BAB00739F13 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		1CD189B623721BAB00739F13 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CD189B723721BAB00739F13 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1CD189BA23721BAB00739F13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		1CD189BB23721BAB00739F13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1CD189BD23721BAB00739F13 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56A3CKG4X2;
+				INFOPLIST_FILE = "Scatter and Gather/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wolter.Scatter-and-Gather";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1CD189BE23721BAB00739F13 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 56A3CKG4X2;
+				INFOPLIST_FILE = "Scatter and Gather/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.wolter.Scatter-and-Gather";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1CD189A323721BAA00739F13 /* Build configuration list for PBXProject "Scatter and Gather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD189BA23721BAB00739F13 /* Debug */,
+				1CD189BB23721BAB00739F13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1CD189BC23721BAB00739F13 /* Build configuration list for PBXNativeTarget "Scatter and Gather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1CD189BD23721BAB00739F13 /* Debug */,
+				1CD189BE23721BAB00739F13 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1CD189A023721BAA00739F13 /* Project object */;
+}

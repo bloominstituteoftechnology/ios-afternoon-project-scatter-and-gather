@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="r05-J3-3Fz">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Scatter_and_Gather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="izB-c5-5DJ">
+                                <rect key="frame" x="96.5" y="88" width="221" height="63.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eef-b6-A96">
+                                        <rect key="frame" x="0.0" y="0.0" width="32" height="63.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="L">
+                                                <attributes>
+                                                    <font key="NSFont" size="50" name="Chalkduster"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ige-c4-shT">
+                                        <rect key="frame" x="32" y="0.0" width="34.5" height="63.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="a">
+                                                <attributes>
+                                                    <font key="NSFont" size="50" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0W-zN-IN7">
+                                        <rect key="frame" x="66.5" y="0.0" width="51" height="63.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="m">
+                                                <attributes>
+                                                    <font key="NSFont" size="50" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jqt-Ea-Xvk">
+                                        <rect key="frame" x="117.5" y="0.0" width="29.5" height="63.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="b">
+                                                <attributes>
+                                                    <font key="NSFont" size="50" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4t-c7-rUm">
+                                        <rect key="frame" x="147" y="0.0" width="39.5" height="63.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="d">
+                                                <attributes>
+                                                    <font key="NSFont" size="50" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCE-86-RTI">
+                                        <rect key="frame" x="186.5" y="0.0" width="34.5" height="63.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="a">
+                                                <attributes>
+                                                    <font key="NSFont" size="50" name="Chalkduster"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lambda_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="aQR-W4-LWN">
+                                <rect key="frame" x="70" y="211" width="275" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="izB-c5-5DJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="F0Y-6V-g18"/>
+                            <constraint firstItem="izB-c5-5DJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Ows-Kq-m6G"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="PuM-qI-wG8">
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="WDo-No-LrD">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="fiV-eo-i7Q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="a1Label" destination="ige-c4-shT" id="KpB-Q1-BNL"/>
+                        <outlet property="a2Label" destination="zCE-86-RTI" id="IFI-lj-fAY"/>
+                        <outlet property="bLabel" destination="jqt-Ea-Xvk" id="xqQ-Xm-52D"/>
+                        <outlet property="dLabel" destination="M4t-c7-rUm" id="iNL-ls-iwO"/>
+                        <outlet property="lLabel" destination="Eef-b6-A96" id="UbV-vC-op6"/>
+                        <outlet property="lambdaImageView" destination="aQR-W4-LWN" id="aVo-6t-QTj"/>
+                        <outlet property="mLabel" destination="G0W-zN-IN7" id="kf6-2Y-il6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1568" y="-116"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="YOf-JE-NNa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="r05-J3-3Fz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wIn-St-XcQ">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Egw-Pf-6Xq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YPi-bG-BJQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="725" y="-49"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lambda_logo.png" width="2000" height="558"/>
+    </resources>
+</document>
