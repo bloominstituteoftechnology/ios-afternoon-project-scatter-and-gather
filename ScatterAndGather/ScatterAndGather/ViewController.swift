@@ -15,6 +15,13 @@ class ViewController: UIViewController {
     
     
     // MARK: Outlets
+    @IBOutlet weak var letterL: UILabel!
+    @IBOutlet weak var letterA: UILabel!
+    @IBOutlet weak var letterM: UILabel!
+    @IBOutlet weak var letterB: UILabel!
+    @IBOutlet weak var letterD: UILabel!
+    @IBOutlet weak var letterA2: UILabel!
+    @IBOutlet weak var lambaLogo: UIImageView!
     
 
     override func viewDidLoad() {
