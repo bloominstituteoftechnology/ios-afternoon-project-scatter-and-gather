@@ -10,11 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: Properties
+    // MARK: - Properties
     var isScattered: Bool = false
     
     
-    // MARK: Outlets
+    // MARK: - Outlets
     @IBOutlet weak var letterL: UILabel!
     @IBOutlet weak var letterA: UILabel!
     @IBOutlet weak var letterM: UILabel!
@@ -24,16 +24,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var lambaLogo: UIImageView!
     
 
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
-    // MARK: Actions
+    // MARK: - Actions
     @IBAction func togglebuttonPressed(_ sender: UIBarButtonItem) {
+        
     }
     
 
-
 }
 
+// Just a test to see it animate.  Cool!!
+//        UIView.animate(withDuration: 4.0, animations:  {
+//            self.lambaLogo.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }) { _ in
+//                UIView.animate(withDuration: 1.0) {
+//                    self.lambaLogo.transform = .identity
+//                }
+//
+//        }
