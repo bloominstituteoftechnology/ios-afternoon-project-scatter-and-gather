@@ -13,6 +13,12 @@ class ViewController: UIViewController {
     // MARK: - Properties
     var isScattered: Bool = false
     let animationDuration = 3.5
+    var lStart: CGPoint = CGPoint()
+    var aStart: CGPoint = CGPoint()
+    var mStart: CGPoint = CGPoint()
+    var bStart: CGPoint = CGPoint()
+    var dStart: CGPoint = CGPoint()
+    var a2Start: CGPoint = CGPoint()
     
     
     // MARK: - Outlets
@@ -37,20 +43,36 @@ class ViewController: UIViewController {
             gatherAnimation()
             isScattered = false
         } else {
+            lStart = self.letterL.center
             scatterAnimation()
             isScattered = true
         }
     }
     
+    
     private func scatterAnimation() {
         UIView.animate(withDuration: animationDuration) {
             self.lambaLogo.alpha = 0.0
         }
+        let animationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                self.letterL.transform = CGAffineTransform(rotationAngle: CGFloat.pi*0.75)
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                self.letterL.center = CGPoint(x: self.view.center.x - 18, y: self.view.center.y - 22)
+            }
+        }
+        
+        UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: [], animations: animationBlock, completion: nil)
     }
     
     private func gatherAnimation() {
         UIView.animate(withDuration: animationDuration) {
             self.lambaLogo.alpha = 1.0
+        }
+        UIView.animate(withDuration: animationDuration) {
+            self.letterL.transform = .identity
+            self.letterL.center = self.lStart
         }
     }
 
