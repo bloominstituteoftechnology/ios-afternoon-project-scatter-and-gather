@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     var isScattered: Bool = false
+    let animationDuration = 3.5
     
     
     // MARK: - Outlets
@@ -32,9 +33,26 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func togglebuttonPressed(_ sender: UIBarButtonItem) {
-        
+        if isScattered {
+            gatherAnimation()
+            isScattered = false
+        } else {
+            scatterAnimation()
+            isScattered = true
+        }
     }
     
+    private func scatterAnimation() {
+        UIView.animate(withDuration: animationDuration) {
+            self.lambaLogo.alpha = 0.0
+        }
+    }
+    
+    private func gatherAnimation() {
+        UIView.animate(withDuration: animationDuration) {
+            self.lambaLogo.alpha = 1.0
+        }
+    }
 
 }
 
