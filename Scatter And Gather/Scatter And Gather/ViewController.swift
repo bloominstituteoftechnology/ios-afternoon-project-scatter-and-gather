@@ -9,12 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    //MARK: Properties
+    
+    var isScattered: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    func createNavItems() {
+        let toggleButton = UIBarButtonItem()
+        toggleButton.title = "Toggle"
+        self.navigationItem.setRightBarButton(toggleButton, animated: true)
+    }
 
+    @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+        
+        isScattered.toggle()
+        
+        print("\(isScattered)")
 
 }
+    
+    @objc func toggleButton(_ sender: UIBarButtonItem) {
+        isScattered.toggle()
+        
+        print("\(isScattered)")
+    }
 
+}
