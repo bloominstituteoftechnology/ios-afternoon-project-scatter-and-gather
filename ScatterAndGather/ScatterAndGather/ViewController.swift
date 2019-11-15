@@ -70,7 +70,13 @@ class ViewController: UIViewController {
         let animationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
                 for letter in self.letterList {
-                    letter.transform = CGAffineTransform(rotationAngle: CGFloat.pi * CGFloat.random(in: 0.15...1.85))
+                    letter.backgroundColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: CGFloat.random(in: 0...1))
+                    letter.textColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: CGFloat.random(in: 0.5...1))
+                }
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                for letter in self.letterList {
+                    letter.transform = CGAffineTransform(rotationAngle: CGFloat.pi * CGFloat.random(in: 0.10...1.90))
                 }
             }
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
@@ -86,6 +92,12 @@ class ViewController: UIViewController {
     private func gatherAnimation() {
         UIView.animate(withDuration: animationDuration) {
             self.lambaLogo.alpha = 1.0
+        }
+        UIView.animate(withDuration: animationDuration) {
+            for letter in self.letterList {
+                letter.backgroundColor = .clear
+                letter.textColor = .black
+            }
         }
         UIView.animate(withDuration: animationDuration) {
             for letter in self.letterList {
