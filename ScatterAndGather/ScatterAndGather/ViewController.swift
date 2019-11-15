@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     // MARK: - Properties
     var isScattered: Bool = false
     let animationDuration = 3.5
+    var letterStartPoint: [CGPoint] = []
+    var letterList: [UILabel] = []
     var lStart: CGPoint = CGPoint()
     var aStart: CGPoint = CGPoint()
     var mStart: CGPoint = CGPoint()
@@ -39,11 +41,12 @@ class ViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func togglebuttonPressed(_ sender: UIBarButtonItem) {
+        letterList = [letterL, letterA, letterM, letterB, letterD, letterA2]
         if isScattered {
             gatherAnimation()
             isScattered = false
         } else {
-            lStart = self.letterL.center
+            letterStartPoint = [letterL.center, letterA.center, letterM.center, letterB.center, letterD.center, letterA2.center]
             scatterAnimation()
             isScattered = true
         }
@@ -59,7 +62,10 @@ class ViewController: UIViewController {
                 self.letterL.transform = CGAffineTransform(rotationAngle: CGFloat.pi*0.75)
             }
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
-                self.letterL.center = CGPoint(x: self.view.center.x - 18, y: self.view.center.y - 22)
+                for letter in self.letterList {
+                    letter.center = CGPoint(x: self.view.center.x + CGFloat.random(in: -250...150), y: self.view.center.y + CGFloat.random(in: -450...200))
+                }
+//                self.letterL.center = CGPoint(x: self.view.center.x + CGFloat.random(in: -200...(-100)), y: self.view.center.y + CGFloat.random(in: -450...(200)))
             }
         }
         
@@ -72,7 +78,14 @@ class ViewController: UIViewController {
         }
         UIView.animate(withDuration: animationDuration) {
             self.letterL.transform = .identity
-            self.letterL.center = self.lStart
+        }
+        UIView.animate(withDuration: animationDuration) {
+            self.letterL.center = self.letterStartPoint[0]
+            self.letterA.center = self.letterStartPoint[1]
+            self.letterM.center = self.letterStartPoint[2]
+            self.letterB.center = self.letterStartPoint[3]
+            self.letterD.center = self.letterStartPoint[4]
+            self.letterA2.center = self.letterStartPoint[5]
         }
     }
 
