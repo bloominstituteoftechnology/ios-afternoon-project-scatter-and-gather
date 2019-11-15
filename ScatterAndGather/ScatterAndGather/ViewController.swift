@@ -46,10 +46,9 @@ class ViewController: UIViewController {
             gatherAnimation()
             isScattered = false
         } else {
-            
             // set screenWidth and screenHeight based on the device screen size
-            screenWidth = view.bounds.width
-            screenHeight = view.bounds.height
+            screenWidth = view.frame.width
+            screenHeight = view.frame.height
             
             // set the duration to a random double bewteen 2 - 4 seconds
             animationDuration = Double.random(in: 2.0...4.0)
@@ -64,22 +63,26 @@ class ViewController: UIViewController {
     
     
     private func scatterAnimation() {
+        // Fade the logo to transparent
         UIView.animate(withDuration: animationDuration) {
             self.lambaLogo.alpha = 0.0
         }
         
+        // Animate the random background colors of the letters
         UIView.animate(withDuration: animationDuration) {
             for letter in self.letterList {
                 letter.layer.backgroundColor = CGColor(srgbRed: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: CGFloat.random(in: 0...1))
             }
         }
         
+        // Change the text color of the letters; but I don't think it can animate
         UIView.animate(withDuration: animationDuration) {
             for letter in self.letterList {
                 letter.textColor = UIColor(red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: CGFloat.random(in: 0.5...1))
             }
         }
         
+        // The animation block starts the x and y movement slightly before the rotation occurs.
         let animationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 1.0) {
                 for letter in self.letterList {
@@ -95,6 +98,7 @@ class ViewController: UIViewController {
         UIView.animateKeyframes(withDuration: animationDuration, delay: 0, options: [], animations: animationBlock, completion: nil)
     }
     
+    // gatherAnimation returns everything to state before the scatter method.
     private func gatherAnimation() {
         UIView.animate(withDuration: animationDuration) {
             self.lambaLogo.alpha = 1.0
