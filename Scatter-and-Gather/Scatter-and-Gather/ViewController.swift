@@ -13,6 +13,14 @@ class ViewController: UIViewController {
     var isScattered = false
     var labels: [UILabel] = []
     
+    var charLOriginPoint: CGPoint!
+    var charAOriginPoint: CGPoint!
+    var charMOriginPoint: CGPoint!
+    var charBOriginPoint: CGPoint!
+    var charDOriginPoint: CGPoint!
+    var charAAOriginPoint: CGPoint!
+
+    
     @IBOutlet weak var letterLLabel: UILabel!
     
     @IBOutlet weak var letter1ALabel: UILabel!
@@ -34,106 +42,164 @@ class ViewController: UIViewController {
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         
         if isScattered {
-            gatherAnimation()
-            fadeLogo()
-            
-        }else {
-            scatterAnimation()
-            fadeLogo()
+            gather()
+        } else {
+            scatter()
         }
-        
-        isScattered = !isScattered
+
+         // Call toggle to switch bool after clicked
+        isScattered.toggle()
         
     }
     
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    }
-    
-    //Function to Gather Animation:
-    
-    func gatherAnimation() {
-        let labels: [UILabel] = [letterLLabel, letter1ALabel, letterMLabel, letterBLabel, letterDLabel, letter2ALabel]
-        
-        for i in labels {
-            animate(label: i)
-        }
-    }
-    
-    //Function to Scatter animation:
-    
-    func scatterAnimation() {
-        let labels: [UILabel] = [letterLLabel, letter1ALabel, letterMLabel, letterBLabel, letterDLabel, letter2ALabel]
-        
-        for i in labels {
-            animate(label: i)
-        }
+        setLabelPointOrigins()
+        lambdaLogoImageView.isOpaque = false
     }
 
-    //Function to Fade Lambda Logo:
+     private func setLabelPointOrigins() {
+        charLOriginPoint = self.letterLLabel.center
+        charAOriginPoint = self.letter1ALabel.center
+        charMOriginPoint = self.letterMLabel.center
+        charBOriginPoint = self.letterBLabel.center
+        charDOriginPoint = self.letterDLabel.center
+        charAAOriginPoint = self.letter2ALabel.center
+    }
     
-    func fadeLogo() {
-        UIView.animateKeyframes(withDuration: 4, delay: 0,options: [], animations: {
+    
 
-             UIView.addKeyframe(withRelativeStartTime: 0.1,
-                               relativeDuration: 0.4) {
-                                self.lambdaLogoImageView.alpha = 0
+         // MARK: - Actions
+        
+        private func scatter() {
+
+            self.letterLLabel.textColor = randomColor()
+            self.letter1ALabel.textColor = randomColor()
+            self.letterMLabel.textColor = randomColor()
+            self.letterBLabel.textColor = randomColor()
+            self.letterDLabel.textColor = randomColor()
+            self.letter2ALabel.textColor = randomColor()
+
+    
+            UIView.animate(withDuration: 2.0) {
+                self.letterLLabel.center = self.randomPoint(from: self.letterLLabel)
+                self.letterLLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.letterLLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
+                
+                self.letter1ALabel.center = self.randomPoint(from: self.letter1ALabel)
+                self.letter1ALabel.layer.backgroundColor = self.randomColor().cgColor
+                self.letter1ALabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
+                
+                self.letterMLabel.center = self.randomPoint(from: self.letterMLabel)
+                self.letterMLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.letterMLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
+                
+                self.letterBLabel.center = self.randomPoint(from: self.letterBLabel)
+                self.letterBLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.letterBLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
+                
+                self.letterDLabel.center = self.randomPoint(from: self.letterDLabel)
+                self.letterDLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.letterDLabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
+                
+                self.letter2ALabel.center = self.randomPoint(from: self.letter2ALabel)
+                self.letter2ALabel.layer.backgroundColor = self.randomColor().cgColor
+                self.letter2ALabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
+                
+                self.lambdaLogoImageView.alpha = 0.0
             }
 
-             UIView.addKeyframe(withRelativeStartTime: 0.25,
-                               relativeDuration: 0.4) {
-                                self.lambdaLogoImageView.alpha = 1
-            }
-        },
-                                completion: nil)
-    }
-    
-    func animate(label: UILabel) {
-        
-              //Background Color
-             UILabel.animate(withDuration: 4, animations: {
-                 label.layer.backgroundColor = UIColor.random().cgColor
-             }, completion: nil)
-        
-              //Rotation And Position
-             UILabel.animate(withDuration: 4) {
-                 label.transform = CGAffineTransform(rotationAngle: .random(in: 0...10))
-                     .concatenating(CGAffineTransform(translationX: CGFloat.random(in: -250...300), y: CGFloat.random(in: -300...400)))
-             }
-        
-              //Text Color
-             UILabel.animate(withDuration: 4, animations: {
-                 label.textColor = UIColor.random()
-             }, completion: nil)
          }
+
+         private func randomAngle() -> CGFloat {
+            let angle = CGFloat(Int.random(in: 1...10))
+            if (Int.random(in: 1...100) % 2) == 0 {
+                return CGFloat.pi / angle
+            } else {
+                return -1 * CGFloat.pi / angle
+            }
+        }
+
+         private func randomPoint(from label: UILabel) -> CGPoint {
+
+             let minX = Int(view.bounds.minX)
+            var maxX = Int(view.bounds.maxX)
+            let minY = Int(view.bounds.minY)
+            var maxY = Int(view.bounds.maxY)
+
+             let labelHeight = Int(label.bounds.size.height)
+            let labelWidth = Int(label.bounds.size.width)
+
+             maxX = maxX - labelWidth
+            maxY = maxY - labelHeight
+
+             let randXPoint = CGFloat(Int.random(in: minX...maxX))
+            let randYPoint = CGFloat(Int.random(in: minY...maxY))
+            return CGPoint(x: randXPoint, y: randYPoint)
+        }
+
+         private func randomColor() -> UIColor {
+            let randNum = Int.random(in: 0...6)
+            switch randNum {
+            case 0:
+                return UIColor.red
+            case 1:
+                return UIColor.blue
+            case 2:
+                return UIColor.brown
+            case 3:
+                return UIColor.cyan
+            case 4:
+                return UIColor.green
+            case 5:
+                return UIColor.yellow
+            case 6:
+                return UIColor.orange
+            default:
+                return UIColor.black
+            }
+        }
+    
+
+         private func gather() {
+
+             self.letterLLabel.textColor = UIColor.black
+            self.letter1ALabel.textColor = UIColor.black
+            self.letterMLabel.textColor = UIColor.black
+            self.letterBLabel.textColor = UIColor.black
+            self.letterDLabel.textColor = UIColor.black
+            self.letter2ALabel.textColor = UIColor.black
+
+             UIView.animate(withDuration: 2.0) {
+                self.letterLLabel.center = self.charLOriginPoint
+                self.letterLLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.letterLLabel.transform = .identity
+
+                 self.letter1ALabel.center = self.charAOriginPoint
+                self.letter1ALabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.letter1ALabel.transform = .identity
+
+                 self.letterMLabel.center = self.charMOriginPoint
+                self.letterMLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.letterMLabel.transform = .identity
+
+                 self.letterBLabel.center = self.charBOriginPoint
+                self.letterBLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.letterBLabel.transform = .identity
+
+                 self.letterDLabel.center = self.charDOriginPoint
+                self.letterDLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.letterDLabel.transform = .identity
+
+                 self.letter2ALabel.center = self.charAAOriginPoint
+                self.letter2ALabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.letter2ALabel.transform = .identity
+
+                 self.lambdaLogoImageView.alpha = 1.0
+            }
+        }
+
      }
-
-      // MARK: Reset
-
-         func reset(label: UILabel) {
-             UIView.animate(withDuration: 4, animations: {
-             label.transform = .identity
-             label.layer.backgroundColor = UIColor.clear.cgColor
-             label.textColor = UIColor.yellow
-            label.transform = .identity
-             }, completion: nil)
-         }
-
-      // MARK: Random Color
-     extension UIColor {
-        
-                      static func random() -> UIColor {
-                         let red = CGFloat.random(in: 0...255)
-                         let green = CGFloat.random(in: 0...255)
-                         let blue = CGFloat.random(in:0...255)
-                         let alpha = CGFloat.random(in: 0.5...1)
-                        
-                         let color = UIColor(displayP3Red: red / 255, green: green / 255, blue: blue / 255, alpha: alpha)
-                         return color
-                     }
-             }
-
-
-
