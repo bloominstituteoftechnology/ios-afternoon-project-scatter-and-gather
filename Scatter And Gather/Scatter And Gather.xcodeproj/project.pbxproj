@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		83F4CF4E237E7FEF005CB1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4CF4D237E7FEF005CB1B3 /* AppDelegate.swift */; };
+		83F4CF50237E7FEF005CB1B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4CF4F237E7FEF005CB1B3 /* SceneDelegate.swift */; };
+		83F4CF52237E7FEF005CB1B3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4CF51237E7FEF005CB1B3 /* ViewController.swift */; };
+		83F4CF55237E7FEF005CB1B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F4CF53237E7FEF005CB1B3 /* Main.storyboard */; };
+		83F4CF57237E7FF4005CB1B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83F4CF56237E7FF4005CB1B3 /* Assets.xcassets */; };
+		83F4CF5A237E7FF4005CB1B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83F4CF58237E7FF4005CB1B3 /* LaunchScreen.storyboard */; };
+		83F4CF65237E7FF4005CB1B3 /* Scatter_And_GatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4CF64237E7FF4005CB1B3 /* Scatter_And_GatherTests.swift */; };
+		83F4CF70237E7FF4005CB1B3 /* Scatter_And_GatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83F4CF6F237E7FF4005CB1B3 /* Scatter_And_GatherUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		83F4CF61237E7FF4005CB1B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83F4CF42237E7FEF005CB1B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83F4CF49237E7FEF005CB1B3;
+			remoteInfo = "Scatter And Gather";
+		};
+		83F4CF6C237E7FF4005CB1B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83F4CF42237E7FEF005CB1B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83F4CF49237E7FEF005CB1B3;
+			remoteInfo = "Scatter And Gather";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		83F4CF4A237E7FEF005CB1B3 /* Scatter And Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scatter And Gather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83F4CF4D237E7FEF005CB1B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		83F4CF4F237E7FEF005CB1B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		83F4CF51237E7FEF005CB1B3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		83F4CF54237E7FEF005CB1B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		83F4CF56237E7FF4005CB1B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		83F4CF59237E7FF4005CB1B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		83F4CF5B237E7FF4005CB1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83F4CF60237E7FF4005CB1B3 /* Scatter And GatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scatter And GatherTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83F4CF64237E7FF4005CB1B3 /* Scatter_And_GatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scatter_And_GatherTests.swift; sourceTree = "<group>"; };
+		83F4CF66237E7FF4005CB1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83F4CF6B237E7FF4005CB1B3 /* Scatter And GatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scatter And GatherUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		83F4CF6F237E7FF4005CB1B3 /* Scatter_And_GatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scatter_And_GatherUITests.swift; sourceTree = "<group>"; };
+		83F4CF71237E7FF4005CB1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		83F4CF47237E7FEF005CB1B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83F4CF5D237E7FF4005CB1B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83F4CF68237E7FF4005CB1B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		83F4CF41237E7FEF005CB1B3 = {
+			isa = PBXGroup;
+			children = (
+				83F4CF4C237E7FEF005CB1B3 /* Scatter And Gather */,
+				83F4CF63237E7FF4005CB1B3 /* Scatter And GatherTests */,
+				83F4CF6E237E7FF4005CB1B3 /* Scatter And GatherUITests */,
+				83F4CF4B237E7FEF005CB1B3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		83F4CF4B237E7FEF005CB1B3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				83F4CF4A237E7FEF005CB1B3 /* Scatter And Gather.app */,
+				83F4CF60237E7FF4005CB1B3 /* Scatter And GatherTests.xctest */,
+				83F4CF6B237E7FF4005CB1B3 /* Scatter And GatherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		83F4CF4C237E7FEF005CB1B3 /* Scatter And Gather */ = {
+			isa = PBXGroup;
+			children = (
+				83F4CF4D237E7FEF005CB1B3 /* AppDelegate.swift */,
+				83F4CF4F237E7FEF005CB1B3 /* SceneDelegate.swift */,
+				83F4CF51237E7FEF005CB1B3 /* ViewController.swift */,
+				83F4CF53237E7FEF005CB1B3 /* Main.storyboard */,
+				83F4CF56237E7FF4005CB1B3 /* Assets.xcassets */,
+				83F4CF58237E7FF4005CB1B3 /* LaunchScreen.storyboard */,
+				83F4CF5B237E7FF4005CB1B3 /* Info.plist */,
+			);
+			path = "Scatter And Gather";
+			sourceTree = "<group>";
+		};
+		83F4CF63237E7FF4005CB1B3 /* Scatter And GatherTests */ = {
+			isa = PBXGroup;
+			children = (
+				83F4CF64237E7FF4005CB1B3 /* Scatter_And_GatherTests.swift */,
+				83F4CF66237E7FF4005CB1B3 /* Info.plist */,
+			);
+			path = "Scatter And GatherTests";
+			sourceTree = "<group>";
+		};
+		83F4CF6E237E7FF4005CB1B3 /* Scatter And GatherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				83F4CF6F237E7FF4005CB1B3 /* Scatter_And_GatherUITests.swift */,
+				83F4CF71237E7FF4005CB1B3 /* Info.plist */,
+			);
+			path = "Scatter And GatherUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		83F4CF49237E7FEF005CB1B3 /* Scatter And Gather */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83F4CF74237E7FF4005CB1B3 /* Build configuration list for PBXNativeTarget "Scatter And Gather" */;
+			buildPhases = (
+				83F4CF46237E7FEF005CB1B3 /* Sources */,
+				83F4CF47237E7FEF005CB1B3 /* Frameworks */,
+				83F4CF48237E7FEF005CB1B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Scatter And Gather";
+			productName = "Scatter And Gather";
+			productReference = 83F4CF4A237E7FEF005CB1B3 /* Scatter And Gather.app */;
+			productType = "com.apple.product-type.application";
+		};
+		83F4CF5F237E7FF4005CB1B3 /* Scatter And GatherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83F4CF77237E7FF4005CB1B3 /* Build configuration list for PBXNativeTarget "Scatter And GatherTests" */;
+			buildPhases = (
+				83F4CF5C237E7FF4005CB1B3 /* Sources */,
+				83F4CF5D237E7FF4005CB1B3 /* Frameworks */,
+				83F4CF5E237E7FF4005CB1B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83F4CF62237E7FF4005CB1B3 /* PBXTargetDependency */,
+			);
+			name = "Scatter And GatherTests";
+			productName = "Scatter And GatherTests";
+			productReference = 83F4CF60237E7FF4005CB1B3 /* Scatter And GatherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		83F4CF6A237E7FF4005CB1B3 /* Scatter And GatherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83F4CF7A237E7FF4005CB1B3 /* Build configuration list for PBXNativeTarget "Scatter And GatherUITests" */;
+			buildPhases = (
+				83F4CF67237E7FF4005CB1B3 /* Sources */,
+				83F4CF68237E7FF4005CB1B3 /* Frameworks */,
+				83F4CF69237E7FF4005CB1B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				83F4CF6D237E7FF4005CB1B3 /* PBXTargetDependency */,
+			);
+			name = "Scatter And GatherUITests";
+			productName = "Scatter And GatherUITests";
+			productReference = 83F4CF6B237E7FF4005CB1B3 /* Scatter And GatherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83F4CF42237E7FEF005CB1B3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Moka Apps";
+				TargetAttributes = {
+					83F4CF49237E7FEF005CB1B3 = {
+						CreatedOnToolsVersion = 11.2;
+					};
+					83F4CF5F237E7FF4005CB1B3 = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = 83F4CF49237E7FEF005CB1B3;
+					};
+					83F4CF6A237E7FF4005CB1B3 = {
+						CreatedOnToolsVersion = 11.2;
+						TestTargetID = 83F4CF49237E7FEF005CB1B3;
+					};
+				};
+			};
+			buildConfigurationList = 83F4CF45237E7FEF005CB1B3 /* Build configuration list for PBXProject "Scatter And Gather" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83F4CF41237E7FEF005CB1B3;
+			productRefGroup = 83F4CF4B237E7FEF005CB1B3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83F4CF49237E7FEF005CB1B3 /* Scatter And Gather */,
+				83F4CF5F237E7FF4005CB1B3 /* Scatter And GatherTests */,
+				83F4CF6A237E7FF4005CB1B3 /* Scatter And GatherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83F4CF48237E7FEF005CB1B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F4CF5A237E7FF4005CB1B3 /* LaunchScreen.storyboard in Resources */,
+				83F4CF57237E7FF4005CB1B3 /* Assets.xcassets in Resources */,
+				83F4CF55237E7FEF005CB1B3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83F4CF5E237E7FF4005CB1B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83F4CF69237E7FF4005CB1B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		83F4CF46237E7FEF005CB1B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F4CF52237E7FEF005CB1B3 /* ViewController.swift in Sources */,
+				83F4CF4E237E7FEF005CB1B3 /* AppDelegate.swift in Sources */,
+				83F4CF50237E7FEF005CB1B3 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83F4CF5C237E7FF4005CB1B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F4CF65237E7FF4005CB1B3 /* Scatter_And_GatherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83F4CF67237E7FF4005CB1B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83F4CF70237E7FF4005CB1B3 /* Scatter_And_GatherUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		83F4CF62237E7FF4005CB1B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83F4CF49237E7FEF005CB1B3 /* Scatter And Gather */;
+			targetProxy = 83F4CF61237E7FF4005CB1B3 /* PBXContainerItemProxy */;
+		};
+		83F4CF6D237E7FF4005CB1B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83F4CF49237E7FEF005CB1B3 /* Scatter And Gather */;
+			targetProxy = 83F4CF6C237E7FF4005CB1B3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		83F4CF53237E7FEF005CB1B3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83F4CF54237E7FEF005CB1B3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		83F4CF58237E7FF4005CB1B3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				83F4CF59237E7FF4005CB1B3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		83F4CF72237E7FF4005CB1B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		83F4CF73237E7FF4005CB1B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		83F4CF75237E7FF4005CB1B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL3XLM68NV;
+				INFOPLIST_FILE = "Scatter And Gather/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MokaApps.Scatter-And-Gather";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		83F4CF76237E7FF4005CB1B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL3XLM68NV;
+				INFOPLIST_FILE = "Scatter And Gather/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MokaApps.Scatter-And-Gather";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		83F4CF78237E7FF4005CB1B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL3XLM68NV;
+				INFOPLIST_FILE = "Scatter And GatherTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MokaApps.Scatter-And-GatherTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scatter And Gather.app/Scatter And Gather";
+			};
+			name = Debug;
+		};
+		83F4CF79237E7FF4005CB1B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL3XLM68NV;
+				INFOPLIST_FILE = "Scatter And GatherTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MokaApps.Scatter-And-GatherTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scatter And Gather.app/Scatter And Gather";
+			};
+			name = Release;
+		};
+		83F4CF7B237E7FF4005CB1B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL3XLM68NV;
+				INFOPLIST_FILE = "Scatter And GatherUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MokaApps.Scatter-And-GatherUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Scatter And Gather";
+			};
+			name = Debug;
+		};
+		83F4CF7C237E7FF4005CB1B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = HL3XLM68NV;
+				INFOPLIST_FILE = "Scatter And GatherUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.MokaApps.Scatter-And-GatherUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Scatter And Gather";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		83F4CF45237E7FEF005CB1B3 /* Build configuration list for PBXProject "Scatter And Gather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83F4CF72237E7FF4005CB1B3 /* Debug */,
+				83F4CF73237E7FF4005CB1B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83F4CF74237E7FF4005CB1B3 /* Build configuration list for PBXNativeTarget "Scatter And Gather" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83F4CF75237E7FF4005CB1B3 /* Debug */,
+				83F4CF76237E7FF4005CB1B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83F4CF77237E7FF4005CB1B3 /* Build configuration list for PBXNativeTarget "Scatter And GatherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83F4CF78237E7FF4005CB1B3 /* Debug */,
+				83F4CF79237E7FF4005CB1B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83F4CF7A237E7FF4005CB1B3 /* Build configuration list for PBXNativeTarget "Scatter And GatherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83F4CF7B237E7FF4005CB1B3 /* Debug */,
+				83F4CF7C237E7FF4005CB1B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83F4CF42237E7FEF005CB1B3 /* Project object */;
+}
