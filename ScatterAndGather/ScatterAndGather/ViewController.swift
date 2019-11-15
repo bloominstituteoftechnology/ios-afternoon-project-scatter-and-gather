@@ -15,12 +15,6 @@ class ViewController: UIViewController {
     let animationDuration = 3.5
     var letterStartPoint: [CGPoint] = []
     var letterList: [UILabel] = []
-    var lStart: CGPoint = CGPoint()
-    var aStart: CGPoint = CGPoint()
-    var mStart: CGPoint = CGPoint()
-    var bStart: CGPoint = CGPoint()
-    var dStart: CGPoint = CGPoint()
-    var a2Start: CGPoint = CGPoint()
     
     
     // MARK: - Outlets
@@ -36,16 +30,23 @@ class ViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     // MARK: - Actions
     @IBAction func togglebuttonPressed(_ sender: UIBarButtonItem) {
+        // The function looks at the isScattered value and either scatters or gathers
+        
+        // Define the letter list array
         letterList = [letterL, letterA, letterM, letterB, letterD, letterA2]
+        
+        // If isScattered is true, then the gatherAnimation is run
         if isScattered {
             gatherAnimation()
             isScattered = false
         } else {
+            
+            // if isScatter is false, then the scatterAnimation is run.
+            // Set the array of the starting points of each letter so we know where to return.
             letterStartPoint = [letterL.center, letterA.center, letterM.center, letterB.center, letterD.center, letterA2.center]
             scatterAnimation()
             isScattered = true
@@ -59,13 +60,14 @@ class ViewController: UIViewController {
         }
         let animationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
-                self.letterL.transform = CGAffineTransform(rotationAngle: CGFloat.pi*0.75)
+                for letter in self.letterList {
+                    letter.transform = CGAffineTransform(rotationAngle: CGFloat.pi * CGFloat.random(in: 0.15...1.85))
+                }
             }
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
                 for letter in self.letterList {
                     letter.center = CGPoint(x: self.view.center.x + CGFloat.random(in: -250...150), y: self.view.center.y + CGFloat.random(in: -450...200))
                 }
-//                self.letterL.center = CGPoint(x: self.view.center.x + CGFloat.random(in: -200...(-100)), y: self.view.center.y + CGFloat.random(in: -450...(200)))
             }
         }
         
@@ -77,25 +79,18 @@ class ViewController: UIViewController {
             self.lambaLogo.alpha = 1.0
         }
         UIView.animate(withDuration: animationDuration) {
-            self.letterL.transform = .identity
+            for letter in self.letterList {
+                letter.transform = .identity
+            }
         }
         UIView.animate(withDuration: animationDuration) {
-            self.letterL.center = self.letterStartPoint[0]
-            self.letterA.center = self.letterStartPoint[1]
-            self.letterM.center = self.letterStartPoint[2]
-            self.letterB.center = self.letterStartPoint[3]
-            self.letterD.center = self.letterStartPoint[4]
-            self.letterA2.center = self.letterStartPoint[5]
+            var indexNumber = 0
+            for letter in self.letterList {
+                letter.center = self.letterStartPoint[indexNumber]
+                indexNumber += 1
+            }
         }
     }
 
 }
 
-// Just a test to see it animate.  Cool!!
-//        UIView.animate(withDuration: 4.0, animations:  {
-//            self.lambaLogo.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }) { _ in
-//                UIView.animate(withDuration: 1.0) {
-//                    self.lambaLogo.transform = .identity
-//                }
-//
-//        }
