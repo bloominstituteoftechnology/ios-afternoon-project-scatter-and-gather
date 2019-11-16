@@ -32,12 +32,20 @@ class ViewController: UIViewController {
     
     func gather() {
         UIView.animate(withDuration: 3.0) {
-                   self.lambdaLogoImageView.alpha = 1.0
-               }
+            self.lambdaLogoImageView.alpha = 1.0
+            self.lLabel.transform = .identity
+            self.lLabel.textColor = .black
+            self.lLabel.backgroundColor = .white
+            
+        }
     }
     func scatter() {
         UIView.animate(withDuration: 3.0) {
             self.lambdaLogoImageView.alpha = 0.0
+            
+            self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi/1.5)
+            self.lLabel.textColor = .red
+            self.lLabel.backgroundColor = .blue
         }
     }
     
@@ -102,7 +110,7 @@ class ViewController: UIViewController {
         secondALabel.topAnchor.constraint(equalTo: lLabel.topAnchor).isActive = true
         secondALabel.leadingAnchor.constraint(equalTo: dLabel.trailingAnchor, constant: 8).isActive = true
         
-       }
- 
+    }
+    
 }
 
