@@ -97,6 +97,8 @@ class ViewController: UIViewController {
         letter.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
         
         letter.alpha = 0.5
+        
+        letter.transform3D = CATransform3DMakeRotation(CGFloat(Double.pi*0.6),1.0,0.0,0.0)
     }
     
     
