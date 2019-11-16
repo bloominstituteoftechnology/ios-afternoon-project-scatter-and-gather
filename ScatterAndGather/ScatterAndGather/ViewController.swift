@@ -99,140 +99,50 @@ class ViewController: UIViewController {
         }
     }
     
-    func randomPoint(letter: UILabel) -> CGPoint {
+    func randomness(letter: UILabel) {
         let randomX = Int.random(in: 0...Int(view.bounds.size.width - letter.frame.size.width))
         let randomY = Int.random(in: 0...Int(view.bounds.size.height - letter.frame.size.height ))
-        
         letter.center = CGPoint(x: randomX, y: randomY)
-        return letter.center
-    }
-    
-    func randomBackgroundColor() -> CGColor{
-        let backgroundColor = CGColor(srgbRed: CGFloat(Int.random(in: 0...100))/100, green: CGFloat(Int.random(in: 0...100))/100, blue: CGFloat(Int.random(in: 0...100))/100, alpha: 1)
-        return backgroundColor
-    }
-    
-    func randomTextColor(letter: UILabel) {
+        
         let textColor = UIColor(displayP3Red: CGFloat(Int.random(in: 0...100))/100, green: CGFloat(Int.random(in: 0...100))/100, blue: CGFloat(Int.random(in: 0...100))/100, alpha: 1)
         letter.textColor = textColor
+        
+        let backgroundColor = CGColor(srgbRed: CGFloat(Int.random(in: 0...100))/100, green: CGFloat(Int.random(in: 0...100))/100, blue: CGFloat(Int.random(in: 0...100))/100, alpha: 1)
+        letter.layer.backgroundColor = backgroundColor
+        
+        letter.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
+        
+        letter.alpha = 0.5
     }
+    
     
     func scatter() {
         UIView.animate(withDuration: 3.0) {
             self.lambdaLogoImageView.alpha = 0.0
             
-            
             let animationBlock = {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
-                    self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
-                    self.lLabel.center = self.randomPoint(letter: self.lLabel)
-                    self.randomTextColor(letter: self.lLabel)
-                    self.lLabel.layer.backgroundColor = self.randomBackgroundColor()
-                    self.lLabel.alpha = 0.2
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.8) {
+                    self.randomness(letter: self.lLabel)
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3) {
-                    self.aLabel.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
-                    self.aLabel.center = self.randomPoint(letter: self.aLabel)
-                    self.randomTextColor(letter: self.aLabel)
-                    self.aLabel.layer.backgroundColor = self.randomBackgroundColor()
-                    self.aLabel.alpha = 0.5
+                    self.randomness(letter: self.aLabel)
                 }
-       
-                UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
-                    self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
-                    self.mLabel.center = self.randomPoint(letter: self.mLabel)
-                    self.randomTextColor(letter: self.mLabel)
-                    self.mLabel.layer.backgroundColor = self.randomBackgroundColor()
-                    self.mLabel.alpha = 0.5
+                UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
+                    self.randomness(letter: self.mLabel)
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.2) {
-                    self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
-                    self.bLabel.center = self.randomPoint(letter: self.bLabel)
-                    self.randomTextColor(letter: self.bLabel)
-                    self.bLabel.layer.backgroundColor = self.randomBackgroundColor()
-                    self.bLabel.alpha = 0.5
+                    self.randomness(letter: self.bLabel)
                 }
-                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
-                    self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
-                    self.dLabel.center = self.randomPoint(letter: self.dLabel)
-                    self.randomTextColor(letter: self.dLabel)
-                    self.dLabel.layer.backgroundColor = self.randomBackgroundColor()
-                    self.dLabel.alpha = 0.5
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.7) {
+                    self.randomness(letter: self.dLabel)
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.6) {
-                    self.secondALabel.transform = CGAffineTransform(rotationAngle: CGFloat(Int.random(in: 0...360)))
-                    self.secondALabel.center = self.randomPoint(letter: self.secondALabel)
-                    self.randomTextColor(letter: self.secondALabel)
-                    self.secondALabel.layer.backgroundColor = self.randomBackgroundColor()
-                    self.secondALabel.alpha = 0.5
+                    self.randomness(letter: self.secondALabel)
                 }
-                
             }
             
             UIView.animateKeyframes(withDuration: 0.5, delay: 0.5, options: [], animations: animationBlock, completion: nil)
-            
         }
     }
-    
-    
-    
-    //    func configureLabels() {
-    //        lLabel = UILabel()
-    //        lLabel.translatesAutoresizingMaskIntoConstraints = false
-    //        lLabel.text = "L"
-    //        lLabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
-    //        view.addSubview(lLabel)
-    //
-    //        lLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100).isActive = true
-    //        lLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 90).isActive = true
-    //
-    //        aLabel = UILabel()
-    //        aLabel.translatesAutoresizingMaskIntoConstraints = false
-    //        aLabel.text = "a"
-    //        aLabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
-    //        view.addSubview(aLabel)
-    //
-    //        aLabel.topAnchor.constraint(equalTo: lLabel.topAnchor).isActive = true
-    //        aLabel.leadingAnchor.constraint(equalTo: lLabel.trailingAnchor, constant: 8).isActive = true
-    //        self.aOriginPoint = aLabel.center
-    //
-    //        mLabel = UILabel()
-    //        mLabel.translatesAutoresizingMaskIntoConstraints = false
-    //        mLabel.text = "m"
-    //        mLabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
-    //        view.addSubview(mLabel)
-    //
-    //        mLabel.topAnchor.constraint(equalTo: lLabel.topAnchor).isActive = true
-    //        mLabel.leadingAnchor.constraint(equalTo: aLabel.trailingAnchor, constant: 8).isActive = true
-    //
-    //        bLabel = UILabel()
-    //        bLabel.translatesAutoresizingMaskIntoConstraints = false
-    //        bLabel.text = "b"
-    //        bLabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
-    //        view.addSubview(bLabel)
-    //
-    //        bLabel.topAnchor.constraint(equalTo: lLabel.topAnchor).isActive = true
-    //        bLabel.leadingAnchor.constraint(equalTo: mLabel.trailingAnchor, constant: 8).isActive = true
-    //
-    //        dLabel = UILabel()
-    //        dLabel.translatesAutoresizingMaskIntoConstraints = false
-    //        dLabel.text = "d"
-    //        dLabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
-    //        view.addSubview(dLabel)
-    //
-    //        dLabel.topAnchor.constraint(equalTo: lLabel.topAnchor).isActive = true
-    //        dLabel.leadingAnchor.constraint(equalTo: bLabel.trailingAnchor, constant: 8).isActive = true
-    //
-    //        secondALabel = UILabel()
-    //        secondALabel.translatesAutoresizingMaskIntoConstraints = false
-    //        secondALabel.text = "a"
-    //        secondALabel.font = UIFont.systemFont(ofSize: 50, weight: .bold)
-    //        view.addSubview(secondALabel)
-    //
-    //        secondALabel.topAnchor.constraint(equalTo: lLabel.topAnchor).isActive = true
-    //        secondALabel.leadingAnchor.constraint(equalTo: dLabel.trailingAnchor, constant: 8).isActive = true
-    //
-    //    }
-    
 }
 
