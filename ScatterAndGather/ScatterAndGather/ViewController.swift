@@ -54,49 +54,33 @@ class ViewController: UIViewController {
     func gather() {
         UIView.animate(withDuration: 3.0) {
             self.lambdaLogoImageView.alpha = 1.0
-            self.lLabel.transform = .identity
-            self.lLabel.textColor = .black
-            self.lLabel.backgroundColor = .white
-            self.lLabel.alpha = 1.0
-            self.lLabel.alpha = 1.0
+            
+            self.resetToOrigin(letter: self.lLabel)
             self.lLabel.center = self.lOriginPoint
             
-            self.aLabel.transform = .identity
-            self.aLabel.textColor = .black
-            self.aLabel.backgroundColor = .white
-            self.aLabel.alpha = 1.0
-            self.aLabel.alpha = 1.0
+            self.resetToOrigin(letter: self.aLabel)
             self.aLabel.center = self.aOriginPoint
             
-            self.mLabel.transform = .identity
-            self.mLabel.textColor = .black
-            self.mLabel.backgroundColor = .white
-            self.mLabel.alpha = 1.0
-            self.mLabel.alpha = 1.0
+            self.resetToOrigin(letter: self.mLabel)
             self.mLabel.center = self.mOriginPoint
             
-            self.bLabel.transform = .identity
-            self.bLabel.textColor = .black
-            self.bLabel.backgroundColor = .white
-            self.bLabel.alpha = 1.0
-            self.bLabel.alpha = 1.0
+            self.resetToOrigin(letter: self.bLabel)
             self.bLabel.center = self.bOriginPoint
             
-            self.dLabel.transform = .identity
-            self.dLabel.textColor = .black
-            self.dLabel.backgroundColor = .white
-            self.dLabel.alpha = 1.0
-            self.dLabel.alpha = 1.0
+            self.resetToOrigin(letter: self.dLabel)
             self.dLabel.center = self.dOriginPoint
             
-            self.secondALabel.transform = .identity
-            self.secondALabel.textColor = .black
-            self.secondALabel.backgroundColor = .white
-            self.secondALabel.alpha = 1.0
-            self.secondALabel.alpha = 1.0
+            self.resetToOrigin(letter: self.secondALabel)
             self.secondALabel.center = self.aaOriginPoint
             
         }
+    }
+    
+    func resetToOrigin(letter: UILabel) {
+        letter.transform = .identity
+        letter.textColor = .black
+        letter.layer.backgroundColor = CGColor(srgbRed: 100, green: 100, blue: 100, alpha: 1)
+        letter.alpha = 1.0
     }
     
     func randomness(letter: UILabel) {
