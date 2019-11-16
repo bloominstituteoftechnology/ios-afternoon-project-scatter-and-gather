@@ -110,11 +110,31 @@ class ViewController: UIViewController {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.8) {
                     self.randomness(letter: self.lLabel)
                 }
+                UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.2) {
+                    self.lLabel.transform = CGAffineTransform(rotationAngle: -1 * CGFloat.pi/16.0)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
+                    self.lLabel.center = CGPoint(x: self.view.bounds.size.width + self.lLabel.bounds.size.width,
+                                                 y: self.view.center.y)
+                }
                 UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.3) {
                     self.randomness(letter: self.aLabel)
                 }
+                UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.2) {
+                    self.aLabel.transform = CGAffineTransform(rotationAngle: -1 * CGFloat.pi/16.0)
+                }
                 UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.5) {
                     self.randomness(letter: self.mLabel)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
+                    self.mLabel.transform = CGAffineTransform(scaleX: 1.7, y: 0.6)
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.2) {
+                    self.mLabel.transform = CGAffineTransform(scaleX: 0.6, y: 1.7)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.15) {
+                    self.mLabel.transform = CGAffineTransform(scaleX: 2.11, y: 0.9)
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.2) {
                     self.randomness(letter: self.bLabel)
