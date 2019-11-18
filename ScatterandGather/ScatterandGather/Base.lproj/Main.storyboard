@@ -77,8 +77,21 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="i4P-BV-K87">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="ykk-uz-kKy"/>
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="ykk-uz-kKy">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="Ztl-4n-8Bq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="alphaOneLabel" destination="YRg-iI-wka" id="eXJ-fC-FkH"/>
+                        <outlet property="alphaTwoLabel" destination="LGf-aV-00y" id="Ta4-gd-HpU"/>
+                        <outlet property="bravoLabel" destination="K52-2H-k1S" id="V44-Ft-juf"/>
+                        <outlet property="deltaLabel" destination="8hb-WM-Wz4" id="gTs-0u-LQi"/>
+                        <outlet property="libraLabel" destination="C8f-dJ-0q4" id="VF9-1w-BWQ"/>
+                        <outlet property="logoImageView" destination="DDu-nr-H1J" id="4ks-1q-hiW"/>
+                        <outlet property="mikeLabel" destination="Y7B-Ki-qx1" id="OAt-Dc-Glh"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

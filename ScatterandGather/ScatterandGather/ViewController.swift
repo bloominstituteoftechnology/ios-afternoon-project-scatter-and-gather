@@ -9,12 +9,34 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    @IBOutlet weak var libraLabel: UILabel!
+    @IBOutlet weak var alphaOneLabel: UILabel!
+    @IBOutlet weak var mikeLabel: UILabel!
+    @IBOutlet weak var bravoLabel: UILabel!
+    @IBOutlet weak var deltaLabel: UILabel!
+    @IBOutlet weak var alphaTwoLabel: UILabel!
+    
+    var isScattered: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
-
+    @IBAction func toggleButtonPressed(_ sender: Any) {
+    }
+    
+    
+    fadeOutLogo() {
+        
+        
+        
+    }
+    
+    
+    
 }
 
