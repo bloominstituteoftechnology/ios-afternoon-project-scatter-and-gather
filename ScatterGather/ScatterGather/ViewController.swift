@@ -41,22 +41,21 @@ class ViewController: UIViewController {
         return angle
     }
     
-    func configureLambda() {
-        // MARK: Labels
-        
-        
-        // MARK: StackView
-        let lambda = UIStackView()
-        lambda.axis = .horizontal
-        lambda.distribution = .equalSpacing
-        lambda.addArrangedSubview(self.letterL)
-        lambda.addArrangedSubview(self.letterA)
-        lambda.addArrangedSubview(self.letterM)
-        lambda.addArrangedSubview(self.letterB)
-        lambda.addArrangedSubview(self.letterD)
-        lambda.addArrangedSubview(self.letterA2)
-        
-    }
+//    func configureLambda() {
+//        // MARK: Labels
+//
+//        // MARK: StackView
+//        let lambda = UIStackView()
+//        lambda.axis = .horizontal
+//        lambda.distribution = .equalSpacing
+//        lambda.addArrangedSubview(self.letterL)
+//        lambda.addArrangedSubview(self.letterA)
+//        lambda.addArrangedSubview(self.letterM)
+//        lambda.addArrangedSubview(self.letterB)
+//        lambda.addArrangedSubview(self.letterD)
+//        lambda.addArrangedSubview(self.letterA2)
+//
+//    }
     
     @objc func fadeAndScatter() {
       
