@@ -22,19 +22,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var letterA2label: UILabel!
     @IBOutlet weak var logoImage: UIImageView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSubViews()
     }
-
-    func generateRandomNumber() -> CGFloat {
+    
+//    var letters: [UILabel] = [letterLlabel, letterA1label, letterMlabel, letterBlabel, letterDlabel, letterA2label]
+    
+    func generateRandomX() -> CGFloat {
         let num = CGFloat(arc4random_uniform(255))
         return num
     }
     
-    func generateRandomColor() -> CGFloat {
-        let num = CGFloat(arc4random_uniform(1))
+    func generateRandomY() -> CGFloat {
+        let num = CGFloat(arc4random_uniform(600))
         return num
     }
     
@@ -44,22 +45,27 @@ class ViewController: UIViewController {
     }
     
     func setUpSubViews() {
-        
+        letterLlabel.translatesAutoresizingMaskIntoConstraints = false
         letterLlabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 66.0).isActive = true
         letterLlabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 128.0).isActive = true
         
+        letterA1label.translatesAutoresizingMaskIntoConstraints = false
         letterA1label.leadingAnchor.constraint(equalTo: letterLlabel.trailingAnchor, constant: 14.0).isActive = true
         letterA1label.centerYAnchor.constraint(equalTo: letterLlabel.centerYAnchor, constant: 0.0).isActive = true
         
+        letterMlabel.translatesAutoresizingMaskIntoConstraints = false
         letterMlabel.leadingAnchor.constraint(equalTo: letterA1label.trailingAnchor, constant: 14.0).isActive = true
         letterMlabel.centerYAnchor.constraint(equalTo: letterA1label.centerYAnchor, constant: 0.0).isActive = true
         
+        letterBlabel.translatesAutoresizingMaskIntoConstraints = false
         letterBlabel.leadingAnchor.constraint(equalTo: letterMlabel.trailingAnchor, constant: 14.0).isActive = true
         letterBlabel.centerYAnchor.constraint(equalTo: letterMlabel.centerYAnchor, constant: 0.0).isActive = true
         
+        letterDlabel.translatesAutoresizingMaskIntoConstraints = false
         letterDlabel.leadingAnchor.constraint(equalTo: letterBlabel.trailingAnchor, constant: 14.0).isActive = true
         letterDlabel.centerYAnchor.constraint(equalTo: letterBlabel.centerYAnchor, constant: 0.0).isActive = true
         
+        letterA2label.translatesAutoresizingMaskIntoConstraints = false
         letterA2label.leadingAnchor.constraint(equalTo: letterDlabel.trailingAnchor, constant: 14.0).isActive = true
         letterA2label.centerYAnchor.constraint(equalTo: letterDlabel.centerYAnchor, constant: 0.0).isActive = true
         letterA2label.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -65.0).isActive = true
@@ -84,6 +90,8 @@ class ViewController: UIViewController {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
                 self.setUpScatter(label: self.letterLlabel)
+                self.letterLlabel.backgroundColor = UIColor.random()
+                self.letterLlabel.textColor = UIColor.random()
             })
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
                 self.setUpScatter(label: self.letterA1label)
@@ -112,19 +120,19 @@ class ViewController: UIViewController {
     }
     
     func setUpScatter(label: UILabel) {
-        label.center = CGPoint(x: self.generateRandomNumber(), y: self.generateRandomNumber())
+        label.center = CGPoint(x: self.generateRandomX(), y: self.generateRandomY())
         label.transform = CGAffineTransform(rotationAngle: self.randomAngle())
-        label.tintColor = UIColor(red: self.generateRandomColor(),
-                                  green: self.generateRandomColor(),
-                                  blue: self.generateRandomColor(),
-                                  alpha: 1.0)
-        label.textColor = UIColor(red: self.generateRandomColor(),
-                                  green: self.generateRandomColor(),
-                                  blue: self.generateRandomColor(),
-                                  alpha: 1.0)
+//        label.backgroundColor = UIColor.random()
+//        label.textColor = UIColor.random()
+//        label.textColor = UIColor(red: self.generateRandomColor(),
+//                                  green: self.generateRandomColor(),
+//                                  blue: self.generateRandomColor(),
+//                                  alpha: 1.0)
     }
     
     @objc func fadeAndGather() {
+        
+        let letters = [letterLlabel, letterA1label, letterMlabel, letterBlabel, letterDlabel, letterA2label]
         
         let gatherBlock = {
             
@@ -134,9 +142,7 @@ class ViewController: UIViewController {
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                self.letterLlabel.transform = .identity
-                self.letterLlabel.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 66.0).isActive = true
-                self.letterLlabel.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 128.0).isActive = true
+                letters.transform = .identity
             })
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
                 self.letterA1label.transform = .identity
@@ -153,10 +159,22 @@ class ViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
                 self.letterA2label.transform = .identity
             })
-
         }
         UIView.animateKeyframes(withDuration: 3.5, delay: 0.0, options: [], animations: gatherBlock, completion: nil)
-
     }
 }
 
+extension CGFloat {
+    static func random() -> CGFloat {
+        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+    }
+}
+
+extension UIColor {
+    static func random() -> UIColor {
+        return UIColor(red:   .random(),
+                       green: .random(),
+                       blue:  .random(),
+                       alpha: 1.0)
+    }
+}
