@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="I0p-J6-h5g">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScatterGather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="DJ3-Ba-Omp">
+                                <rect key="frame" x="92.5" y="165" width="229.5" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7KB-vY-H95">
+                                        <rect key="frame" x="0.0" y="0.0" width="27.5" height="50"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXD-Gi-3qW">
+                                        <rect key="frame" x="43.5" y="0.0" width="19.5" height="50"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3zC-8m-5tj">
+                                        <rect key="frame" x="79" y="0.0" width="35" height="50"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="b" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNr-Wk-7kB">
+                                        <rect key="frame" x="130" y="0.0" width="24" height="50"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="d" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTk-ns-FuS">
+                                        <rect key="frame" x="170" y="0.0" width="24" height="50"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdI-dc-pgV">
+                                        <rect key="frame" x="210" y="0.0" width="19.5" height="50"/>
+                                        <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="Ah0-hZ-fxP">
+                                <rect key="frame" x="87" y="279" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="DJ3-Ba-Omp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3fg-fy-Z1t"/>
+                            <constraint firstItem="Ah0-hZ-fxP" firstAttribute="top" secondItem="DJ3-Ba-Omp" secondAttribute="bottom" constant="64" id="LCt-Vu-zUW"/>
+                            <constraint firstItem="DJ3-Ba-Omp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="77" id="agG-dT-qbX"/>
+                            <constraint firstItem="Ah0-hZ-fxP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="ovD-bw-faZ"/>
+                            <constraint firstItem="Ah0-hZ-fxP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yWn-Oc-tcc"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Ah0-hZ-fxP" secondAttribute="bottom" constant="455" id="zaa-XW-MlC"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="24Q-FQ-t1a">
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="tfE-5N-bTx">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="F2R-oa-dXp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="letterA" destination="uXD-Gi-3qW" id="fzW-yZ-xey"/>
+                        <outlet property="letterA2" destination="xdI-dc-pgV" id="7gG-It-1aC"/>
+                        <outlet property="letterB" destination="TNr-Wk-7kB" id="McV-u2-K6f"/>
+                        <outlet property="letterD" destination="aTk-ns-FuS" id="fzF-hS-p2h"/>
+                        <outlet property="letterL" destination="7KB-vY-H95" id="dGm-ti-phb"/>
+                        <outlet property="letterM" destination="3zC-8m-5tj" id="Vah-xq-pL0"/>
+                        <outlet property="logoImage" destination="Ah0-hZ-fxP" id="IPK-Fp-Moj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="nOM-ZR-JXG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I0p-J6-h5g" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SfA-h6-9gS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="cSr-1V-dwP"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z4S-r9-aom" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Image" width="2000" height="558"/>
+    </resources>
+</document>
