@@ -24,15 +24,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // on View Did Load add create and add all labels to an aray
+//        var letters: [UILabel]
+        
+//        for label in 1...6 {
+//            letters.append(label)
+//        }
         setUpSubViews()
     }
     
-//    var letters: [UILabel] = [letterLlabel, letterA1label, letterMlabel, letterBlabel, letterDlabel, letterA2label]
-    
+    // Use - for loops
+    // USE A CLOSED RANGE!!! (not this)
     func generateRandomX() -> CGFloat {
         let num = CGFloat(arc4random_uniform(255))
         return num
     }
+    // min X should be labels frame origin.x
     
     func generateRandomY() -> CGFloat {
         let num = CGFloat(arc4random_uniform(600))
@@ -43,6 +50,13 @@ class ViewController: UIViewController {
         let angle = angles[Int(arc4random_uniform(UInt32(angles.count)))]
         return angle
     }
+    
+//    func setUpArray() -> [UILabel] {
+//        for label in 1...6 {
+//            label = UILabel()
+//
+//        }
+//    }
     
     func setUpSubViews() {
         letterLlabel.translatesAutoresizingMaskIntoConstraints = false
@@ -113,51 +127,55 @@ class ViewController: UIViewController {
                 self.setUpScatter(label: self.letterA2label)
                 
             })
-            
         }
         UIView.animateKeyframes(withDuration: 3.5, delay: 0.0, options: [], animations: scatterBlock, completion: nil)
-
     }
     
     func setUpScatter(label: UILabel) {
-        label.center = CGPoint(x: self.generateRandomX(), y: self.generateRandomY())
+//        label.center = CGPoint(x: self.generateRandomX(), y: self.generateRandomY())
         label.transform = CGAffineTransform(rotationAngle: self.randomAngle())
-//        label.backgroundColor = UIColor.random()
-//        label.textColor = UIColor.random()
-//        label.textColor = UIColor(red: self.generateRandomColor(),
-//                                  green: self.generateRandomColor(),
-//                                  blue: self.generateRandomColor(),
-//                                  alpha: 1.0)
+        label.transform = CGAffineTransform(translationX: self.generateRandomX(), y: self.generateRandomY())
+        label.backgroundColor = UIColor.random()
+        label.textColor = UIColor.random()
+    }
+    
+    func setScatter(label: UILabel) -> CGAffineTransform {
+        return CGAffineTransform(translationX: self.generateRandomX(), y: self.generateRandomY()).rotated(by: randomAngle())
+    }
+    
+    func resetText(label: UILabel) {
+        label.transform = .identity
+        label.backgroundColor = .clear
+        label.textColor = .black
     }
     
     @objc func fadeAndGather() {
         
-        let letters = [letterLlabel, letterA1label, letterMlabel, letterBlabel, letterDlabel, letterA2label]
+//        let letters = [letterLlabel, letterA1label, letterMlabel, letterBlabel, letterDlabel, letterA2label]
         
         let gatherBlock = {
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.45, animations: {
                 self.logoImage.alpha = 1.0
-                self.setUpSubViews()
             })
             
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                letters.transform = .identity
+                self.resetText(label: self.letterLlabel)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                self.letterA1label.transform = .identity
+                self.resetText(label: self.letterA1label)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                self.letterMlabel.transform = .identity
+                self.resetText(label: self.letterMlabel)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                self.letterBlabel.transform = .identity
+                self.resetText(label: self.letterBlabel)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                self.letterDlabel.transform = .identity
+                self.resetText(label: self.letterDlabel)
             })
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5, animations: {
-                self.letterA2label.transform = .identity
+                self.resetText(label: self.letterA2label)
             })
         }
         UIView.animateKeyframes(withDuration: 3.5, delay: 0.0, options: [], animations: gatherBlock, completion: nil)
