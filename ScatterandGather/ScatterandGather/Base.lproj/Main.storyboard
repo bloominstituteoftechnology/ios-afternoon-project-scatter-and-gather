@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vdr-WY-Wi4">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScatterandGather" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LambdaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="DDu-nr-H1J">
+                                <rect key="frame" x="87" y="219" width="240" height="288"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8f-dJ-0q4">
+                                <rect key="frame" x="33" y="113" width="38" height="76"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YRg-iI-wka">
+                                <rect key="frame" x="90" y="113" width="45" height="76"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7B-Ki-qx1">
+                                <rect key="frame" x="150" y="113" width="51" height="76"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K52-2H-k1S">
+                                <rect key="frame" x="219" y="113" width="41" height="76"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hb-WM-Wz4">
+                                <rect key="frame" x="268" y="113" width="42" height="76"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LGf-aV-00y">
+                                <rect key="frame" x="336" y="113" width="45" height="76"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="K52-2H-k1S" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="3Ss-jK-TC6"/>
+                            <constraint firstItem="LGf-aV-00y" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="AVj-6R-4ti"/>
+                            <constraint firstItem="C8f-dJ-0q4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="HAe-Qf-sWI"/>
+                            <constraint firstItem="YRg-iI-wka" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="Hu7-GA-a7N"/>
+                            <constraint firstItem="DDu-nr-H1J" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="IdE-YE-JFZ"/>
+                            <constraint firstItem="C8f-dJ-0q4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="Isp-Zo-jv6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LGf-aV-00y" secondAttribute="trailing" constant="33" id="Jwr-hD-sNK"/>
+                            <constraint firstItem="YRg-iI-wka" firstAttribute="leading" secondItem="C8f-dJ-0q4" secondAttribute="trailing" constant="19" id="Org-cY-GxR"/>
+                            <constraint firstItem="Y7B-Ki-qx1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="YNJ-fy-csu"/>
+                            <constraint firstItem="Y7B-Ki-qx1" firstAttribute="leading" secondItem="YRg-iI-wka" secondAttribute="trailing" constant="15" id="ebi-sz-iy1"/>
+                            <constraint firstItem="DDu-nr-H1J" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g4m-fL-pVr"/>
+                            <constraint firstItem="LGf-aV-00y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8hb-WM-Wz4" secondAttribute="trailing" constant="8" symbolic="YES" id="gwQ-hG-AaF"/>
+                            <constraint firstItem="8hb-WM-Wz4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="25" id="iMO-ZQ-DPG"/>
+                            <constraint firstItem="DDu-nr-H1J" firstAttribute="top" secondItem="K52-2H-k1S" secondAttribute="bottom" constant="30" id="iT5-23-86y"/>
+                            <constraint firstItem="K52-2H-k1S" firstAttribute="leading" secondItem="Y7B-Ki-qx1" secondAttribute="trailing" constant="18" id="izl-rl-FQJ"/>
+                            <constraint firstItem="8hb-WM-Wz4" firstAttribute="leading" secondItem="K52-2H-k1S" secondAttribute="trailing" constant="8" id="klM-on-NEl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="i4P-BV-K87">
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="ykk-uz-kKy">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="Ztl-4n-8Bq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="alphaOneLabel" destination="YRg-iI-wka" id="eXJ-fC-FkH"/>
+                        <outlet property="alphaTwoLabel" destination="LGf-aV-00y" id="Ta4-gd-HpU"/>
+                        <outlet property="bravoLabel" destination="K52-2H-k1S" id="V44-Ft-juf"/>
+                        <outlet property="deltaLabel" destination="8hb-WM-Wz4" id="gTs-0u-LQi"/>
+                        <outlet property="libraLabel" destination="C8f-dJ-0q4" id="VF9-1w-BWQ"/>
+                        <outlet property="logoImageView" destination="DDu-nr-H1J" id="4ks-1q-hiW"/>
+                        <outlet property="mikeLabel" destination="Y7B-Ki-qx1" id="OAt-Dc-Glh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="118.52678571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="da4-AB-0tj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vdr-WY-Wi4" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BZO-pA-94k">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hRJ-kA-4VJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7CJ-2M-fc2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LambdaLogo" width="500" height="288"/>
+    </resources>
+</document>
