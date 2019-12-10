@@ -11,7 +11,11 @@ import SwiftUI
 
 class AnimationsViewController: UIViewController {
     
-    var isScattered: Bool = false
+    var isScattered: Bool = true {
+        didSet {
+            scatterLetters()
+        }
+    }
     
     let schoolLogo: UIImageView = {
         let iv = UIImageView()
@@ -75,15 +79,51 @@ class AnimationsViewController: UIViewController {
         return label
     }()
     
+    var labelArray = [UILabel]()
+    var positions = [CGPoint]()
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSchoolLogo()
         configureLambdaLabels()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(handleToggle))
+        labelArray.append(lLabel)
+        labelArray.append(aLabel)
+        labelArray.append(mLabel)
+        labelArray.append(bLabel)
+        labelArray.append(dLabel)
+        labelArray.append(aEndLabel)
     }
     
     @objc private func handleToggle() {
         isScattered.toggle()
+    }
+    
+    private func scatterLetters() {
+        if isScattered {
+            UIView.animate(withDuration: 3.0) {
+                self.schoolLogo.alpha = 1
+                for (index, label) in self.labelArray.enumerated() {
+                    label.transform = .identity
+                    label.backgroundColor = .clear
+                    label.textColor = .black
+                    label.center = self.positions[index]
+                }
+            }
+        } else {
+            UIView.animate(withDuration: 3.0) {
+                self.schoolLogo.alpha = 0
+                for (index, label) in self.labelArray.enumerated() {
+                    self.positions.insert(label.center, at: index)
+                    label.center = CGPoint(x: CGFloat.random(in: 0 ... self.view.bounds.size.width), y: CGFloat.random(in: 0 ... self.view.bounds.size.height))
+                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0 ... 8))
+                    label.backgroundColor = UIColor(red: (CGFloat.random(in: 0 ... 255) / 255), green: (CGFloat.random(in: 0 ... 255)) / 255, blue: (CGFloat.random(in: 0 ... 255) / 255), alpha: 1)
+                    label.textColor = UIColor(red: (CGFloat.random(in: 0 ... 255) / 255), green: (CGFloat.random(in: 0 ... 255)) / 255, blue: (CGFloat.random(in: 0 ... 255) / 255), alpha: 1)
+                }
+            }
+        }
     }
     
     /// Constraints needed:   X,    Y,     Width,     Height
