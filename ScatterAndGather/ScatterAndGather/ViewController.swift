@@ -13,25 +13,33 @@ class ViewController: UIViewController {
     // MARK:- Properties
     
     var isScattered: Bool = false
-    var lLabel: UILabel!
-    var a1Label: UILabel!
-    var mLabel: UILabel!
-    var bLabel: UILabel!
-    var dLabel: UILabel!
-    var a2Label: UILabel!
-    var imageView: UIImageView!
+    @IBOutlet weak var lLabel: UILabel!
+    @IBOutlet weak var a1Label: UILabel!
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var bLabel: UILabel!
+    @IBOutlet weak var dLabel: UILabel!
+    @IBOutlet weak var a2Label: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
     
     // MARK:- View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+         configureImage()
         configureLabels()
+       
     }
     
     func configureLabels() {
         // L Label
-        lLabel = UILabel()
+        let lLabel = UILabel()
         lLabel.text = "L"
         lLabel.textAlignment = .center
         lLabel.font = UIFont.systemFont(ofSize: 72)
@@ -41,8 +49,10 @@ class ViewController: UIViewController {
         lLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         lLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
         
+        self.lLabel = lLabel
+        
         //A1 Label
-        a1Label = UILabel()
+        let a1Label = UILabel()
         a1Label.text = "a"
         a1Label.textAlignment = .center
         a1Label.font = UIFont.systemFont(ofSize: 72)
@@ -52,8 +62,10 @@ class ViewController: UIViewController {
         a1Label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         a1Label.leadingAnchor.constraint(equalTo: lLabel.trailingAnchor, constant: 15).isActive = true
         
+        self.a1Label = a1Label
+        
         //M Label
-        mLabel = UILabel()
+        let mLabel = UILabel()
         mLabel.text = "m"
         mLabel.textAlignment = .center
         mLabel.font = UIFont.systemFont(ofSize: 72)
@@ -63,8 +75,10 @@ class ViewController: UIViewController {
         mLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         mLabel.leadingAnchor.constraint(equalTo: a1Label.trailingAnchor, constant: 15).isActive = true
         
+        self.mLabel = mLabel
+        
         //B Label
-        bLabel = UILabel()
+        let bLabel = UILabel()
         bLabel.text = "b"
         bLabel.textAlignment = .center
         bLabel.font = UIFont.systemFont(ofSize: 72)
@@ -74,8 +88,10 @@ class ViewController: UIViewController {
         bLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         bLabel.leadingAnchor.constraint(equalTo: mLabel.trailingAnchor, constant: 15).isActive = true
         
+        self.bLabel = bLabel
+        
         //D Label
-        dLabel = UILabel()
+        let dLabel = UILabel()
         dLabel.text = "d"
         dLabel.textAlignment = .center
         dLabel.font = UIFont.systemFont(ofSize: 72)
@@ -85,8 +101,10 @@ class ViewController: UIViewController {
         dLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         dLabel.leadingAnchor.constraint(equalTo: bLabel.trailingAnchor, constant: 15).isActive = true
         
+        self.dLabel = dLabel
+        
         //A2 Label
-        a2Label = UILabel()
+        let a2Label = UILabel()
         a2Label.text = "a"
         a2Label.textAlignment = .center
         a2Label.font = UIFont.systemFont(ofSize: 72)
@@ -95,12 +113,31 @@ class ViewController: UIViewController {
         
         a2Label.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         a2Label.leadingAnchor.constraint(equalTo: dLabel.trailingAnchor, constant: 15).isActive = true
+        
+        self.a2Label = a2Label
+    }
+    
+    func configureImage() {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 180),
+            imageView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor, constant: 0),
+            imageView.heightAnchor.constraint(equalToConstant: 100),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 2.5)
+        ])
+        
+        imageView.image = UIImage(named: "lambda_logo")
+        
+        self.imageView = imageView
     }
     
     // MARK:- Actions
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
     }
-    
 }
 
