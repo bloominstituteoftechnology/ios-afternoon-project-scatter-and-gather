@@ -32,9 +32,9 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-         configureImage()
+        configureImage()
         configureLabels()
-       
+        
     }
     
     func configureLabels() {
@@ -138,6 +138,20 @@ class ViewController: UIViewController {
     // MARK:- Actions
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
+        imageAnimation()
+    }
+    
+    func imageAnimation() {        
+        UIView.animate(withDuration: 3, animations: {
+            self.imageView.alpha = 0.0
+        }) { _ in
+            UIView.animate(withDuration: 3, animations: {
+                self.imageView.alpha = 1.0
+            })
+    }
+    
+    func labelAnimations() {
+        
     }
 }
-
+}
