@@ -72,9 +72,8 @@ class ViewController: UIViewController {
             }
         } else {
             isScattered = true
-            
+            //change color and position
             UIView.animate(withDuration: 2.0) {
-                //change color and position
                 for view in self.hStack.arrangedSubviews {
                     if let label = view as? UILabel {
                         self.randomColor(label)
