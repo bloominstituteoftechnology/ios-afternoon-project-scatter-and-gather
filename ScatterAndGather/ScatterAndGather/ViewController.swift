@@ -25,70 +25,104 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         labels = [labelA2, labelD, labelB, labelM, labelA, labelL]
+        configureImage()
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
-    //    func configureImage() {
-    //        let animationBlock = {
-    //            UIView.addKeyframe(withRelativeStartTime: 2.0, relativeDuration: 0) {
-    //                self.lambdaImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 16.0)
-    
-    
-    //                self.changeColor()
-    //transitionImage()
-    //scatterLabels()
-    //            }
-    //
-    //        }
-    //    }
+    func configureImage() {
+        
+        //        let animationBlock = {
+        //            UIView.addKeyframe(withRelativeStartTime: 2.0, relativeDuration: 0) {
+        //                self.lambdaImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 16.0)
+        
+        
+        //                        self.changeColor()
+        //transitionImage()
+        //scatterLabels()
+        //            }
+        //
+        //        }
+    }
     
     func changeColor() {
         
         for label in labels {
-            label.backgroundColor = UIColor.random()
-            label.textColor = UIColor.random()
-        }
+            label.backgroundColor = UIColor.cyan
+            label.textColor = UIColor.red
     }
+    }
+    
     
     func transitionImage () {
-        let fade = CATransition()
-        self.lambdaImage.transition = cat
-        UIView.animate(withDuration: 2.0) {
-            self.lambdaImage.transform = CGAffineTransform(rotationAngle: CGFloat.pi/4)
-            
+        let lambdaImageTransition = {
+            UIImageView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
+                self.lambdaImage.center = CGPoint(x: self.view.bounds.size.width + self.lambdaImage.bounds.size.width, y: self.view.center.y)
+            }
+            UIImageView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.2) {
+                self.lambdaImage.transform = .identity
+            }
         }
-        UIView.animate(withDuration: 2.0) {
-            self.lambdaImage.transform = CATransition(coder: .fade)
-        }
+        UIImageView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: lambdaImageTransition, completion: nil)
+        
+        
+         
     }
-    // changing the alpha of the image from 1 to 0 and back again.
-    
     func scatterLabels() {
         if isScattered == true {
-            self.labels = CGFloat.random()
+            let lLabel = {
+                UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
+                self.labelL.center = CGPoint(x: 89, y: 300)
+            }
             
         }
-    }
-    //    let randomX = CGFloat.random()
+            UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: lLabel, completion: nil)
+            let aLabel = {UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
+                        self.labelA.center = CGPoint(x: 30, y: 150)
+                    }
+                    
+                }
+                    UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: aLabel, completion: nil)}
+                
+        }
+    
+    
+    
+    //                self.labels = CGFloat.random()
+    
+    
+    //        let randomX = CGFloat.random()
+    
+    // changing the alpha of the image from 1 to 0 and back again.
+    
     @IBAction func toggleButtonPressed(_ sender: Any) {
+        scatterLabels()
+        transitionImage()
+        changeColor()
         
     }
     
-    
-    
-}
-extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat(arc4random()) / CGFloat(UInt32.max)
-    }
 }
 
-extension UIColor {
-    static func random() -> UIColor {
-        return UIColor(red:   .random(),
-                       green: .random(),
-                       blue:  .random(),
-                       alpha: 1.0)
-    }
-}
+
+
+
+//extension CGFloat {
+//    static func random() -> CGFloat {
+//        return CGFloat(arc4random()) / CGFloat(UInt32.max)
+//    }
+//}
+//
+//extension UIColor {
+//    static func random() -> UIColor {
+//        return UIColor(red:   .random(),
+//                       green: .random(),
+//                       blue:  .random(),
+//                       alpha: 1.0)
+//    }
+//}
+
 
 
