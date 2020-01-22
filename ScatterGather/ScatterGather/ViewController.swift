@@ -48,7 +48,6 @@ class ViewController: UIViewController {
         // ImageView
         logoImageView = UIImageView()
         logoImageView.image = UIImage(named: "lambda_logo")
-        //logoImageView.backgroundColor = .blue
         logoImageView.contentMode = .scaleAspectFit
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logoImageView)
@@ -84,7 +83,6 @@ class ViewController: UIViewController {
         
         for label in labelArray {
             label.translatesAutoresizingMaskIntoConstraints = false
-            //label.textColor = .red
             label.textAlignment = .center
             label.font = UIFont.systemFont(ofSize: 60)
             view.addSubview(label)
@@ -96,13 +94,10 @@ class ViewController: UIViewController {
     
     /*
      SCATTER Animation:
-         -Fade out your logo image view (the logo should disappear over the length of the animation)
-         -Move your letters to random locations (read the random Int API below)
          -Use a custom transform to rotate the views (letter.transform = CGAffineTransform(rotationAngle: random_angle)
          -Incorporate as many other custom animations as you like
          -Your animation should take between 2 and 4 seconds
      GATHER Animation:
-         -Fade in your logo view (it should gradually reappear as the gather animation runs)
          -Reset all the custom properties you previously assigned to the letters (they should appear as they did at the start of the app)
          -Animate the letters back to their starting positions
      */
@@ -115,21 +110,30 @@ class ViewController: UIViewController {
             for label in labelArray {
                 label.backgroundColor = randomColor()
                 label.textColor = randomColor()
+                // Fades out logo image
+                UIView.animate(withDuration: 2) {
+                    self.logoImageView.alpha = 0
+                }
             }
         } else {
             print("isScattered now = \(isScattered)")
             for label in labelArray {
-                label.backgroundColor = randomColor()
-                label.textColor = randomColor()
+                label.backgroundColor = .white
+                label.textColor = .black
+                // Fades in logo image
+                UIView.animate(withDuration: 2) {
+                    self.logoImageView.alpha = 1
+                }
             }
         }
+        
         
         for label in labelArray {
             
             //label.center = view.center
             label.center = randomPoint()
             
-            label.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001) // Instant
+            label.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001) // shrinks instantly
             UIView.animate(withDuration: 2.0,
                            delay: 0,
                            usingSpringWithDamping: 0.25,
