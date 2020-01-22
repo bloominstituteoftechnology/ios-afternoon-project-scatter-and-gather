@@ -110,8 +110,10 @@ class ViewController: UIViewController {
                 
                 UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: {
                     UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                        label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
-                        label.center = self.randomPoint()
+                        //label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: -8...8)) // 8
+                        //label.center = self.randomPoint()
+                        let point = self.randomPoint()
+                        label.transform = CGAffineTransform(translationX: point.x, y: point.y).rotated(by: CGFloat.pi / CGFloat.random(in: -8...8))
                     }
                 
                 }, completion: nil)
@@ -135,25 +137,14 @@ class ViewController: UIViewController {
                 UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: {
                     UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                         label.transform = .identity
-                        label.center = self.randomPoint() // FIX
+                        
+                        //label.center = self.randomPoint() // FIX
                         //label.transform = CGAffineTransform(translationX: startingPoint.x, y: startingPoint.y)
                     }
                 
                 }, completion: nil)
             }
         }
-        
-//            // Spring
-//            label.center = randomPoint()
-//            label.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001) // shrinks instantly
-//            UIView.animate(withDuration: 2.0,
-//                           delay: 0,
-//                           usingSpringWithDamping: 0.25,
-//                           initialSpringVelocity: 0,
-//                           options: [],
-//                           animations: { label.transform = .identity },
-//                           completion: nil)
-            
     }
     
     func randomColor() -> UIColor {
@@ -161,16 +152,12 @@ class ViewController: UIViewController {
     }
     
     func randomPoint() -> CGPoint {
-        let w = Int(view.frame.width) - 130
-        let h = Int(view.frame.height) - 130
+        let w = Int(view.frame.width) - 200
+        let h = Int(view.frame.height) - 200
         print("W: \(w) H: \(h)")
         let point = CGPoint(x: Int.random(in: 1...w), y: Int.random(in: 1...h)) //Int.random(in: 1...500)
         print(point)
         return point
-    }
-    
-    func scatter(lastPoint: CGPoint) {
-        
     }
 }
 
