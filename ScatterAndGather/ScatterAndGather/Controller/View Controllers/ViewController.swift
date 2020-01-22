@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     
     private var isScattered = false
     private let hStack = UIStackView()
+    private var imageView = UIImageView()
     
     //MARK: View Lifecycle
     
@@ -23,6 +24,12 @@ class ViewController: UIViewController {
     }
     
     private func configureViews() {
+        //configure imageView
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView = UIImageView(frame: CGRect(x: 25, y: self.view.center.y, width: self.view.bounds.width - 50, height: 100))
+        imageView.image = UIImage(named: "logo")
+        view.addSubview(imageView)
+        
         //configure horizontal stack
         hStack.translatesAutoresizingMaskIntoConstraints = false
         hStack.axis = .horizontal
@@ -33,7 +40,6 @@ class ViewController: UIViewController {
         
         hStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         hStack.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        
         //add labels to stack
         createLabel("L")
         createLabel("A")
@@ -48,31 +54,39 @@ class ViewController: UIViewController {
     }
     
     @objc private func scatter() {
+        
         if isScattered {
             isScattered = false
+            //animate while reverting to original properties
             UIView.animate(withDuration: 2.0) {
                 for view in self.hStack.arrangedSubviews {
                     if let label = view as? UILabel {
-                        label.transform = .identity
+                        //hide label in order to animate it in its new position
+                        label.alpha = 0
+                        self.hStack.addArrangedSubview(label) //since arrangedSubviews is an array, order is guaranteed so elements will be placed back in order (still spelling LAMBDA)
+                        label.alpha = 1
+                        self.imageView.alpha = 1
                         label.textColor = .systemRed
                     }
                 }
             }
         } else {
             isScattered = true
+            
             UIView.animate(withDuration: 2.0) {
+                //change color and position
                 for view in self.hStack.arrangedSubviews {
                     if let label = view as? UILabel {
                         self.randomColor(label)
-                        //let minX = self.view.frame.minX
-                        //let maxX = self.view.frame.maxX
-                        let randomX = CGFloat.random(in: -180..<180)
                         
-                        //let minY = self.view.frame.minY
-                        //let maxY = self.view.frame.maxY
-                        let randomY = CGFloat.random(in: -20..<400)
+                        let maxX = self.view.bounds.maxX - label.bounds.width - label.bounds.maxX
+                        let randomX = CGFloat.random(in: 0..<maxX)
                         
-                        label.transform = CGAffineTransform(translationX: randomX, y: randomY)
+                        let maxY = self.view.bounds.maxY - label.bounds.maxY - label.bounds.height - 40 //40 is topAnchor constraint constant
+                        let randomY = CGFloat.random(in: 0..<maxY)
+                        
+                        label.layer.position = CGPoint(x: randomX, y: randomY)
+                        self.imageView.alpha = 0
                     }
                 }
             }
@@ -87,9 +101,11 @@ class ViewController: UIViewController {
     private func createLabel(_ text: String) {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont(name: "Rockwell", size: 24)
+        
+        label.font = UIFont(name: "Times", size: 72)
         label.textColor = .systemRed
         label.text = text
+        
         view.addSubview(label)
         hStack.addArrangedSubview(label)
     }
