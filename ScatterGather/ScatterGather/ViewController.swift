@@ -91,18 +91,8 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Actions
-    
-    /*
-     SCATTER Animation:
-         -Use a custom transform to rotate the views (letter.transform = CGAffineTransform(rotationAngle: random_angle)
-         -Incorporate as many other custom animations as you like
-         -Your animation should take between 2 and 4 seconds
-     GATHER Animation:
-         -Reset all the custom properties you previously assigned to the letters (they should appear as they did at the start of the app)
-         -Animate the letters back to their starting positions
-     */
 
-    @objc func toggleButtonPressed () {
+    @objc func toggleButtonPressed() {
         print("TOGGLE, isScattered is = \(isScattered)")
         isScattered.toggle()
         if isScattered {
@@ -114,36 +104,56 @@ class ViewController: UIViewController {
                 UIView.animate(withDuration: 2) {
                     self.logoImageView.alpha = 0
                 }
-            }
+                
+                // Rotates
+                UIView.animate(withDuration: 1.0, animations: { label.transform = CGAffineTransform(rotationAngle: CGFloat.pi) }, completion: nil)
+                
+                UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                        label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+                        label.center = self.randomPoint()
+                    }
+                
+                }, completion: nil)
+                
+                }
         } else {
             print("isScattered now = \(isScattered)")
             for label in labelArray {
                 label.backgroundColor = .white
                 label.textColor = .black
+                //let lastPoint: CGPoint = CGPoint(x: label.center.x, y: label.center.y)
+                
                 // Fades in logo image
                 UIView.animate(withDuration: 2) {
                     self.logoImageView.alpha = 1
                 }
+                
+                // Rotates back?
+                //UIView.animate(withDuration: 1.0) { label.transform = .identity }
+                
+                UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                        label.transform = .identity
+                        label.center = self.randomPoint() // FIX
+                        //label.transform = CGAffineTransform(translationX: startingPoint.x, y: startingPoint.y)
+                    }
+                
+                }, completion: nil)
             }
         }
         
-        
-        for label in labelArray {
+//            // Spring
+//            label.center = randomPoint()
+//            label.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001) // shrinks instantly
+//            UIView.animate(withDuration: 2.0,
+//                           delay: 0,
+//                           usingSpringWithDamping: 0.25,
+//                           initialSpringVelocity: 0,
+//                           options: [],
+//                           animations: { label.transform = .identity },
+//                           completion: nil)
             
-            //label.center = view.center
-            label.center = randomPoint()
-            
-            label.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001) // shrinks instantly
-            UIView.animate(withDuration: 2.0,
-                           delay: 0,
-                           usingSpringWithDamping: 0.25,
-                           initialSpringVelocity: 0,
-                           options: [],
-                           animations: { label.transform = .identity },
-                           completion: nil)
-            
-        }
-        
     }
     
     func randomColor() -> UIColor {
@@ -158,5 +168,10 @@ class ViewController: UIViewController {
         print(point)
         return point
     }
+    
+    func scatter(lastPoint: CGPoint) {
+        
+    }
 }
+
 
