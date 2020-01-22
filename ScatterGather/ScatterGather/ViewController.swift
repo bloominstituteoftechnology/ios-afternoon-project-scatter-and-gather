@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     var bLabel: UILabel!
     var dLabel: UILabel!
     var a2Label: UILabel!
+    
+    var isScattered: Bool = false
+    
     var stackView: UIStackView!
     
     var labelArray: [UILabel] = []
@@ -28,11 +31,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureNavBar()
         configureImage()
         configureLabels()
     }
 
     // MARK: - Views
+    
+    func configureNavBar() {
+        let toggleButtonItem = UIBarButtonItem(title: "Toggle", style: .done, target: self, action: #selector(toggleButtonPressed))
+        navigationItem.setRightBarButton(toggleButtonItem, animated: true)
+        title = "Scatter & Gather"
+    }
     
     func configureImage() {
         // ImageView
@@ -83,6 +93,35 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Actions
+    
+    /*
+     SCATTER Animation:
+         -Fade out your logo image view (the logo should disappear over the length of the animation)
+         -Move your letters to random locations (read the random Int API below)
+         -Assign them a random background color and text color
+         -Use a custom transform to rotate the views (letter.transform = CGAffineTransform(rotationAngle: random_angle)
+         -Incorporate as many other custom animations as you like
+         -Your animation should take between 2 and 4 seconds
+     GATHER Animation:
+         -Fade in your logo view (it should gradually reappear as the gather animation runs)
+         -Reset all the custom properties you previously assigned to the letters (they should appear as they did at the start of the app)
+         -Animate the letters back to their starting positions
+     */
 
+    @objc func toggleButtonPressed () {
+        print("TOGGLE, isScattered is = \(isScattered)")
+        isScattered.toggle()
+        if isScattered {
+            print("isScattered now = \(isScattered)")
+            for label in labelArray {
+                label.backgroundColor = .blue
+            }
+        } else {
+            print("isScattered now = \(isScattered)")
+            for label in labelArray {
+                label.backgroundColor = .red
+            }
+        }
+    }
 }
 
