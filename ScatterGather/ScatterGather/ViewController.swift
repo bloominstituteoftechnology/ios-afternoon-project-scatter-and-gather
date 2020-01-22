@@ -78,9 +78,9 @@ class ViewController: UIViewController {
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
         view.addSubview(stackView)
+        stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: logoImageView.topAnchor, constant: -20).isActive = true
         
         for label in labelArray {
             label.translatesAutoresizingMaskIntoConstraints = false
@@ -98,7 +98,6 @@ class ViewController: UIViewController {
      SCATTER Animation:
          -Fade out your logo image view (the logo should disappear over the length of the animation)
          -Move your letters to random locations (read the random Int API below)
-         -Assign them a random background color and text color
          -Use a custom transform to rotate the views (letter.transform = CGAffineTransform(rotationAngle: random_angle)
          -Incorporate as many other custom animations as you like
          -Your animation should take between 2 and 4 seconds
@@ -114,14 +113,46 @@ class ViewController: UIViewController {
         if isScattered {
             print("isScattered now = \(isScattered)")
             for label in labelArray {
-                label.backgroundColor = .blue
+                label.backgroundColor = randomColor()
+                label.textColor = randomColor()
             }
         } else {
             print("isScattered now = \(isScattered)")
             for label in labelArray {
-                label.backgroundColor = .red
+                label.backgroundColor = randomColor()
+                label.textColor = randomColor()
             }
         }
+        
+        for label in labelArray {
+            
+            //label.center = view.center
+            label.center = randomPoint()
+            
+            label.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001) // Instant
+            UIView.animate(withDuration: 2.0,
+                           delay: 0,
+                           usingSpringWithDamping: 0.25,
+                           initialSpringVelocity: 0,
+                           options: [],
+                           animations: { label.transform = .identity },
+                           completion: nil)
+            
+        }
+        
+    }
+    
+    func randomColor() -> UIColor {
+        return UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1.0)
+    }
+    
+    func randomPoint() -> CGPoint {
+        let w = Int(view.frame.width) - 130
+        let h = Int(view.frame.height) - 130
+        print("W: \(w) H: \(h)")
+        let point = CGPoint(x: Int.random(in: 1...w), y: Int.random(in: 1...h)) //Int.random(in: 1...500)
+        print(point)
+        return point
     }
 }
 
