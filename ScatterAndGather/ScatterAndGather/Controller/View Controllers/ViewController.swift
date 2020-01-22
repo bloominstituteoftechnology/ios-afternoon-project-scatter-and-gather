@@ -94,7 +94,7 @@ class ViewController: UIViewController {
     
     private func randomColor(_ label: UILabel) {
         let randomColorProperty = CGFloat.random(in: 0.1...1.0)
-        label.textColor = UIColor(hue: randomColorProperty, saturation: randomColorProperty, brightness: randomColorProperty, alpha: randomColorProperty)
+        label.textColor = UIColor(hue: randomColorProperty, saturation: randomColorProperty, brightness: randomColorProperty, alpha: 1)
     }
     
     private func createLabel(_ text: String) {
