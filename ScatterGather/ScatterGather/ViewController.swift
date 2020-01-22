@@ -17,7 +17,10 @@ class ViewController: UIViewController {
     var mLabel: UILabel!
     var bLabel: UILabel!
     var dLabel: UILabel!
-    var lastALabel: UILabel!
+    var a2Label: UILabel!
+    var stackView: UIStackView!
+    
+    var labelArray: [UILabel] = []
     
     var logoImageView: UIImageView!
     
@@ -25,14 +28,17 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLabels()
         configureImage()
+        configureLabels()
     }
 
+    // MARK: - Views
+    
     func configureImage() {
         // ImageView
         logoImageView = UIImageView()
         logoImageView.image = UIImage(named: "lambda_logo")
+        //logoImageView.backgroundColor = .blue
         logoImageView.contentMode = .scaleAspectFit
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(logoImageView)
@@ -46,30 +52,34 @@ class ViewController: UIViewController {
     
     func configureLabels() {
         
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "LABEL"
-        label.backgroundColor = .red
-        view.addSubview(label)
+        // Labels
+        lLabel = UILabel(); lLabel.text = "L"
+        aLabel = UILabel(); aLabel.text = "A"
+        mLabel = UILabel(); mLabel.text = "M"
+        bLabel = UILabel(); bLabel.text = "B"
+        dLabel = UILabel(); dLabel.text = "D"
+        a2Label = UILabel(); a2Label.text = "A"
         
-        let label2 = UILabel()
-        label2.translatesAutoresizingMaskIntoConstraints = false
-        label2.text = "LABEL"
-        label2.backgroundColor = .blue
-        view.addSubview(label2)
+        labelArray = [lLabel, aLabel, mLabel, bLabel, dLabel, a2Label]
         
-        let stackView = UIStackView()
+        // StackView
+        stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
-        stackView.distribution = .fillEqually// equalSpacing
+        stackView.distribution = .fillEqually
         view.addSubview(stackView)
-        
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(label2)
-        
         stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: logoImageView.topAnchor, constant: -20).isActive = true
+        
+        for label in labelArray {
+            label.translatesAutoresizingMaskIntoConstraints = false
+            //label.textColor = .red
+            label.textAlignment = .center
+            label.font = UIFont.systemFont(ofSize: 60)
+            view.addSubview(label)
+            stackView.addArrangedSubview(label)
+        }
     }
     
     // MARK: - Actions
