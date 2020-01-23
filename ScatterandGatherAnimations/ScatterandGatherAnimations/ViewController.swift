@@ -11,12 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     var isScattered: Bool = false
+    var labels: [UILabel]  = []
     
-    let red = CGFloat.random(in: 0...1)
-    let green = CGFloat.random(in: 0.0...1.0)
-    let blue = CGFloat.random(in: 0.0...1.0)
-    
-    let randomColor = UIColor(displayP3Red: red, green: green, blue: blue, alpha: 1)
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +24,7 @@ class ViewController: UIViewController {
     @IBAction func toggleButtonPressed(_ sender: Any) {
         isScattered.toggle()
         print(isScattered)
+        animation()
        
     }
     
@@ -35,12 +33,7 @@ class ViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.image = UIImage(named: "lambda_logo")
-        
-//        if isScattered == true {
-//            UIView.animate(withDuration: 1.5, animations: {
-//                imageView.alpha = 0.0
-//            })
-//        }
+        self.imageView = imageView
         
         view.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,6 +53,7 @@ class ViewController: UIViewController {
         lLabel.font = UIFont.systemFont(ofSize: 60)
         lLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         lLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40).isActive = true
+        
         
         let aLabel = UILabel()
         aLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -105,14 +99,50 @@ class ViewController: UIViewController {
         aaLabel.font = UIFont.systemFont(ofSize: 60)
         aaLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         aaLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
+        
+        labels.append(lLabel)
+        labels.append(aLabel)
+        labels.append(mLabel)
+        labels.append(bLabel)
+        labels.append(dLabel)
+        labels.append(aaLabel)
+        
+    }
+    
+    func randomColor() -> UIColor {
+        let red = CGFloat.random(in: 0...1)
+        let green = CGFloat.random(in: 0...1)
+        let blue = CGFloat.random(in: 0...1)
+        
+        return UIColor(red: red, green: green, blue: blue, alpha: 1)
     }
     
     func animation() {
-        UIView.animate(withDuration: 4.0) {
-
-            self.imageView.alpha = 0.0
-            
+        
+        if isScattered == true {
+            UIView.animate(withDuration: 1.5, animations: {
+                self.imageView.alpha = 0.0
+                
+                for label in self.labels {
+                    label.transform = self.randomTranslation(for: label)
+                    label.layer.backgroundColor = self.randomColor().cgColor
+                }
+            })
+        } else {
+            UIView.animate(withDuration: 1.5, animations: {
+                self.imageView.alpha = 1.0
+                for label in self.labels {
+                    label.transform = .identity
+                }
+                
+                })
         }
+    }
+    
+    private func randomTranslation(for label: UILabel) -> CGAffineTransform {
+        let x = (CGFloat.random(in: 0...250))
+        let y = (CGFloat.random(in: 0...660))
+        return CGAffineTransform(translationX: x, y: y).rotated(by: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
     }
     
 }
