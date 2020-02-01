@@ -101,6 +101,9 @@ class ViewController: UIViewController {
         letter.transform3D = CATransform3DMakeRotation(CGFloat(Double.pi*0.6),1.0,0.0,0.0)
     }
     
+    var initialCenter = CGPoint()  // The initial center point of the view.
+    
+    
     
     func scatter() {
         UIView.animate(withDuration: 3.0) {
