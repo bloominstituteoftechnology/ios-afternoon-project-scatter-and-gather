@@ -37,10 +37,10 @@ class ViewController: UIViewController {
         lambdaLogo.isOpaque = false
         isDraggable()
         tapGesture.numberOfTapsRequired = 2
-
+        
         
     }
-
+    
     // MARK: - Draggable Function
     
     func isDraggable() {
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         lambdaLogo.isUserInteractionEnabled = true
         
         // TODO: Implement dragging letter labels
-
+        
     }
     
     @objc private func wasDragged(_ gesture: UIPanGestureRecognizer) {
@@ -304,10 +304,20 @@ class ViewController: UIViewController {
         lambdaLogo.transform = CGAffineTransform.identity
         imageZoomed = false
     }
-
     
+    @IBAction func pinchImage(_ sender: UIPinchGestureRecognizer) {
+        if let imageView = sender.view {
+            imageView.transform = imageView.transform.scaledBy(x: sender.scale, y: sender.scale)
+            sender.scale = 1
+        }
+    }
     
-
+    @IBAction func rotateImage(_ sender: UIRotationGestureRecognizer) {
+        if let imageView = sender.view {
+            imageView.transform = imageView.transform.rotated(by: sender.rotation)
+            sender.rotation = 0
+        }
+    }
     
     @IBAction func tapImage(_ sender: Any) {
         if (!imageZoomed) {

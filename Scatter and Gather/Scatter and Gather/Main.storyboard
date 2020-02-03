@@ -65,6 +65,7 @@
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="szD-Kj-Zgq" appends="YES" id="jfx-NT-IFW"/>
                                     <outletCollection property="gestureRecognizers" destination="IAT-My-Khz" appends="YES" id="cG3-99-vWv"/>
+                                    <outletCollection property="gestureRecognizers" destination="qQV-x6-euT" appends="YES" id="2iz-To-wS4"/>
                                 </connections>
                             </imageView>
                         </subviews>
@@ -99,7 +100,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <rotationGestureRecognizer id="szD-Kj-Zgq">
                     <connections>
-                        <action selector="toggleSpin:" destination="BYZ-38-t0r" id="3O5-6d-kL9"/>
+                        <action selector="rotateImage:" destination="BYZ-38-t0r" id="oc2-CN-8S2"/>
                     </connections>
                 </rotationGestureRecognizer>
                 <tapGestureRecognizer id="IAT-My-Khz">
@@ -107,6 +108,11 @@
                         <action selector="tapImage:" destination="BYZ-38-t0r" id="1OF-PR-Efx"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pinchGestureRecognizer id="qQV-x6-euT">
+                    <connections>
+                        <action selector="pinchImage:" destination="BYZ-38-t0r" id="qwN-u2-Ywb"/>
+                    </connections>
+                </pinchGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="103.79464285714285"/>
         </scene>
