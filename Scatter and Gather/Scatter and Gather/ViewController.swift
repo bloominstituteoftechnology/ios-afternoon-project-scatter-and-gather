@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var letterLLabel: UILabel!
@@ -27,17 +27,33 @@ class ViewController: UIViewController {
     var BOriginPoint: CGPoint!
     var DOriginPoint: CGPoint!
     var AAOriginPoint: CGPoint!
-        
+    
     // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setLabelOrigin()
         lambdaLogo.isOpaque = false
+        
+        //Sets logo to be draggable
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(_:)))
+        lambdaLogo.addGestureRecognizer(gesture)
+        lambdaLogo.isUserInteractionEnabled = true
     }
-        // MARK: - Scatter Functions
-
-
+    
+    
+    // MARK: - Draggable Function
+    
+    @objc private func wasDragged(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self.view)
+        let label = gesture.view!
+        
+        label.center = CGPoint(x: label.center.x + translation.x, y: label.center.y + translation.y)
+        gesture.setTranslation(CGPoint.zero, in: self.view)
+    }
+    // MARK: - Scatter Functions
+    
+    
     private func scatter() {
         //Sets random text color
         self.letterLLabel.textColor = randomColor()
@@ -62,7 +78,8 @@ class ViewController: UIViewController {
                                                                       self.randomAngle(),
                                                                       self.randomAngle(),
                                                                       self.randomAngle())
-
+            
+            
             self.letterALabel.center = self.randomPoint(from: self.letterALabel)
             self.letterALabel.layer.backgroundColor = self.randomColor().cgColor
             self.letterALabel.layer.shadowColor = UIColor.black.cgColor
@@ -71,9 +88,9 @@ class ViewController: UIViewController {
             self.letterALabel.layer.shadowOffset = CGSize(width: 4, height: 4)
             self.letterALabel.layer.masksToBounds = false
             self.letterALabel.transform3D = CATransform3DMakeRotation(self.randomAngle(), // Angle
-                                                                      self.randomAngle(), // X
-                                                                      self.randomAngle(), // Y
-                                                                      self.randomAngle()) // Z
+                self.randomAngle(), // X
+                self.randomAngle(), // Y
+                self.randomAngle()) // Z
             
             self.letterMLabel.center = self.randomPoint(from: self.letterMLabel)
             self.letterMLabel.layer.backgroundColor = self.randomColor().cgColor
@@ -202,26 +219,57 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 3.0) {
             self.letterLLabel.center = self.LOriginPoint
             self.letterLLabel.layer.backgroundColor = UIColor.clear.cgColor
+            // Animates shadows
+            self.letterLLabel.layer.shadowColor = UIColor.black.cgColor
+            self.letterLLabel.layer.shadowRadius = 0.0
+            self.letterLLabel.layer.shadowOpacity = 0.0
+            self.letterLLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.letterLLabel.layer.masksToBounds = false
             self.letterLLabel.transform = .identity
             
             self.letterALabel.center = self.AOriginPoint
             self.letterALabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.letterALabel.layer.shadowColor = UIColor.black.cgColor
+            self.letterALabel.layer.shadowRadius = 0.0
+            self.letterALabel.layer.shadowOpacity = 0.0
+            self.letterALabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.letterALabel.layer.masksToBounds = false
             self.letterALabel.transform = .identity
             
             self.letterMLabel.center = self.MOriginPoint
             self.letterMLabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.letterMLabel.layer.shadowColor = UIColor.black.cgColor
+            self.letterMLabel.layer.shadowRadius = 0.0
+            self.letterMLabel.layer.shadowOpacity = 0.0
+            self.letterMLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.letterMLabel.layer.masksToBounds = false
             self.letterMLabel.transform = .identity
             
             self.letterBLabel.center = self.BOriginPoint
             self.letterBLabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.letterBLabel.layer.shadowColor = UIColor.black.cgColor
+            self.letterBLabel.layer.shadowRadius = 0.0
+            self.letterBLabel.layer.shadowOpacity = 0.0
+            self.letterBLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.letterBLabel.layer.masksToBounds = false
             self.letterBLabel.transform = .identity
             
             self.letterDLabel.center = self.DOriginPoint
             self.letterDLabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.letterDLabel.layer.shadowColor = UIColor.black.cgColor
+            self.letterDLabel.layer.shadowRadius = 0.0
+            self.letterDLabel.layer.shadowOpacity = 0.0
+            self.letterDLabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.letterDLabel.layer.masksToBounds = false
             self.letterDLabel.transform = .identity
             
             self.secondLetterALabel.center = self.AAOriginPoint
             self.secondLetterALabel.layer.backgroundColor = UIColor.clear.cgColor
+            self.secondLetterALabel.layer.shadowColor = UIColor.black.cgColor
+            self.secondLetterALabel.layer.shadowRadius = 0.0
+            self.secondLetterALabel.layer.shadowOpacity = 0.0
+            self.secondLetterALabel.layer.shadowOffset = CGSize(width: 0, height: 0)
+            self.secondLetterALabel.layer.masksToBounds = false
             self.secondLetterALabel.transform = .identity
             
             self.lambdaLogo.alpha = 1.0 // Fades in image
