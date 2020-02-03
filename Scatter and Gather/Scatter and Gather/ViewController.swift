@@ -18,8 +18,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var letterDLabel: UILabel!
     @IBOutlet weak var secondLetterALabel: UILabel!
     @IBOutlet weak var lambdaLogo: UIImageView!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
     
     var isScattered = false
+    var imageZoomed = false
     var LOriginPoint: CGPoint!
     var AOriginPoint: CGPoint!
     var MOriginPoint: CGPoint!
@@ -34,9 +36,12 @@ class ViewController: UIViewController {
         setLabelOrigin()
         lambdaLogo.isOpaque = false
         isDraggable()
+        tapGesture.numberOfTapsRequired = 2
 
         
     }
+
+    // MARK: - Draggable Function
     
     func isDraggable() {
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(_:)))
@@ -46,9 +51,6 @@ class ViewController: UIViewController {
         // TODO: Implement dragging letter labels
 
     }
-    
-    
-    // MARK: - Draggable Function
     
     @objc private func wasDragged(_ gesture: UIPanGestureRecognizer) {
         let translation = gesture.translation(in: self.view)
@@ -290,5 +292,30 @@ class ViewController: UIViewController {
             scatter()
         }
         isScattered.toggle()
+    }
+    
+    // Image
+    func scaleImageUp() {
+        lambdaLogo.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        imageZoomed = true
+    }
+    
+    func normalizeImage() {
+        lambdaLogo.transform = CGAffineTransform.identity
+        imageZoomed = false
+    }
+
+    
+    
+
+    
+    @IBAction func tapImage(_ sender: Any) {
+        if (!imageZoomed) {
+            scaleImageUp()
+            imageZoomed = true
+        } else {
+            normalizeImage()
+            imageZoomed = false
+        }
     }
 }

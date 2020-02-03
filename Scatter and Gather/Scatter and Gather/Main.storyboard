@@ -58,9 +58,14 @@
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lambda_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="hym-Qb-3Jz">
                                 <rect key="frame" x="40" y="227.5" width="334" height="128"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="Lcz-FZ-mP3"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="szD-Kj-Zgq" appends="YES" id="jfx-NT-IFW"/>
+                                    <outletCollection property="gestureRecognizers" destination="IAT-My-Khz" appends="YES" id="cG3-99-vWv"/>
+                                </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -88,9 +93,20 @@
                         <outlet property="letterLLabel" destination="qI6-Uc-zjZ" id="N7w-7G-THx"/>
                         <outlet property="letterMLabel" destination="tA7-us-39C" id="PT7-gw-6B2"/>
                         <outlet property="secondLetterALabel" destination="mhW-ie-a87" id="X5k-7Y-A99"/>
+                        <outlet property="tapGesture" destination="IAT-My-Khz" id="CyG-rl-4d8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <rotationGestureRecognizer id="szD-Kj-Zgq">
+                    <connections>
+                        <action selector="toggleSpin:" destination="BYZ-38-t0r" id="3O5-6d-kL9"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <tapGestureRecognizer id="IAT-My-Khz">
+                    <connections>
+                        <action selector="tapImage:" destination="BYZ-38-t0r" id="1OF-PR-Efx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1042.0289855072465" y="103.79464285714285"/>
         </scene>
