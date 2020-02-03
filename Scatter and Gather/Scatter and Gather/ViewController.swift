@@ -50,13 +50,13 @@ class ViewController: UIViewController {
                 self.letterLabels[index].center = CGPoint.random(in: letterLabelCenterBounds)
                 self.letterLabels[index].textColor = UIColor.random(withAlpha: 0.5)
                 self.letterLabels[index].layer.backgroundColor = UIColor.random(withAlpha: 0.5).cgColor
-                self.letterLabels[index].transform = CGAffineTransform(rotationAngle: CGFloat.randomRadian())
+                //self.letterLabels[index].transform = CGAffineTransform(rotationAngle: CGFloat.randomRadian())
                 
-                let yRotation = CATransform3DMakeRotation(CGFloat.randomRadian(), 0, 1, 0)
-                self.letterLabels[index].layer.transform = CATransform3DConcat(self.letterLabels[index].layer.transform, yRotation)
-                
-                let xRotation = CATransform3DMakeRotation(CGFloat.randomRadian(), 1, 0, 0)
-                self.letterLabels[index].layer.transform = CATransform3DConcat(self.letterLabels[index].layer.transform, xRotation)
+                let xyRotation = CATransform3DConcat(CATransform3DMakeRotation(CGFloat.randomRadian(), 1, 0, 0),
+                                                     CATransform3DMakeRotation(CGFloat.randomRadian(), 0, 1, 0))
+                let xyzRotation = CATransform3DConcat(xyRotation,
+                                                      CATransform3DMakeRotation(CGFloat.randomRadian(), 0, 0, 1))
+                self.letterLabels[index].layer.transform = xyzRotation
                 
             }, completion: nil)
         }
