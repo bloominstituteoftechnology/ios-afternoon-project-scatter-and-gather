@@ -40,21 +40,24 @@ class ViewController: UIViewController {
     
     private func scatter() {
         for index in 0..<letterLabels.count {
-            let minX = view.safeAreaInsets.left + (letterFontSize / 2)
-            let maxX = minX + view.safeAreaLayoutGuide.layoutFrame.width - (letterFontSize)
-            let minY = view.safeAreaInsets.top + (letterFontSize / 2)
-            let maxY = minY + view.safeAreaLayoutGuide.layoutFrame.height - (letterFontSize)
-            
-            let randomPoint = CGPoint(x: .random(in: minX...maxX), y: .random(in: minY...maxY))
-            let randomRotationAngle = CGFloat.random(in: -(CGFloat.pi - 0.001)...(CGFloat.pi - 0.001))
-            let randomTextColor = UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 0.5)
-            let randomBackgroundColor = UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 0.5)
-            
+            // Set bounds for letter label's new center position
+            let letterLabelCenterBounds = CGRect(x: view.safeAreaInsets.left + (letterFontSize / 2),
+                                           y: view.safeAreaInsets.top + (letterFontSize / 2),
+                                           width: view.safeAreaLayoutGuide.layoutFrame.width - (letterFontSize),
+                                           height: view.safeAreaLayoutGuide.layoutFrame.height - (letterFontSize))
+
             UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
-                self.letterLabels[index].center = randomPoint
-                self.letterLabels[index].transform = CGAffineTransform(rotationAngle: randomRotationAngle)
-                self.letterLabels[index].textColor = randomTextColor
-                self.letterLabels[index].layer.backgroundColor = randomBackgroundColor.cgColor
+                self.letterLabels[index].center = CGPoint.random(in: letterLabelCenterBounds)
+                self.letterLabels[index].textColor = UIColor.random(withAlpha: 0.5)
+                self.letterLabels[index].layer.backgroundColor = UIColor.random(withAlpha: 0.5).cgColor
+                self.letterLabels[index].transform = CGAffineTransform(rotationAngle: CGFloat.randomRadian())
+                
+                let yRotation = CATransform3DMakeRotation(CGFloat.randomRadian(), 0, 1, 0)
+                self.letterLabels[index].layer.transform = CATransform3DConcat(self.letterLabels[index].layer.transform, yRotation)
+                
+                let xRotation = CATransform3DMakeRotation(CGFloat.randomRadian(), 1, 0, 0)
+                self.letterLabels[index].layer.transform = CATransform3DConcat(self.letterLabels[index].layer.transform, xRotation)
+                
             }, completion: nil)
         }
         
@@ -67,9 +70,9 @@ class ViewController: UIViewController {
         for index in 0..<letterLabels.count {
             UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
                 self.letterLabels[index].center = self.originalCenterPoints[index]
-                self.letterLabels[index].transform = .identity
                 self.letterLabels[index].textColor = .black
                 self.letterLabels[index].layer.backgroundColor = UIColor.clear.cgColor
+                self.letterLabels[index].transform = .identity
             }, completion: nil)
         }
         
@@ -151,5 +154,24 @@ class ViewController: UIViewController {
 extension Character {
     func width(usingFont font: UIFont) -> CGFloat {
         return String(self).size(withAttributes: [NSAttributedString.Key.font: font]).width
+    }
+}
+
+extension UIColor {
+    static func random(withAlpha alpha: CGFloat? = nil) -> UIColor {
+        let alpha = alpha ?? 1.0
+        return UIColor(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: alpha)
+    }
+}
+
+extension CGPoint {
+    static func random(in rect: CGRect) -> CGPoint {
+        return CGPoint(x: .random(in: rect.minX...rect.maxX), y: .random(in: rect.minY...rect.maxY))
+    }
+}
+
+extension CGFloat {
+    static func randomRadian() -> CGFloat {
+        return CGFloat.random(in: -(CGFloat.pi)...(CGFloat.pi - 0.001))
     }
 }
