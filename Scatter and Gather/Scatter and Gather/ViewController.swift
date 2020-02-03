@@ -5,7 +5,6 @@
 //  Created by Lambda_School_Loaner_204 on 11/5/19.
 //  Copyright © 2019 Lambda School. All rights reserved.
 //
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -34,11 +33,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setLabelOrigin()
         lambdaLogo.isOpaque = false
+        isDraggable()
+
         
-        //Sets logo to be draggable
+    }
+    
+    func isDraggable() {
         let gesture = UIPanGestureRecognizer(target: self, action: #selector(wasDragged(_:)))
         lambdaLogo.addGestureRecognizer(gesture)
         lambdaLogo.isUserInteractionEnabled = true
+        
+        // TODO: Implement dragging letter labels
+
     }
     
     
@@ -286,4 +292,3 @@ class ViewController: UIViewController {
         isScattered.toggle()
     }
 }
-

@@ -7,23 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		422F2E4C23E7AF1B003D846C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 422F2E4B23E7AF1B003D846C /* ViewController.swift */; };
 		42996FEC23E78CCF001CBD36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42996FEB23E78CCF001CBD36 /* AppDelegate.swift */; };
 		42996FEE23E78CCF001CBD36 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42996FED23E78CCF001CBD36 /* SceneDelegate.swift */; };
 		42996FF523E78CD1001CBD36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42996FF423E78CD1001CBD36 /* Assets.xcassets */; };
 		42996FF823E78CD1001CBD36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42996FF623E78CD1001CBD36 /* LaunchScreen.storyboard */; };
-		4299700123E78CEE001CBD36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42996FFF23E78CEE001CBD36 /* ViewController.swift */; };
 		4299700223E78CEE001CBD36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4299700023E78CEE001CBD36 /* Main.storyboard */; };
 		4299700423E78D09001CBD36 /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4299700323E78D08001CBD36 /* lambda_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		422F2E4B23E7AF1B003D846C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		42996FE823E78CCF001CBD36 /* Scatter and Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scatter and Gather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42996FEB23E78CCF001CBD36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42996FED23E78CCF001CBD36 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		42996FF423E78CD1001CBD36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42996FF723E78CD1001CBD36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42996FF923E78CD1001CBD36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42996FFF23E78CEE001CBD36 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = "../../../../../../../../Downloads/ios-afternoon-project-scatter-and-gather-master-2/Scatter-and-gather/Scatter-and-gather/ViewController.swift"; sourceTree = "<group>"; };
 		4299700023E78CEE001CBD36 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		4299700323E78D08001CBD36 /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lambda_logo.png; path = ../../lambda_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,11 +61,11 @@
 				42996FEB23E78CCF001CBD36 /* AppDelegate.swift */,
 				42996FED23E78CCF001CBD36 /* SceneDelegate.swift */,
 				4299700023E78CEE001CBD36 /* Main.storyboard */,
-				42996FFF23E78CEE001CBD36 /* ViewController.swift */,
 				42996FF423E78CD1001CBD36 /* Assets.xcassets */,
 				4299700323E78D08001CBD36 /* lambda_logo.png */,
 				42996FF623E78CD1001CBD36 /* LaunchScreen.storyboard */,
 				42996FF923E78CD1001CBD36 /* Info.plist */,
+				422F2E4B23E7AF1B003D846C /* ViewController.swift */,
 			);
 			path = "Scatter and Gather";
 			sourceTree = "<group>";
@@ -142,8 +142,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				422F2E4C23E7AF1B003D846C /* ViewController.swift in Sources */,
 				42996FEC23E78CCF001CBD36 /* AppDelegate.swift in Sources */,
-				4299700123E78CEE001CBD36 /* ViewController.swift in Sources */,
 				42996FEE23E78CCF001CBD36 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
