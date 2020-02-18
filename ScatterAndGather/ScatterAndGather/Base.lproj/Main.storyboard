@@ -15,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T2K-2T-afJ">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lambda_logo" translatesAutoresizingMaskIntoConstraints="NO" id="T2K-2T-afJ">
                                 <rect key="frame" x="0.0" y="126" width="414" height="128"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="MJi-mw-zTD">
@@ -90,7 +90,7 @@
                         <outlet property="M" destination="uXV-dp-DIB" id="YMb-Br-DEf"/>
                         <outlet property="a2" destination="k32-F0-unj" id="Gtz-l9-jSg"/>
                         <outlet property="letterStack" destination="MJi-mw-zTD" id="ZNV-cS-Mf6"/>
-                        <outlet property="logoIV" destination="T2K-2T-afJ" id="VgX-iU-XCR"/>
+                        <outlet property="logoImageView" destination="T2K-2T-afJ" id="tuw-Is-XsE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -116,4 +116,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="112.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lambda_logo" width="2000" height="558"/>
+    </resources>
 </document>
