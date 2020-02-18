@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     // MARK: - Properties
-    
     @IBOutlet weak var letterLLabel: UILabel!
     @IBOutlet weak var letterALabel: UILabel!
     @IBOutlet weak var letterMLabel: UILabel!
@@ -29,10 +28,8 @@ class ViewController: UIViewController {
     var bOrigin: CGPoint!
     var dOrigin: CGPoint!
     var a2Origin: CGPoint!
-
     
     // MARK: - View Lifecycle
-    
     override func viewDidLoad() {
          super.viewDidLoad()
          setLabelPointOrigins()
@@ -46,11 +43,9 @@ class ViewController: UIViewController {
          bOrigin = self.letterBLabel.center
          dOrigin = self.letterDLabel.center
          a2Origin = self.secondLetterALabel.center
-         
      }
     
     // MARK: - Private
-    
      private func scatter() {
         self.lambdaLogo.alpha = 0.0 // Fades out image
         
@@ -86,11 +81,9 @@ class ViewController: UIViewController {
                 self.secondLetterALabel.center = self.randomPoint(from: self.secondLetterALabel)
                 self.secondLetterALabel.layer.backgroundColor = self.randomColor().cgColor
                 self.secondLetterALabel.transform = CGAffineTransform(rotationAngle: self.randomAngle())
-                
             }
             
         }
-    
     private func randomAngle() -> CGFloat {
            let angle = CGFloat(Int.random(in: 1...10))
            if (Int.random(in: 1...100) % 2) == 0 {
@@ -99,7 +92,6 @@ class ViewController: UIViewController {
                return -1 * CGFloat.pi / angle
            }
        }
-       
        private func randomPoint(from label: UILabel) -> CGPoint {
            let minX = Int(view.bounds.minX)
            var maxX = Int(view.bounds.maxX)
@@ -116,7 +108,6 @@ class ViewController: UIViewController {
            let randYPoint = CGFloat(Int.random(in: minY...maxY))
            return CGPoint(x: randXPoint, y: randYPoint)
        }
-    
     private func randomColor() -> UIColor {
         let randNum = Int.random(in: 0...5)
         switch randNum {
@@ -134,7 +125,6 @@ class ViewController: UIViewController {
             return UIColor.yellow
         default:
             return UIColor.black
-            
         }
     }
      private func gather() {
@@ -174,16 +164,13 @@ class ViewController: UIViewController {
                    self.secondLetterALabel.transform = .identity
     }
 }
-    
  // MARK: - Actions
    @IBAction func buttonPressed(_ sender: UIBarButtonItem) {
         if isScattered {
             gather()
         } else {
             scatter()
-            
         }
-    
         isScattered.toggle()
     }
 }
