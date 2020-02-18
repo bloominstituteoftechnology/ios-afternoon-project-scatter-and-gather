@@ -63,7 +63,7 @@ class ViewController: UIViewController {
                 lambdaCharacters.forEach { (label) in
                   
                     label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(Int.random(in: 0...18)))
-                    label.center = CGPoint(x: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxX))), y: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxY))))
+                    label.center = CGPoint(x: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.width - 60))), y: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.height - 60))))
                 }
             }
           
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
                 self.lambdaImageView.alpha = 1
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 1.2) {
+            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.4) {
                 lambdaCharacters.forEach { (label) in
                   
                     label.backgroundColor = .clear
@@ -95,11 +95,11 @@ class ViewController: UIViewController {
         
         
         if isScattered {
-            UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: scatterAnimationBlock, completion: nil)
+            UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [], animations: scatterAnimationBlock, completion: nil)
             isScattered = false
         } else {
             isScattered = true
-            UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: gatherAnimationBlock, completion: nil)
+            UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [], animations: gatherAnimationBlock, completion: nil)
         }
     }
 
