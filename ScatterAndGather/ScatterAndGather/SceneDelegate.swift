@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  ScatterAndGather
 //
-//  Created by Tobi Kuyoro on 21/01/2020.
+//  Created by Tobi Kuyoro on 18/02/2020.
 //  Copyright © 2020 Tobi Kuyoro. All rights reserved.
 //
 
