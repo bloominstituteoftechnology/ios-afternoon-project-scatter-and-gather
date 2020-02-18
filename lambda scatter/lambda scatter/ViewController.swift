@@ -9,7 +9,12 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    var isScattered = false
+    
+    @IBAction func toggleButtonPressed(sender: UIBarButtonItem) {
+          }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
