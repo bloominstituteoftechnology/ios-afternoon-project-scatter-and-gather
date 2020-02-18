@@ -16,12 +16,21 @@ class ViewController: UIViewController {
     private(set) var isScattered = false
     private var lambdaStackView : UIView!
     private var lambdaImageView: UIImageView!
+    private var l : UILabel!
+    private var a : UILabel!
+    private var m : UILabel!
+    private var b : UILabel!
+    private var d : UILabel!
+    private var a2 : UILabel!
+   
+    
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpSubviews()
         configureNavBar()
+        
     }
     
     
@@ -33,6 +42,21 @@ class ViewController: UIViewController {
     }
     
     @objc func toggleButtonPressed() {
+        let lambdaCharacters : [UILabel] = [l,a,m,b,d,a2]
+        
+        let animationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
+                lambdaCharacters.forEach { (label) in
+                    label.backgroundColor = .randomColor
+                    label.textColor = .randomColor
+                }
+            }
+            
+            
+            
+        }
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animationBlock, completion: nil)
+        
         
     }
 
@@ -42,61 +66,67 @@ class ViewController: UIViewController {
         let l : UILabel = {
            let label = UILabel()
             label.text = "L"
-            label.font = UIFont(name: "Noteworthy-Light", size: 40)
+            label.font = UIFont(name: "Noteworthy-Bold", size: 40)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
         }()
         
         view.addSubview(l)
+        self.l = l
         let a : UILabel = {
                let label = UILabel()
                 label.text = "a"
-                label.font = UIFont(name: "Noteworthy-Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Bold", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
         
         view.addSubview(a)
+        self.a = a
         let m : UILabel = {
                let label = UILabel()
                 label.text = "m"
-                label.font = UIFont(name: "Noteworthy-Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Bold", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
         view.addSubview(m)
+        self.m = m
         let b : UILabel = {
                let label = UILabel()
                 label.text = "b"
-                label.font = UIFont(name: "Noteworthy-Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Bold", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
         view.addSubview(b)
+        self.b = b
         
         let d : UILabel = {
                let label = UILabel()
                 label.text = "d"
-                label.font = UIFont(name: "Noteworthy-Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Bold", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
         view.addSubview(d)
+        self.d = d
         
         let a2 : UILabel = {
                let label = UILabel()
                 label.text = "a"
-                label.font = UIFont(name: "Noteworthy-Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Bold", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
             }()
         view.addSubview(a2)
+        self.a2 = a2
      
         let lambdaStackView : UIStackView = {
             let stackView = UIStackView()
@@ -146,3 +176,11 @@ class ViewController: UIViewController {
 
 }
 
+extension UIColor {
+    static var randomColor: UIColor {
+        return UIColor(red: .random(in: 0...1),
+                       green: .random(in: 0...1),
+                       blue: .random(in: 0...1),
+                       alpha: 1.0)
+    }
+}
