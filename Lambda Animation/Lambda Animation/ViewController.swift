@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    private(set) var isScattered = false
+     var isScattered = true
     private var lambdaStackView : UIView!
     private var lambdaImageView: UIImageView!
     private var l : UILabel!
@@ -43,21 +43,53 @@ class ViewController: UIViewController {
     
     @objc func toggleButtonPressed() {
         let lambdaCharacters : [UILabel] = [l,a,m,b,d,a2]
-        
-        let animationBlock = {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
+       
+        let scatterAnimationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3) {
+                self.lambdaImageView.alpha = 0
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0) {
+               
                 lambdaCharacters.forEach { (label) in
                     label.backgroundColor = .randomColor
                     label.textColor = .randomColor
+                    label.transform = CGAffineTransform(scaleX: CGFloat(Double.random(in: 0...2.50)), y: CGFloat(Double.random(in: 0...2.5)))
+                    
                 }
             }
-            
-            
-            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
+                lambdaCharacters.forEach { (label) in
+                  
+                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(Int.random(in: 0...18)))
+                    label.center = CGPoint(x: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxX))), y: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxY + 50))))
+                }
+            }
+          
         }
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animationBlock, completion: nil)
+     
+        let gatherAnimationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3) {
+                self.lambdaImageView.alpha = 1
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0) {
+                lambdaCharacters.forEach { (label) in
+                    label.center = CGPoint(x: 2, y: 4)
+                    label.backgroundColor = .clear
+                    label.textColor = .black
+                }
+            }
+        }
         
         
+        if isScattered {
+            UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
+            isScattered = false
+        } else {
+            isScattered = true
+            UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: gatherAnimationBlock, completion: nil)
+        }
     }
 
     
