@@ -147,7 +147,33 @@ class ViewController: UIViewController {
         self.letterDLabel.textColor = UIColor.black
         self.secondLetterALabel.textColor = UIColor.black
         
-       }
+        UIView.animate(withDuration: 2.0) {
+                   self.lambdaLogo.alpha = 1.0
+                   self.letterLLabel.center = self.lOrigin
+                   self.letterLLabel.layer.backgroundColor = UIColor.clear.cgColor
+                   self.letterLLabel.transform = .identity
+                   
+                   self.letterALabel.center = self.aOrigin
+                   self.letterALabel.layer.backgroundColor = UIColor.clear.cgColor
+                   self.letterALabel.transform = .identity
+                   
+                   self.letterMLabel.center = self.mOrigin
+                   self.letterMLabel.layer.backgroundColor = UIColor.clear.cgColor
+                   self.letterMLabel.transform = .identity
+                   
+                   self.letterBLabel.center = self.bOrigin
+                   self.letterBLabel.layer.backgroundColor = UIColor.clear.cgColor
+                   self.letterBLabel.transform = .identity
+                   
+                   self.letterDLabel.center = self.dOrigin
+                   self.letterDLabel.layer.backgroundColor = UIColor.clear.cgColor
+                   self.letterDLabel.transform = .identity
+                   
+                   self.secondLetterALabel.center = self.a2Origin
+                   self.secondLetterALabel.layer.backgroundColor = UIColor.clear.cgColor
+                   self.secondLetterALabel.transform = .identity
+    }
+}
     
  // MARK: - Actions
    @IBAction func buttonPressed(_ sender: UIBarButtonItem) {
@@ -157,7 +183,7 @@ class ViewController: UIViewController {
             scatter()
             
         }
-        
+    
         isScattered.toggle()
     }
 }
