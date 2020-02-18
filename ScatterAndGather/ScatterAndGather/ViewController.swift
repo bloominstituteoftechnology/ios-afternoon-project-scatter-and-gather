@@ -10,18 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    //MARK: - Variables
+    var isScattered: Bool = false
+    
     //MARK: - Image
     var imageView: UIImageView!
     var letters: [UILabel] = []
+    
     //MARK: - IBAction
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-        var isScattered: Bool
+        isScattered.toggle()
+        
+        if isScattered {
+            scatterAnimation()
+        } else {
+            gatherAnimation()
+        }
     }
+    
+    //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         viewSetUp()
     }
     
+    //MARK: - SetUp Function
     func viewSetUp() {
         
         // Image
@@ -108,7 +121,29 @@ class ViewController: UIViewController {
         
         labelAA.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
         labelAA.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -40).isActive = true
-        
+    }
+    
+    //MARK: - Scatter Function
+    func scatterAnimation() {
+        UIView.animate(withDuration: 1.5) {
+            self.imageView.alpha = 0.0
+            for letter in self.letters {
+                letter.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...250), y: CGFloat.random(in: 0...660)).rotated(by: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                letter.textColor = UIColor(displayP3Red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
+                letter.backgroundColor = UIColor(displayP3Red: CGFloat.random(in: 0...1), green: CGFloat.random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
+            }
+        }
+    }
+    
+    func gatherAnimation() {
+        UIView.animate(withDuration: 1.5) {
+            self.imageView.alpha = 1.0
+            for letter in self.letters {
+                letter.transform = .identity
+                letter.backgroundColor = UIColor.white
+                letter.textColor = UIColor.black
+            }
+        }
     }
 }
 
