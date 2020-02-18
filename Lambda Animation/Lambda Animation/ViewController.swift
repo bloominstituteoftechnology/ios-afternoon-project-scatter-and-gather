@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     private(set) var isScattered = false
-
+    var lambda : UIView!
     
     // MARK: - View Life Cycle
     
@@ -42,7 +42,7 @@ class ViewController: UIViewController {
         let l : UILabel = {
            let label = UILabel()
             label.text = "L"
-            label.font = UIFont(name: "Avenir Light", size: 40)
+            label.font = UIFont(name: "Noteworthy-Light", size: 40)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         let a : UILabel = {
                let label = UILabel()
                 label.text = "a"
-                label.font = UIFont(name: "Avenir Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         let m : UILabel = {
                let label = UILabel()
                 label.text = "m"
-                label.font = UIFont(name: "Avenir Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -71,7 +71,7 @@ class ViewController: UIViewController {
         let b : UILabel = {
                let label = UILabel()
                 label.text = "b"
-                label.font = UIFont(name: "Avenir Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
         let d : UILabel = {
                let label = UILabel()
                 label.text = "d"
-                label.font = UIFont(name: "Avenir Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
         let a2 : UILabel = {
                let label = UILabel()
                 label.text = "a"
-                label.font = UIFont(name: "Avenir Light", size: 40)
+                label.font = UIFont(name: "Noteworthy-Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         }()
         
         view.addSubview(lambdaStackView)
-        
+        self.lambda = lambdaStackView
         NSLayoutConstraint.activate([
             lambdaStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             lambdaStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -122,6 +122,28 @@ class ViewController: UIViewController {
             lambdaStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
      
         ])
+       
+        
+        let lambdaImageView: UIImageView = {
+           let imageView = UIImageView(image: #imageLiteral(resourceName: "lambda_logo"))
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.contentMode = .scaleAspectFit
+            return imageView
+            
+        }()
+        
+        view.addSubview(lambdaImageView)
+        
+        NSLayoutConstraint.activate([
+            lambdaImageView.topAnchor.constraint(equalTo: lambdaStackView.bottomAnchor, constant: 50),
+            lambdaImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            lambdaImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+        ])
+        
+        
+        
+        
+        
     }
 
 }
