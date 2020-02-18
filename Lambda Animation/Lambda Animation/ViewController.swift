@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-     var isScattered = true
+    private var isScattered = true
     private var lambdaStackView : UIView!
     private var lambdaImageView: UIImageView!
     private var l : UILabel!
@@ -22,8 +22,7 @@ class ViewController: UIViewController {
     private var b : UILabel!
     private var d : UILabel!
     private var a2 : UILabel!
-   
-    
+ 
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -31,6 +30,7 @@ class ViewController: UIViewController {
         setUpSubviews()
         configureNavBar()
         
+              
     }
     
     
@@ -42,14 +42,15 @@ class ViewController: UIViewController {
     }
     
     @objc func toggleButtonPressed() {
-        let lambdaCharacters : [UILabel] = [l,a,m,b,d,a2]
        
+        let lambdaCharacters : [UILabel] = [l,a,m,b,d,a2]
         let scatterAnimationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3) {
                 self.lambdaImageView.alpha = 0
+                
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
                
                 lambdaCharacters.forEach { (label) in
                     label.backgroundColor = .randomColor
@@ -62,33 +63,43 @@ class ViewController: UIViewController {
                 lambdaCharacters.forEach { (label) in
                   
                     label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(Int.random(in: 0...18)))
-                    label.center = CGPoint(x: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxX))), y: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxY + 50))))
+                    label.center = CGPoint(x: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxX))), y: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.maxY))))
                 }
             }
           
         }
      
         let gatherAnimationBlock = {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.l.center = CGPoint(x: 40, y: 40)
+                self.a.center = CGPoint(x: 100, y: 40)
+                self.m.center = CGPoint(x: 160, y: 40)
+                self.b.center = CGPoint(x: 220, y: 40)
+                self.d.center = CGPoint(x: 280, y: 40)
+                self.a2.center = CGPoint(x: 340, y: 40)
                 self.lambdaImageView.alpha = 1
             }
             
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0) {
+            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 1.2) {
                 lambdaCharacters.forEach { (label) in
-                    label.center = CGPoint(x: 2, y: 4)
+                  
                     label.backgroundColor = .clear
                     label.textColor = .black
+                    label.transform = .identity
                 }
+            
             }
+          
+          
         }
         
         
         if isScattered {
-            UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
+            UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: scatterAnimationBlock, completion: nil)
             isScattered = false
         } else {
             isScattered = true
-            UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: gatherAnimationBlock, completion: nil)
+            UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: gatherAnimationBlock, completion: nil)
         }
     }
 
@@ -106,6 +117,9 @@ class ViewController: UIViewController {
         
         view.addSubview(l)
         self.l = l
+       
+      
+        
         let a : UILabel = {
                let label = UILabel()
                 label.text = "a"
@@ -137,6 +151,8 @@ class ViewController: UIViewController {
             }()
         view.addSubview(b)
         self.b = b
+        
+       
         
         let d : UILabel = {
                let label = UILabel()
@@ -177,6 +193,8 @@ class ViewController: UIViewController {
         
         view.addSubview(lambdaStackView)
         self.lambdaStackView = lambdaStackView
+        
+        //MARK: - Constraint stackview
         NSLayoutConstraint.activate([
             lambdaStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             lambdaStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -196,6 +214,8 @@ class ViewController: UIViewController {
         
         view.addSubview(lambdaImageView)
         self.lambdaImageView = lambdaImageView
+        
+        //MARK: - Constraint image
         NSLayoutConstraint.activate([
             lambdaImageView.topAnchor.constraint(equalTo: lambdaStackView.bottomAnchor, constant: 20),
             lambdaImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
