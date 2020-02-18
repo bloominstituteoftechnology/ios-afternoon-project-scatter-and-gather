@@ -135,12 +135,13 @@ class ViewController: UIViewController {
         }
     }
     
+    //MARK: - Gather Function
     func gatherAnimation() {
         UIView.animate(withDuration: 1.5) {
             self.imageView.alpha = 1.0
             for letter in self.letters {
                 letter.transform = .identity
-                letter.backgroundColor = UIColor.white
+                letter.backgroundColor = UIColor.clear
                 letter.textColor = UIColor.black
             }
         }
