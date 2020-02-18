@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     
     
     
-    private func configureNavBar() {
+    fileprivate func configureNavBar() {
           title = "Lambda Hello"
           navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonPressed))
     }
@@ -37,12 +37,12 @@ class ViewController: UIViewController {
     }
 
     
-    private func setUpSubviews() {
+    fileprivate func setUpSubviews() {
         
         let l : UILabel = {
            let label = UILabel()
             label.text = "L"
-            label.font = UIFont.boldSystemFont(ofSize: 40)
+            label.font = UIFont(name: "Avenir Light", size: 40)
             label.textAlignment = .center
             label.translatesAutoresizingMaskIntoConstraints = false
             return label
@@ -51,8 +51,8 @@ class ViewController: UIViewController {
         view.addSubview(l)
         let a : UILabel = {
                let label = UILabel()
-                label.text = "A"
-                label.font = UIFont.boldSystemFont(ofSize: 40)
+                label.text = "a"
+                label.font = UIFont(name: "Avenir Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -61,8 +61,8 @@ class ViewController: UIViewController {
         view.addSubview(a)
         let m : UILabel = {
                let label = UILabel()
-                label.text = "M"
-                label.font = UIFont.boldSystemFont(ofSize:40)
+                label.text = "m"
+                label.font = UIFont(name: "Avenir Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -70,8 +70,8 @@ class ViewController: UIViewController {
         view.addSubview(m)
         let b : UILabel = {
                let label = UILabel()
-                label.text = "B"
-                label.font = UIFont.boldSystemFont(ofSize: 40)
+                label.text = "b"
+                label.font = UIFont(name: "Avenir Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -80,8 +80,8 @@ class ViewController: UIViewController {
         
         let d : UILabel = {
                let label = UILabel()
-                label.text = "D"
-                label.font = UIFont.boldSystemFont(ofSize: 40)
+                label.text = "d"
+                label.font = UIFont(name: "Avenir Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
@@ -90,8 +90,8 @@ class ViewController: UIViewController {
         
         let a2 : UILabel = {
                let label = UILabel()
-                label.text = "A"
-                label.font = UIFont.boldSystemFont(ofSize: 40)
+                label.text = "a"
+                label.font = UIFont(name: "Avenir Light", size: 40)
                 label.textAlignment = .center
                 label.translatesAutoresizingMaskIntoConstraints = false
                 return label
