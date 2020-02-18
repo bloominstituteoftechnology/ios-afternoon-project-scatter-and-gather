@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     private(set) var isScattered = false
-    var lambda : UIView!
-    
+    private var lambdaStackView : UIView!
+    private var lambdaImageView: UIImageView!
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
@@ -114,7 +114,7 @@ class ViewController: UIViewController {
         }()
         
         view.addSubview(lambdaStackView)
-        self.lambda = lambdaStackView
+        self.lambdaStackView = lambdaStackView
         NSLayoutConstraint.activate([
             lambdaStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             lambdaStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -133,17 +133,15 @@ class ViewController: UIViewController {
         }()
         
         view.addSubview(lambdaImageView)
-        
+        self.lambdaImageView = lambdaImageView
         NSLayoutConstraint.activate([
-            lambdaImageView.topAnchor.constraint(equalTo: lambdaStackView.bottomAnchor, constant: 50),
+            lambdaImageView.topAnchor.constraint(equalTo: lambdaStackView.bottomAnchor, constant: 20),
             lambdaImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            lambdaImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
+            lambdaImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            lambdaImageView.heightAnchor.constraint(equalToConstant: 200)
+
         ])
-        
-        
-        
-        
-        
+    
     }
 
 }
