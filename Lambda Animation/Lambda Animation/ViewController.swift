@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      setUpSubviews()
+        setUpSubviews()
         configureNavBar()
     }
     
@@ -116,10 +116,10 @@ class ViewController: UIViewController {
         view.addSubview(lambdaStackView)
         
         NSLayoutConstraint.activate([
-            lambdaStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
+            lambdaStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             lambdaStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             lambdaStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            lambdaStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 16)
+            lambdaStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
      
         ])
     }
