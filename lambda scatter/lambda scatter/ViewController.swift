@@ -139,11 +139,15 @@ class ViewController: UIViewController {
     }
      private func gather() {
            self.lambdaLogo.alpha = 1.0 // Fades in image
+        
+        self.letterLLabel.textColor = UIColor.black
+        self.letterALabel.textColor = UIColor.black
+        self.letterMLabel.textColor = UIColor.black
+        self.letterBLabel.textColor = UIColor.black
+        self.letterDLabel.textColor = UIColor.black
+        self.secondLetterALabel.textColor = UIColor.black
+        
        }
-       
-    
-    
-    
     
  // MARK: - Actions
    @IBAction func buttonPressed(_ sender: UIBarButtonItem) {
