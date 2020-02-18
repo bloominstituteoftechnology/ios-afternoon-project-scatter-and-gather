@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     // MARK: - Outlets
     
     @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var lambdaLogo: UIImageView!
     
     // MARK: - Properties
     
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
         
         setUpBarButton()
         setUpLabels()
+        setUpImage()
     }
     
     // MARK: - Private
@@ -85,6 +87,7 @@ class ViewController: UIViewController {
         stackView.spacing = 8
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
+        self.stackView = stackView
         
         stackView.addArrangedSubview(lLabel)
         stackView.addArrangedSubview(a1Label)
@@ -98,7 +101,22 @@ class ViewController: UIViewController {
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 50),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50)
         ])
+    }
+    
+    private func setUpImage() {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "lambda_logo")
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(imageView)
+        self.lambdaLogo = imageView
         
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: stackView.bottomAnchor, constant: 30),
+            imageView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 100)
+        ])
     }
     
     // MARK: - Actions
