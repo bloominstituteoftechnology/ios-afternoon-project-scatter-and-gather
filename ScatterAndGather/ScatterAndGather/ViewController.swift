@@ -12,6 +12,12 @@ class ViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var lLabel: UILabel!
+    @IBOutlet weak var a1Label: UILabel!
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var bLabel: UILabel!
+    @IBOutlet weak var dLabel: UILabel!
+    @IBOutlet weak var a2Label: UILabel!
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var lambdaLogo: UIImageView!
     
@@ -44,6 +50,7 @@ class ViewController: UIViewController {
         lLabel.textAlignment = .center
         lLabel.font = UIFont.systemFont(ofSize: 60)
         lLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.lLabel = lLabel
         
         // "A1" Label
         let a1Label = UILabel()
@@ -51,6 +58,7 @@ class ViewController: UIViewController {
         a1Label.textAlignment = .center
         a1Label.font = UIFont.systemFont(ofSize: 60)
         a1Label.translatesAutoresizingMaskIntoConstraints = false
+        self.a1Label = a1Label
         
         // "M" Label
         let mLabel = UILabel()
@@ -58,6 +66,7 @@ class ViewController: UIViewController {
         mLabel.textAlignment = .center
         mLabel.font = UIFont.systemFont(ofSize: 60)
         mLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.mLabel = mLabel
         
         // "B" Label
         let bLabel = UILabel()
@@ -65,6 +74,7 @@ class ViewController: UIViewController {
         bLabel.textAlignment = .center
         bLabel.font = UIFont.systemFont(ofSize: 60)
         bLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.bLabel = bLabel
         
         // "D" Label
         let dLabel = UILabel()
@@ -72,6 +82,7 @@ class ViewController: UIViewController {
         dLabel.textAlignment = .center
         dLabel.font = UIFont.systemFont(ofSize: 60)
         dLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.dLabel = dLabel
         
         // "A2" Label
         let a2Label = UILabel()
@@ -79,6 +90,7 @@ class ViewController: UIViewController {
         a2Label.textAlignment = .center
         a2Label.font = UIFont.systemFont(ofSize: 60)
         a2Label.translatesAutoresizingMaskIntoConstraints = false
+        self.a2Label = a2Label
         
         // StackView
         let stackView = UIStackView()
@@ -119,10 +131,51 @@ class ViewController: UIViewController {
         ])
     }
     
+    private func animateLabels() {
+        let randomRotation = CGFloat.random(in: 1...4)
+        
+        UIView.animateKeyframes(withDuration: 4, delay: 0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.lLabel.center = CGPoint(x: CGFloat.random(in: -100...700), y: CGFloat.random(in: 50...700))
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.lLabel.center = CGPoint(x: 20, y: 36)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.lLabel.transform = .identity
+            }
+        }, completion: nil)
+        
+        UIView.animateKeyframes(withDuration: 4, delay: 0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.a1Label.center = CGPoint(x: CGFloat.random(in: -100...700), y: CGFloat.random(in: 50...700))
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.a1Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.a1Label.center = CGPoint(x: 70, y: 36)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.a1Label.transform = .identity
+            }
+        }, completion: nil)
+    }
+    
     // MARK: - Actions
     
     @objc func toggleButtonPressed() {
-        
+        isScattered.toggle()
+        animateLabels()
     }
 }
 
