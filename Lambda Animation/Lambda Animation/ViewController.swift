@@ -108,19 +108,16 @@ class ViewController: UIViewController {
         let a2 = createLabel(with: "a")
         
         
-        view.addSubview(l)
-        view.addSubview(a)
-        view.addSubview(m)
-        view.addSubview(b)
-        view.addSubview(d)
-        view.addSubview(a2)
-        
         self.lambdaCharacters.append(l)
         self.lambdaCharacters.append(a)
         self.lambdaCharacters.append(m)
         self.lambdaCharacters.append(b)
         self.lambdaCharacters.append(d)
         self.lambdaCharacters.append(a2)
+        
+        for label in lambdaCharacters {
+            view.addSubview(label)
+        }
      
         let lambdaStackView : UIStackView = {
             let stackView = UIStackView()
