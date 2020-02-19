@@ -213,7 +213,9 @@ class ViewController: UIViewController {
                     self.a2Label.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
                 }
             }, completion: nil)
-        } else {
+        }
+        
+        else {
             // "L" Label
             UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
@@ -295,13 +297,38 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    private func animateLogo() {
+        if isScattered {
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                    self.lambdaLogo.alpha = 0.5
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 1.0) {
+                    self.lambdaLogo.alpha = 0
+                }
+            }, completion: nil)
+        }
+        
+        else {
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                    self.lambdaLogo.alpha = 0.5
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 1.0) {
+                    self.lambdaLogo.alpha = 1
+                }
+            }, completion: nil)
+        }
+    }
     
     // MARK: - Actions
     
     @objc func toggleButtonPressed() {
         isScattered.toggle()
         animateLabels()
+        animateLogo()
     }
 }
 
