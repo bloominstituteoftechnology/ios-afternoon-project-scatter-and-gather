@@ -33,9 +33,7 @@ class ViewController: UIViewController {
               
     }
     
-    
-    
-    
+
     fileprivate func configureNavBar() {
           title = "Lambda Hello"
           navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonPressed))
@@ -61,38 +59,28 @@ class ViewController: UIViewController {
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
                 lambdaCharacters.forEach { (label) in
-                  
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(Int.random(in: 0...18)))
-                    label.center = CGPoint(x: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.width - 60))), y: CGFloat(Int.random(in: 0 ... Int(self.view.bounds.height - 60))))
+                    label.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...250), y: CGFloat.random(in: 0...660)).rotated(by: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
+                    label.backgroundColor = .randomColor
+                    label.textColor = .randomColor
                 }
             }
           
         }
-     
+  
         let gatherAnimationBlock = {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
-                self.l.center = CGPoint(x: 40, y: 40)
-                self.a.center = CGPoint(x: 100, y: 40)
-                self.m.center = CGPoint(x: 160, y: 40)
-                self.b.center = CGPoint(x: 220, y: 40)
-                self.d.center = CGPoint(x: 280, y: 40)
-                self.a2.center = CGPoint(x: 340, y: 40)
-                self.lambdaImageView.alpha = 1
-            }
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.4) {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                
                 lambdaCharacters.forEach { (label) in
-                  
-                    label.backgroundColor = .clear
-                    label.textColor = .black
+                   label.backgroundColor = .clear
+                   label.textColor = .black
                     label.transform = .identity
+                    
                 }
-            
             }
-          
-          
+            
+            self.lambdaImageView.alpha = 1
         }
-        
+            
         
         if isScattered {
             UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, options: [], animations: scatterAnimationBlock, completion: nil)
