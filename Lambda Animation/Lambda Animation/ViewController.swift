@@ -13,15 +13,10 @@ class ViewController: UIViewController {
     
     // MARK: - Properties
     
-    private var isScattered = true
+    fileprivate(set) var isScattered = true
     private var lambdaStackView : UIView!
     private var lambdaImageView: UIImageView!
-    private var l : UILabel!
-    private var a : UILabel!
-    private var m : UILabel!
-    private var b : UILabel!
-    private var d : UILabel!
-    private var a2 : UILabel!
+    private var lambdaCharacters = [UILabel]()
  
     // MARK: - View Life Cycle
     
@@ -34,6 +29,9 @@ class ViewController: UIViewController {
     }
     
 
+    
+    // MARK: - Methods
+    
     fileprivate func configureNavBar() {
           title = "Lambda Hello"
           navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonPressed))
@@ -41,7 +39,7 @@ class ViewController: UIViewController {
     
     @objc func toggleButtonPressed() {
        
-        let lambdaCharacters : [UILabel] = [l,a,m,b,d,a2]
+      
         let scatterAnimationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.3) {
                 self.lambdaImageView.alpha = 0
@@ -50,7 +48,7 @@ class ViewController: UIViewController {
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
                
-                lambdaCharacters.forEach { (label) in
+                self.lambdaCharacters.forEach { (label) in
                     label.backgroundColor = .randomColor
                     label.textColor = .randomColor
                     label.transform = CGAffineTransform(scaleX: CGFloat(Double.random(in: 0...2.50)), y: CGFloat(Double.random(in: 0...2.5)))
@@ -58,7 +56,7 @@ class ViewController: UIViewController {
                 }
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
-                lambdaCharacters.forEach { (label) in
+                self.lambdaCharacters.forEach { (label) in
                     label.transform = CGAffineTransform(translationX: CGFloat.random(in: 0...250), y: CGFloat.random(in: 0...660)).rotated(by: CGFloat.random(in: -2 * CGFloat.pi...2 * CGFloat.pi))
                     label.backgroundColor = .randomColor
                     label.textColor = .randomColor
@@ -70,7 +68,7 @@ class ViewController: UIViewController {
         let gatherAnimationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
                 
-                lambdaCharacters.forEach { (label) in
+                self.lambdaCharacters.forEach { (label) in
                    label.backgroundColor = .clear
                    label.textColor = .black
                     label.transform = .identity
@@ -104,10 +102,7 @@ class ViewController: UIViewController {
         }()
         
         view.addSubview(l)
-        self.l = l
-       
       
-        
         let a : UILabel = {
                let label = UILabel()
                 label.text = "a"
@@ -118,7 +113,7 @@ class ViewController: UIViewController {
             }()
         
         view.addSubview(a)
-        self.a = a
+       
         let m : UILabel = {
                let label = UILabel()
                 label.text = "m"
@@ -128,7 +123,7 @@ class ViewController: UIViewController {
                 return label
             }()
         view.addSubview(m)
-        self.m = m
+      
         let b : UILabel = {
                let label = UILabel()
                 label.text = "b"
@@ -138,7 +133,7 @@ class ViewController: UIViewController {
                 return label
             }()
         view.addSubview(b)
-        self.b = b
+
         
        
         
@@ -151,7 +146,7 @@ class ViewController: UIViewController {
                 return label
             }()
         view.addSubview(d)
-        self.d = d
+      
         
         let a2 : UILabel = {
                let label = UILabel()
@@ -162,7 +157,12 @@ class ViewController: UIViewController {
                 return label
             }()
         view.addSubview(a2)
-        self.a2 = a2
+        self.lambdaCharacters.append(l)
+        self.lambdaCharacters.append(a)
+        self.lambdaCharacters.append(m)
+        self.lambdaCharacters.append(b)
+        self.lambdaCharacters.append(d)
+        self.lambdaCharacters.append(a2)
      
         let lambdaStackView : UIStackView = {
             let stackView = UIStackView()
@@ -215,8 +215,8 @@ class ViewController: UIViewController {
     }
 
 }
-
-extension UIColor {
+//MARK: - Extension random color
+private extension UIColor {
     static var randomColor: UIColor {
         return UIColor(red: .random(in: 0...1),
                        green: .random(in: 0...1),
