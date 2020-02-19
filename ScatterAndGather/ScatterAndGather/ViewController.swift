@@ -131,170 +131,45 @@ class ViewController: UIViewController {
         ])
     }
     
-    private func animateLabels() {
+    private func labelAnimation(label: UILabel, x xPoint: CGFloat) {
         let randomRotation = CGFloat.random(in: 1...4)
         
         if isScattered {
-            
-            // "L" Label
             UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.lLabel.center = CGPoint(x: CGFloat.random(in: -100...self.view.bounds.maxX), y: CGFloat.random(in: 50...self.view.bounds.maxY))
+                    label.center = CGPoint(x: CGFloat.random(in: -100...self.view.bounds.maxX), y: CGFloat.random(in: 50...self.view.bounds.maxY))
                 }
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.lLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                    self.lLabel.backgroundColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                    self.lLabel.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                }
-            }, completion: nil)
-            
-            // "A1" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a1Label.center = CGPoint(x: CGFloat.random(in: -100...self.view.bounds.maxX), y: CGFloat.random(in: 50...self.view.bounds.maxY))
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a1Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                    self.a1Label.backgroundColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                    self.a1Label.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                }
-            }, completion: nil)
-            
-            // "M" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.mLabel.center = CGPoint(x: CGFloat.random(in: -100...self.view.bounds.maxX), y: CGFloat.random(in: 50...self.view.bounds.maxY))
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.mLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                    self.mLabel.backgroundColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                    self.mLabel.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                }
-            }, completion: nil)
-            
-            // "B" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.bLabel.center = CGPoint(x: CGFloat.random(in: -100...self.view.bounds.maxX), y: CGFloat.random(in: 50...self.view.bounds.maxY))
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.bLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                    self.bLabel.backgroundColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                    self.bLabel.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                }
-            }, completion: nil)
-            
-            // "D" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.dLabel.center = CGPoint(x: CGFloat.random(in: -100...self.view.bounds.maxX), y: CGFloat.random(in: 50...self.view.bounds.maxY))
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.dLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                    self.dLabel.backgroundColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                    self.dLabel.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                }
-            }, completion: nil)
-            
-            // "A2" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a2Label.center = CGPoint(x: CGFloat.random(in: -100...self.view.bounds.maxX), y: CGFloat.random(in: 50...self.view.bounds.maxY))
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a2Label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
-                    self.a2Label.backgroundColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
-                    self.a2Label.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
+                    label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / randomRotation)
+                    label.backgroundColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
+                    label.textColor = UIColor(red: CGFloat.random(in: 1...255) / 255, green: CGFloat.random(in: 1...255) / 255, blue: CGFloat.random(in: 1...255) / 255, alpha: 1)
                 }
             }, completion: nil)
         }
         
         else {
-            // "L" Label
             UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.lLabel.center = CGPoint(x: 20, y: 36)
+                    label.center = CGPoint(x: xPoint, y: 36)
                 }
                 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.lLabel.transform = .identity
-                    self.lLabel.backgroundColor = .clear
-                    self.lLabel.textColor = .black
-                }
-            }, completion: nil)
-            
-            // "A1" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a1Label.center = CGPoint(x: 75, y: 36)
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a1Label.transform = .identity
-                    self.a1Label.backgroundColor = .clear
-                    self.a1Label.textColor = .black
-                }
-            }, completion: nil)
-            
-            // "M" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.mLabel.center = CGPoint(x: 130, y: 36)
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.mLabel.transform = .identity
-                    self.mLabel.backgroundColor = .clear
-                    self.mLabel.textColor = .black
-                }
-            }, completion: nil)
-            
-            // "B" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.bLabel.center = CGPoint(x: 185, y: 36)
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.bLabel.transform = .identity
-                    self.bLabel.backgroundColor = .clear
-                    self.bLabel.textColor = .black
-                }
-            }, completion: nil)
-            
-            // "D" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.dLabel.center = CGPoint(x: 240, y: 36)
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.dLabel.transform = .identity
-                    self.dLabel.backgroundColor = .clear
-                    self.dLabel.textColor = .black
-                }
-            }, completion: nil)
-            
-            // "A2" Label
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a2Label.center = CGPoint(x: 295, y: 36)
-                }
-                
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    self.a2Label.transform = .identity
-                    self.a2Label.backgroundColor = .clear
-                    self.a2Label.textColor = .black
-
+                    label.transform = .identity
+                    label.backgroundColor = .clear
+                    label.textColor = .black
                 }
             }, completion: nil)
         }
+    }
+    
+    private func animateLabels() {
+        labelAnimation(label: lLabel, x: 20)
+        labelAnimation(label: a1Label, x: 75)
+        labelAnimation(label: mLabel, x: 130)
+        labelAnimation(label: bLabel, x: 185 )
+        labelAnimation(label: dLabel, x: 240)
+        labelAnimation(label: a2Label, x: 295)
     }
     
     private func animateLogo() {
