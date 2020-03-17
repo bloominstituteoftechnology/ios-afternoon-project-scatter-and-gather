@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var logoImageView: UIImageView!
     
     // MARK: - Actions
     @IBAction func toggleButton(_ sender: Any) {
