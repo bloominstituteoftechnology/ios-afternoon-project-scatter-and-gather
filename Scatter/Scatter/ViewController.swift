@@ -18,7 +18,13 @@ class ViewController: UIViewController {
     }
     
     // MARK: - Outlets
-    
+    @IBOutlet weak var letter1Label: UILabel!
+    @IBOutlet weak var letter2Label: UILabel!
+    @IBOutlet weak var letter3Label: UILabel!
+    @IBOutlet weak var letter4Label: UILabel!
+    @IBOutlet weak var letter5Label: UILabel!
+    @IBOutlet weak var letter6Label: UILabel!
+
     @IBOutlet weak var logoImageView: UIImageView!
     
     // MARK: - Actions
