@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         setUpImageView()
     }
-
+    
     func setUpImageView() {
         imageView.image = UIImage(named: "lambda_logo")
         imageView.translatesAutoresizingMaskIntoConstraints = false
