@@ -108,6 +108,10 @@ class ViewController: UIViewController {
                 CGColor(srgbRed: .random(in: 0.05...0.85), green: .random(in: 0.05...0.85), blue: .random(in: 0.05...0.85), alpha: 1.0)
             }
             
+            let randomAngle = {
+                CGFloat.pi / CGFloat(Int.random(in: 1...4))
+            }
+            
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.uiImage.alpha = 0
             }
@@ -116,26 +120,32 @@ class ViewController: UIViewController {
                 self.l.center = CGPoint(x:  randomX(), y: randomY() )
                 self.l.textColor = .some(randomTextColor())
                 self.l.layer.backgroundColor = randomBgColor()
+                self.l.transform = CGAffineTransform(rotationAngle: randomAngle())
                 
                 self.a.center = CGPoint(x:  randomX(), y: randomY() )
                 self.a.textColor = .some(randomTextColor())
                 self.a.layer.backgroundColor = randomBgColor()
+                self.a.transform = CGAffineTransform(rotationAngle: randomAngle())
                 
                 self.m.center = CGPoint(x:  randomX(), y: randomY() )
                 self.m.textColor = .some(randomTextColor())
                 self.m.layer.backgroundColor = randomBgColor()
+                self.m.transform = CGAffineTransform(rotationAngle: randomAngle())
                 
                 self.b.center = CGPoint(x:  randomX(), y: randomY() )
                 self.b.textColor = .some(randomTextColor())
                 self.b.layer.backgroundColor = randomBgColor()
+                self.b.transform = CGAffineTransform(rotationAngle: randomAngle())
                 
                 self.d.center = CGPoint(x:  randomX(), y: randomY() )
                 self.d.textColor = .some(randomTextColor())
                 self.d.layer.backgroundColor = randomBgColor()
+                self.d.transform = CGAffineTransform(rotationAngle: randomAngle())
                 
                 self.a2.center = CGPoint(x:  randomX(), y: randomY() )
                 self.a2.textColor = .some(randomTextColor())
                 self.a2.layer.backgroundColor = randomBgColor()
+                self.a2.transform = CGAffineTransform(rotationAngle: randomAngle())
             }
         }
         
