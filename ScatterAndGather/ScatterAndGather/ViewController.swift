@@ -100,8 +100,12 @@ class ViewController: UIViewController {
                 CGFloat(Int.random(in: 50...Int(self.view.bounds.size.height)-200))
             }
             
-            let randomColor = {
-                UIColor(red: .random(in: 0.05...0.95), green: .random(in: 0.05...0.95), blue: .random(in: 0.05...0.95), alpha: 1.0)
+            let randomTextColor = {
+                UIColor(red: .random(in: 0.15...0.95), green: .random(in: 0.15...0.95), blue: .random(in: 0.15...0.95), alpha: 1.0)
+            }
+            
+            let randomBgColor = {
+                CGColor(srgbRed: .random(in: 0.05...0.85), green: .random(in: 0.05...0.85), blue: .random(in: 0.05...0.85), alpha: 1.0)
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
@@ -110,22 +114,28 @@ class ViewController: UIViewController {
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.l.center = CGPoint(x:  randomX(), y: randomY() )
-                self.l.textColor = .some(randomColor())
+                self.l.textColor = .some(randomTextColor())
+                self.l.layer.backgroundColor = randomBgColor()
                 
                 self.a.center = CGPoint(x:  randomX(), y: randomY() )
-                self.a.textColor = .some(randomColor())
+                self.a.textColor = .some(randomTextColor())
+                self.a.layer.backgroundColor = randomBgColor()
                 
                 self.m.center = CGPoint(x:  randomX(), y: randomY() )
-                self.m.textColor = .some(randomColor())
+                self.m.textColor = .some(randomTextColor())
+                self.m.layer.backgroundColor = randomBgColor()
                 
                 self.b.center = CGPoint(x:  randomX(), y: randomY() )
-                self.b.textColor = .some(randomColor())
+                self.b.textColor = .some(randomTextColor())
+                self.b.layer.backgroundColor = randomBgColor()
                 
                 self.d.center = CGPoint(x:  randomX(), y: randomY() )
-                self.d.textColor = .some(randomColor())
+                self.d.textColor = .some(randomTextColor())
+                self.d.layer.backgroundColor = randomBgColor()
                 
                 self.a2.center = CGPoint(x:  randomX(), y: randomY() )
-                self.a2.textColor = .some(randomColor())
+                self.a2.textColor = .some(randomTextColor())
+                self.a2.layer.backgroundColor = randomBgColor()
             }
         }
         
