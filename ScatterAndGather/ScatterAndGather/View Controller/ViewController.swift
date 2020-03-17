@@ -85,7 +85,9 @@ class ViewController: UIViewController {
     
     // MARK: - private methods
     @objc func toggleButtonPressed() {
-        
+        UIView.animate(withDuration: 4.0) {
+            self.imageView.alpha = 0.0
+        }
     }
     
 }
