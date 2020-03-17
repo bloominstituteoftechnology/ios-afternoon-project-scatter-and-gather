@@ -90,8 +90,18 @@ class ViewController: UIViewController {
     
     func scatter() {
         let animationBlock = {
+            print("\(self.view.bounds)")
+            var randomNumber = {
+                self.view.bounds.size.width - CGFloat(Int.random(in: 1...400))
+            }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.uiImage.alpha = 0
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.a.center = CGPoint(
+                    x:  randomNumber(),
+                    y: 10)
             }
         }
         
