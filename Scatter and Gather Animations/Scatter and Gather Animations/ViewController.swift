@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Properties
+    
     @IBOutlet weak var toggleButton: UIBarButtonItem!
         
     var lLabel = UILabel()
@@ -18,18 +20,20 @@ class ViewController: UIViewController {
     var bLabel = UILabel()
     var dLabel = UILabel()
     var aEndLabel = UILabel()
-    var imageView = UIImageView()
+    var imageView = UIImageView(image: UIImage(named: "lambda_logo"))
     
-    var lambdaLogo: UIImage! {
-        
-            UIImage(named: "lambda_logo")
-        }
+//    var lambdaLogo: UIImage! {
+//
+//            UIImage(named: "lambda_logo")
+//        }
     
     
+    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpSubViews()
+        configureObjects()
     }
     
     func viewDidLoad(_ animated: Bool) {
@@ -38,65 +42,66 @@ class ViewController: UIViewController {
       
     }
     
-    func setUpSubViews() {
+    // MARK: - Private
+    
+    private func configureObjects() {
         view.addSubview(imageView)
-        imageView.translatesAutoresizingMaskIntoConstraints = true
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
-        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 350).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        UIImageView.animate(withDuration: 5) {
-            self.imageView.alpha = 0
-        }
+        imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 3, constant: 1).isActive = true
+        
         
         view.addSubview(lLabel)
         lLabel.translatesAutoresizingMaskIntoConstraints = false
         lLabel.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
         lLabel.text = "L"
-        lLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
-        lLabel.backgroundColor = .cyan
-        lLabel.textColor = .blue
+        lLabel.textAlignment = .center
+        lLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+        lLabel.textColor = .black
         
         view.addSubview(aLabel)
         aLabel.translatesAutoresizingMaskIntoConstraints = false
         aLabel.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
         aLabel.text = "A"
-        aLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
-        aLabel.backgroundColor = .blue
-        aLabel.textColor = .cyan
+        aLabel.textAlignment = .center
+        aLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+        aLabel.textColor = .black
         
         view.addSubview(mLabel)
         mLabel.translatesAutoresizingMaskIntoConstraints = false
         mLabel.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
         mLabel.text = "M"
-        mLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
-        mLabel.backgroundColor = .cyan
-        mLabel.textColor = .blue
+        mLabel.textAlignment = .center
+        mLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+        mLabel.textColor = .black
         
         view.addSubview(bLabel)
         bLabel.translatesAutoresizingMaskIntoConstraints = false
         bLabel.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
         bLabel.text = "B"
-        bLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
-        bLabel.backgroundColor = .blue
-        bLabel.textColor = .cyan
+        bLabel.textAlignment = .center
+        bLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+        bLabel.textColor = .black
         
         view.addSubview(dLabel)
         dLabel.translatesAutoresizingMaskIntoConstraints = false
         dLabel.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
         dLabel.text = "D"
-        dLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
-        dLabel.backgroundColor = .cyan
-        dLabel.textColor = .blue
+        dLabel.textAlignment = .center
+        dLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+        dLabel.textColor = .black
         
         view.addSubview(aEndLabel)
         aEndLabel.translatesAutoresizingMaskIntoConstraints = false
         aEndLabel.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
         aEndLabel.text = "A"
-        aEndLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 20)
-        aEndLabel.backgroundColor = .blue
-        aEndLabel.textColor = .cyan
+        aEndLabel.textAlignment = .center
+        aEndLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+        aEndLabel.textColor = .black
         
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -127,7 +132,10 @@ class ViewController: UIViewController {
         var isScattered: Bool = true
         isScattered.toggle()
         
-        imageView.center = view.center
+        
+        UIImageView.animate(withDuration: 5) {
+            self.imageView.alpha = 0
+        }
         
     }
     
