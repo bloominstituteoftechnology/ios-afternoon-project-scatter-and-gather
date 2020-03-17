@@ -18,18 +18,26 @@ class ViewController: UIViewController {
     
     
     // MARK: - Private
-    private var isScattered = false
-    
-    private let lLabel = UILabel(text: "L")
-    private let aLabel = UILabel(text: "a")
-    private let mLabel = UILabel(text: "m")
-    private let bLabel = UILabel(text: "b")
-    private let dLabel = UILabel(text: "d")
-    private let a2Label = UILabel(text: "a")
-    
-    private var lambdaLabels: [UILabel] {
-        [lLabel, aLabel, mLabel, bLabel, dLabel, a2Label]
+    private var isScattered = false {
+        didSet {
+            if isScattered {
+                performScatterAnimation()
+            } else {
+                performGatherAnimation()
+            }
+        }
     }
+    
+    private var lambdaLabels: [UILabel] = [
+        UILabel(text: "L"),
+        UILabel(text: "a"),
+        UILabel(text: "m"),
+        UILabel(text: "b"),
+        UILabel(text: "d"),
+        UILabel(text: "a")
+    ]
+    
+    private lazy var stackView = UIStackView(arrangedSubviews: lambdaLabels)
     
     private var lambdaLogoView = UIImageView(image: UIImage(named: "lambda_logo"))
     
@@ -39,7 +47,6 @@ class ViewController: UIViewController {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        let stackView = UIStackView(arrangedSubviews: lambdaLabels)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 0
         stackView.distribution = .fillProportionally
@@ -70,6 +77,30 @@ class ViewController: UIViewController {
         ])
         
     }
+    
+    func performScatterAnimation() {
+        let scatterAnimationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
+                self.lambdaLogoView.layer.opacity = 0
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.1) {
+                self.lambdaLabels.forEach {
+                    let maxX = self.view.frame.width - $0.frame.width
+                    let maxY = self.view.frame.height - $0.frame.height
+                    let randomOrigin = CGPoint(x: .random(in: 0...maxX), y: .random(in: 0...maxY))
+                    let convertedOrigin = self.view.convert(randomOrigin, to: self.stackView)
+                    $0.frame.origin = convertedOrigin
+                }
+            }
+        }
+        
+        UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
+    }
+    
+    func performGatherAnimation() {
+        
+    }
+    
     
     // MARK: - View Lifecycle
     
