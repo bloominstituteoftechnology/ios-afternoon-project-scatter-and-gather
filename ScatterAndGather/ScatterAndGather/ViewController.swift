@@ -11,8 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     
     var l = UILabel(), a = UILabel(), m = UILabel(), b = UILabel(), d = UILabel(), a2 = UILabel()
+    let uiImage = UIImageView(image: UIImage(named: "lambda_logo"))
 
-    var isScattered: Bool = false
+    var isScattered: Bool = false {
+        didSet {
+            scatter()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +64,7 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(d)
         stackView.addArrangedSubview(a2)
         
-        let uiImage = UIImageView(image: UIImage(named: "lambda_logo"))
+        
         uiImage.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(uiImage)
         uiImage.contentMode = .scaleAspectFit
@@ -82,9 +87,21 @@ class ViewController: UIViewController {
         
         
     }
+    
+    func scatter() {
+        let animationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.uiImage.alpha = 0
+            }
+        }
+        
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animationBlock, completion: nil)
+    }
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
         isScattered.toggle()
     }
+    
+    
 }
 
