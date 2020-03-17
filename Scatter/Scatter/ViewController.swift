@@ -10,11 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - Properites
+    var isScattered = false {
+        didSet {
+            peformScatter()
+        }
+    }
+    
+    // MARK: - Outlets
+    
+    
+    // MARK: - Actions
+    @IBAction func toggleButton(_ sender: Any) {
+        isScattered.toggle()
+    }
+    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
-
+    // MARK: - Business logic
+    
+    func peformScatter() {
+        print("isScattered \(isScattered)")
+    }
 }
 
