@@ -100,28 +100,32 @@ class ViewController: UIViewController {
                 CGFloat(Int.random(in: 50...Int(self.view.bounds.size.height)-200))
             }
             
+            let randomColor = {
+                UIColor(red: .random(in: 0.05...0.95), green: .random(in: 0.05...0.95), blue: .random(in: 0.05...0.95), alpha: 1.0)
+            }
+            
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.uiImage.alpha = 0
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.l.center = CGPoint(x:  randomX(), y: randomY() )
-                print("L: \(self.l.center)")
+                self.l.textColor = .some(randomColor())
                 
-               self.a.center = CGPoint(x:  randomX(), y: randomY() )
-                print(self.a.center)
+                self.a.center = CGPoint(x:  randomX(), y: randomY() )
+                self.a.textColor = .some(randomColor())
                 
                 self.m.center = CGPoint(x:  randomX(), y: randomY() )
-                print(self.a.center)
+                self.m.textColor = .some(randomColor())
                 
                 self.b.center = CGPoint(x:  randomX(), y: randomY() )
-                print(self.a.center)
+                self.b.textColor = .some(randomColor())
                 
                 self.d.center = CGPoint(x:  randomX(), y: randomY() )
-                print(self.a.center)
+                self.d.textColor = .some(randomColor())
                 
                 self.a2.center = CGPoint(x:  randomX(), y: randomY() )
-                print(self.a.center)
+                self.a2.textColor = .some(randomColor())
             }
         }
         
