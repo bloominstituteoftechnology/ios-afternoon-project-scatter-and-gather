@@ -66,8 +66,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Scatter &amp; Gather" id="6bY-oY-gBy">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="WjG-YY-TGn"/>
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="WjG-YY-TGn">
+                            <connections>
+                                <action selector="toggleButtonTapped:" destination="BYZ-38-t0r" id="AB8-3A-kgm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="aLabel" destination="d7e-VF-Zk6" id="pnl-wk-6Wo"/>
+                        <outlet property="aLabel2" destination="oMo-3C-dbn" id="YTi-lT-QfB"/>
+                        <outlet property="bLabel" destination="e3f-5e-qVc" id="a2R-cj-FeI"/>
+                        <outlet property="dLabel" destination="ehv-7u-pAe" id="Zu2-hG-QBM"/>
+                        <outlet property="lLabel" destination="39U-bf-YTs" id="gPO-cl-EMo"/>
+                        <outlet property="mLabel" destination="IVw-NL-T5H" id="UNJ-gz-I00"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

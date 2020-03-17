@@ -9,8 +9,16 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var lLabel: UILabel!
+    @IBOutlet weak var aLabel: UILabel!
+    @IBOutlet weak var mLabel: UILabel!
+    @IBOutlet weak var bLabel: UILabel!
+    @IBOutlet weak var dLabel: UILabel!
+    @IBOutlet weak var aLabel2: UILabel!
+    
     let imageView = UIImageView()
+    var isToggled: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +36,38 @@ class ViewController: UIViewController {
         imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 150).isActive = true
     }
-
+    
+    @IBAction func toggleButtonTapped(_ sender: Any) {
+        if isToggled {
+            
+            
+            
+            UIView.animate(withDuration: 2.0) {
+                self.imageView.layer.opacity = 0
+                print("s")
+            }
+            
+            
+            
+            
+            
+            
+            
+            
+            isToggled = false
+        } else {
+            isToggled = true
+            
+            
+            UIView.animate(withDuration: 2.0) {
+                self.imageView.layer.opacity = 1
+            }
+        }
+        
+        
+        
+        
+        
+    }
 }
 
