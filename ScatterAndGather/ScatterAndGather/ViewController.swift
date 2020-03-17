@@ -146,6 +146,19 @@ class ViewController: UIViewController {
                 self.a2.textColor = .some(randomTextColor())
                 self.a2.layer.backgroundColor = randomBgColor()
                 self.a2.transform = CGAffineTransform(rotationAngle: randomAngle())
+                
+                UIView.animate(withDuration: 3.0,
+                               delay: 0,
+                               usingSpringWithDamping: 0.3,
+                               initialSpringVelocity: 0,
+                               options: [],
+                               animations: {
+                                self.l.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+                                self.a.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+                                self.m.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+                                self.b.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+                                self.a2.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+                }, completion: nil)
             }
         }
         
