@@ -137,6 +137,10 @@ class ViewController: UIViewController {
             self.imageView.alpha = 0
         }
         
+        UILabel.animateKeyframes(withDuration: 5, delay: 0, options: [], animations: {
+            
+        }, completion: nil)
+        
     }
     
     /*
