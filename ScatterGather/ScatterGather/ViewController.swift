@@ -85,9 +85,12 @@ class ViewController: UIViewController {
             }
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.1) {
                 self.lambdaLabels.forEach {
-                    let maxX = self.view.frame.width - $0.frame.width
-                    let maxY = self.view.frame.height - $0.frame.height
-                    let randomOrigin = CGPoint(x: .random(in: 0...maxX), y: .random(in: 0...maxY))
+                    let minX = self.view.safeAreaInsets.left
+                    let minY = self.view.safeAreaInsets.top
+                    let maxX = self.view.frame.width - $0.frame.width - self.view.safeAreaInsets.right
+                    let maxY = self.view.frame.height - $0.frame.height - self.view.safeAreaInsets.bottom
+                    
+                    let randomOrigin = CGPoint(x: .random(in: minX...maxX), y: .random(in: minY...maxY))
                     let convertedOrigin = self.view.convert(randomOrigin, to: self.stackView)
                     $0.frame.origin = convertedOrigin
                 }
