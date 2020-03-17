@@ -9,12 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    enum scatOrGat: String {
+        case scattered = "Scattered"
+        case gathered = "Gathered"
+    }
+    
+    var isScattered: Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    @IBAction func toggleButtonPressed(_ sender: Any) {
+    }
+    
+    
 
 }
 
