@@ -49,7 +49,7 @@ class ViewController: UIViewController {
                     item!.layer.backgroundColor = self.colors[Int.random(in: 0...9)].cgColor
                     item!.textColor = self.colors[Int.random(in: 0...9)]
                     item!.center = CGPoint(x: Int.random(in: 0...maxX), y: Int.random(in: 0...maxY))
-                    item!.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(Int.random(in: 0...4)))
+                    item!.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(Int.random(in: 1...4)))
                 }
             }
             isToggled = false
