@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum scatOrGat: String {
+       case scattered = "Scattered"
+       case gathered = "Gathered"
+   }
 class ViewController: UIViewController {
     
     @IBOutlet weak var letterL: UILabel!
@@ -17,37 +21,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var letterD: UILabel!
     @IBOutlet weak var letterA2: UILabel!
     
-    enum scatOrGat: String {
-        case scattered = "Scattered"
-        case gathered = "Gathered"
-    }
-   let someImageView: UIImageView = {
+   
+    var isScattered: Bool?
+    //MARK: Lambda Image View Property
+   let lambdaImageView: UIImageView = {
        let theImageView = UIImageView()
        theImageView.image = UIImage(named: "lambda_logo.png")
        theImageView.translatesAutoresizingMaskIntoConstraints = false 
        return theImageView
     }()
+     
 
     override func viewDidLoad() {
        super.viewDidLoad()
        someImageViewConstraints()
+        
     }
 
-    func someImageViewConstraints() {
-          view.addSubview(someImageView)
-        someImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        someImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        someImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        someImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
-    }
 
-    
-    var isScattered: Bool?
-   
     @IBAction func toggleButtonPressed(_ sender: Any) {
     }
-    
-    
+//     MARK: Lambda Image View Function
+    func someImageViewConstraints() {
+           view.addSubview(lambdaImageView)
+         lambdaImageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+         lambdaImageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+         lambdaImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+         lambdaImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
+     }
 
 }
 
