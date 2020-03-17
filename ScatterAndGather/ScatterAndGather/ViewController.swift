@@ -89,33 +89,37 @@ class ViewController: UIViewController {
     }
     
     func scatter() {
+        
+        // MARK: - Random Location computed properties
+        let randomX = {
+            CGFloat(Int.random(in: 30...Int(self.view.bounds.size.width)-60))
+        }
+        let randomY = {
+            CGFloat(Int.random(in: 50...Int(self.view.bounds.size.height)-200))
+        }
+        
+        // MARK: - Random Color computed properties
+        let randomTextColor = {
+            UIColor(red: .random(in: 0.15...0.95), green: .random(in: 0.15...0.95), blue: .random(in: 0.15...0.95), alpha: 1.0)
+        }
+        
+        let randomBgColor = {
+            CGColor(srgbRed: .random(in: 0.05...0.85), green: .random(in: 0.05...0.85), blue: .random(in: 0.05...0.85), alpha: 1.0)
+        }
+        
+        // MARK: - Random Angle computed property
+        let randomAngle = {
+            CGFloat.pi / CGFloat(Int.random(in: 1...4))
+        }
+        
         let animationBlock = {
-            print("\(self.view.bounds)")
             
-            // MARK: - Random Location computed properties
-            let randomX = {
-                CGFloat(Int.random(in: 30...Int(self.view.bounds.size.width)-60))
-            }
-            let randomY = {
-                CGFloat(Int.random(in: 50...Int(self.view.bounds.size.height)-200))
-            }
-            
-            let randomTextColor = {
-                UIColor(red: .random(in: 0.15...0.95), green: .random(in: 0.15...0.95), blue: .random(in: 0.15...0.95), alpha: 1.0)
-            }
-            
-            let randomBgColor = {
-                CGColor(srgbRed: .random(in: 0.05...0.85), green: .random(in: 0.05...0.85), blue: .random(in: 0.05...0.85), alpha: 1.0)
-            }
-            
-            let randomAngle = {
-                CGFloat.pi / CGFloat(Int.random(in: 1...4))
-            }
-            
+            // MARK: - Fade logo out
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.uiImage.alpha = 0
             }
             
+            // MARK: - All animations
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.l.center = CGPoint(x:  randomX(), y: randomY() )
                 self.l.textColor = .some(randomTextColor())
@@ -147,24 +151,17 @@ class ViewController: UIViewController {
                 self.a2.layer.backgroundColor = randomBgColor()
                 self.a2.transform = CGAffineTransform(rotationAngle: randomAngle())
                 
-                UIView.animate(withDuration: 3.0,
-                               delay: 0,
-                               usingSpringWithDamping: 0.3,
-                               initialSpringVelocity: 0,
-                               options: [],
-                               animations: {
-                                self.l.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-                                self.a.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-                                self.m.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-                                self.b.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-                                self.a2.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-                }, completion: nil)
+                
             }
         }
         
         UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animationBlock, completion: nil)
     }
 
+    func andGather() {
+        
+    }
+    
     @IBAction func toggleButtonPressed(_ sender: Any) {
         isScattered.toggle()
     }
