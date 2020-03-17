@@ -31,16 +31,27 @@ class ViewController: UIViewController {
         [lLabel, aLabel, mLabel, bLabel, dLabel, a2Label]
     }
     
+    private var lambdaLogoView = UIImageView(image: UIImage(named: "lambda_logo"))
     
     private func setupLabels() {
         lambdaLabels.forEach {
             $0.font = .systemFont(ofSize: 60, weight: .bold)
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
         
         let stackView = UIStackView(arrangedSubviews: lambdaLabels)
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.spacing = 0
+        stackView.distribution = .fillProportionally
+
+        
+        lambdaLogoView.contentMode = .scaleAspectFit
+        lambdaLogoView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        lambdaLogoView.translatesAutoresizingMaskIntoConstraints = false
+        
         
         view.addSubview(stackView)
+        view.addSubview(lambdaLogoView)
         
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -51,9 +62,13 @@ class ViewController: UIViewController {
                 toItem: view,
                 attribute: .centerY,
                 multiplier: 0.5,
-                constant: 0
-            )
+                constant: 0),
+            lambdaLogoView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
+            lambdaLogoView.leadingAnchor.constraint(equalTo: stackView.leadingAnchor),
+            lambdaLogoView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            lambdaLogoView.heightAnchor.constraint(lessThanOrEqualToConstant: 200)
         ])
+        
     }
     
     // MARK: - View Lifecycle
@@ -61,7 +76,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLabels()
-        // Do any additional setup after loading the view.
     }
 
 
