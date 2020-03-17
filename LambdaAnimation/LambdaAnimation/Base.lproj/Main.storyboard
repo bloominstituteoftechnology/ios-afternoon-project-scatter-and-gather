@@ -74,6 +74,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="lambdaSign" destination="0Y2-SZ-pda" id="LnB-Tw-zy3"/>
+                        <outlet property="letA" destination="T5Z-fV-KeA" id="Hck-Dd-afe"/>
+                        <outlet property="letA2" destination="hOu-fg-D4F" id="ehT-SS-UEu"/>
+                        <outlet property="letB" destination="YMf-GD-x3k" id="MOn-CX-cv1"/>
+                        <outlet property="letD" destination="Agf-ZZ-RM3" id="Wsd-Ht-O5p"/>
+                        <outlet property="letL" destination="Hn2-DW-hkc" id="qtX-ay-dOk"/>
+                        <outlet property="letM" destination="gQO-1P-iVr" id="zTs-Un-hxK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z9F-na-jqE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
