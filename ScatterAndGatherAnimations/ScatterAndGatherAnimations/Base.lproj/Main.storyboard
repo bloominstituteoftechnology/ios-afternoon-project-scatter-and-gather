@@ -75,6 +75,7 @@
                         <outlet property="letterD" destination="p2r-Z7-Ed0" id="p52-vi-zH9"/>
                         <outlet property="letterL" destination="99U-kt-hHU" id="3h1-xU-5qz"/>
                         <outlet property="letterM" destination="ZeC-3J-Bqb" id="n2c-gn-dYS"/>
+                        <outlet property="toggleButtonTapped" destination="boa-DH-6oC" id="ZOP-lb-5sm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

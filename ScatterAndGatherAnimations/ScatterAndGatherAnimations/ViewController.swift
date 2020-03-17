@@ -21,7 +21,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var letterD: UILabel!
     @IBOutlet weak var letterA2: UILabel!
     
-   
+    @IBOutlet weak var toggleButtonTapped: UIBarButtonItem!
+    
     var isScattered: Bool?
     //MARK: Lambda Image View Property
    let lambdaImageView: UIImageView = {
@@ -40,6 +41,7 @@ class ViewController: UIViewController {
 
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
+        
     }
 //     MARK: Lambda Image View Function
     func someImageViewConstraints() {
@@ -49,6 +51,23 @@ class ViewController: UIViewController {
          lambdaImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
          lambdaImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 50).isActive = true
      }
+    
+
+
 
 }
+extension UIView {
+
+    func fadeIn(_ duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.alpha = 1.0
+    }, completion: completion)  }
+
+    func fadeOut(_ duration: TimeInterval = 0.5, delay: TimeInterval = 1.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+            self.alpha = 0.3
+    }, completion: completion)
+   }
+}
+
 
