@@ -18,7 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var aLabel2: UILabel!
     
     let imageView = UIImageView()
-    let colors = [UIColor.red, UIColor.purple, UIColor.green, UIColor.orange, UIColor.blue, UIColor.yellow, UIColor.brown, UIColor.cyan, UIColor.lightGray]
+    let colors = [UIColor.red, UIColor.purple, UIColor.green, UIColor.orange, UIColor.blue, UIColor.yellow, UIColor.brown, UIColor.cyan, UIColor.lightGray, UIColor.black]
     var isToggled: Bool = true
     
     override func viewDidLoad() {
@@ -39,20 +39,19 @@ class ViewController: UIViewController {
     
     @IBAction func toggleButtonTapped(_ sender: Any) {
         let labels = [lLabel, aLabel, mLabel, bLabel, dLabel, aLabel2]
-        
+        let maxX = Int(self.view.frame.maxX) - 50
+        let maxY = Int(self.view.frame.maxY) - 50
+                
         if isToggled {
             UIView.animate(withDuration: 2.0) {
                 self.imageView.layer.opacity = 0
-            }
-            
-            UIView.animate(withDuration: 2.0) {
                 for item in labels {
-                    item!.layer.backgroundColor = self.colors[Int.random(in: 0...8)].cgColor
-                    item!.textColor = self.colors[Int.random(in: 0...8)]
+                    item!.layer.backgroundColor = self.colors[Int.random(in: 0...9)].cgColor
+                    item!.textColor = self.colors[Int.random(in: 0...9)]
+                    item!.center = CGPoint(x: Int.random(in: 0...maxX), y: Int.random(in: 0...maxY))
+                    item!.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat(Int.random(in: 0...4)))
                 }
             }
-            
-            
             isToggled = false
         } else {
             UIView.animate(withDuration: 2.0) {
@@ -60,16 +59,19 @@ class ViewController: UIViewController {
                 for item in labels {
                     item!.layer.backgroundColor = UIColor.white.cgColor
                     item!.textColor = UIColor.black
+                    item!.transform = .identity
+                    item!.center.y = 15
                 }
+                self.lLabel.center.x = 22
+                self.aLabel.center.x = 88
+                self.mLabel.center.x = 154
+                self.bLabel.center.x = 220
+                self.dLabel.center.x = 286
+                self.aLabel2.center.x = 352
             }
-            
+
             isToggled = true
         }
-        
-        
-        
-        
-        
     }
 }
 
