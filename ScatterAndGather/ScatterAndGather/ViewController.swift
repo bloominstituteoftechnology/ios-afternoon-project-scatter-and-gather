@@ -91,17 +91,37 @@ class ViewController: UIViewController {
     func scatter() {
         let animationBlock = {
             print("\(self.view.bounds)")
-            var randomNumber = {
-                self.view.bounds.size.width - CGFloat(Int.random(in: 1...400))
+            
+            // MARK: - Random Location computed properties
+            let randomX = {
+                CGFloat(Int.random(in: 30...Int(self.view.bounds.size.width)-60))
             }
+            let randomY = {
+                CGFloat(Int.random(in: 50...Int(self.view.bounds.size.height)-200))
+            }
+            
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.uiImage.alpha = 0
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                self.a.center = CGPoint(
-                    x:  randomNumber(),
-                    y: 10)
+                self.l.center = CGPoint(x:  randomX(), y: randomY() )
+                print("L: \(self.l.center)")
+                
+               self.a.center = CGPoint(x:  randomX(), y: randomY() )
+                print(self.a.center)
+                
+                self.m.center = CGPoint(x:  randomX(), y: randomY() )
+                print(self.a.center)
+                
+                self.b.center = CGPoint(x:  randomX(), y: randomY() )
+                print(self.a.center)
+                
+                self.d.center = CGPoint(x:  randomX(), y: randomY() )
+                print(self.a.center)
+                
+                self.a2.center = CGPoint(x:  randomX(), y: randomY() )
+                print(self.a.center)
             }
         }
         
