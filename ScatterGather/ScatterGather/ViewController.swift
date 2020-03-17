@@ -83,7 +83,7 @@ class ViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
                 self.lambdaLogoView.layer.opacity = 0
             }
-            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.1) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6) {
                 self.lambdaLabels.forEach {
                     let minX = self.view.safeAreaInsets.left
                     let minY = self.view.safeAreaInsets.top
@@ -95,9 +95,15 @@ class ViewController: UIViewController {
                     $0.frame.origin = convertedOrigin
                 }
             }
+            UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6, animations: {
+                self.lambdaLabels.forEach {
+                    $0.textColor = .random
+                    $0.backgroundColor = .random
+                }
+            })
         }
         
-        UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 4.0, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
     }
     
     func performGatherAnimation() {
@@ -119,5 +125,11 @@ extension UILabel {
     convenience init(text: String) {
         self.init()
         self.text = text
+    }
+}
+
+extension UIColor {
+    static var random: UIColor {
+        .init(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1)
     }
 }
