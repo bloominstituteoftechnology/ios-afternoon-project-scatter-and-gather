@@ -56,15 +56,31 @@
 		92B2211C2421724300ECDAA1 /* Scatter */ = {
 			isa = PBXGroup;
 			children = (
-				92B2211D2421724300ECDAA1 /* AppDelegate.swift */,
-				92B2211F2421724300ECDAA1 /* SceneDelegate.swift */,
+				92B221332421735500ECDAA1 /* Resources */,
+				92B221322421734000ECDAA1 /* Storyboards */,
 				92B221212421724300ECDAA1 /* ViewController.swift */,
-				92B221232421724300ECDAA1 /* Main.storyboard */,
-				92B221262421724600ECDAA1 /* Assets.xcassets */,
-				92B221282421724600ECDAA1 /* LaunchScreen.storyboard */,
-				92B2212B2421724600ECDAA1 /* Info.plist */,
 			);
 			path = Scatter;
+			sourceTree = "<group>";
+		};
+		92B221322421734000ECDAA1 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				92B221282421724600ECDAA1 /* LaunchScreen.storyboard */,
+				92B221232421724300ECDAA1 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		92B221332421735500ECDAA1 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				92B2211D2421724300ECDAA1 /* AppDelegate.swift */,
+				92B221262421724600ECDAA1 /* Assets.xcassets */,
+				92B2212B2421724600ECDAA1 /* Info.plist */,
+				92B2211F2421724300ECDAA1 /* SceneDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,7 +302,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4ZDYKHFRDV;
-				INFOPLIST_FILE = Scatter/Info.plist;
+				INFOPLIST_FILE = Scatter/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +320,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4ZDYKHFRDV;
-				INFOPLIST_FILE = Scatter/Info.plist;
+				INFOPLIST_FILE = Scatter/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
