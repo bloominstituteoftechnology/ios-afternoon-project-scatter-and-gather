@@ -68,15 +68,16 @@ class ViewController: UIViewController {
     }
     
     private func setupLogo() {
-        lambdaLogoView.contentMode = .scaleAspectFit
-        lambdaLogoView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         lambdaLogoView.translatesAutoresizingMaskIntoConstraints = false
-        lambdaLogoView.isUserInteractionEnabled = true
+        lambdaLogoView.contentMode = .scaleAspectFit
         
+        lambdaLogoView.isUserInteractionEnabled = true
         let panRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handleLogoPan(gesture:)))
         lambdaLogoView.addGestureRecognizer(panRecognizer)
         
         view.addSubview(lambdaLogoView)
+        
+        lambdaLogoView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         
         NSLayoutConstraint.activate([
             lambdaLogoView.topAnchor.constraint(equalTo: stackView.bottomAnchor),
@@ -105,6 +106,7 @@ class ViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
                 self.lambdaLogoView.layer.opacity = 0
             }
+            
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
                 self.lambdaLabels.forEach { label in
                     let minX = self.view.safeAreaInsets.left + margin
@@ -112,14 +114,16 @@ class ViewController: UIViewController {
                     let maxX = self.view.frame.width - label.frame.width - self.view.safeAreaInsets.right - margin
                     let maxY = self.view.frame.height - label.frame.height - self.view.safeAreaInsets.bottom - margin
                     
+                    let startOrigin = label.frame.origin
                     let randomOrigin = CGPoint(x: .random(in: minX...maxX), y: .random(in: minY...maxY))
                     let endOrigin = self.view.convert(randomOrigin, to: self.stackView)
                     
-                    label.transform = .init(translationX: endOrigin.x - label.frame.origin.x, y: endOrigin.y - label.frame.origin.y)
+                    label.transform = .init(translationX: endOrigin.x - startOrigin.x, y: endOrigin.y - startOrigin.y)
                     
                     label.layer.shadowOpacity = 0.5
                 }
             }
+            
             UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6, animations: {
                 self.lambdaLabels.forEach { label in
                     label.layer.backgroundColor = .random
@@ -130,6 +134,7 @@ class ViewController: UIViewController {
         
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
         
+        // 3D rotation
         self.lambdaLabels.forEach { label in
             let rotation = CABasicAnimation(keyPath: "transform.rotation.y")
             rotation.fromValue = 0
@@ -149,6 +154,7 @@ class ViewController: UIViewController {
                     label.layer.shadowOpacity = 0
                 }
             }
+            
             UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2) {
                 self.lambdaLogoView.layer.opacity = 1.0
             }
