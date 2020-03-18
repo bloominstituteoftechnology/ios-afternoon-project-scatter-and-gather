@@ -95,19 +95,22 @@ class ViewController: UIViewController {
         gesture.setTranslation(CGPoint.zero, in: view)
     }
     
+    
     // MARK: - Animations
     
     func performScatterAnimation() {
+        let margin: CGFloat = 30
+        
         let scatterAnimationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
                 self.lambdaLogoView.layer.opacity = 0
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
                 self.lambdaLabels.forEach { label in
-                    let minX = self.view.safeAreaInsets.left
-                    let minY = self.view.safeAreaInsets.top
-                    let maxX = self.view.frame.width - label.frame.width - self.view.safeAreaInsets.right
-                    let maxY = self.view.frame.height - label.frame.height - self.view.safeAreaInsets.bottom
+                    let minX = self.view.safeAreaInsets.left + margin
+                    let minY = self.view.safeAreaInsets.top + margin
+                    let maxX = self.view.frame.width - label.frame.width - self.view.safeAreaInsets.right - margin
+                    let maxY = self.view.frame.height - label.frame.height - self.view.safeAreaInsets.bottom - margin
                     
                     let randomOrigin = CGPoint(x: .random(in: minX...maxX), y: .random(in: minY...maxY))
                     let endOrigin = self.view.convert(randomOrigin, to: self.stackView)
@@ -126,6 +129,15 @@ class ViewController: UIViewController {
         }
         
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
+        
+        self.lambdaLabels.forEach { label in
+            let rotation = CABasicAnimation(keyPath: "transform.rotation.y")
+            rotation.fromValue = 0
+            rotation.toValue = 2 * CGFloat.pi
+            rotation.duration = 1.5
+            
+            label.layer.add(rotation, forKey: "rotation")
+        }
     }
     
     func performGatherAnimation() {
