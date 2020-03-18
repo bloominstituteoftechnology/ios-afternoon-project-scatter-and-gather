@@ -60,7 +60,7 @@ class ViewController: UIViewController {
             CGFloat(Int.random(in: 30...Int(self.view.bounds.size.width)-60))
         }
         let randomY = {
-            CGFloat(Int.random(in: 50...Int(self.view.bounds.size.height)-200))
+            CGFloat(Int.random(in: 100...Int(self.view.bounds.size.height)-200))
         }
         
         // MARK: - Random Color computed properties
