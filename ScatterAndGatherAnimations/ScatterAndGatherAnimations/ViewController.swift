@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     
     var isScattered: Bool?
     //MARK: Lambda Image View Property
-   let lambdaImageView: UIImageView = {
+    @objc let lambdaImageView: UIImageView = {
        let theImageView = UIImageView()
        theImageView.image = UIImage(named: "lambda_logo.png")
        theImageView.translatesAutoresizingMaskIntoConstraints = false 
@@ -41,7 +41,16 @@ class ViewController: UIViewController {
 
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
-        
+        guard let toggleButton = toggleButtonTapped else { return }
+        if (toggleButton.action != nil) == true {
+            lambdaImageView.fadeOut(completion: {
+                (finished: Bool) -> Void in
+                self.lambdaImageView.removeFromSuperview()
+            })
+        } else if (toggleButton.action != nil) == true {
+           lambdaImageView.fadeIn()
+
+    }
     }
 //     MARK: Lambda Image View Function
     func someImageViewConstraints() {
@@ -63,8 +72,8 @@ extension UIView {
             self.alpha = 1.0
     }, completion: completion)  }
 
-    func fadeOut(_ duration: TimeInterval = 0.5, delay: TimeInterval = 1.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
+    func fadeOut(_ duration: TimeInterval = 1.5, delay: TimeInterval = 1.5, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseOut, animations: {
             self.alpha = 0.3
     }, completion: completion)
    }
