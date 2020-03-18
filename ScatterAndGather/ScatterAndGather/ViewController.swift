@@ -96,31 +96,43 @@ class ViewController: UIViewController {
                 self.l.textColor = .some(randomTextColor())
                 self.l.layer.backgroundColor = randomBgColor()
                 self.l.transform = CGAffineTransform(rotationAngle: randomAngle())
+                self.l.layer.shadowRadius = CGFloat.random(in: 1...4)
+                self.l.layer.shadowOpacity = Float(CGFloat.random(in: 0.1...1))
                 
                 self.a.center = CGPoint(x:  randomX(), y: randomY() )
                 self.a.textColor = .some(randomTextColor())
                 self.a.layer.backgroundColor = randomBgColor()
                 self.a.transform = CGAffineTransform(rotationAngle: randomAngle())
+                self.a.layer.shadowRadius = CGFloat.random(in: 1...4)
+                self.a.layer.shadowOpacity = Float(CGFloat.random(in: 0.1...1))
                 
                 self.m.center = CGPoint(x:  randomX(), y: randomY() )
                 self.m.textColor = .some(randomTextColor())
                 self.m.layer.backgroundColor = randomBgColor()
                 self.m.transform = CGAffineTransform(rotationAngle: randomAngle())
+                self.m.layer.shadowRadius = CGFloat.random(in: 1...4)
+                self.m.layer.shadowOpacity = Float(CGFloat.random(in: 0.1...1))
                 
                 self.b.center = CGPoint(x:  randomX(), y: randomY() )
                 self.b.textColor = .some(randomTextColor())
                 self.b.layer.backgroundColor = randomBgColor()
                 self.b.transform = CGAffineTransform(rotationAngle: randomAngle())
+                self.b.layer.shadowRadius = CGFloat.random(in: 1...4)
+                self.b.layer.shadowOpacity = Float(CGFloat.random(in: 0.1...1))
                 
                 self.d.center = CGPoint(x:  randomX(), y: randomY() )
                 self.d.textColor = .some(randomTextColor())
                 self.d.layer.backgroundColor = randomBgColor()
                 self.d.transform = CGAffineTransform(rotationAngle: randomAngle())
+                self.d.layer.shadowRadius = CGFloat.random(in: 1...4)
+                self.d.layer.shadowOpacity = Float(CGFloat.random(in: 0.1...1))
                 
                 self.a2.center = CGPoint(x:  randomX(), y: randomY() )
                 self.a2.textColor = .some(randomTextColor())
                 self.a2.layer.backgroundColor = randomBgColor()
                 self.a2.transform = CGAffineTransform(rotationAngle: randomAngle())
+                self.a2.layer.shadowRadius = CGFloat.random(in: 1...4)
+                self.a2.layer.shadowOpacity = Float(CGFloat.random(in: 0.1...1))
                 
                 
                 // MARK: - Come back to this
@@ -149,31 +161,43 @@ class ViewController: UIViewController {
                 self.l.center = CGPoint(x: 89, y: 150)
                 self.l.textColor = .black
                 self.l.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                self.l.layer.shadowOpacity = 0
+                self.l.layer.shadowRadius = 0
                 
                 self.a.transform = .identity
                 self.a.center = CGPoint(x: 129, y: 150)
                 self.a.textColor = .black
                 self.a.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                self.a.layer.shadowOpacity = 0
+                self.a.layer.shadowRadius = 0
                 
                 self.m.transform = .identity
                 self.m.center = CGPoint(x: 166, y: 150)
                 self.m.textColor = .black
                 self.m.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                self.m.layer.shadowOpacity = 0
+                self.m.layer.shadowRadius = 0
                 
                 self.b.transform = .identity
                 self.b.center = CGPoint(x: 221, y: 150)
                 self.b.textColor = .black
                 self.b.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                self.b.layer.shadowOpacity = 0
+                self.b.layer.shadowRadius = 0
                 
                 self.d.transform = .identity
                 self.d.center = CGPoint(x: 258, y: 150)
                 self.d.textColor = .black
                 self.d.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                self.d.layer.shadowOpacity = 0
+                self.d.layer.shadowRadius = 0
                 
                 self.a2.transform = .identity
                 self.a2.center = CGPoint(x: 296, y: 150)
                 self.a2.textColor = .black
                 self.a2.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                self.a2.layer.shadowOpacity = 0
+                self.a2.layer.shadowRadius = 0
             }
             
         }
