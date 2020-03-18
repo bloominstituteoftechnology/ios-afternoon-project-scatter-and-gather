@@ -10,7 +10,16 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var l = UILabel(), a = UILabel(), m = UILabel(), b = UILabel(), d = UILabel(), a2 = UILabel()
+//    var l = UILabel(), a = UILabel(), m = UILabel(), b = UILabel(), d = UILabel(), a2 = UILabel()
+    
+    @IBOutlet weak var l: UILabel!
+    @IBOutlet weak var a: UILabel!
+    @IBOutlet weak var m: UILabel!
+    @IBOutlet weak var b: UILabel!
+    @IBOutlet weak var d: UILabel!
+    @IBOutlet weak var a2: UILabel!
+    
+    
     let uiImage = UIImageView(image: UIImage(named: "lambda_logo"))
 
     var isScattered: Bool = false {
@@ -22,60 +31,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
         setUpLabels()
     }
 
     private func setUpLabels() {
-        l.text = "L"
-        l.font = UIFont.boldSystemFont(ofSize: 40)
-        
-        a.text = "a"
-        a.font = UIFont.boldSystemFont(ofSize: 40)
-        
-        m.text = "m"
-        m.font = UIFont.boldSystemFont(ofSize: 40)
-        
-        b.text = "b"
-        b.font = UIFont.boldSystemFont(ofSize: 40)
-        
-        d.text = "d"
-        d.font = UIFont.boldSystemFont(ofSize: 40)
-        
-        a2.text = "a"
-        a2.font = UIFont.boldSystemFont(ofSize: 40)
-        
-        l.translatesAutoresizingMaskIntoConstraints = false
-        a.translatesAutoresizingMaskIntoConstraints = false
-        m.translatesAutoresizingMaskIntoConstraints = false
-        b.translatesAutoresizingMaskIntoConstraints = false
-        d.translatesAutoresizingMaskIntoConstraints = false
-        a2.translatesAutoresizingMaskIntoConstraints = false
-        
-        let stackView = UIStackView()
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(stackView)
-        stackView.axis = .horizontal
-        stackView.distribution = .equalCentering
-        
-        stackView.addArrangedSubview(l)
-        stackView.addArrangedSubview(a)
-        stackView.addArrangedSubview(m)
-        stackView.addArrangedSubview(b)
-        stackView.addArrangedSubview(d)
-        stackView.addArrangedSubview(a2)
-        
-        
         uiImage.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(uiImage)
         uiImage.contentMode = .scaleAspectFit
         
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            
-            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            
-            stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
-            
             uiImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
             
             uiImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
@@ -112,7 +77,8 @@ class ViewController: UIViewController {
             CGFloat.pi / CGFloat(Int.random(in: 1...4))
         }
         
-        let animationBlock = {
+        
+        let scatterBlock = {
             
             // MARK: - Fade logo out
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
@@ -120,7 +86,9 @@ class ViewController: UIViewController {
             }
             
             // MARK: - All animations
+            
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                
                 self.l.center = CGPoint(x:  randomX(), y: randomY() )
                 self.l.textColor = .some(randomTextColor())
                 self.l.layer.backgroundColor = randomBgColor()
@@ -152,14 +120,64 @@ class ViewController: UIViewController {
                 self.a2.transform = CGAffineTransform(rotationAngle: randomAngle())
                 
                 
+                // MARK: - Come back to this
+//                UIView.animate(withDuration: 3.0,
+//                               delay: 0,
+//                               usingSpringWithDamping: 0.3,
+//                               initialSpringVelocity: 0,
+//                               options: [],
+//                               animations: {
+//                                self.l.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+//                                self.a.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+//                                self.m.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+//                                self.b.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+//                                self.a2.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
+//                }, completion: nil)
             }
         }
         
-        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animationBlock, completion: nil)
-    }
-
-    func andGather() {
+        let andGather = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.uiImage.alpha = 1
+                
+                self.l.transform = .identity
+                self.l.center = CGPoint(x: 89, y: 119)
+                self.l.textColor = .black
+                self.l.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                
+                self.a.transform = .identity
+                self.a.center = CGPoint(x: 129, y: 119)
+                self.a.textColor = .black
+                self.a.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                
+                self.m.transform = .identity
+                self.m.center = CGPoint(x: 166, y: 119)
+                self.m.textColor = .black
+                self.m.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                
+                self.b.transform = .identity
+                self.b.center = CGPoint(x: 221, y: 119)
+                self.b.textColor = .black
+                self.b.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                
+                self.d.transform = .identity
+                self.d.center = CGPoint(x: 258, y: 119)
+                self.d.textColor = .black
+                self.d.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+                
+                self.a2.transform = .identity
+                self.a2.center = CGPoint(x: 296, y: 119)
+                self.a2.textColor = .black
+                self.a2.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
+            }
+            
+        }
         
+        if isScattered {
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: scatterBlock, completion: nil)
+        } else {
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: andGather, completion: nil)
+        }
     }
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
