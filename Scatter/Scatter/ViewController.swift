@@ -56,7 +56,7 @@ class ViewController: UIViewController {
 
     // MARK: - Business logic
     private func performGather() {
-        springButtonTapped(uiLabel: letter1Label)
+        keyButtonTapped(uiLabel: letter1Label)
         return
         print("isScattered \(isScattered)")
         
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     }
     
     private func peformScatter() {
-        springButtonTapped(uiLabel: letter1Label)
+        keyButtonTapped(uiLabel: letter1Label)
         return
         print("isScattered \(isScattered)")
         
@@ -144,6 +144,7 @@ class ViewController: UIViewController {
         UIView.animateKeyframes(withDuration: 5.0, delay: 0, options: [], animations: {
 
             if scattered {
+                uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
                     uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
                 }
@@ -172,6 +173,9 @@ class ViewController: UIViewController {
                 UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25) {
                     uiLabel.center = CGPoint(x: uiLabel.center.x, y: uiLabel.center.y + 50)
                 }
+
+                uiLabel.backgroundColor = UIColor.clear
+                uiLabel.alpha = 1.0
 
                 // Last quarter of time
 //                UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
