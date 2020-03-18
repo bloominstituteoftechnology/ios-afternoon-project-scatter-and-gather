@@ -51,15 +51,16 @@ class ViewController: UIViewController {
     // MARK: - Business logic
     private func performGather() {
 //        rotateButtonTapped(uiLabel: letter1Label)
-        springButtonTapped(uiLabel: letter1Label)
+//        springButtonTapped(uiLabel: letter1Label)
+        keyButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
     }
     
     private func peformScatter() {
         print("isScattered \(isScattered)")
         
 //        rotateButtonTapped(uiLabel: letter1Label)
-        springButtonTapped(uiLabel: letter1Label)
-//        keyButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
+//        springButtonTapped(uiLabel: letter1Label)
+        keyButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
 //        squashButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
 //        anticipationButtonTapped(uiLabel: letter1Label)
         return
@@ -104,26 +105,44 @@ class ViewController: UIViewController {
     }
     
     private func keyButtonTapped(uiLabel: UILabel) {
-        // FIXME: Delete> label.center = view.center
+        let scattered = isScattered
         
         UIView.animateKeyframes(withDuration: 5.0, delay: 0, options: [], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
-                uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
-            }
-            
-            // Next quarter of time
-            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25) {
-                uiLabel.transform = .identity
-            }
 
-            // Next quarter of time
-            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25) {
-                uiLabel.center = CGPoint(x: self.view.center.x, y: self.view.center.y - 50)
-            }
+            if scattered {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
+                    uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
+                }
+                
+                // Next quarter of time
+                UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25) {
+                    uiLabel.transform = .identity
+                }
+                
+                // Next quarter of time
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25) {
+                    uiLabel.center = CGPoint(x: uiLabel.center.x, y: uiLabel.center.y - 50)
+                }
+            } else {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
+                    uiLabel.transform = CGAffineTransform(rotationAngle: -(CGFloat.pi / 4))
+                }
+                
+                // Next quarter of time
+                // TODO: This seems to take me to the start of this function. Not original position. 
+                UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25) {
+                    uiLabel.transform = .identity
+                }
 
-            // Last quarter of time
-            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
-                uiLabel.center = self.view.center
+                // Next quarter of time
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25) {
+                    uiLabel.center = CGPoint(x: uiLabel.center.x, y: uiLabel.center.y + 50)
+                }
+
+                // Last quarter of time
+//                UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
+//                    uiLabel.transform = .identity
+//                }
             }
         }, completion: nil)
     }
