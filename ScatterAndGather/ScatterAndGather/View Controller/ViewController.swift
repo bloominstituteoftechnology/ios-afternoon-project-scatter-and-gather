@@ -124,14 +124,29 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 4.0) {
                 self.imageView.alpha = 1.0
             }
-            UIView.animate(withDuration: 4.0) {
-                
-            }
+            let y = 10.166666667
+            UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.l.center = CGPoint(x: 4.666666667, y: y)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.a.center = CGPoint(x: 13.833333333, y: y)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.m.center = CGPoint(x: 25.666666667, y: y)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.b.center = CGPoint(x: 38.166666667, y: y)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.d.center = CGPoint(x: 48.500000000, y: y)
+                }
+                UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                    self.a2.center = CGPoint(x: 58.166666667, y: y)
+                }
+            })
             for label in [l, a, m, b, d, a2] {
                 UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [], animations: {
-//                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-//                        //label.center = self.centerDict["\(label)"]
-//                    }
                     UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
                         label.backgroundColor = .clear
                     }
