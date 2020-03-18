@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 3, constant: 1).isActive = true
+//        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 3, constant: 1).isActive = true
         
         
         view.addSubview(lLabel)
@@ -100,7 +100,7 @@ class ViewController: UIViewController {
         a2Label.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
         a2Label.textColor = .black
         
-       
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         stackView.axis = .horizontal
@@ -119,35 +119,47 @@ class ViewController: UIViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30)
             
         ])
-        
-        
-        
     }
     
     
-    func random_angle() -> CGFloat  {
+    private func random_angle() -> CGFloat  {
         let random = CGFloat.random(in: 1...8)
         return random
     }
     
-    func randomXPosition() -> CGFloat  {
-           let random = CGFloat.random(in: 1..<100)
-           return random
-       }
-    
-    func randomYPosition() -> CGFloat  {
-        let random = CGFloat.random(in: 1..<300)
+    private func randomXPosition() -> CGFloat  {
+        let random = CGFloat.random(in: 1..<100)
         return random
     }
     
+    private func randomYPosition() -> CGFloat  {
+        let random = CGFloat.random(in: 1..<500)
+        return random
+    }
+    
+    private func randomIntColor() -> Int {
+        let random = Int.random(in: 10...100)
+        return random
+    }
+    
+    private func randomColor() -> UIColor {
+     
+        let random = UIColor(red: CGFloat(self.randomIntColor())/255, green: CGFloat(self.randomIntColor())/255, blue: CGFloat(self.randomIntColor())/255, alpha: 0.7)
+        return random
+    }
+    
+    var random: UIColor {
+        return UIColor(red: CGFloat(drand48()), green: CGFloat(drand48()), blue: CGFloat(drand48()), alpha: 1.0)
+    }
+    
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-       
-              isScattered.toggle()
-              
-              if isScattered == true {
-                  UIImageView.animate(withDuration: 3) {
-                      self.imageView.alpha = 0
-                  }
+    
+        isScattered.toggle()
+        
+        if isScattered == true {
+            UIImageView.animate(withDuration: 3) {
+                self.imageView.alpha = 0
+            }
             
             UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
                 self.lLabel.transform = CGAffineTransform(rotationAngle: self.random_angle())
@@ -160,18 +172,36 @@ class ViewController: UIViewController {
             
             UIView.animateKeyframes(withDuration: 4, delay: 0, options: [], animations: {
                 self.lLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
-                
                 self.aLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
                 self.mLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
                 self.bLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
                 self.dLabel.transform = CGAffineTransform(translationX: -self.randomXPosition(), y: self.randomYPosition())
                 self.a2Label.transform = CGAffineTransform(translationX: -self.randomXPosition(), y: self.randomYPosition())
             }, completion: nil)
+            
+            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: {
+                
+                self.lLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.aLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.mLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.bLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.dLabel.layer.backgroundColor = self.randomColor().cgColor
+                self.a2Label.layer.backgroundColor = self.randomColor().cgColor
+                
+                self.lLabel.textColor = self.randomColor()
+                self.aLabel.textColor = self.randomColor()
+                self.mLabel.textColor = self.randomColor()
+                self.bLabel.textColor = self.randomColor()
+                self.dLabel.textColor = self.randomColor()
+                self.a2Label.textColor = self.randomColor()
+                
+            }, completion: nil)
+            
+            
         } else {
-                UIImageView.animate(withDuration: 1) {
-                    self.imageView.alpha = 1
-                }
-
+            UIImageView.animate(withDuration: 1) {
+                self.imageView.alpha = 1
+            }
             lLabel.transform = .identity
             aLabel.transform = .identity
             mLabel.transform = .identity
