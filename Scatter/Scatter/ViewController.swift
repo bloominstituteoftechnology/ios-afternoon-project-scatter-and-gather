@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     // MARK: - Properites
     var isScattered = false
     var squashPoint = CGPoint()
+    var anticipationPoint = CGPoint()
 
     var letters: [UILabel] = []
     
@@ -54,7 +55,8 @@ class ViewController: UIViewController {
 //        rotateButtonTapped(uiLabel: letter1Label)
 //        springButtonTapped(uiLabel: letter1Label)
 //        keyButtonTapped(uiLabel: letter1Label)
-        squashButtonTapped(uiLabel: letter1Label)
+//        squashButtonTapped(uiLabel: letter1Label)
+        anticipationButtonTapped(uiLabel: letter1Label)
     }
     
     private func peformScatter() {
@@ -63,8 +65,8 @@ class ViewController: UIViewController {
 //        rotateButtonTapped(uiLabel: letter1Label)
 //        springButtonTapped(uiLabel: letter1Label)
 //        keyButtonTapped(uiLabel: letter1Label)
-        squashButtonTapped(uiLabel: letter1Label)
-//        anticipationButtonTapped(uiLabel: letter1Label)
+//        squashButtonTapped(uiLabel: letter1Label)
+        anticipationButtonTapped(uiLabel: letter1Label)
         return
         
         for letter in letters {
@@ -180,21 +182,33 @@ class ViewController: UIViewController {
     }
 
     private func anticipationButtonTapped(uiLabel: UILabel) {
-        // FIXME: Delete> label.center = view.center
-        
+        let scattered = isScattered
+
         let animationBlock = {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
-                uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 16.0)
-            }
+            if scattered {
+                self.anticipationPoint = uiLabel.center
 
-            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.2) {
-                uiLabel.transform = CGAffineTransform(rotationAngle: -1 * CGFloat.pi / 16.0)
-            }
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
+                    uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 16.0)
+                }
 
-            UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
-                uiLabel.center = CGPoint(
-                    x: self.view.bounds.size.width + uiLabel.bounds.size.width,
-                    y: self.view.center.y)
+                UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.2) {
+                    uiLabel.transform = CGAffineTransform(rotationAngle: -1 * CGFloat.pi / 16.0)
+                }
+
+                UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
+                    uiLabel.center = CGPoint(
+                        x: self.view.bounds.size.width + uiLabel.bounds.size.width,
+                        y: self.view.center.y)
+                }
+            } else {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                    uiLabel.center = self.anticipationPoint
+                }
+
+                UIView.addKeyframe(withRelativeStartTime: 1.4, relativeDuration: 0.1) {
+                    uiLabel.transform = CGAffineTransform(rotationAngle: 0)
+                }
             }
         }
 
