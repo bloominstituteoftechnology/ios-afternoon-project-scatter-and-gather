@@ -80,25 +80,23 @@ class ViewController: UIViewController {
             stackView.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerYAnchor)
         ])
-        
-        // Labels Points
-//        for label in [l, a, m, b, d, a2] {
-//            guard let key = label.text else { return }
-//            //centerDict["\(key)"] = label.cen
-//        }
     }
     
     
     // MARK: - private methods
     @objc func toggleButtonPressed() {
         if isScattered == false {
+            // When isScattered is false, and all labels are in their original form:
+            // Fade label
             UIView.animate(withDuration: 4.0) {
                 self.imageView.alpha = 0.0
             }
             
+            // height and width constants for random generator
             let width = Int(view.frame.size.width)/2 - 30
             let height = Int(view.frame.size.height)/2 - 40
             
+            // Assign a different combination of actions for each letter of the labels
             for label in [l, a, m, b, d, a2] {
                 let randX = Int.random(in: -width...width)
                 let randY = Int.random(in: -(height-50)...height)
@@ -118,12 +116,18 @@ class ViewController: UIViewController {
                     }
                 })
             }
+            
+            // Toggles
             navigationItem.rightBarButtonItem?.title = "Gather"
             isScattered = true
         } else {
+            // isScattered is true, so all labels have been scattered and changed
+            // set label back to unfaded
             UIView.animate(withDuration: 4.0) {
                 self.imageView.alpha = 1.0
             }
+            
+            // Move letter labels back to their original spots
             let y = 10.166666667
             UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [], animations: {
                 UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
@@ -145,6 +149,8 @@ class ViewController: UIViewController {
                     self.a2.center = CGPoint(x: 58.166666667, y: y)
                 }
             })
+            
+            // Set all other properties of letter labels to original settings
             for label in [l, a, m, b, d, a2] {
                 UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [], animations: {
                     UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
@@ -158,11 +164,14 @@ class ViewController: UIViewController {
                     }
                 })
             }
+            
+            // Toggles
             navigationItem.rightBarButtonItem?.title = "Scatter"
             isScattered = false
         }
     }
     
+    // This functions gets a random color for the above animations
     func getRandomColor() -> UIColor {
         let randomRed: CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
         let randomGreen: CGFloat = CGFloat(arc4random()) / CGFloat(UInt32.max)
@@ -172,14 +181,3 @@ class ViewController: UIViewController {
     }
     
 }
-
-
-//@propertyWrapper struct AutoLayoutFalse {
-//    var wrappedValue: UIView {
-//        didSet { wrappedValue.translatesAutoresizingMaskIntoConstraints = false }
-//    }
-//
-//    init(wrappedValue: UIView) {
-//        self.wrappedValue.translatesAutoresizingMaskIntoConstraints = false
-//    }
-//}
