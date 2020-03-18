@@ -56,8 +56,6 @@ class ViewController: UIViewController {
 
     // MARK: - Business logic
     private func performGather() {
-        keyButtonTapped(uiLabel: letter1Label)
-        return
         print("isScattered \(isScattered)")
         
         var round = 0
@@ -81,8 +79,6 @@ class ViewController: UIViewController {
     }
     
     private func peformScatter() {
-        keyButtonTapped(uiLabel: letter1Label)
-        return
         print("isScattered \(isScattered)")
         
         arrayOfFunctions.shuffle()
@@ -190,6 +186,7 @@ class ViewController: UIViewController {
         
         let animationBlock = {
             if scattered {
+                uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 self.squashPoint = uiLabel.center
                 uiLabel.center = CGPoint(x: uiLabel.center.x, y: -uiLabel.bounds.size.height)
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
@@ -208,6 +205,8 @@ class ViewController: UIViewController {
                     uiLabel.transform = CGAffineTransform(scaleX: 1.11, y: 0.9)
                 }
             } else {
+                uiLabel.backgroundColor = UIColor.clear
+                uiLabel.alpha = 1.0
                 uiLabel.center = self.squashPoint
             }
         }
@@ -220,6 +219,7 @@ class ViewController: UIViewController {
 
         let animationBlock = {
             if scattered {
+                uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 self.anticipationPoint = uiLabel.center
 
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
@@ -243,6 +243,9 @@ class ViewController: UIViewController {
                 UIView.addKeyframe(withRelativeStartTime: 1.4, relativeDuration: 0.1) {
                     uiLabel.transform = CGAffineTransform(rotationAngle: 0)
                 }
+
+                uiLabel.backgroundColor = UIColor.clear
+                uiLabel.alpha = 1.0
             }
         }
 
