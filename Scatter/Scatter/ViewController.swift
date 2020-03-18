@@ -50,14 +50,15 @@ class ViewController: UIViewController {
 
     // MARK: - Business logic
     private func performGather() {
-        rotateButtonTapped(uiLabel: letter1Label)
+//        rotateButtonTapped(uiLabel: letter1Label)
+        springButtonTapped(uiLabel: letter1Label)
     }
     
     private func peformScatter() {
         print("isScattered \(isScattered)")
         
-        rotateButtonTapped(uiLabel: letter1Label)
-//        springButtonTapped(uiLabel: letter1Label)
+//        rotateButtonTapped(uiLabel: letter1Label)
+        springButtonTapped(uiLabel: letter1Label)
 //        keyButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
 //        squashButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
 //        anticipationButtonTapped(uiLabel: letter1Label)
@@ -95,8 +96,6 @@ class ViewController: UIViewController {
     }
     
     private func springButtonTapped(uiLabel: UILabel) {
-        // FIXME: Delete> label.center = view.center
-        
         uiLabel.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
         UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, /* 0.0 - 1.0 */ initialSpringVelocity: 0, options: [], animations: {
             uiLabel.transform = .identity
