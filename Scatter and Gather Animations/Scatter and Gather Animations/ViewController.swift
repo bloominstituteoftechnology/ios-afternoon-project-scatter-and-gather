@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30).isActive = true
         imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -30).isActive = true
         imageView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 3, constant: 1).isActive = true
+        //        imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 3, constant: 1).isActive = true
         
         
         view.addSubview(lLabel)
@@ -143,7 +143,7 @@ class ViewController: UIViewController {
     }
     
     private func randomColor() -> UIColor {
-     
+        
         let random = UIColor(red: CGFloat(self.randomIntColor())/255, green: CGFloat(self.randomIntColor())/255, blue: CGFloat(self.randomIntColor())/255, alpha: 0.7)
         return random
     }
@@ -153,7 +153,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-    
+        
         isScattered.toggle()
         
         if isScattered == true {
@@ -208,6 +208,20 @@ class ViewController: UIViewController {
             bLabel.transform = .identity
             dLabel.transform = .identity
             a2Label.transform = .identity
+            
+            self.lLabel.layer.backgroundColor = nil
+            self.aLabel.layer.backgroundColor = nil
+            self.mLabel.layer.backgroundColor = nil
+            self.bLabel.layer.backgroundColor = nil
+            self.dLabel.layer.backgroundColor = nil
+            self.a2Label.layer.backgroundColor = nil
+            
+            self.lLabel.textColor = .black
+            self.aLabel.textColor = .black
+            self.mLabel.textColor = .black
+            self.bLabel.textColor = .black
+            self.dLabel.textColor = .black
+            self.a2Label.textColor = .black
         }
     }
 }
