@@ -33,7 +33,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="b" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTk-wc-rox">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="b" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DTk-wc-rox">
                                 <rect key="frame" x="221" y="119" width="29" height="58"/>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="50"/>
                                 <nil key="textColor"/>
@@ -54,17 +54,17 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="lqN-tO-Aez" firstAttribute="leading" secondItem="DTk-wc-rox" secondAttribute="trailing" constant="8" id="0Ji-sG-Gi1"/>
-                            <constraint firstItem="KjK-2A-kgv" firstAttribute="leading" secondItem="lqN-tO-Aez" secondAttribute="trailing" constant="8" id="A7l-92-3o6"/>
                             <constraint firstItem="lqN-tO-Aez" firstAttribute="baseline" secondItem="KjK-2A-kgv" secondAttribute="baseline" id="Ito-PR-rla"/>
-                            <constraint firstItem="DTu-8T-phR" firstAttribute="leading" secondItem="k9L-zU-V29" secondAttribute="trailing" constant="8" id="LDu-Y2-44A"/>
+                            <constraint firstItem="k9L-zU-V29" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="129" id="Kbb-tS-Act"/>
                             <constraint firstItem="k9L-zU-V29" firstAttribute="baseline" secondItem="DTu-8T-phR" secondAttribute="baseline" id="ONS-jY-93d"/>
-                            <constraint firstItem="NjP-vr-DUz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="QZl-m1-Oli"/>
+                            <constraint firstItem="DTu-8T-phR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="166" id="QF2-3N-t5u"/>
+                            <constraint firstItem="NjP-vr-DUz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="89" id="QZl-m1-Oli"/>
                             <constraint firstItem="NjP-vr-DUz" firstAttribute="baseline" secondItem="k9L-zU-V29" secondAttribute="baseline" id="WUl-CR-Kkr"/>
                             <constraint firstItem="DTu-8T-phR" firstAttribute="baseline" secondItem="DTk-wc-rox" secondAttribute="baseline" id="Z8m-BQ-Q9l"/>
                             <constraint firstItem="DTk-wc-rox" firstAttribute="baseline" secondItem="lqN-tO-Aez" secondAttribute="baseline" id="cLu-rs-Omx"/>
-                            <constraint firstItem="DTk-wc-rox" firstAttribute="leading" secondItem="DTu-8T-phR" secondAttribute="trailing" constant="8" id="frB-C9-1kl"/>
-                            <constraint firstItem="k9L-zU-V29" firstAttribute="leading" secondItem="NjP-vr-DUz" secondAttribute="trailing" constant="8" id="xiV-Hi-kS0"/>
+                            <constraint firstItem="lqN-tO-Aez" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="258" id="cd0-aF-RmU"/>
+                            <constraint firstItem="KjK-2A-kgv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="296" id="gdV-ar-vcV"/>
+                            <constraint firstItem="DTk-wc-rox" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="221" id="lPs-Tz-sll"/>
                             <constraint firstItem="NjP-vr-DUz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="zzB-Js-rZ2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

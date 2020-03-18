@@ -146,32 +146,32 @@ class ViewController: UIViewController {
                 self.uiImage.alpha = 1
                 
                 self.l.transform = .identity
-                self.l.center = CGPoint(x: 89, y: 119)
+                self.l.center = CGPoint(x: 89, y: 150)
                 self.l.textColor = .black
                 self.l.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
                 
                 self.a.transform = .identity
-                self.a.center = CGPoint(x: 129, y: 119)
+                self.a.center = CGPoint(x: 129, y: 150)
                 self.a.textColor = .black
                 self.a.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
                 
                 self.m.transform = .identity
-                self.m.center = CGPoint(x: 166, y: 119)
+                self.m.center = CGPoint(x: 166, y: 150)
                 self.m.textColor = .black
                 self.m.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
                 
                 self.b.transform = .identity
-                self.b.center = CGPoint(x: 221, y: 119)
+                self.b.center = CGPoint(x: 221, y: 150)
                 self.b.textColor = .black
                 self.b.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
                 
                 self.d.transform = .identity
-                self.d.center = CGPoint(x: 258, y: 119)
+                self.d.center = CGPoint(x: 258, y: 150)
                 self.d.textColor = .black
                 self.d.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
                 
                 self.a2.transform = .identity
-                self.a2.center = CGPoint(x: 296, y: 119)
+                self.a2.center = CGPoint(x: 296, y: 150)
                 self.a2.textColor = .black
                 self.a2.layer.backgroundColor = CGColor(srgbRed: 0, green: 0, blue: 0, alpha: 0)
             }
