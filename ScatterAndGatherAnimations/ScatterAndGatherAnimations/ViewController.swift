@@ -32,7 +32,7 @@ class ViewController: UIViewController {
        return theImageView
     }()
      
-
+   
     override func viewDidLoad() {
        super.viewDidLoad()
        someImageViewConstraints()
@@ -42,15 +42,17 @@ class ViewController: UIViewController {
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
         guard let toggleButton = toggleButtonTapped else { return }
-        if (toggleButton.action != nil) == true {
-            lambdaImageView.fadeOut(completion: {
-                (finished: Bool) -> Void in
-                self.lambdaImageView.removeFromSuperview()
+        if self.lambdaImageView.alpha == 0.0 {
+            UIView.animate(withDuration: 1.5, delay: 0.2, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                self.lambdaImageView.alpha = 1.0
             })
-        } else if (toggleButton.action != nil) == true {
-           lambdaImageView.fadeIn()
-
-    }
+             let letters: [UILabel] = [letterL, letterA1, letterM, letterB, letterD, letterA2]
+            letters.randomElement()
+        } else {
+            UIView.animate(withDuration: 1.5, delay: 0.2, options: UIView.AnimationOptions.curveEaseOut, animations: {
+                self.lambdaImageView.alpha = 0.0
+            })
+        }
     }
 //     MARK: Lambda Image View Function
     func someImageViewConstraints() {
