@@ -16,7 +16,9 @@ class ViewController: UIViewController {
     var anticipationPoint = CGPoint()
 
     var letters: [UILabel] = []
-    var arrayOfFunctions = [0, 1, 2, 3, 4, 1]
+    
+    // This is to make sure the functions all get used. Don't duplicate 3 and 4.
+    var arrayOfFunctions = [0, 1, 2, 3, 4, 0]
     
     // MARK: - Outlets
     @IBOutlet weak var letter1Label: UILabel!
