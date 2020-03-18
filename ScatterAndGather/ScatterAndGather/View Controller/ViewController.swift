@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     func setUpViews() {
         //bar button item
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Scatter", style: .plain, target: self, action: #selector(toggleButtonPressed))
         
         // Set tranlate to false
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,31 +85,59 @@ class ViewController: UIViewController {
     
     // MARK: - private methods
     @objc func toggleButtonPressed() {
-        UIView.animate(withDuration: 4.0) {
-            self.imageView.alpha = 0.0
-        }
-        
-        let width = Int(view.frame.size.width)/2 - 30
-        let height = Int(view.frame.size.height)/2 - 40
-        
-        for label in [l, a, m, b, d, a2] {
-            let randX = Int.random(in: -width...width)
-            let randY = Int.random(in: -(height-50)...height)
-            let rotationAngle = Int.random(in: Int(-2 * CGFloat.pi)...Int(2 * CGFloat.pi))
-            UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    label.center = CGPoint(x: randX, y: randY)
-                }
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    label.backgroundColor = self.getRandomColor()
-                }
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    label.textColor = self.getRandomColor()
-                }
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                    label.transform = CGAffineTransform(rotationAngle: CGFloat(rotationAngle))
-                }
-            })
+        if isScattered == false {
+            UIView.animate(withDuration: 4.0) {
+                self.imageView.alpha = 0.0
+            }
+            
+            let width = Int(view.frame.size.width)/2 - 30
+            let height = Int(view.frame.size.height)/2 - 40
+            
+            for label in [l, a, m, b, d, a2] {
+                let randX = Int.random(in: -width...width)
+                let randY = Int.random(in: -(height-50)...height)
+                let rotationAngle = Int.random(in: Int(-2 * CGFloat.pi)...Int(2 * CGFloat.pi))
+                //label.lastPoint = CGPoint(x: randX, y: randY)
+                UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [], animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        label.center = CGPoint(x: randX, y: randY)
+                    }
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        label.backgroundColor = self.getRandomColor()
+                    }
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        label.textColor = self.getRandomColor()
+                    }
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        label.transform = CGAffineTransform(rotationAngle: CGFloat(rotationAngle))
+                    }
+                })
+            }
+            navigationItem.rightBarButtonItem?.title = "Gather"
+            isScattered = true
+        } else {
+            UIView.animate(withDuration: 4.0) {
+                self.imageView.alpha = 1.0
+            }
+            
+            for label in [l, a, m, b, d, a2] {
+                UIView.animateKeyframes(withDuration: 4.0, delay: 0.0, options: [], animations: {
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        //label.center = label.lastPoint
+                    }
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        label.backgroundColor = .clear
+                    }
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        label.textColor = .black
+                    }
+                    UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                        label.transform = .identity
+                    }
+                })
+            }
+            navigationItem.rightBarButtonItem?.title = "Scatter"
+            isScattered = false
         }
     }
     
@@ -122,6 +150,18 @@ class ViewController: UIViewController {
     }
     
 }
+
+//extension UILabel {
+//    var lastPoint: CGPoint {
+//        set(newCenter) {
+//            self.lastPoint = newCenter
+//        }
+//        get {
+//            let lastPoint = self.lastPoint
+//            return lastPoint
+//        }
+//    }
+//}
 
 //@propertyWrapper struct AutoLayoutFalse {
 //    var wrappedValue: UIView {
