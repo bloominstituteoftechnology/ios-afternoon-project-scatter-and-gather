@@ -50,7 +50,7 @@ class ViewController: UIViewController {
 
     // MARK: - Business logic
     private func performGather() {
-        letter1Label.transform = .identity
+        rotateButtonTapped(uiLabel: letter1Label)
     }
     
     private func peformScatter() {
@@ -82,18 +82,16 @@ class ViewController: UIViewController {
     
     
     private func rotateButtonTapped(uiLabel: UILabel!) {
-        // FIXME: Delete> label.center = view.center
-        
+        // TODO: OK, how paranoid do I need to be about race conditions?
+        let scattered = isScattered
+            
         UIView.animate(withDuration: 2.0, animations: {
-            uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4) // pi is 180 rotation. Not additive. Where you are rotating to.
-        }) { _ in
-            UIView.animate(withDuration: 2.0) {
-                // You could do this...
-                // self.label.transform = CGAffineTransform(rotationAngle: 0)
-                // But this is the safest.
-//                uiLabel.transform = .identity
+            if scattered {
+                uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4) // pi is 180 rotation. Not additive. Where you are rotating to.
+            } else {
+                uiLabel.transform = .identity
             }
-        }
+        })
     }
     
     private func springButtonTapped(uiLabel: UILabel) {
