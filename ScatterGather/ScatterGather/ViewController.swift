@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     
     // MARK: - Private
+    
     private var isScattered = false {
         didSet {
             if isScattered {
@@ -75,8 +76,10 @@ class ViewController: UIViewController {
             lambdaLogoView.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
             lambdaLogoView.heightAnchor.constraint(lessThanOrEqualToConstant: 200)
         ])
-        
     }
+    
+    
+    // MARK: - Animations
     
     func performScatterAnimation() {
         let scatterAnimationBlock = {
@@ -108,7 +111,6 @@ class ViewController: UIViewController {
     }
     
     func performGatherAnimation() {
-        
         let gatherAnimationBlock = {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.lambdaLabels.forEach { label in
@@ -130,20 +132,5 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLabels()
-    }
-
-
-}
-
-extension UILabel {
-    convenience init(text: String) {
-        self.init()
-        self.text = text
-    }
-}
-
-extension CGColor {
-    static var random: CGColor {
-        .init(srgbRed: .random(in: 0...1), green: .random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
     }
 }

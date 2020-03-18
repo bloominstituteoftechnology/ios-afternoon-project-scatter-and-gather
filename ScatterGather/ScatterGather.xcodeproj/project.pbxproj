@@ -13,6 +13,7 @@
 		047D67A4242165E0002FAC18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047D67A2242165E0002FAC18 /* Main.storyboard */; };
 		047D67A6242165E3002FAC18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 047D67A5242165E3002FAC18 /* Assets.xcassets */; };
 		047D67A9242165E3002FAC18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 047D67A7242165E3002FAC18 /* LaunchScreen.storyboard */; };
+		048742272421A74700A9D943 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048742262421A74700A9D943 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		047D67A5242165E3002FAC18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		047D67A8242165E3002FAC18 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		047D67AA242165E3002FAC18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048742262421A74700A9D943 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,24 @@
 		047D679B242165E0002FAC18 /* ScatterGather */ = {
 			isa = PBXGroup;
 			children = (
+				048742282421A76B00A9D943 /* Resources */,
+				047D67A0242165E0002FAC18 /* ViewController.swift */,
+				048742262421A74700A9D943 /* Extensions.swift */,
+				047D67A2242165E0002FAC18 /* Main.storyboard */,
+			);
+			path = ScatterGather;
+			sourceTree = "<group>";
+		};
+		048742282421A76B00A9D943 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				047D679C242165E0002FAC18 /* AppDelegate.swift */,
 				047D679E242165E0002FAC18 /* SceneDelegate.swift */,
-				047D67A0242165E0002FAC18 /* ViewController.swift */,
-				047D67A2242165E0002FAC18 /* Main.storyboard */,
 				047D67A5242165E3002FAC18 /* Assets.xcassets */,
 				047D67A7242165E3002FAC18 /* LaunchScreen.storyboard */,
 				047D67AA242165E3002FAC18 /* Info.plist */,
 			);
-			path = ScatterGather;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +152,7 @@
 				047D67A1242165E0002FAC18 /* ViewController.swift in Sources */,
 				047D679D242165E0002FAC18 /* AppDelegate.swift in Sources */,
 				047D679F242165E0002FAC18 /* SceneDelegate.swift in Sources */,
+				048742272421A74700A9D943 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,7 +298,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94ZMA2MYR4;
-				INFOPLIST_FILE = ScatterGather/Info.plist;
+				INFOPLIST_FILE = ScatterGather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,7 +316,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 94ZMA2MYR4;
-				INFOPLIST_FILE = ScatterGather/Info.plist;
+				INFOPLIST_FILE = ScatterGather/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
