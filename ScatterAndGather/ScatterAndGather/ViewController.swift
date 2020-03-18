@@ -50,6 +50,9 @@ class ViewController: UIViewController {
             
         ])
         
+        uiImage.isUserInteractionEnabled = true
+        uiImage.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(gesture:))))
+        
         
     }
     
@@ -188,6 +191,17 @@ class ViewController: UIViewController {
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
         isScattered.toggle()
+    }
+    
+    @objc func handlePanGesture(gesture:UIPanGestureRecognizer) {
+        if gesture.state == .began {
+            print("here we go")
+        } else if gesture.state == .changed {
+            let translation = gesture.translation(in: self.view)
+            uiImage.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
+        } else if gesture.state == .ended {
+            print("we out")
+        }
     }
     
     
