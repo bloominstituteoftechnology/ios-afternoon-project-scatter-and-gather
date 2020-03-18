@@ -77,6 +77,10 @@ class ViewController: UIViewController {
             CGFloat.pi / CGFloat(Int.random(in: 1...4))
         }
         
+        // MARK: - Random cgfloat for scale
+        let randomScale = {
+            CGFloat(Int.random(in: 1...2))
+        }
         
         let scatterBlock = {
             
@@ -121,18 +125,20 @@ class ViewController: UIViewController {
                 
                 
                 // MARK: - Come back to this
-//                UIView.animate(withDuration: 3.0,
-//                               delay: 0,
-//                               usingSpringWithDamping: 0.3,
-//                               initialSpringVelocity: 0,
-//                               options: [],
-//                               animations: {
-//                                self.l.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-//                                self.a.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-//                                self.m.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-//                                self.b.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-//                                self.a2.transform = CGAffineTransform(scaleX: CGFloat(Int.random(in: 1...2)), y: CGFloat(Int.random(in: 1...2)))
-//                }, completion: nil)
+                
+                UIView.animate(withDuration: 3.0,
+                               delay: 0,
+                               usingSpringWithDamping: 0.3,
+                               initialSpringVelocity: 0,
+                               options: [],
+                               animations: {
+                                self.l.transform = self.l.transform.scaledBy(x: randomScale(), y: randomScale())
+                                self.a.transform = self.a.transform.scaledBy(x: randomScale(), y: randomScale())
+                                self.m.transform = self.m.transform.scaledBy(x: randomScale(), y: randomScale())
+                                self.b.transform = self.b.transform.scaledBy(x: randomScale(), y: randomScale())
+                                self.a2.transform = self.a2.transform.scaledBy(x: randomScale(), y: randomScale())
+                                
+                }, completion: nil)
             }
         }
         
