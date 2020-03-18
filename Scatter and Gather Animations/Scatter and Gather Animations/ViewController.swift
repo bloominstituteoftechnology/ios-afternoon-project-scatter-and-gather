@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var imageView = UIImageView(image: UIImage(named: "lambda_logo"))
     var stackView = UIStackView()
     
+    var isScattered = Bool()
+    
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -139,7 +141,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-       var isScattered = Bool()
+       
               isScattered.toggle()
               
               if isScattered == true {
@@ -166,8 +168,10 @@ class ViewController: UIViewController {
                 self.a2Label.transform = CGAffineTransform(translationX: -self.randomXPosition(), y: self.randomYPosition())
             }, completion: nil)
         } else {
-            imageView.transform = .identity
-            stackView.transform = .identity
+                UIImageView.animate(withDuration: 1) {
+                    self.imageView.alpha = 1
+                }
+
             lLabel.transform = .identity
             aLabel.transform = .identity
             mLabel.transform = .identity
