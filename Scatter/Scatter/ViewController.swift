@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var anticipationPoint = CGPoint()
 
     var letters: [UILabel] = []
+    var colors = [UIColor.blue, UIColor.brown, UIColor.cyan, UIColor.orange, UIColor.green]
     
     // This is to make sure the functions all get used. Don't duplicate 3 and 4.
     var arrayOfFunctions = [0, 1, 2, 3, 4, 0]
@@ -55,6 +56,8 @@ class ViewController: UIViewController {
 
     // MARK: - Business logic
     private func performGather() {
+        springButtonTapped(uiLabel: letter1Label)
+        return
         print("isScattered \(isScattered)")
         
         var round = 0
@@ -78,6 +81,8 @@ class ViewController: UIViewController {
     }
     
     private func peformScatter() {
+        springButtonTapped(uiLabel: letter1Label)
+        return
         print("isScattered \(isScattered)")
         
         arrayOfFunctions.shuffle()
@@ -108,19 +113,29 @@ class ViewController: UIViewController {
             
         UIView.animate(withDuration: 2.0, animations: {
             if scattered {
+                uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4) // pi is 180 rotation. Not additive. Where you are rotating to.
             } else {
+                uiLabel.backgroundColor = UIColor.clear
+                uiLabel.alpha = 1.0
                 uiLabel.transform = .identity
             }
         })
     }
     
     private func springButtonTapped(uiLabel: UILabel) {
+        if isScattered {
+            uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
+        }
         uiLabel.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
         UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, /* 0.0 - 1.0 */ initialSpringVelocity: 0, options: [], animations: {
             uiLabel.transform = .identity
         },
                        completion: nil)
+        if !isScattered {
+            uiLabel.backgroundColor = UIColor.clear
+            uiLabel.alpha = 1.0
+        }
     }
     
     private func keyButtonTapped(uiLabel: UILabel) {
