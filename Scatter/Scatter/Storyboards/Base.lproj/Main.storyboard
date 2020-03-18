@@ -80,6 +80,7 @@
                         <outlet property="letter5Label" destination="hMr-5h-xRD" id="zfG-e0-nOY"/>
                         <outlet property="letter6Label" destination="zPQ-oC-9Pq" id="rMS-Yh-YIP"/>
                         <outlet property="logoImageView" destination="4yK-hF-ItN" id="zRR-LM-D4i"/>
+                        <outlet property="toggleButtonLabel" destination="vrw-H8-8mS" id="AHx-bf-Kaa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

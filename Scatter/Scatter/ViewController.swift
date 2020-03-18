@@ -11,11 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: - Properites
-    var isScattered = false {
-        didSet {
-            peformScatter()
-        }
-    }
+    var isScattered = false
     
     var letters: [UILabel] = []
     
@@ -26,12 +22,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var letter4Label: UILabel!
     @IBOutlet weak var letter5Label: UILabel!
     @IBOutlet weak var letter6Label: UILabel!
-
+    @IBOutlet weak var toggleButtonLabel: UIBarButtonItem!
+    
     @IBOutlet weak var logoImageView: UIImageView!
     
     // MARK: - Actions
     @IBAction func toggleButton(_ sender: Any) {
         isScattered.toggle()
+        
+        if isScattered {
+            peformScatter()
+            toggleButtonLabel.title = "Gather"
+        } else {
+            performGather()
+            toggleButtonLabel.title = "Scatter"
+        }
     }
     
     // MARK: - View Lifecycle
@@ -44,9 +49,19 @@ class ViewController: UIViewController {
     }
 
     // MARK: - Business logic
+    private func performGather() {
+        letter1Label.transform = .identity
+    }
     
-    func peformScatter() {
+    private func peformScatter() {
         print("isScattered \(isScattered)")
+        
+        rotateButtonTapped(uiLabel: letter1Label)
+//        springButtonTapped(uiLabel: letter1Label)
+//        keyButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
+//        squashButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
+//        anticipationButtonTapped(uiLabel: letter1Label)
+        return
         
         for letter in letters {
             
@@ -76,7 +91,7 @@ class ViewController: UIViewController {
                 // You could do this...
                 // self.label.transform = CGAffineTransform(rotationAngle: 0)
                 // But this is the safest.
-                uiLabel.transform = .identity
+//                uiLabel.transform = .identity
             }
         }
     }
@@ -158,7 +173,7 @@ class ViewController: UIViewController {
 
             UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.8) {
                 uiLabel.center = CGPoint(
-                    x: self.view.bounds.size.width + self.letter1Label.bounds.size.width,
+                    x: self.view.bounds.size.width + uiLabel.bounds.size.width,
                     y: self.view.center.y)
             }
         }
