@@ -42,12 +42,8 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             uiImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
-            
             uiImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            
             uiImage.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20)
-            
-            
         ])
         
         uiImage.isUserInteractionEnabled = true
@@ -200,7 +196,9 @@ class ViewController: UIViewController {
             let translation = gesture.translation(in: self.view)
             uiImage.transform = CGAffineTransform(translationX: translation.x, y: translation.y)
         } else if gesture.state == .ended {
-            print("we out")
+            print("finished")
+            uiImage.transform = .identity
+            view.reloadInputViews()
         }
     }
     
