@@ -13,20 +13,15 @@ class ViewController: UIViewController {
     // MARK: - Properties
     
     @IBOutlet weak var toggleButton: UIBarButtonItem!
-        
+    
     var lLabel = UILabel()
     var aLabel = UILabel()
     var mLabel = UILabel()
     var bLabel = UILabel()
     var dLabel = UILabel()
-    var aEndLabel = UILabel()
+    var a2Label = UILabel()
     var imageView = UIImageView(image: UIImage(named: "lambda_logo"))
-    
-//    var lambdaLogo: UIImage! {
-//
-//            UIImage(named: "lambda_logo")
-//        }
-    
+    var stackView = UIStackView()
     
     
     // MARK: - View Lifecycle
@@ -39,7 +34,7 @@ class ViewController: UIViewController {
     func viewDidLoad(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-      
+        
     }
     
     // MARK: - Private
@@ -95,15 +90,15 @@ class ViewController: UIViewController {
         dLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
         dLabel.textColor = .black
         
-        view.addSubview(aEndLabel)
-        aEndLabel.translatesAutoresizingMaskIntoConstraints = false
-        aEndLabel.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
-        aEndLabel.text = "A"
-        aEndLabel.textAlignment = .center
-        aEndLabel.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
-        aEndLabel.textColor = .black
+        view.addSubview(a2Label)
+        a2Label.translatesAutoresizingMaskIntoConstraints = false
+        a2Label.widthAnchor.constraint(equalTo: lLabel.heightAnchor).isActive = true
+        a2Label.text = "A"
+        a2Label.textAlignment = .center
+        a2Label.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+        a2Label.textColor = .black
         
-        let stackView = UIStackView()
+       
         stackView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(stackView)
         stackView.axis = .horizontal
@@ -114,7 +109,7 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(mLabel)
         stackView.addArrangedSubview(bLabel)
         stackView.addArrangedSubview(dLabel)
-        stackView.addArrangedSubview(aEndLabel)
+        stackView.addArrangedSubview(a2Label)
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
@@ -127,30 +122,59 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
-        
-        var isScattered: Bool = true
-        isScattered.toggle()
-        
-        
-        UIImageView.animate(withDuration: 5) {
-            self.imageView.alpha = 0
-        }
-        
-        UILabel.animateKeyframes(withDuration: 5, delay: 0, options: [], animations: {
-            
-        }, completion: nil)
-        
+    
+    func random_angle() -> CGFloat  {
+        let random = CGFloat.random(in: 1...8)
+        return random
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func randomXPosition() -> CGFloat  {
+           let random = CGFloat.random(in: 1..<100)
+           return random
+       }
     
+    func randomYPosition() -> CGFloat  {
+        let random = CGFloat.random(in: 1..<300)
+        return random
+    }
+    
+    @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+       var isScattered = Bool()
+              isScattered.toggle()
+              
+              if isScattered == true {
+                  UIImageView.animate(withDuration: 3) {
+                      self.imageView.alpha = 0
+                  }
+            
+            UIView.animateKeyframes(withDuration: 1, delay: 0, options: [], animations: {
+                self.lLabel.transform = CGAffineTransform(rotationAngle: self.random_angle())
+                self.aLabel.transform = CGAffineTransform(rotationAngle: self.random_angle())
+                self.mLabel.transform = CGAffineTransform(rotationAngle: self.random_angle())
+                self.bLabel.transform = CGAffineTransform(rotationAngle: self.random_angle())
+                self.dLabel.transform = CGAffineTransform(rotationAngle: self.random_angle())
+                self.a2Label.transform = CGAffineTransform(rotationAngle: self.random_angle())
+            }, completion: nil)
+            
+            UIView.animateKeyframes(withDuration: 4, delay: 0, options: [], animations: {
+                self.lLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
+                
+                self.aLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
+                self.mLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
+                self.bLabel.transform = CGAffineTransform(translationX: self.randomXPosition(), y: self.randomYPosition())
+                self.dLabel.transform = CGAffineTransform(translationX: -self.randomXPosition(), y: self.randomYPosition())
+                self.a2Label.transform = CGAffineTransform(translationX: -self.randomXPosition(), y: self.randomYPosition())
+            }, completion: nil)
+        } else {
+            imageView.transform = .identity
+            stackView.transform = .identity
+            lLabel.transform = .identity
+            aLabel.transform = .identity
+            mLabel.transform = .identity
+            bLabel.transform = .identity
+            dLabel.transform = .identity
+            a2Label.transform = .identity
+        }
+    }
 }
+
