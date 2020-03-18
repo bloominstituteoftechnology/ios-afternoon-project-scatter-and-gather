@@ -16,7 +16,9 @@ class ViewController: UIViewController {
     var anticipationPoint = CGPoint()
 
     var letters: [UILabel] = []
-    var colors = [UIColor.blue, UIColor.brown, UIColor.cyan, UIColor.orange, UIColor.green]
+    var colors = [UIColor.red, UIColor.blue, UIColor.brown,
+                  UIColor.cyan, UIColor.orange, UIColor.green,
+                  UIColor.yellow]
     
     // This is to make sure the functions all get used. Don't duplicate 3 and 4.
     var arrayOfFunctions = [0, 1, 2, 3, 4, 0]
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var toggleButtonLabel: UIBarButtonItem!
     
     @IBOutlet weak var logoImageView: UIImageView!
-    
+
     // MARK: - Actions
     @IBAction func toggleButton(_ sender: Any) {
         isScattered.toggle()
@@ -109,9 +111,11 @@ class ViewController: UIViewController {
             
         UIView.animate(withDuration: 2.0, animations: {
             if scattered {
+                uiLabel.textColor = self.colors.randomElement()
                 uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4) // pi is 180 rotation. Not additive. Where you are rotating to.
             } else {
+                uiLabel.textColor = UIColor.black
                 uiLabel.backgroundColor = UIColor.clear
                 uiLabel.alpha = 1.0
                 uiLabel.transform = .identity
@@ -121,6 +125,7 @@ class ViewController: UIViewController {
     
     private func springButtonTapped(uiLabel: UILabel) {
         if isScattered {
+            uiLabel.textColor = self.colors.randomElement()
             uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
         }
         uiLabel.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
@@ -129,6 +134,7 @@ class ViewController: UIViewController {
         },
                        completion: nil)
         if !isScattered {
+            uiLabel.textColor = UIColor.black
             uiLabel.backgroundColor = UIColor.clear
             uiLabel.alpha = 1.0
         }
@@ -140,6 +146,8 @@ class ViewController: UIViewController {
         UIView.animateKeyframes(withDuration: 5.0, delay: 0, options: [], animations: {
 
             if scattered {
+                uiLabel.textColor = self.colors.randomElement()
+                self.logoImageView.alpha = 0
                 uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
                     uiLabel.transform = CGAffineTransform(rotationAngle: CGFloat.pi / 4)
@@ -170,8 +178,10 @@ class ViewController: UIViewController {
                     uiLabel.center = CGPoint(x: uiLabel.center.x, y: uiLabel.center.y + 50)
                 }
 
+                uiLabel.textColor = UIColor.black
                 uiLabel.backgroundColor = UIColor.clear
                 uiLabel.alpha = 1.0
+                self.logoImageView.alpha = 1
 
                 // Last quarter of time
 //                UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
@@ -186,6 +196,7 @@ class ViewController: UIViewController {
         
         let animationBlock = {
             if scattered {
+                uiLabel.textColor = self.colors.randomElement()
                 uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 self.squashPoint = uiLabel.center
                 uiLabel.center = CGPoint(x: uiLabel.center.x, y: -uiLabel.bounds.size.height)
@@ -205,6 +216,7 @@ class ViewController: UIViewController {
                     uiLabel.transform = CGAffineTransform(scaleX: 1.11, y: 0.9)
                 }
             } else {
+                uiLabel.textColor = UIColor.black
                 uiLabel.backgroundColor = UIColor.clear
                 uiLabel.alpha = 1.0
                 uiLabel.center = self.squashPoint
@@ -219,6 +231,7 @@ class ViewController: UIViewController {
 
         let animationBlock = {
             if scattered {
+                uiLabel.textColor = self.colors.randomElement()
                 uiLabel.backgroundColor = self.colors.randomElement()?.withAlphaComponent(0.25)
                 self.anticipationPoint = uiLabel.center
 
@@ -244,6 +257,7 @@ class ViewController: UIViewController {
                     uiLabel.transform = CGAffineTransform(rotationAngle: 0)
                 }
 
+                uiLabel.textColor = UIColor.black
                 uiLabel.backgroundColor = UIColor.clear
                 uiLabel.alpha = 1.0
             }
