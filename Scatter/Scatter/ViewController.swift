@@ -12,7 +12,8 @@ class ViewController: UIViewController {
 
     // MARK: - Properites
     var isScattered = false
-    
+    var squashPoint = CGPoint()
+
     var letters: [UILabel] = []
     
     // MARK: - Outlets
@@ -52,7 +53,8 @@ class ViewController: UIViewController {
     private func performGather() {
 //        rotateButtonTapped(uiLabel: letter1Label)
 //        springButtonTapped(uiLabel: letter1Label)
-        keyButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
+//        keyButtonTapped(uiLabel: letter1Label)
+        squashButtonTapped(uiLabel: letter1Label)
     }
     
     private func peformScatter() {
@@ -60,8 +62,8 @@ class ViewController: UIViewController {
         
 //        rotateButtonTapped(uiLabel: letter1Label)
 //        springButtonTapped(uiLabel: letter1Label)
-        keyButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
-//        squashButtonTapped(uiLabel: letter1Label) // FIXME: Starting position.
+//        keyButtonTapped(uiLabel: letter1Label)
+        squashButtonTapped(uiLabel: letter1Label)
 //        anticipationButtonTapped(uiLabel: letter1Label)
         return
         
@@ -129,7 +131,7 @@ class ViewController: UIViewController {
                 }
                 
                 // Next quarter of time
-                // TODO: This seems to take me to the start of this function. Not original position. 
+                // TODO: This seems to take me to the start of this function. Not original position.
                 UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25) {
                     uiLabel.transform = .identity
                 }
@@ -148,27 +150,29 @@ class ViewController: UIViewController {
     }
 
     private func squashButtonTapped(uiLabel: UILabel) {
-        // FIXME: Delete> label.center = CGPoint(x: view.center.x, y: -label.bounds.size.height)
+        let scattered = isScattered
         
         let animationBlock = {
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
-                uiLabel.center = self.view.center
-            }
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
-                uiLabel.transform = CGAffineTransform(scaleX: 1.7, y: 0.6)
-            }
-            
-            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.2) {
-                uiLabel.transform = CGAffineTransform(scaleX: 0.6, y: 1.7)
-            }
-
-            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.15) {
-                uiLabel.transform = CGAffineTransform(scaleX: 1.11, y: 0.9)
-            }
-
-            UIView.addKeyframe(withRelativeStartTime: 0.85, relativeDuration: 0.15) {
-                uiLabel.transform = .identity
+            if scattered {
+                self.squashPoint = uiLabel.center
+                uiLabel.center = CGPoint(x: uiLabel.center.x, y: -uiLabel.bounds.size.height)
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
+                    uiLabel.center = CGPoint(x: uiLabel.center.x, y: self.view.center.y)
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
+                    uiLabel.transform = CGAffineTransform(scaleX: 1.7, y: 0.6)
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.2) {
+                    uiLabel.transform = CGAffineTransform(scaleX: 0.6, y: 1.7)
+                }
+                
+                UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.15) {
+                    uiLabel.transform = CGAffineTransform(scaleX: 1.11, y: 0.9)
+                }
+            } else {
+                uiLabel.center = self.squashPoint
             }
         }
         
