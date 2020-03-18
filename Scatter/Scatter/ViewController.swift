@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     var anticipationPoint = CGPoint()
 
     var letters: [UILabel] = []
+    var arrayOfFunctions = [0, 1, 2, 3, 4, 1]
     
     // MARK: - Outlets
     @IBOutlet weak var letter1Label: UILabel!
@@ -52,26 +53,13 @@ class ViewController: UIViewController {
 
     // MARK: - Business logic
     private func performGather() {
-//        rotateButtonTapped(uiLabel: letter1Label)
-//        springButtonTapped(uiLabel: letter1Label)
-//        keyButtonTapped(uiLabel: letter1Label)
-//        squashButtonTapped(uiLabel: letter1Label)
-        anticipationButtonTapped(uiLabel: letter1Label)
-    }
-    
-    private func peformScatter() {
         print("isScattered \(isScattered)")
         
-//        rotateButtonTapped(uiLabel: letter1Label)
-//        springButtonTapped(uiLabel: letter1Label)
-//        keyButtonTapped(uiLabel: letter1Label)
-//        squashButtonTapped(uiLabel: letter1Label)
-        anticipationButtonTapped(uiLabel: letter1Label)
-        return
+        var round = 0
         
         for letter in letters {
             
-            switch Int.random(in: 0...4) {
+            switch arrayOfFunctions[round] {
             case 0:
                 rotateButtonTapped(uiLabel: letter)
             case 1:
@@ -83,6 +71,31 @@ class ViewController: UIViewController {
             default:
                 anticipationButtonTapped(uiLabel: letter)
             }
+            round += 1
+        }
+    }
+    
+    private func peformScatter() {
+        print("isScattered \(isScattered)")
+        
+        arrayOfFunctions.shuffle()
+        var round = 0
+        
+        for letter in letters {
+            
+            switch arrayOfFunctions[round] {
+            case 0:
+                rotateButtonTapped(uiLabel: letter)
+            case 1:
+                springButtonTapped(uiLabel: letter)
+            case 2:
+                keyButtonTapped(uiLabel: letter)
+            case 3:
+                squashButtonTapped(uiLabel: letter)
+            default:
+                anticipationButtonTapped(uiLabel: letter)
+            }
+            round += 1
         }
     }
     
