@@ -42,9 +42,9 @@ class ViewController: UIViewController {
     private var lambdaLogoView = UIImageView(image: UIImage(named: "lambda_logo"))
     
     private func setupLabels() {
-        lambdaLabels.forEach {
-            $0.font = .systemFont(ofSize: 60, weight: .bold)
-            $0.translatesAutoresizingMaskIntoConstraints = false
+        lambdaLabels.forEach { label in
+            label.font = .systemFont(ofSize: 60, weight: .bold)
+            label.translatesAutoresizingMaskIntoConstraints = false
         }
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -83,31 +83,45 @@ class ViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.2) {
                 self.lambdaLogoView.layer.opacity = 0
             }
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.6) {
-                self.lambdaLabels.forEach {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
+                self.lambdaLabels.forEach { label in
                     let minX = self.view.safeAreaInsets.left
                     let minY = self.view.safeAreaInsets.top
-                    let maxX = self.view.frame.width - $0.frame.width - self.view.safeAreaInsets.right
-                    let maxY = self.view.frame.height - $0.frame.height - self.view.safeAreaInsets.bottom
+                    let maxX = self.view.frame.width - label.frame.width - self.view.safeAreaInsets.right
+                    let maxY = self.view.frame.height - label.frame.height - self.view.safeAreaInsets.bottom
                     
                     let randomOrigin = CGPoint(x: .random(in: minX...maxX), y: .random(in: minY...maxY))
-                    let convertedOrigin = self.view.convert(randomOrigin, to: self.stackView)
-                    $0.frame.origin = convertedOrigin
+                    let endOrigin = self.view.convert(randomOrigin, to: self.stackView)
+                    
+                    label.transform = .init(translationX: endOrigin.x - label.frame.origin.x, y: endOrigin.y - label.frame.origin.y)
                 }
             }
             UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6, animations: {
-                self.lambdaLabels.forEach {
-                    $0.textColor = .random
-                    $0.backgroundColor = .random
+                self.lambdaLabels.forEach { label in
+                    label.layer.backgroundColor = .random
+                    label.transform = label.transform.rotated(by: .random(in: 0...CGFloat.pi))
                 }
             })
         }
         
-        UIView.animateKeyframes(withDuration: 4.0, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: scatterAnimationBlock, completion: nil)
     }
     
     func performGatherAnimation() {
         
+        let gatherAnimationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.lambdaLabels.forEach { label in
+                    label.transform = .identity
+                    label.layer.backgroundColor = .none
+                }
+            }
+            UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2) {
+                self.lambdaLogoView.layer.opacity = 1.0
+            }
+        }
+        
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: gatherAnimationBlock, completion: nil)
     }
     
     
@@ -128,8 +142,8 @@ extension UILabel {
     }
 }
 
-extension UIColor {
-    static var random: UIColor {
-        .init(red: .random(in: 0...1), green: .random(in: 0...1), blue: .random(in: 0...1), alpha: 1)
+extension CGColor {
+    static var random: CGColor {
+        .init(srgbRed: .random(in: 0...1), green: .random(in: 0...1), blue: CGFloat.random(in: 0...1), alpha: 1)
     }
 }
