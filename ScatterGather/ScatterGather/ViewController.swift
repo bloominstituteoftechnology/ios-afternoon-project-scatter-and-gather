@@ -45,7 +45,8 @@ class ViewController: UIViewController {
     private func setupLabels() {
         lambdaLabels.forEach { label in
             label.font = .systemFont(ofSize: 60, weight: .bold)
-            label.translatesAutoresizingMaskIntoConstraints = false
+            label.layer.shadowOffset = CGSize(width: 5.0, height: 5.0)
+            label.layer.shadowRadius = 5.0
         }
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -112,6 +113,8 @@ class ViewController: UIViewController {
                     let endOrigin = self.view.convert(randomOrigin, to: self.stackView)
                     
                     label.transform = .init(translationX: endOrigin.x - label.frame.origin.x, y: endOrigin.y - label.frame.origin.y)
+                    
+                    label.layer.shadowOpacity = 0.5
                 }
             }
             UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6, animations: {
@@ -131,6 +134,7 @@ class ViewController: UIViewController {
                 self.lambdaLabels.forEach { label in
                     label.transform = .identity
                     label.layer.backgroundColor = .none
+                    label.layer.shadowOpacity = 0
                 }
             }
             UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2) {
