@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XGS-b4-KUb">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
@@ -72,12 +72,24 @@
                         <viewLayoutGuide key="safeArea" id="LlA-HX-oBG"/>
                     </view>
                     <navigationItem key="navigationItem" id="eaA-fA-XOh">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="dnk-N1-25k"/>
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="dnk-N1-25k">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="jWs-EY-ao9" id="8dZ-qn-6Mz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lastALabel" destination="sTR-j1-l1K" id="uDI-Xs-D14"/>
+                        <outlet property="letterALabel" destination="MsW-0f-osK" id="SDV-69-xJf"/>
+                        <outlet property="letterBLabel" destination="ZyX-30-qdb" id="ra9-mw-jt0"/>
+                        <outlet property="letterDLabel" destination="M5b-OB-DG5" id="Bis-oO-uzp"/>
+                        <outlet property="letterLLabel" destination="gWW-Yu-tsd" id="UaF-a6-yTd"/>
+                        <outlet property="letterMLabel" destination="8GN-RG-Bzj" id="Ecg-oM-fG3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTc-hj-qWS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1646" y="136"/>
+            <point key="canvasLocation" x="1467" y="136"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="UCt-qU-A9R">
@@ -95,7 +107,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wgj-zA-rfF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892.75362318840587" y="135.9375"/>
+            <point key="canvasLocation" x="774" y="136"/>
         </scene>
     </scenes>
     <resources>

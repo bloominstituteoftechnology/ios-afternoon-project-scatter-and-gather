@@ -10,10 +10,24 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var letterLLabel: UILabel!
+    @IBOutlet weak var letterALabel: UILabel!
+    @IBOutlet weak var letterMLabel: UILabel!
+    @IBOutlet weak var letterBLabel: UILabel!
+    @IBOutlet weak var letterDLabel: UILabel!
+    @IBOutlet weak var lastALabel: UILabel!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
+    }
+    
 
 
 }

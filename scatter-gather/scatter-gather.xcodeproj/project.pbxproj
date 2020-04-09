@@ -14,6 +14,7 @@
 		AB8970EF243E9D3400B254C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB8970EE243E9D3400B254C8 /* Assets.xcassets */; };
 		AB8970F2243E9D3400B254C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB8970F0243E9D3400B254C8 /* LaunchScreen.storyboard */; };
 		AB8970FA243EA19000B254C8 /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AB8970F9243EA18F00B254C8 /* lambda_logo.png */; };
+		AB8970FC243EA24400B254C8 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AB8970FB243EA24400B254C8 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		AB8970F1243E9D3400B254C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB8970F3243E9D3400B254C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB8970F9243EA18F00B254C8 /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lambda_logo.png; sourceTree = "<group>"; };
+		AB8970FB243EA24400B254C8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +44,7 @@
 		AB8970D9243E9D3200B254C8 = {
 			isa = PBXGroup;
 			children = (
+				AB8970FB243EA24400B254C8 /* README.md */,
 				AB8970E4243E9D3200B254C8 /* scatter-gather */,
 				AB8970E3243E9D3200B254C8 /* Products */,
 			);
@@ -130,6 +133,7 @@
 			files = (
 				AB8970F2243E9D3400B254C8 /* LaunchScreen.storyboard in Resources */,
 				AB8970EF243E9D3400B254C8 /* Assets.xcassets in Resources */,
+				AB8970FC243EA24400B254C8 /* README.md in Resources */,
 				AB8970ED243E9D3200B254C8 /* Main.storyboard in Resources */,
 				AB8970FA243EA19000B254C8 /* lambda_logo.png in Resources */,
 			);
