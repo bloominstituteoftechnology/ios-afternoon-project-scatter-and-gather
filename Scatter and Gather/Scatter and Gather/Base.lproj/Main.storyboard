@@ -15,42 +15,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lhc-mq-6BG">
-                                <rect key="frame" x="60" y="138" width="33" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z41-C8-cod">
-                                <rect key="frame" x="108" y="138" width="33" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs4-vy-gyW">
-                                <rect key="frame" x="156" y="138" width="51" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="b" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gw0-9E-hRK">
-                                <rect key="frame" x="222" y="138" width="36" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="d" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sg-Sl-BrN">
-                                <rect key="frame" x="273" y="138" width="36" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cu-oZ-7Cz">
-                                <rect key="frame" x="324" y="138" width="33" height="72"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="60"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lambda_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nrq-1K-Vd2">
                                 <rect key="frame" x="57" y="238" width="300" height="83.5"/>
                                 <constraints>
@@ -61,20 +25,8 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="1cu-oZ-7Cz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="2X2-ul-DTc"/>
-                            <constraint firstItem="gw0-9E-hRK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="5yb-co-ZUz"/>
-                            <constraint firstItem="4sg-Sl-BrN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="7dt-i1-uv0"/>
                             <constraint firstItem="Nrq-1K-Vd2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="9Yf-eQ-SoP"/>
-                            <constraint firstItem="Lhc-mq-6BG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Emh-xA-aaj"/>
-                            <constraint firstItem="cs4-vy-gyW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="Obc-uU-t3l"/>
-                            <constraint firstItem="gw0-9E-hRK" firstAttribute="leading" secondItem="cs4-vy-gyW" secondAttribute="trailing" constant="15" id="Pvi-Nw-pxN"/>
-                            <constraint firstItem="Lhc-mq-6BG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="V6s-4C-DMw"/>
-                            <constraint firstItem="z41-C8-cod" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="ZDI-Mz-inr"/>
-                            <constraint firstItem="1cu-oZ-7Cz" firstAttribute="leading" secondItem="4sg-Sl-BrN" secondAttribute="trailing" constant="15" id="a5w-qG-5O2"/>
                             <constraint firstItem="Nrq-1K-Vd2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="j6L-lF-imZ"/>
-                            <constraint firstItem="cs4-vy-gyW" firstAttribute="leading" secondItem="z41-C8-cod" secondAttribute="trailing" constant="15" id="n46-bB-zlI"/>
-                            <constraint firstItem="4sg-Sl-BrN" firstAttribute="leading" secondItem="gw0-9E-hRK" secondAttribute="trailing" constant="15" id="rXq-cE-DVM"/>
-                            <constraint firstItem="z41-C8-cod" firstAttribute="leading" secondItem="Lhc-mq-6BG" secondAttribute="trailing" constant="15" id="vSA-PA-1Xl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -86,13 +38,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="aLabel" destination="z41-C8-cod" id="dIR-ZC-qJe"/>
-                        <outlet property="bLabel" destination="gw0-9E-hRK" id="ha1-lM-1v1"/>
-                        <outlet property="dLabel" destination="4sg-Sl-BrN" id="Fsz-Z7-JF6"/>
-                        <outlet property="lLabel" destination="Lhc-mq-6BG" id="8W0-Bp-ZXo"/>
                         <outlet property="lambdaLogoImageView" destination="Nrq-1K-Vd2" id="wo0-2W-IyS"/>
-                        <outlet property="mLabel" destination="cs4-vy-gyW" id="nd5-bw-9Ui"/>
-                        <outlet property="secondALabel" destination="1cu-oZ-7Cz" id="n0L-0f-fuo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
