@@ -127,7 +127,6 @@ class ToggleViewController: UIViewController {
         }
     }
 
-    /// Constraints needed:   X,    Y,     Width,     Height
     private func lambdaLogoAnimation() {
         view.addSubview(lambdaLogo)
         lambdaLogo.widthAnchor.constraint(equalToConstant: 200).isActive = true

@@ -23,7 +23,7 @@
 		1FAEF0552440F62C001703A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1FAEF0582440F62C001703A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1FAEF05A2440F62C001703A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1FAEF0672440F860001703A5 /* ToggleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewController.swift; sourceTree = "<group>"; };
+		1FAEF0672440F860001703A5 /* ToggleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
