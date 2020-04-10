@@ -85,6 +85,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="aLabel" destination="z41-C8-cod" id="dIR-ZC-qJe"/>
+                        <outlet property="bLabel" destination="gw0-9E-hRK" id="ha1-lM-1v1"/>
+                        <outlet property="dLabel" destination="4sg-Sl-BrN" id="Fsz-Z7-JF6"/>
+                        <outlet property="lLabel" destination="Lhc-mq-6BG" id="8W0-Bp-ZXo"/>
+                        <outlet property="lambdaLogoImageView" destination="Nrq-1K-Vd2" id="wo0-2W-IyS"/>
+                        <outlet property="mLabel" destination="cs4-vy-gyW" id="nd5-bw-9Ui"/>
+                        <outlet property="secondALabel" destination="1cu-oZ-7Cz" id="n0L-0f-fuo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
