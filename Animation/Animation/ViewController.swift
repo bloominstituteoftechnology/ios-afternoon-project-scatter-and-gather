@@ -31,8 +31,40 @@ class ViewController: UIViewController {
 
     // MARK: - IBAction
     @IBAction func toggleButtonPressed(_ sender: Any) {
+        if isScattered {
+            gatherAnimation()
+        } else {
+            scatterAnimation()
+        }
+        
+        isScattered.toggle()
     }
     
-
+    //MARK: - Animation Functions
+    private func scatterAnimation() {
+        fadeLogo()
+    }
+    
+    private func gatherAnimation() {
+        unfadeLogo()
+    }
+    
+    private func fadeLogo() {
+        imageView.center = view.center
+        
+        UIView.animate(withDuration: 3.0) {
+            self.imageView.alpha = 0.0
+        }
+    }
+    
+    private func unfadeLogo() {
+        UIView.animate(withDuration: 3.0) {
+            self.imageView.alpha = 1.0
+        }
+    }
+    
+    private func getRandomLocation() {
+        
+    }
 }
 
