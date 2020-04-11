@@ -127,12 +127,12 @@ class ViewController: UIViewController {
         let animationBlock = {
             
             // Fades out Lambda Logo
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.70) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.imageView.alpha = 0.0
             }
             
             // Changes color of letters
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.lLabel.backgroundColor = UIColor.random()
                 self.lLabel.textColor = UIColor.random()
                 
@@ -152,9 +152,9 @@ class ViewController: UIViewController {
                 self.secondALabel.textColor = UIColor.random()
             }
             
-            // Changes position of letters
+            // Changes position and rotation of letters
             
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.lLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
                 self.firstALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
                 self.mLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
@@ -162,17 +162,6 @@ class ViewController: UIViewController {
                 self.dLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
                 self.secondALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
             }
-        
-            // Changes rotation of letters
-//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-//                self.lLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-//                self.firstALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-//                self.mLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-//                self.bLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-//                self.dLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-//                self.secondALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-//            }
-        
         }
         
         UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: animationBlock, completion: nil)
@@ -184,12 +173,12 @@ class ViewController: UIViewController {
         let animationBlock = {
             
             // Fades in Lambda logo
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.imageView.alpha = 1.0
             }
             
             // Changes color of letters back to normal
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.lLabel.backgroundColor = .white
                 self.lLabel.textColor = .black
                 
@@ -210,7 +199,7 @@ class ViewController: UIViewController {
             }
             
             // Changes rotation and position of letters back to normal
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
                 self.lLabel.transform = .identity
                 self.firstALabel.transform = .identity
                 self.mLabel.transform = .identity
@@ -221,7 +210,7 @@ class ViewController: UIViewController {
             
         }
         
-        UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: animationBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: animationBlock, completion: nil)
         
     }
     
