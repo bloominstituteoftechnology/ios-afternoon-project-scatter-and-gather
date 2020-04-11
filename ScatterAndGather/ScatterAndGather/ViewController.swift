@@ -11,6 +11,13 @@ import UIKit
 class ViewController: UIViewController {
     
     var isScattered = false
+    let l = UILabel()
+    let a = UILabel()
+    let m = UILabel()
+    let b = UILabel()
+    let d = UILabel()
+    let aa = UILabel()
+    let logo = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,4 +27,3 @@ class ViewController: UIViewController {
         
     }
 }
-
