@@ -127,12 +127,12 @@ class ViewController: UIViewController {
         let animationBlock = {
             
             // Fades out Lambda Logo
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.70) {
                 self.imageView.alpha = 0.0
             }
             
             // Changes color of letters
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
                 self.lLabel.backgroundColor = UIColor.random()
                 self.lLabel.textColor = UIColor.random()
                 
@@ -153,35 +153,24 @@ class ViewController: UIViewController {
             }
             
             // Changes position of letters
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                self.lLabel.transform = CGAffineTransform(
-                    scaleX: .random(), y: .random()
-                )
-                self.firstALabel.transform = CGAffineTransform(
-                    scaleX: .random(), y: .random()
-                )
-                self.mLabel.transform = CGAffineTransform(
-                    scaleX: .random(), y: .random()
-                )
-                self.bLabel.transform = CGAffineTransform(
-                    scaleX: .random(), y: .random()
-                )
-                self.dLabel.transform = CGAffineTransform(
-                    scaleX: .random(), y: .random()
-                )
-                self.secondALabel.transform = CGAffineTransform(
-                    scaleX: .random(), y: .random()
-                )
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
+                self.lLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
+                self.firstALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
+                self.mLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
+                self.bLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
+                self.dLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
+                self.secondALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
             }
         
             // Changes rotation of letters
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                self.lLabel.transform = CGAffineTransform(rotationAngle: .random())
-                self.firstALabel.transform = CGAffineTransform(rotationAngle: .random())
-                self.mLabel.transform = CGAffineTransform(rotationAngle: .random())
-                self.bLabel.transform = CGAffineTransform(rotationAngle: .random())
-                self.dLabel.transform = CGAffineTransform(rotationAngle: .random())
-                self.secondALabel.transform = CGAffineTransform(rotationAngle: .random())
+                self.lLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+                self.firstALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+                self.mLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+                self.bLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+                self.dLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+                self.secondALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
             }
         
         }
@@ -195,12 +184,12 @@ class ViewController: UIViewController {
         let animationBlock = {
             
             // Fades in Lambda logo
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
                 self.imageView.alpha = 1.0
             }
             
             // Changes color of letters back to normal
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
                 self.lLabel.backgroundColor = .white
                 self.lLabel.textColor = .black
                 
@@ -221,7 +210,7 @@ class ViewController: UIViewController {
             }
             
             // Changes rotation and position of letters back to normal
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
                 self.lLabel.transform = .identity
                 self.firstALabel.transform = .identity
                 self.mLabel.transform = .identity
@@ -232,7 +221,7 @@ class ViewController: UIViewController {
             
         }
         
-        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animationBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: animationBlock, completion: nil)
         
     }
     
@@ -248,8 +237,14 @@ extension UIColor {
 }
 
 extension CGFloat {
-    static func random() -> CGFloat {
-        return CGFloat.random(in: 1...300)
+    static func randomAngle() -> CGFloat {
+        return CGFloat.random(in: 1...360)
+    }
+    static func randomX() -> CGFloat {
+        return CGFloat.random(in: -20...150)
+    }
+    static func randomY() -> CGFloat {
+        return CGFloat.random(in: -20...700)
     }
 }
 
