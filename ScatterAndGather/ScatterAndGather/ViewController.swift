@@ -123,17 +123,10 @@ class ViewController: UIViewController {
     }
     
     private func scatterLetters() {
-        lLabel.transform = .identity
-        firstALabel.transform = .identity
-        mLabel.transform = .identity
-        bLabel.transform = .identity
-        dLabel.transform = .identity
-        secondALabel.transform = .identity
-        
-        
+
         let animationBlock = {
             
-            // Fades Lambda Logo
+            // Fades out Lambda Logo
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
                 self.imageView.alpha = 0.0
             }
@@ -198,6 +191,48 @@ class ViewController: UIViewController {
     }
     
     private func gatherLetters() {
+        
+        let animationBlock = {
+            
+            // Fades in Lambda logo
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.imageView.alpha = 1.0
+            }
+            
+            // Changes color of letters back to normal
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.lLabel.backgroundColor = .white
+                self.lLabel.textColor = .black
+                
+                self.firstALabel.backgroundColor = .white
+                self.firstALabel.textColor = .black
+                
+                self.mLabel.backgroundColor = .white
+                self.mLabel.textColor = .black
+                
+                self.bLabel.backgroundColor = .white
+                self.bLabel.textColor = .black
+                
+                self.dLabel.backgroundColor = .white
+                self.dLabel.textColor = .black
+                
+                self.secondALabel.backgroundColor = .white
+                self.secondALabel.textColor = .black
+            }
+            
+            // Changes rotation and position of letters back to normal
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                self.lLabel.transform = .identity
+                self.firstALabel.transform = .identity
+                self.mLabel.transform = .identity
+                self.bLabel.transform = .identity
+                self.dLabel.transform = .identity
+                self.secondALabel.transform = .identity
+            }
+            
+        }
+        
+        UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animationBlock, completion: nil)
         
     }
     
