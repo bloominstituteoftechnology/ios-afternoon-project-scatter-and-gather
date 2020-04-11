@@ -41,11 +41,13 @@ class ViewController: UIViewController {
     private func scatterAnimation() {
         fadeLogo()
         moveLettersRandomly()
+        makeRandomColor()
     }
     
     private func gatherAnimation() {
         unfadeLogo()
         moveLettersBack()
+        backToNormalColor()
     }
     
     private func fadeLogo() {
@@ -90,16 +92,54 @@ class ViewController: UIViewController {
         }
     }
     
+    private func makeRandomColor() {
+        UIView.transition(with: view, duration: 3, options: .repeat, animations: {
+            self.lLabel.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.aLabel.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.mLabel.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.bLabel.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.dLabel.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.a2Label.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            
+            self.lLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.aLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.mLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.bLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.dLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.a2Label.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+        }, completion: nil)
+    }
+    
+    private func backToNormalColor() {
+        UIView.animate(withDuration: 3.0) {
+            self.lLabel.textColor = .black
+            self.aLabel.textColor = .black
+            self.mLabel.textColor = .black
+            self.bLabel.textColor = .black
+            self.dLabel.textColor = .black
+            self.a2Label.textColor = .black
+            
+            self.lLabel.backgroundColor = .white
+            self.aLabel.backgroundColor = .white
+            self.mLabel.backgroundColor = .white
+            self.bLabel.backgroundColor = .white
+            self.dLabel.backgroundColor = .white
+            self.a2Label.backgroundColor = .white
+        }
+    }
+    
     private func getRandomLocation(oldX: CGFloat, oldY: CGFloat) -> [CGFloat] {
         let width = UIScreen.main.bounds.width
         let height = UIScreen.main.bounds.height
         
         let newX = CGFloat.random(in: -oldX...(width - oldX))
         let newY = CGFloat.random(in: -oldY...(height - oldY))
-        
-        print(newX)
-        print(newY)
+
         return [newX, newY]
+    }
+    
+    private func getRandomColor() -> CGFloat {
+        return CGFloat.random(in: 1...255)/255
     }
 }
 
