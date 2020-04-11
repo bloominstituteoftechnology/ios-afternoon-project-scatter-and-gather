@@ -67,17 +67,17 @@ class ViewController: UIViewController {
     private func moveLettersRandomly() {
         UIView.animate(withDuration: 3.0) {
             var newLocation = self.getRandomLocation(oldX: self.lLabel.frame.origin.x, oldY: self.lLabel.frame.origin.y)
-            self.lLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1])
+            self.lLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1]).rotated(by: self.rotationAngleRandomizer())
             newLocation = self.getRandomLocation(oldX: self.aLabel.frame.origin.x, oldY: self.aLabel.frame.origin.y)
-            self.aLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1])
+            self.aLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1]).rotated(by: self.rotationAngleRandomizer())
             newLocation = self.getRandomLocation(oldX: self.mLabel.frame.origin.x, oldY: self.mLabel.frame.origin.y)
-            self.mLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1])
+            self.mLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1]).rotated(by: self.rotationAngleRandomizer())
             newLocation = self.getRandomLocation(oldX: self.bLabel.frame.origin.x, oldY: self.bLabel.frame.origin.y)
-            self.bLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1])
+            self.bLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1]).rotated(by: self.rotationAngleRandomizer())
             newLocation = self.getRandomLocation(oldX: self.dLabel.frame.origin.x, oldY: self.dLabel.frame.origin.y)
-            self.dLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1])
+            self.dLabel.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1]).rotated(by: self.rotationAngleRandomizer())
             newLocation = self.getRandomLocation(oldX: self.a2Label.frame.origin.x, oldY: self.a2Label.frame.origin.y)
-            self.a2Label.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1])
+            self.a2Label.transform = CGAffineTransform(translationX: newLocation[0], y: newLocation[1]).rotated(by: self.rotationAngleRandomizer())
         }
     }
     
@@ -92,6 +92,7 @@ class ViewController: UIViewController {
         }
     }
     
+    
     private func makeRandomColor() {
         UIView.transition(with: view, duration: 3, options: .repeat, animations: {
             self.lLabel.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
@@ -101,12 +102,12 @@ class ViewController: UIViewController {
             self.dLabel.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
             self.a2Label.textColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
             
-            self.lLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
-            self.aLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
-            self.mLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
-            self.bLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
-            self.dLabel.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
-            self.a2Label.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1)
+            self.lLabel.layer.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1).cgColor
+            self.aLabel.layer.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1).cgColor
+            self.mLabel.layer.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1).cgColor
+            self.bLabel.layer.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1).cgColor
+            self.dLabel.layer.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1).cgColor
+            self.a2Label.layer.backgroundColor = UIColor(red: self.getRandomColor(), green: self.getRandomColor(), blue: self.getRandomColor(), alpha: 1).cgColor
         }, completion: nil)
     }
     
@@ -140,6 +141,10 @@ class ViewController: UIViewController {
     
     private func getRandomColor() -> CGFloat {
         return CGFloat.random(in: 1...255)/255
+    }
+    
+    private func rotationAngleRandomizer() -> CGFloat {
+        return (CGFloat.pi * CGFloat.random(in: 1...4))
     }
 }
 
