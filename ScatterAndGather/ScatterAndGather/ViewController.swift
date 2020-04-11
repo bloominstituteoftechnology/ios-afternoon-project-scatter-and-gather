@@ -52,27 +52,27 @@ class ViewController: UIViewController {
         // Create and configure
         lLabel.translatesAutoresizingMaskIntoConstraints = false
         lLabel.text = "L"
-        lLabel.font = UIFont(name: "American Typewriter", size: 30)
+        lLabel.font = UIFont(name: "American Typewriter", size: 60)
         
         firstALabel.translatesAutoresizingMaskIntoConstraints = false
         firstALabel.text = "a"
-        firstALabel.font = UIFont(name: "American Typewriter", size: 30)
+        firstALabel.font = UIFont(name: "American Typewriter", size: 60)
         
         mLabel.translatesAutoresizingMaskIntoConstraints = false
         mLabel.text = "m"
-        mLabel.font = UIFont(name: "American Typewriter", size: 30)
+        mLabel.font = UIFont(name: "American Typewriter", size: 60)
         
         bLabel.translatesAutoresizingMaskIntoConstraints = false
         bLabel.text = "b"
-        bLabel.font = UIFont(name: "American Typewriter", size: 30)
+        bLabel.font = UIFont(name: "American Typewriter", size: 60)
         
         dLabel.translatesAutoresizingMaskIntoConstraints = false
         dLabel.text = "d"
-        dLabel.font = UIFont(name: "American Typewriter", size: 30)
+        dLabel.font = UIFont(name: "American Typewriter", size: 60)
         
         secondALabel.translatesAutoresizingMaskIntoConstraints = false
         secondALabel.text = "a"
-        secondALabel.font = UIFont(name: "American Typewriter", size: 30)
+        secondALabel.font = UIFont(name: "American Typewriter", size: 60)
         
         // Add to view
         view.addSubview(lLabel)
@@ -85,22 +85,22 @@ class ViewController: UIViewController {
         // Constraints and activation
         NSLayoutConstraint.activate([
         
-            lLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 40),
+            lLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 30),
             lLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             
-            firstALabel.leadingAnchor.constraint(equalTo: lLabel.trailingAnchor, constant: 40),
+            firstALabel.leadingAnchor.constraint(equalTo: lLabel.trailingAnchor, constant: 25),
             firstALabel.topAnchor.constraint(equalTo: lLabel.topAnchor),
             
-            mLabel.leadingAnchor.constraint(equalTo: firstALabel.trailingAnchor, constant: 40),
+            mLabel.leadingAnchor.constraint(equalTo: firstALabel.trailingAnchor, constant: 25),
             mLabel.topAnchor.constraint(equalTo: lLabel.topAnchor),
             
-            bLabel.leadingAnchor.constraint(equalTo: mLabel.trailingAnchor, constant: 40),
+            bLabel.leadingAnchor.constraint(equalTo: mLabel.trailingAnchor, constant: 25),
             bLabel.topAnchor.constraint(equalTo: lLabel.topAnchor),
             
-            dLabel.leadingAnchor.constraint(equalTo: bLabel.trailingAnchor, constant: 40),
+            dLabel.leadingAnchor.constraint(equalTo: bLabel.trailingAnchor, constant: 25),
             dLabel.topAnchor.constraint(equalTo: lLabel.topAnchor),
             
-            secondALabel.leadingAnchor.constraint(equalTo: dLabel.trailingAnchor, constant: 40),
+            secondALabel.leadingAnchor.constraint(equalTo: dLabel.trailingAnchor, constant: 30),
             secondALabel.topAnchor.constraint(equalTo: lLabel.topAnchor)
             
         
@@ -155,23 +155,23 @@ class ViewController: UIViewController {
             // Changes position of letters
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.99) {
-                self.lLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
-                self.firstALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
-                self.mLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
-                self.bLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
-                self.dLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
-                self.secondALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY())
+                self.lLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
+                self.firstALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
+                self.mLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
+                self.bLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
+                self.dLabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
+                self.secondALabel.transform = CGAffineTransform(translationX: .randomX(), y: .randomY()).rotated(by: .randomAngle())
             }
         
             // Changes rotation of letters
-            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                self.lLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-                self.firstALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-                self.mLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-                self.bLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-                self.dLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-                self.secondALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
-            }
+//            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+//                self.lLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+//                self.firstALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+//                self.mLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+//                self.bLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+//                self.dLabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+//                self.secondALabel.transform = CGAffineTransform(rotationAngle: .randomAngle())
+//            }
         
         }
         
