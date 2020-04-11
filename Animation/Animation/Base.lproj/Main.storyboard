@@ -85,13 +85,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="a2Label" destination="a9E-WB-cO1" id="1o3-XR-xhw"/>
-                        <outlet property="aLabel" destination="OjR-ix-0jV" id="RPV-5f-ldc"/>
-                        <outlet property="bLabel" destination="aeP-fe-u1E" id="3Vw-kV-grC"/>
-                        <outlet property="dLabel" destination="BdH-Pg-0WE" id="KmR-uN-dUD"/>
                         <outlet property="imageView" destination="xlI-pk-GE2" id="etP-OE-VeE"/>
-                        <outlet property="lLabel" destination="m3k-6g-Yd7" id="xx8-UL-phC"/>
-                        <outlet property="mLabel" destination="jnn-YI-pPj" id="FGa-JA-gNY"/>
+                        <outletCollection property="labels" destination="m3k-6g-Yd7" collectionClass="NSMutableArray" id="964-QW-fdc"/>
+                        <outletCollection property="labels" destination="OjR-ix-0jV" collectionClass="NSMutableArray" id="VfF-FL-dKn"/>
+                        <outletCollection property="labels" destination="jnn-YI-pPj" collectionClass="NSMutableArray" id="frG-In-mMa"/>
+                        <outletCollection property="labels" destination="aeP-fe-u1E" collectionClass="NSMutableArray" id="y6U-R2-jCX"/>
+                        <outletCollection property="labels" destination="BdH-Pg-0WE" collectionClass="NSMutableArray" id="Lz4-fq-zSF"/>
+                        <outletCollection property="labels" destination="a9E-WB-cO1" collectionClass="NSMutableArray" id="QNB-sL-nH9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
