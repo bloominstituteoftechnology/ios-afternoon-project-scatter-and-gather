@@ -14,12 +14,65 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lambda_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="iaB-zt-baR">
+                                <rect key="frame" x="87" y="238" width="240" height="128"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="37" translatesAutoresizingMaskIntoConstraints="NO" id="Lql-Lc-xSR">
+                                <rect key="frame" x="35" y="149" width="344" height="48"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vTg-rc-pUC">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fi6-dm-20U">
+                                        <rect key="frame" x="57" y="0.0" width="26" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A8L-Jq-lNr">
+                                        <rect key="frame" x="120" y="0.0" width="34" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgu-bs-Aus">
+                                        <rect key="frame" x="191" y="0.0" width="25" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="myx-Zf-cnx">
+                                        <rect key="frame" x="253" y="0.0" width="28" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4yR-gS-XTG">
+                                        <rect key="frame" x="318" y="0.0" width="26" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="iaB-zt-baR" firstAttribute="top" secondItem="Lql-Lc-xSR" secondAttribute="bottom" constant="41" id="5aR-aC-WRd"/>
+                            <constraint firstItem="Lql-Lc-xSR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="7Hy-XK-ktd"/>
+                            <constraint firstItem="Lql-Lc-xSR" firstAttribute="centerX" secondItem="iaB-zt-baR" secondAttribute="centerX" id="JuR-yo-LDA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iaB-zt-baR" secondAttribute="bottom" constant="447" id="g1p-nQ-T2i"/>
+                            <constraint firstItem="iaB-zt-baR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="mOh-ik-8Vz"/>
+                            <constraint firstItem="Lql-Lc-xSR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="yNU-mG-oXe"/>
+                            <constraint firstItem="Lql-Lc-xSR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ydN-bC-oxC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="6qH-TZ-d09"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="gfW-9Y-5UU">
                         <barButtonItem key="rightBarButtonItem" title="Toggle" id="Y1H-P8-GAC">
                             <connections>
@@ -28,6 +81,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="five" destination="myx-Zf-cnx" id="T6y-ak-jcd"/>
+                        <outlet property="four" destination="zgu-bs-Aus" id="2Pf-g0-QRe"/>
+                        <outlet property="logo" destination="iaB-zt-baR" id="Leh-UB-MTS"/>
+                        <outlet property="one" destination="vTg-rc-pUC" id="aCx-5j-lFB"/>
+                        <outlet property="six" destination="4yR-gS-XTG" id="qBz-2g-iFE"/>
+                        <outlet property="three" destination="A8L-Jq-lNr" id="ljc-ZM-Pft"/>
+                        <outlet property="two" destination="Fi6-dm-20U" id="AQl-Bn-d6i"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -52,4 +114,7 @@
             <point key="canvasLocation" x="137.68115942028987" y="104.46428571428571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lambda_logo.png" width="2000" height="558"/>
+    </resources>
 </document>

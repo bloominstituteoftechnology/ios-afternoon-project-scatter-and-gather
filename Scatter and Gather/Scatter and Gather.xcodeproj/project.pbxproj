@@ -13,6 +13,7 @@
 		026E95CB244119BB007C0216 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026E95C9244119BB007C0216 /* Main.storyboard */; };
 		026E95CD244119BC007C0216 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 026E95CC244119BC007C0216 /* Assets.xcassets */; };
 		026E95D0244119BC007C0216 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 026E95CE244119BC007C0216 /* LaunchScreen.storyboard */; };
+		026E95D824415AC3007C0216 /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 026E95D724415AC3007C0216 /* lambda_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		026E95CC244119BC007C0216 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		026E95CF244119BC007C0216 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		026E95D1244119BC007C0216 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		026E95D724415AC3007C0216 /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lambda_logo.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				026E95C7244119BB007C0216 /* ViewController.swift */,
 				026E95C9244119BB007C0216 /* Main.storyboard */,
 				026E95CC244119BC007C0216 /* Assets.xcassets */,
+				026E95D724415AC3007C0216 /* lambda_logo.png */,
 				026E95CE244119BC007C0216 /* LaunchScreen.storyboard */,
 				026E95D1244119BC007C0216 /* Info.plist */,
 			);
@@ -128,6 +131,7 @@
 				026E95D0244119BC007C0216 /* LaunchScreen.storyboard in Resources */,
 				026E95CD244119BC007C0216 /* Assets.xcassets in Resources */,
 				026E95CB244119BB007C0216 /* Main.storyboard in Resources */,
+				026E95D824415AC3007C0216 /* lambda_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
