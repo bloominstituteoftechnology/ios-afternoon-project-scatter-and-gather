@@ -14,8 +14,6 @@ class ViewController: UIViewController {
     
     
     @IBOutlet var lambdaLogo: UIImageView!
-    let toImage = UIImage(named: "lambda_logo.png")
-    
     @IBOutlet var lLabel: UILabel!
     @IBOutlet var aLabel: UILabel!
     @IBOutlet var mLabel: UILabel!
@@ -26,21 +24,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     func randomXGenerator() -> Int{
         let width = Int(self.view.bounds.width) - 200
-        print(width)
         let randomInt = Int.random(in: 1...width)
         return randomInt
     }
     
     func randomYGenerator() -> Int{
         let height = Int(self.view.bounds.height) - 200
-        print(height)
         let randomInt = Int.random(in: 1...height)
         return randomInt
+    }
+    
+    func randomPercentage() -> CGFloat {
+        let randomFloat = CGFloat.random(in: -3.6...3.6)
+        return randomFloat
     }
     
     func randomColors() ->  UIColor{
@@ -61,8 +61,7 @@ class ViewController: UIViewController {
             }, completion: nil)
             
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
-                self.lLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator()))
-                self.lLabel.transform = CGAffineTransform(rotationAngle: .pi/4)
+                self.lLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator())).rotated(by: self.randomPercentage())
                 self.lLabel.backgroundColor = self.randomColors()
                 self.lLabel.textColor = self.randomColors()
             }, completion: nil)
@@ -71,35 +70,35 @@ class ViewController: UIViewController {
                 self.aLabel.backgroundColor = self.randomColors()
                 self.aLabel.textColor = self.randomColors()
                 
-                self.aLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator()))
+                self.aLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator())).rotated(by: self.randomPercentage())
             }, completion: nil)
             
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
                 self.mLabel.backgroundColor = self.randomColors()
                 self.mLabel.textColor = self.randomColors()
                 
-                self.mLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator()))
+                self.mLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator())).rotated(by: self.randomPercentage())
             }, completion: nil)
             
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
                 self.bLabel.backgroundColor = self.randomColors()
                 self.bLabel.textColor = self.randomColors()
                 
-                self.bLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator()))
+                self.bLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator())).rotated(by: self.randomPercentage())
             }, completion: nil)
             
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
                 self.dLabel.backgroundColor = self.randomColors()
                 self.dLabel.textColor = self.randomColors()
                 
-                self.dLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator()))
+                self.dLabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator())).rotated(by: self.randomPercentage())
             }, completion: nil)
             
             UIView.animate(withDuration: 1, delay: 0, options: [], animations: {
                 self.aALabel.backgroundColor = self.randomColors()
                 self.aALabel.textColor = self.randomColors()
                 
-                self.aALabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator()))
+                self.aALabel.transform = CGAffineTransform(translationX: CGFloat(self.randomXGenerator()), y: CGFloat(self.randomYGenerator())).rotated(by: self.randomPercentage())
             }, completion: nil)
             
             isScattered = true
