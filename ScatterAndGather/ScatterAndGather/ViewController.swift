@@ -116,11 +116,21 @@ class ViewController: UIViewController {
     @IBAction func toggleButtpnPressed(_ sender: Any) {
         isToggled.toggle()
         if isToggled {
-        imageView.isHidden = true
+            UIViewPropertyAnimator(duration: 1.5, curve: .easeOut, animations: {
+                self.imageView.alpha = 0.0
+            }).startAnimation()
+       // imageView.isHidden = true
+            animateOut()
         } else {
-            imageView.isHidden = false
+            UIViewPropertyAnimator(duration: 1.5, curve: .easeOut, animations: {
+                self.imageView.alpha = 1.0
+            }).startAnimation()
+           // imageView.isHidden = false
+            animateBack()
         }
-        
+    }
+    
+    private func animateOut() {
         let animLabelLBlock = {
             
             self.labelL.backgroundColor = .blue
@@ -265,15 +275,16 @@ class ViewController: UIViewController {
             }
         }
         
-        
-        
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelLBlock, completion: nil)
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelA1Block, completion: nil)
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelMBlock, completion: nil)
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelBBlock, completion: nil)
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelDBlock, completion: nil)
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelA2Block, completion: nil)
-           
+    }
+    
+    private func animateBack() {
+        
     }
 }
 
