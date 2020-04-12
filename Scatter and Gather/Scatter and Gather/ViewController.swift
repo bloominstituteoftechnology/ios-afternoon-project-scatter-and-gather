@@ -103,7 +103,7 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: animationDuration) {
                 //L Label
                 let translateL = CGAffineTransform(
-                    translationX: CGFloat.random(in: 0...self.view.frame.size.width - 100),
+                    translationX: CGFloat.random(in: 0...self.view.frame.size.width - 125),
                     y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
                 let rotateL = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[0]))
                 self.lLabel.transform = rotateL.concatenating(translateL)
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
                 
                 //A Label
                 let translateA = CGAffineTransform(
-                    translationX: CGFloat.random(in: -50...self.view.frame.size.width - 150),
+                    translationX: CGFloat.random(in: -50...self.view.frame.size.width - 175),
                     y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
                 let rotateA = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[1]))
                 self.aLabel.transform = rotateA.concatenating(translateA)
@@ -121,7 +121,7 @@ class ViewController: UIViewController {
                 
                 //M Label
                 let translateM = CGAffineTransform(
-                    translationX: CGFloat.random(in: -75...self.view.frame.size.width - 175),
+                    translationX: CGFloat.random(in: -75...self.view.frame.size.width - 200),
                     y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
                 let rotateM = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[2]))
                 self.mLabel.transform = rotateM.concatenating(translateM)
@@ -130,7 +130,7 @@ class ViewController: UIViewController {
                 
                 //B Label
                 let translateB = CGAffineTransform(
-                    translationX: CGFloat.random(in: -125...self.view.frame.size.width - 200),
+                    translationX: CGFloat.random(in: -125...self.view.frame.size.width - 250),
                     y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
                 let rotateB = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[3]))
                 self.bLabel.transform = rotateB.concatenating(translateB)
@@ -139,7 +139,7 @@ class ViewController: UIViewController {
                 
                 //D Label
                 let translateD = CGAffineTransform(
-                    translationX: CGFloat.random(in: -150...self.view.frame.size.width - 250),
+                    translationX: CGFloat.random(in: -150...self.view.frame.size.width - 275),
                     y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
                 let rotateD = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[4]))
                 self.dLabel.transform = rotateD.concatenating(translateD)
@@ -148,7 +148,7 @@ class ViewController: UIViewController {
                 
                 //a2 Label
                 let translatea2 = CGAffineTransform(
-                    translationX: CGFloat.random(in: -175...self.view.frame.size.width - 300),
+                    translationX: CGFloat.random(in: -200...self.view.frame.size.width - 350),
                     y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
                 let rotatea2 = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[5]))
                 self.a2Label.transform = rotatea2.concatenating(translatea2)
