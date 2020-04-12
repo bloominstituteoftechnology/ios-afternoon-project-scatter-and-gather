@@ -90,8 +90,8 @@ class ViewController: UIViewController {
         stackview.addArrangedSubview(labelL)
         stackview.addArrangedSubview(labelA1)
         stackview.addArrangedSubview(labelM)
-        stackview.addArrangedSubview(labelD)
         stackview.addArrangedSubview(labelB)
+        stackview.addArrangedSubview(labelD)
         stackview.addArrangedSubview(labelA2)
         
         NSLayoutConstraint.activate([
@@ -125,42 +125,154 @@ class ViewController: UIViewController {
             
             self.labelL.backgroundColor = .blue
             self.labelL.textColor = .cyan
+            
+            let randomAngle1 = Int.random(in: 1...100)
+            
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
-                self.labelL.transform = CGAffineTransform(rotationAngle: .pi/16)
+                self.labelL.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle1))
             }
-
+            
+            let randomAngle2 = Int.random(in: 0...100)
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.2) {
-                self.labelL.transform = CGAffineTransform(rotationAngle: -.pi / 16)
+                self.labelL.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle2))
             }
-
+            
+            let random3 = Int.random(in: 0...50)
+            let random4 = Int.random(in: 10...100)
             UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.80) {
                 self.labelL.center = CGPoint(
-                    x: self.view.bounds.size.width + self.labelL.bounds.size.width,
-                    y: self.view.center.y
+                    x: CGFloat(random3) + self.labelL.bounds.size.width + CGFloat(randomAngle2),
+                    y: self.view.center.y + CGFloat(random4)
                 )
             }
+           
         }
         
         let animLabelA1Block = {
+            
+            self.labelA1.backgroundColor = .darkGray
+            self.labelA1.textColor = .systemBlue
+            
+            let randomAngle1 = Int.random(in: 1...100)
+
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
-                self.labelA1.transform = CGAffineTransform(rotationAngle: .pi/16)
+                self.labelA1.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle1))
             }
             
+            let randomAngle2 = Int.random(in: 0...100)
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.2) {
-                self.labelA1.transform = CGAffineTransform(rotationAngle: -.pi / 16)
+                self.labelA1.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle2))
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.80) {
                 self.labelA1.center = CGPoint(
-                    x: self.view.bounds.size.width + self.labelA1.bounds.size.width,
-                    y: self.view.center.y
+                   // x: self.view.bounds.size.height + CGFloat(randomAngle1),
+                    x: CGFloat(randomAngle2) + self.labelA1.bounds.size.height,
+                    y: CGFloat(randomAngle2)
+                )
+            }
+        }
+        
+        let animLabelMBlock = {
+            
+            self.labelM.backgroundColor = .systemGreen
+            self.labelM.textColor = .systemYellow
+            
+            let randomAngle1 = Int.random(in: 0...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
+                self.labelM.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle1))
+            }
+            
+            let randomAngle2 = Int.random(in: 0...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4) {
+                self.labelM.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle2))
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.80) {
+                self.labelM.center = CGPoint(
+                    x: CGFloat(CGFloat(randomAngle2)),
+                    y: self.view.bounds.size.width + self.labelM.bounds.size.height
+                )
+            }
+        }
+        
+        let animLabelBBlock = {
+            
+            self.labelB.backgroundColor = .systemRed
+            self.labelB.textColor = .systemGray
+            
+            let randomAngle1 = Int.random(in: 10...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
+                self.labelB.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle1))
+            }
+            
+            let randomAngle2 = Int.random(in: 0...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4) {
+                self.labelB.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle2))
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.80) {
+                self.labelM.center = CGPoint(
+                    x: CGFloat(CGFloat(randomAngle2)),
+                    y: self.view.bounds.size.width + self.labelB.bounds.size.height
+                )
+            }
+        }
+        
+        let animLabelDBlock = {
+            
+            self.labelD.backgroundColor = .systemTeal
+            self.labelD.textColor = .brown
+            
+            let randomAngle1 = Int.random(in: 10...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
+                self.labelD.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle1))
+            }
+            
+            let randomAngle2 = Int.random(in: 0...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4) {
+                self.labelD.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle2))
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.80) {
+                self.labelD.center = CGPoint(
+                    x: CGFloat(CGFloat(randomAngle2)),
+                    y: self.view.bounds.size.width + self.labelM.bounds.size.height
+                )
+            }
+        }
+        
+        let animLabelA2Block = {
+            
+            self.labelA2.backgroundColor = .black
+            self.labelA2.textColor = .systemRed
+            
+            let randomAngle1 = Int.random(in: 10...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
+                self.labelA2.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle1))
+            }
+            
+            let randomAngle2 = Int.random(in: 0...100)
+            UIView.addKeyframe(withRelativeStartTime: 0.6, relativeDuration: 0.4) {
+                self.labelA2.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle2))
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.80) {
+                self.labelA2.center = CGPoint(
+                    x: CGFloat(CGFloat(randomAngle2)),
+                    y: self.view.bounds.size.width + self.labelM.bounds.size.height
                 )
             }
         }
         
         
+        
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelLBlock, completion: nil)
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelA1Block, completion: nil)
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelMBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelBBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelDBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelA2Block, completion: nil)
            
     }
 }
