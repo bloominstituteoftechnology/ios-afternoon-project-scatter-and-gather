@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     var isScattered: Bool = false
+    let animationDuration: Double = 2
     
     var lLabel: UILabel!
     var aLabel: UILabel!
@@ -80,47 +81,117 @@ class ViewController: UIViewController {
         a2Label.leadingAnchor.constraint(equalTo: dLabel.trailingAnchor, constant: 15).isActive = true
         a2Label.topAnchor.constraint(equalTo: lLabel.topAnchor).isActive = true
     }
-//
-//    func randomRotation() -> [Int] {
-//        var randomRotationArray: [Int] = []
-//        for _ in 1...6 {
-//            randomRotationArray.append(Int.random(in: 1...36))
-//        }
-//        return randomRotationArray
-//    }
-//
-//    func randomColor() -> [Int] {
-//        var randomColorArray: [Int] = []
-//        for _ in 1...2 {
-//            randomColorArray.append(Int.random(in: 1...6))
-//        }
-//        return randomColorArray
-//    }
+
+    func randomRotation() -> [Int] {
+        var randomRotationArray: [Int] = []
+        for _ in 1...6 {
+            randomRotationArray.append(Int.random(in: 1...36))
+        }
+        return randomRotationArray
+    }
+
     
     @IBAction func toggleButtonTapped(_ sender: UIBarButtonItem) {
-        
-        view.backgroundColor = .randomColor()
         
         isScattered.toggle()
         
         if isScattered == true {
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: animationDuration) {
                 self.lambdaLogoImageView.alpha = 0
             }
             
-            UIView.animate(withDuration: 1) {
-                self.lLabel.transform = CGAffineTransform(
+            UIView.animate(withDuration: animationDuration) {
+                //L Label
+                let translateL = CGAffineTransform(
                     translationX: CGFloat.random(in: 0...self.view.frame.size.width - 100),
                     y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
+                let rotateL = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[0]))
+                self.lLabel.transform = rotateL.concatenating(translateL)
+                self.lLabel.layer.backgroundColor = UIColor.randomColor().cgColor
+                self.lLabel.textColor = .randomColor()
+                
+                //A Label
+                let translateA = CGAffineTransform(
+                    translationX: CGFloat.random(in: -50...self.view.frame.size.width - 150),
+                    y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
+                let rotateA = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[1]))
+                self.aLabel.transform = rotateA.concatenating(translateA)
+                self.aLabel.layer.backgroundColor = UIColor.randomColor().cgColor
+                self.aLabel.textColor = .randomColor()
+                
+                //M Label
+                let translateM = CGAffineTransform(
+                    translationX: CGFloat.random(in: -75...self.view.frame.size.width - 175),
+                    y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
+                let rotateM = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[2]))
+                self.mLabel.transform = rotateM.concatenating(translateM)
+                self.mLabel.layer.backgroundColor = UIColor.randomColor().cgColor
+                self.mLabel.textColor = .randomColor()
+                
+                //B Label
+                let translateB = CGAffineTransform(
+                    translationX: CGFloat.random(in: -125...self.view.frame.size.width - 200),
+                    y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
+                let rotateB = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[3]))
+                self.bLabel.transform = rotateB.concatenating(translateB)
+                self.bLabel.layer.backgroundColor = UIColor.randomColor().cgColor
+                self.bLabel.textColor = .randomColor()
+                
+                //D Label
+                let translateD = CGAffineTransform(
+                    translationX: CGFloat.random(in: -150...self.view.frame.size.width - 250),
+                    y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
+                let rotateD = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[4]))
+                self.dLabel.transform = rotateD.concatenating(translateD)
+                self.dLabel.layer.backgroundColor = UIColor.randomColor().cgColor
+                self.dLabel.textColor = .randomColor()
+                
+                //a2 Label
+                let translatea2 = CGAffineTransform(
+                    translationX: CGFloat.random(in: -175...self.view.frame.size.width - 300),
+                    y: CGFloat.random(in: 0...self.view.frame.size.height - 200))
+                let rotatea2 = CGAffineTransform(rotationAngle: CGFloat(self.randomRotation()[5]))
+                self.a2Label.transform = rotatea2.concatenating(translatea2)
+                self.a2Label.layer.backgroundColor = UIColor.randomColor().cgColor
+                self.a2Label.textColor = .randomColor()
             }
+            
         }
         else {
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: animationDuration) {
                 self.lambdaLogoImageView.alpha = 1
             }
             
-            UIView.animate(withDuration: 1) {
+            UIView.animate(withDuration: animationDuration) {
+                //L Label
                 self.lLabel.transform = .identity
+                self.lLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.lLabel.textColor = .black
+                
+                //A Label
+                self.aLabel.transform = .identity
+                self.aLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.aLabel.textColor = .black
+                
+                //M Label
+                self.mLabel.transform = .identity
+                self.mLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.mLabel.textColor = .black
+                
+                //B Label
+                self.bLabel.transform = .identity
+                self.bLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.bLabel.textColor = .black
+                
+                //D Label
+                self.dLabel.transform = .identity
+                self.dLabel.layer.backgroundColor = UIColor.clear.cgColor
+                self.dLabel.textColor = .black
+                
+                //a2 Label
+                self.a2Label.transform = .identity
+                self.a2Label.layer.backgroundColor = UIColor.clear.cgColor
+                self.a2Label.textColor = .black
             }
             
         }
