@@ -27,58 +27,31 @@ class ViewController: UIViewController {
 
     private func configureObjects() {
         labelL = UILabel(frame: CGRect(x: 10, y: 155, width: 50, height: 50))
-        labelL.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(labelL)
-        
         labelL.text = "L"
-        labelL.textAlignment = .center
-        labelL.tintColor = .black
-        labelL.font = UIFont.systemFont(ofSize: 86)
         
         labelA1 = UILabel(frame: CGRect(x: 55, y: 155, width: 50, height: 50))
-        labelA1.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(labelA1)
-        
         labelA1.text = "a"
-        labelA1.textAlignment = .center
-        labelA1.tintColor = .black
-        labelA1.font = UIFont.systemFont(ofSize: 86)
         
         labelM = UILabel(frame: CGRect(x: 100, y: 155, width: 50, height: 50))
-        labelM.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(labelM)
-        
         labelM.text = "m"
-        labelM.textAlignment = .center
-        labelM.tintColor = .black
-        labelM.font = UIFont.systemFont(ofSize: 86)
         
         labelB = UILabel(frame: CGRect(x: 145, y: 155, width: 50, height: 50))
-        labelB.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(labelB)
-        
         labelB.text = "b"
-        labelB.textAlignment = .center
-        labelB.tintColor = .black
-        labelB.font = UIFont.systemFont(ofSize: 86)
         
         labelD = UILabel(frame: CGRect(x: 190, y: 155, width: 50, height: 50))
-        labelD.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(labelD)
-       
         labelD.text = "d"
-        labelD.textAlignment = .center
-        labelD.tintColor = .black
-        labelD.font = UIFont.systemFont(ofSize: 86)
         
         labelA2 = UILabel(frame: CGRect(x: 235, y: 155, width: 50, height: 50))
-        labelA2.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(labelA2)
-        
         labelA2.text = "a"
-        labelA2.textAlignment = .center
-        labelA2.tintColor = .black
-        labelA2.font = UIFont.systemFont(ofSize: 86)
+        
+        for label in [labelL, labelA1, labelM, labelB, labelD, labelA2] {
+            label?.textAlignment = .center
+            label?.textColor = .black
+            label?.font = UIFont.systemFont(ofSize: 86)
+            label?.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(label!)
+        }
+        
         
         let stackview = UIStackView()
                stackview.translatesAutoresizingMaskIntoConstraints = false
@@ -296,24 +269,23 @@ class ViewController: UIViewController {
 let y = 55
         UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                self.labelL.center = CGPoint(x: 15, y: y)
+                self.labelL.center = CGPoint(x: 20, y: y)
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                self.labelA1.center = CGPoint(x: 70, y: y)
+                self.labelA1.center = CGPoint(x: 85, y: y)
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                self.labelM.center = CGPoint(x: 140, y: y)
+                self.labelM.center = CGPoint(x: 160, y: y)
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                self.labelB.center = CGPoint(x: 215, y: y)
+                self.labelB.center = CGPoint(x: 235, y: y)
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                self.labelD.center = CGPoint(x: 275, y: y)
+                self.labelD.center = CGPoint(x: 295, y: y)
             }
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
-                self.labelA2.center = CGPoint(x: 345, y: y)
+                self.labelA2.center = CGPoint(x: 355, y: y)
             }
-            
         })
         
         let animImageViewBlock = {
