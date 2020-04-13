@@ -70,8 +70,6 @@ class ViewController: UIViewController {
         a2Letter.font = UIFont.systemFont(ofSize: 40)
         a2Letter.widthAnchor.constraint(equalTo: a2Letter.heightAnchor).isActive = true
         
-        
-        
         // Lambda Image
         imageView = UIImageView(image: UIImage(named: "lambda_logo")!)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -111,7 +109,6 @@ class ViewController: UIViewController {
     
     @objc func toggleButtonPressed(_: UIBarButtonItem) {
         isScattered.toggle()
-        //        let letters = [lLetter, aLetter, mLetter, bLetter, dLetter, a2Letter]
         if navigationItem.rightBarButtonItem!.isEnabled {
             if isScattered == true {
                 UIView.animate(withDuration: 5.0, delay: 0, options: [], animations: {
@@ -162,10 +159,6 @@ class ViewController: UIViewController {
                     
                     self.imageView.alpha = 0.0
                     
-                    //                    for i in letters {
-                    //                        i?.transform = rotate.concatenating(fall)
-                    //                    }
-                    
                 }, completion: nil)
                 
             } else {
@@ -196,7 +189,6 @@ class ViewController: UIViewController {
                         self.imageView.alpha = 1.0
                         
                     }, completion: nil)
-                    
                 }
             }
         }
