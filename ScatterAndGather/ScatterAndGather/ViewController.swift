@@ -21,11 +21,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureLabels()
+        configureObjects()
         // Do any additional setup after loading the view.
     }
 
-    private func configureLabels() {
+    private func configureObjects() {
         labelL = UILabel(frame: CGRect(x: 10, y: 155, width: 50, height: 50))
         labelL.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(labelL)
@@ -107,9 +107,9 @@ class ViewController: UIViewController {
         self.imageView = imageView
         
         imageView.topAnchor.constraint(equalTo: stackview.bottomAnchor, constant: 30).isActive = true
-        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 25).isActive = true
-        imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -25).isActive = true
-        imageView.heightAnchor.constraint(equalToConstant: 65).isActive = true
+        imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 55).isActive = true
+        imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -55).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 95).isActive = true
         
     }
 
@@ -130,10 +130,8 @@ class ViewController: UIViewController {
     
     private func animateOut() {
         let animLabelLBlock = {
-            
-            self.labelL.backgroundColor = .randomColor()
+            self.labelL.layer.backgroundColor = UIColor.randomColor().cgColor
             self.labelL.textColor = .randomColor()
-           // self.labelL.alpha = 0.5
             
             let randomAngle1 = Int.random(in: 1...100)
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
@@ -158,10 +156,10 @@ class ViewController: UIViewController {
         
         let animLabelA1Block = {
             
-            self.labelA1.backgroundColor = .randomColor()
+            self.labelA1.layer.backgroundColor = UIColor.randomColor().cgColor
             self.labelA1.textColor = .randomColor()
             
-            let randomAngle1 = Int.random(in: 1...100)
+            let randomAngle1 = Int.random(in: 0...100)
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.1) {
                 self.labelA1.transform = CGAffineTransform(rotationAngle: CGFloat(randomAngle1))
             }
@@ -173,7 +171,6 @@ class ViewController: UIViewController {
             
             UIView.addKeyframe(withRelativeStartTime: 0.2, relativeDuration: 0.70) {
                 self.labelA1.center = CGPoint(
-                   // x: self.view.bounds.size.height + CGFloat(randomAngle1),
                     x: CGFloat(randomAngle2) + self.labelA1.bounds.size.height,
                     y: CGFloat(randomAngle2)
                 )
@@ -182,7 +179,7 @@ class ViewController: UIViewController {
         
         let animLabelMBlock = {
             
-            self.labelM.backgroundColor = .randomColor()
+            self.labelM.layer.backgroundColor = UIColor.randomColor().cgColor
             self.labelM.textColor = .randomColor()
             
             let randomAngle1 = Int.random(in: 0...100)
@@ -205,7 +202,7 @@ class ViewController: UIViewController {
         
         let animLabelBBlock = {
             
-            self.labelB.backgroundColor = .randomColor()
+            self.labelB.layer.backgroundColor = UIColor.randomColor().cgColor
             self.labelB.textColor = .randomColor()
             
             let randomAngle1 = Int.random(in: 10...100)
@@ -228,7 +225,7 @@ class ViewController: UIViewController {
         
         let animLabelDBlock = {
             
-            self.labelD.backgroundColor = .randomColor()
+            self.labelD.layer.backgroundColor = UIColor.randomColor().cgColor
             self.labelD.textColor = .randomColor()
             
             let randomAngle1 = Int.random(in: 10...100)
@@ -251,7 +248,7 @@ class ViewController: UIViewController {
         
         let animLabelA2Block = {
             
-            self.labelA2.backgroundColor = .randomColor()
+            self.labelA2.layer.backgroundColor = UIColor.randomColor().cgColor
             self.labelA2.textColor = .randomColor()
             
             let randomAngle1 = Int.random(in: 10...100)
@@ -281,36 +278,31 @@ class ViewController: UIViewController {
     }
     
     private func animateBack() {
-//        UIViewPropertyAnimator(duration: 1.5, curve: .easeIn, animations: {
-//            self.labelL.alpha = 1.0
-//            self.labelL.backgroundColor = .white
-//            self.labelL.textColor = .black
-//        }).startAnimation()
-      //  let animateBack = {
+
         UIView.animate(withDuration: 1.5, delay: 0, options: [], animations: {
             self.labelL.transform = .identity
             self.labelL.textColor = .black
-            self.labelL.backgroundColor = .white
+            self.labelL.layer.backgroundColor = UIColor.clear.cgColor
           
             self.labelA1.transform = .identity
             self.labelA1.textColor = .black
-            self.labelA1.backgroundColor = .white
+            self.labelA1.layer.backgroundColor = UIColor.clear.cgColor
                      
             self.labelM.transform = .identity
             self.labelM.textColor = .black
-            self.labelM.backgroundColor = .white
+            self.labelM.layer.backgroundColor = UIColor.clear.cgColor
             
             self.labelB.transform = .identity
             self.labelB.textColor = .black
-            self.labelB.backgroundColor = .white
+            self.labelB.layer.backgroundColor = UIColor.clear.cgColor
             
             self.labelD.transform = .identity
             self.labelD.textColor = .black
-            self.labelD.backgroundColor = .white
+            self.labelD.layer.backgroundColor = UIColor.clear.cgColor
             
             self.labelA2.transform = .identity
             self.labelA2.textColor = .black
-            self.labelA2.backgroundColor = .white
+            self.labelA2.layer.backgroundColor = UIColor.clear.cgColor
             }, completion: nil)
         
       //  }
@@ -337,21 +329,69 @@ class ViewController: UIViewController {
 //            }
 //        }
 //        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: reAnimLabelA1, completion: nil)
+        let aniBlock = {
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
+                self.imageView.transform = CGAffineTransform(rotationAngle: .pi/4)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25) {
+                self.imageView.transform = .identity
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.25) {
+                self.imageView.transform = CGAffineTransform(translationX: 0, y: -50)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.75, relativeDuration: 0.25) {
+                self.imageView.transform = .identity
+            }
+        }, completion: nil)
+        }
+        
+        let animationBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.4) {
+                self.imageView.center = self.view.center
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.3, relativeDuration: 0.2) {
+                self.imageView.transform = CGAffineTransform(scaleX: 2.0, y: 0.6)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.2) {
+                self.imageView.transform = CGAffineTransform(scaleX: 0.6, y: 2.0)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.7, relativeDuration: 0.15) {
+                self.imageView.transform = CGAffineTransform(scaleX: 1.11, y: 0.9)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.85, relativeDuration: 0.15) {
+                self.imageView.transform = .identity
+            }
+        }
+        
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: aniBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animationBlock, completion: nil)
+        
+        UIView.animate(withDuration: 1.5, delay: 0, options: [], animations: {
+            self.imageView.transform = .identity
+        })
     }
 }
 
 
    func randomCGFloat() -> CGFloat {
-   return CGFloat(arc4random()) / CGFloat(UInt32.max)}
+   return CGFloat(arc4random()) / CGFloat(UInt32.max)
+}
 
     extension UIColor {
       static func randomColor() -> UIColor {
         let r = randomCGFloat()
         let g = randomCGFloat()
         let b = randomCGFloat()
-        // If you wanted a random alpha, just create another
-        // random number for that too.
-        return UIColor(red: r, green: g, blue: b, alpha: 1.0)
+        let alpha = randomCGFloat()
+        return UIColor(red: r, green: g, blue: b, alpha: alpha)
       }
     }
 
