@@ -7,27 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7BF68F472443D28400ECEBF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF68F462443D28400ECEBF0 /* AppDelegate.swift */; };
-		7BF68F492443D28400ECEBF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF68F482443D28400ECEBF0 /* SceneDelegate.swift */; };
-		7BF68F4B2443D28400ECEBF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF68F4A2443D28400ECEBF0 /* ViewController.swift */; };
-		7BF68F4E2443D28400ECEBF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BF68F4C2443D28400ECEBF0 /* Main.storyboard */; };
-		7BF68F502443D28500ECEBF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BF68F4F2443D28500ECEBF0 /* Assets.xcassets */; };
-		7BF68F532443D28500ECEBF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BF68F512443D28500ECEBF0 /* LaunchScreen.storyboard */; };
+		7BF68F692443D8DC00ECEBF0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF68F682443D8DC00ECEBF0 /* AppDelegate.swift */; };
+		7BF68F6B2443D8DC00ECEBF0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF68F6A2443D8DC00ECEBF0 /* SceneDelegate.swift */; };
+		7BF68F6D2443D8DC00ECEBF0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BF68F6C2443D8DC00ECEBF0 /* ViewController.swift */; };
+		7BF68F702443D8DC00ECEBF0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BF68F6E2443D8DC00ECEBF0 /* Main.storyboard */; };
+		7BF68F722443D8DD00ECEBF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7BF68F712443D8DD00ECEBF0 /* Assets.xcassets */; };
+		7BF68F752443D8DD00ECEBF0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7BF68F732443D8DD00ECEBF0 /* LaunchScreen.storyboard */; };
+		7BF68F8024441D2D00ECEBF0 /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BF68F7F24441D2D00ECEBF0 /* lambda_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7BF68F432443D28400ECEBF0 /* Scatter and Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scatter and Gather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7BF68F462443D28400ECEBF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7BF68F482443D28400ECEBF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7BF68F4A2443D28400ECEBF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7BF68F4D2443D28400ECEBF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7BF68F4F2443D28500ECEBF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7BF68F522443D28500ECEBF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7BF68F542443D28500ECEBF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BF68F652443D8DC00ECEBF0 /* Scatter and Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scatter and Gather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BF68F682443D8DC00ECEBF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7BF68F6A2443D8DC00ECEBF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7BF68F6C2443D8DC00ECEBF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7BF68F6F2443D8DC00ECEBF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7BF68F712443D8DD00ECEBF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7BF68F742443D8DD00ECEBF0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7BF68F762443D8DD00ECEBF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7BF68F7F24441D2D00ECEBF0 /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lambda_logo.png; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7BF68F402443D28400ECEBF0 /* Frameworks */ = {
+		7BF68F622443D8DC00ECEBF0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,62 +39,55 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7BF68F3A2443D28400ECEBF0 = {
+		7BF68F5C2443D8DC00ECEBF0 = {
 			isa = PBXGroup;
 			children = (
-				7BF68F442443D28400ECEBF0 /* Products */,
-				7BF68F452443D28400ECEBF0 /* Scatter and Gather */,
+				7BF68F662443D8DC00ECEBF0 /* Products */,
+				7BF68F672443D8DC00ECEBF0 /* Scatter and Gather */,
 			);
 			sourceTree = "<group>";
 		};
-		7BF68F442443D28400ECEBF0 /* Products */ = {
+		7BF68F662443D8DC00ECEBF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7BF68F432443D28400ECEBF0 /* Scatter and Gather.app */,
+				7BF68F652443D8DC00ECEBF0 /* Scatter and Gather.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7BF68F452443D28400ECEBF0 /* Scatter and Gather */ = {
+		7BF68F672443D8DC00ECEBF0 /* Scatter and Gather */ = {
 			isa = PBXGroup;
 			children = (
-				7BF68F5A2443D30D00ECEBF0 /* Resources */,
-				7BF68F5B2443D31C00ECEBF0 /* View Controllers */,
-				7BF68F4C2443D28400ECEBF0 /* Main.storyboard */,
-				7BF68F542443D28500ECEBF0 /* Info.plist */,
+				7BF68F7C2443D8E600ECEBF0 /* Resources */,
+				7BF68F6C2443D8DC00ECEBF0 /* ViewController.swift */,
+				7BF68F6E2443D8DC00ECEBF0 /* Main.storyboard */,
+				7BF68F762443D8DD00ECEBF0 /* Info.plist */,
 			);
 			path = "Scatter and Gather";
 			sourceTree = "<group>";
 		};
-		7BF68F5A2443D30D00ECEBF0 /* Resources */ = {
+		7BF68F7C2443D8E600ECEBF0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				7BF68F462443D28400ECEBF0 /* AppDelegate.swift */,
-				7BF68F482443D28400ECEBF0 /* SceneDelegate.swift */,
-				7BF68F4F2443D28500ECEBF0 /* Assets.xcassets */,
-				7BF68F512443D28500ECEBF0 /* LaunchScreen.storyboard */,
+				7BF68F682443D8DC00ECEBF0 /* AppDelegate.swift */,
+				7BF68F6A2443D8DC00ECEBF0 /* SceneDelegate.swift */,
+				7BF68F712443D8DD00ECEBF0 /* Assets.xcassets */,
+				7BF68F7F24441D2D00ECEBF0 /* lambda_logo.png */,
+				7BF68F732443D8DD00ECEBF0 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		7BF68F5B2443D31C00ECEBF0 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				7BF68F4A2443D28400ECEBF0 /* ViewController.swift */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7BF68F422443D28400ECEBF0 /* Scatter and Gather */ = {
+		7BF68F642443D8DC00ECEBF0 /* Scatter and Gather */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7BF68F572443D28500ECEBF0 /* Build configuration list for PBXNativeTarget "Scatter and Gather" */;
+			buildConfigurationList = 7BF68F792443D8DD00ECEBF0 /* Build configuration list for PBXNativeTarget "Scatter and Gather" */;
 			buildPhases = (
-				7BF68F3F2443D28400ECEBF0 /* Sources */,
-				7BF68F402443D28400ECEBF0 /* Frameworks */,
-				7BF68F412443D28400ECEBF0 /* Resources */,
+				7BF68F612443D8DC00ECEBF0 /* Sources */,
+				7BF68F622443D8DC00ECEBF0 /* Frameworks */,
+				7BF68F632443D8DC00ECEBF0 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -100,25 +95,25 @@
 			);
 			name = "Scatter and Gather";
 			productName = "Scatter and Gather";
-			productReference = 7BF68F432443D28400ECEBF0 /* Scatter and Gather.app */;
+			productReference = 7BF68F652443D8DC00ECEBF0 /* Scatter and Gather.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7BF68F3B2443D28400ECEBF0 /* Project object */ = {
+		7BF68F5D2443D8DC00ECEBF0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = WaseemID;
 				TargetAttributes = {
-					7BF68F422443D28400ECEBF0 = {
+					7BF68F642443D8DC00ECEBF0 = {
 						CreatedOnToolsVersion = 11.4;
 					};
 				};
 			};
-			buildConfigurationList = 7BF68F3E2443D28400ECEBF0 /* Build configuration list for PBXProject "Scatter and Gather" */;
+			buildConfigurationList = 7BF68F602443D8DC00ECEBF0 /* Build configuration list for PBXProject "Scatter and Gather" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -126,55 +121,56 @@
 				en,
 				Base,
 			);
-			mainGroup = 7BF68F3A2443D28400ECEBF0;
-			productRefGroup = 7BF68F442443D28400ECEBF0 /* Products */;
+			mainGroup = 7BF68F5C2443D8DC00ECEBF0;
+			productRefGroup = 7BF68F662443D8DC00ECEBF0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7BF68F422443D28400ECEBF0 /* Scatter and Gather */,
+				7BF68F642443D8DC00ECEBF0 /* Scatter and Gather */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7BF68F412443D28400ECEBF0 /* Resources */ = {
+		7BF68F632443D8DC00ECEBF0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BF68F532443D28500ECEBF0 /* LaunchScreen.storyboard in Resources */,
-				7BF68F502443D28500ECEBF0 /* Assets.xcassets in Resources */,
-				7BF68F4E2443D28400ECEBF0 /* Main.storyboard in Resources */,
+				7BF68F752443D8DD00ECEBF0 /* LaunchScreen.storyboard in Resources */,
+				7BF68F722443D8DD00ECEBF0 /* Assets.xcassets in Resources */,
+				7BF68F702443D8DC00ECEBF0 /* Main.storyboard in Resources */,
+				7BF68F8024441D2D00ECEBF0 /* lambda_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7BF68F3F2443D28400ECEBF0 /* Sources */ = {
+		7BF68F612443D8DC00ECEBF0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7BF68F4B2443D28400ECEBF0 /* ViewController.swift in Sources */,
-				7BF68F472443D28400ECEBF0 /* AppDelegate.swift in Sources */,
-				7BF68F492443D28400ECEBF0 /* SceneDelegate.swift in Sources */,
+				7BF68F6D2443D8DC00ECEBF0 /* ViewController.swift in Sources */,
+				7BF68F692443D8DC00ECEBF0 /* AppDelegate.swift in Sources */,
+				7BF68F6B2443D8DC00ECEBF0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7BF68F4C2443D28400ECEBF0 /* Main.storyboard */ = {
+		7BF68F6E2443D8DC00ECEBF0 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7BF68F4D2443D28400ECEBF0 /* Base */,
+				7BF68F6F2443D8DC00ECEBF0 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		7BF68F512443D28500ECEBF0 /* LaunchScreen.storyboard */ = {
+		7BF68F732443D8DD00ECEBF0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7BF68F522443D28500ECEBF0 /* Base */,
+				7BF68F742443D8DD00ECEBF0 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -182,7 +178,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		7BF68F552443D28500ECEBF0 /* Debug */ = {
+		7BF68F772443D8DD00ECEBF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -242,7 +238,7 @@
 			};
 			name = Debug;
 		};
-		7BF68F562443D28500ECEBF0 /* Release */ = {
+		7BF68F782443D8DD00ECEBF0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -296,7 +292,7 @@
 			};
 			name = Release;
 		};
-		7BF68F582443D28500ECEBF0 /* Debug */ = {
+		7BF68F7A2443D8DD00ECEBF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -314,7 +310,7 @@
 			};
 			name = Debug;
 		};
-		7BF68F592443D28500ECEBF0 /* Release */ = {
+		7BF68F7B2443D8DD00ECEBF0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -335,25 +331,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7BF68F3E2443D28400ECEBF0 /* Build configuration list for PBXProject "Scatter and Gather" */ = {
+		7BF68F602443D8DC00ECEBF0 /* Build configuration list for PBXProject "Scatter and Gather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7BF68F552443D28500ECEBF0 /* Debug */,
-				7BF68F562443D28500ECEBF0 /* Release */,
+				7BF68F772443D8DD00ECEBF0 /* Debug */,
+				7BF68F782443D8DD00ECEBF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7BF68F572443D28500ECEBF0 /* Build configuration list for PBXNativeTarget "Scatter and Gather" */ = {
+		7BF68F792443D8DD00ECEBF0 /* Build configuration list for PBXNativeTarget "Scatter and Gather" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7BF68F582443D28500ECEBF0 /* Debug */,
-				7BF68F592443D28500ECEBF0 /* Release */,
+				7BF68F7A2443D8DD00ECEBF0 /* Debug */,
+				7BF68F7B2443D8DD00ECEBF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7BF68F3B2443D28400ECEBF0 /* Project object */;
+	rootObject = 7BF68F5D2443D8DC00ECEBF0 /* Project object */;
 }
