@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     private var dLabel = UILabel()
     private var secondALabel = UILabel()
     private var imageView = UIImageView()
+    private var toggleButton = UIBarButtonItem()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,18 +30,19 @@ class ViewController: UIViewController {
     
     @objc private func toggleButtonTapped() {
         isScattered.toggle()
-        
         switch isScattered {
         case true:
             scatterLetters()
+            toggleButton.title = "Gather"
         default:
             gatherLetters()
+            toggleButton.title = "Scatter"
         }
     }
     
     
     private func configureButton() {
-        let toggleButton = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonTapped))
+        toggleButton = UIBarButtonItem(title: "Scatter", style: .plain, target: self, action: #selector(toggleButtonTapped))
         
         navigationItem.rightBarButtonItem = toggleButton
     }
