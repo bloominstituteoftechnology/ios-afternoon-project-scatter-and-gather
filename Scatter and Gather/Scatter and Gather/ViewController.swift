@@ -111,6 +111,7 @@ class ViewController: UIViewController {
         isScattered.toggle()
         if navigationItem.rightBarButtonItem!.isEnabled {
             if isScattered == true {
+                let letters = [self.lLetter, self.aLetter, self.mLetter, self.bLetter, self.dLetter, self.a2Letter]
                 UIView.animate(withDuration: 5.0, delay: 0, options: [], animations: {
                     
                     let width = self.view.bounds.width - 400
@@ -142,20 +143,10 @@ class ViewController: UIViewController {
                     self.dLetter.transform = rotateD.concatenating(fallD)
                     self.a2Letter.transform = rotateA2.concatenating(fallA2)
                     
-                    self.lLetter.layer.backgroundColor = UIColor.randomColor().cgColor
-                    self.aLetter.layer.backgroundColor = UIColor.randomColor().cgColor
-                    self.mLetter.layer.backgroundColor = UIColor.randomColor().cgColor
-                    self.bLetter.layer.backgroundColor = UIColor.randomColor().cgColor
-                    self.dLetter.layer.backgroundColor = UIColor.randomColor().cgColor
-                    self.a2Letter.layer.backgroundColor = UIColor.randomColor().cgColor
-                    
-                    
-                    self.lLetter.textColor = UIColor.randomColor()
-                    self.aLetter.textColor = UIColor.randomColor()
-                    self.mLetter.textColor = UIColor.randomColor()
-                    self.bLetter.textColor = UIColor.randomColor()
-                    self.dLetter.textColor = UIColor.randomColor()
-                    self.a2Letter.textColor = UIColor.randomColor()
+                    for i in letters {
+                        i?.layer.backgroundColor = UIColor.randomColor().cgColor
+                        i?.textColor = UIColor.randomColor()
+                    }
                     
                     self.imageView.alpha = 0.0
                     
@@ -164,28 +155,13 @@ class ViewController: UIViewController {
             } else {
                 if isScattered == false {
                     UIView.animate(withDuration: 5.0, delay: 0, options: [], animations: {
+                        let letters = [self.lLetter, self.aLetter, self.mLetter, self.bLetter, self.dLetter, self.a2Letter]
                         
-                        self.lLetter.transform = .identity
-                        self.aLetter.transform = .identity
-                        self.mLetter.transform = .identity
-                        self.bLetter.transform = .identity
-                        self.dLetter.transform = .identity
-                        self.a2Letter.transform = .identity
-                        
-                        self.lLetter.layer.backgroundColor = UIColor.clear.cgColor
-                        self.aLetter.layer.backgroundColor = UIColor.clear.cgColor
-                        self.mLetter.layer.backgroundColor = UIColor.clear.cgColor
-                        self.bLetter.layer.backgroundColor = UIColor.clear.cgColor
-                        self.dLetter.layer.backgroundColor = UIColor.clear.cgColor
-                        self.a2Letter.layer.backgroundColor = UIColor.clear.cgColor
-                        
-                        self.lLetter.textColor = .black
-                        self.aLetter.textColor = .black
-                        self.mLetter.textColor = .black
-                        self.bLetter.textColor = .black
-                        self.dLetter.textColor = .black
-                        self.a2Letter.textColor = .black
-                        
+                        for i in letters {
+                            i?.transform = .identity
+                            i?.layer.backgroundColor = UIColor.clear.cgColor
+                            i?.textColor = .black
+                        }
                         self.imageView.alpha = 1.0
                         
                     }, completion: nil)
