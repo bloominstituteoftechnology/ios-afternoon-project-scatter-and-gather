@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureObjects()
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.bounds
+        gradientLayer.colors = [UIColor.black.cgColor, UIColor.yellow.cgColor, UIColor.blue.cgColor, UIColor.red.cgColor, UIColor.black.cgColor]
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
         // Do any additional setup after loading the view.
     }
 
@@ -54,11 +58,11 @@ class ViewController: UIViewController {
         
         
         let stackview = UIStackView()
-               stackview.translatesAutoresizingMaskIntoConstraints = false
-               view.addSubview(stackview)
+        stackview.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackview)
         
         stackview.axis = .horizontal
-               stackview.distribution = .equalSpacing
+        stackview.distribution = .equalSpacing
         
         stackview.addArrangedSubview(labelL)
         stackview.addArrangedSubview(labelA1)
@@ -89,12 +93,12 @@ class ViewController: UIViewController {
     @IBAction func toggleButtpnPressed(_ sender: Any) {
         isToggled.toggle()
         if isToggled {
-            UIViewPropertyAnimator(duration: 1.5, curve: .easeOut, animations: {
+            UIViewPropertyAnimator(duration: 2.5, curve: .easeOut, animations: {
                 self.imageView.alpha = 0.0
             }).startAnimation()
             animateOut()
         } else {
-            UIViewPropertyAnimator(duration: 1.5, curve: .easeOut, animations: {
+            UIViewPropertyAnimator(duration: 2.5, curve: .easeOut, animations: {
                 self.imageView.alpha = 1.0
             }).startAnimation()
             animateBack()
@@ -102,6 +106,12 @@ class ViewController: UIViewController {
     }
     
     private func animateOut() {
+        
+        labelL.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+          //  self.labelL.transform = .identity
+        }, completion: nil)
+        
         let animLabelLBlock = {
             self.labelL.layer.backgroundColor = UIColor.randomColor().cgColor
             self.labelL.textColor = .randomColor()
@@ -127,6 +137,12 @@ class ViewController: UIViewController {
            
         }
         
+        
+        labelA1.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+          //  self.labelL.transform = .identity
+        }, completion: nil)
+        
         let animLabelA1Block = {
             
             self.labelA1.layer.backgroundColor = UIColor.randomColor().cgColor
@@ -150,6 +166,11 @@ class ViewController: UIViewController {
             }
         }
         
+        labelM.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+          //  self.labelL.transform = .identity
+        }, completion: nil)
+        
         let animLabelMBlock = {
             
             self.labelM.layer.backgroundColor = UIColor.randomColor().cgColor
@@ -168,10 +189,15 @@ class ViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.60) {
                 self.labelM.center = CGPoint(
                     x: CGFloat(CGFloat(randomAngle2)),
-                    y: self.view.bounds.size.width + self.labelM.bounds.size.height
+                    y: self.view.bounds.size.width / self.labelM.bounds.size.height
                 )
             }
         }
+        
+        labelB.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+          //  self.labelL.transform = .identity
+        }, completion: nil)
         
         let animLabelBBlock = {
             
@@ -196,6 +222,11 @@ class ViewController: UIViewController {
             }
         }
         
+        labelD.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+          //  self.labelL.transform = .identity
+        }, completion: nil)
+        
         let animLabelDBlock = {
             
             self.labelD.layer.backgroundColor = UIColor.randomColor().cgColor
@@ -218,6 +249,10 @@ class ViewController: UIViewController {
                 )
             }
         }
+        labelA2.transform = CGAffineTransform(scaleX: 0.0001, y: 0.0001)
+        UIView.animate(withDuration: 3.0, delay: 0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0, options: [], animations: {
+          //  self.labelL.transform = .identity
+        }, completion: nil)
         
         let animLabelA2Block = {
             
@@ -236,38 +271,24 @@ class ViewController: UIViewController {
             
             UIView.addKeyframe(withRelativeStartTime: 0.9, relativeDuration: 0.60) {
                 self.labelA2.center = CGPoint(
-                    x: CGFloat(CGFloat(randomAngle2)) + self.view.bounds.size.height,
-                    y: self.view.bounds.size.width + self.labelM.bounds.size.height + CGFloat(randomAngle1)
+                    x: CGFloat(CGFloat(randomAngle2)),
+                    y: CGFloat(CGFloat(randomAngle2)) + self.labelM.bounds.size.height + CGFloat(randomAngle1)
                 )
             }
         }
         
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0.5, options: [], animations: animLabelLBlock, completion: nil)
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelA1Block, completion: nil)
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0.4, options: [], animations: animLabelMBlock, completion: nil)
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelBBlock, completion: nil)
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0.75, options: [], animations: animLabelDBlock, completion: nil)
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animLabelA2Block, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0.5, options: [], animations: animLabelLBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: animLabelA1Block, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0.4, options: [], animations: animLabelMBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: animLabelBBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0.75, options: [], animations: animLabelDBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: animLabelA2Block, completion: nil)
     }
     
     private func animateBack() {
-        
-        for label in [labelL, labelA1, labelM, labelB, labelD, labelA2] {
-            UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.5) {
-                    label?.layer.backgroundColor = UIColor.clear.cgColor
-                }
-                UIView.addKeyframe(withRelativeStartTime: 1.5, relativeDuration: 0) {
-                    label?.textColor = .black
-                }
-                UIView.addKeyframe(withRelativeStartTime: 1.5, relativeDuration: 0) {
-                    label?.transform = .identity
-                }
-            })
-        }
-
+    
 let y = 55
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: {
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.0) {
                 self.labelL.center = CGPoint(x: 20, y: y)
             }
@@ -289,7 +310,7 @@ let y = 55
         })
         
         let animImageViewBlock = {
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: {
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.25) {
                 self.imageView.transform = CGAffineTransform(rotationAngle: .pi/4)
             }
@@ -308,11 +329,25 @@ let y = 55
         }, completion: nil)
         }
         
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0, options: [], animations: animImageViewBlock, completion: nil)
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: animImageViewBlock, completion: nil)
         
         UIView.animate(withDuration: 1.5, delay: 0, options: [], animations: {
             self.imageView.transform = .identity
         })
+        
+        for label in [labelL, labelA1, labelM, labelB, labelD, labelA2] {
+            UIView.animateKeyframes(withDuration: 2.5, delay: 0, options: [], animations: {
+                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1.5) {
+                    label?.layer.backgroundColor = UIColor.clear.cgColor
+                }
+                UIView.addKeyframe(withRelativeStartTime: 1.5, relativeDuration: 0) {
+                    label?.textColor = .black
+                }
+                UIView.addKeyframe(withRelativeStartTime: 1.5, relativeDuration: 0) {
+                    label?.transform = .identity
+                }
+            })
+        }
     }
 }
 
