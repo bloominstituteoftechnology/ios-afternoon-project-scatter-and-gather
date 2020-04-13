@@ -111,25 +111,25 @@ class ViewController: UIViewController {
     
     @objc func toggleButtonPressed(_: UIBarButtonItem) {
         isScattered.toggle()
-//        let letters = [lLetter, aLetter, mLetter, bLetter, dLetter, a2Letter]
+        //        let letters = [lLetter, aLetter, mLetter, bLetter, dLetter, a2Letter]
         if navigationItem.rightBarButtonItem!.isEnabled {
             if isScattered == true {
                 UIView.animate(withDuration: 5.0, delay: 0, options: [], animations: {
-                    let fallL = CGAffineTransform(translationX: CGFloat.random(in: 1...self.view.frame.size.width - 100),
-                        y: CGFloat.random(in: 1...self.view.frame.size.height - 200))
-                    let fallA = CGAffineTransform(translationX: CGFloat.random(in: 1...self.view.frame.size.width - 100),
-                                          y: CGFloat.random(in: 1...self.view.frame.size.height - 200))
-                    let fallM = CGAffineTransform(translationX: CGFloat.random(in: 1...self.view.frame.size.width - 100),
-                                          y: CGFloat.random(in: 1...self.view.frame.size.height - 200))
-                    let fallB = CGAffineTransform(translationX: CGFloat.random(in: 1...self.view.frame.size.width - 100),
-                                          y: CGFloat.random(in: 1...self.view.frame.size.height - 200))
-                    let fallD = CGAffineTransform(translationX: CGFloat.random(in: 1...self.view.frame.size.width - 100),
-                                          y: CGFloat.random(in: 1...self.view.frame.size.height - 200))
-                    let fallA2 = CGAffineTransform(translationX: CGFloat.random(in: 1...self.view.frame.size.width - 100),
-                                          y: CGFloat.random(in: 1...self.view.frame.size.height - 200))
                     
-                  
-
+                    let width = self.view.bounds.width - 400
+                    let height = self.view.bounds.height - 400
+                    let fallL = CGAffineTransform(translationX: CGFloat.random(in: 1...width),
+                                                  y: CGFloat.random(in: 1...height))
+                    let fallA = CGAffineTransform(translationX: CGFloat.random(in: 1...width),
+                                                  y: CGFloat.random(in: 1...height))
+                    let fallM = CGAffineTransform(translationX: CGFloat.random(in: 1...width),
+                                                  y: CGFloat.random(in: 1...height))
+                    let fallB = CGAffineTransform(translationX: CGFloat.random(in: 1...width),
+                                                  y: CGFloat.random(in: 1...height))
+                    let fallD = CGAffineTransform(translationX: CGFloat.random(in: 1...width),
+                                                  y: CGFloat.random(in: 1...height))
+                    let fallA2 = CGAffineTransform(translationX: CGFloat.random(in: 1...width),
+                                                   y: CGFloat.random(in: 1...height))
                     
                     let rotateL = CGAffineTransform(rotationAngle: CGFloat.random(in: 1...10))
                     let rotateA = CGAffineTransform(rotationAngle: CGFloat.random(in: 1...10))
@@ -137,7 +137,7 @@ class ViewController: UIViewController {
                     let rotateB = CGAffineTransform(rotationAngle: CGFloat.random(in: 1...10))
                     let rotateD = CGAffineTransform(rotationAngle: CGFloat.random(in: 1...10))
                     let rotateA2 = CGAffineTransform(rotationAngle: CGFloat.random(in: 1...10))
-
+                    
                     self.lLetter.transform = rotateL.concatenating(fallL)
                     self.aLetter.transform = rotateA.concatenating(fallA)
                     self.mLetter.transform = rotateM.concatenating(fallM)
@@ -151,7 +151,7 @@ class ViewController: UIViewController {
                     self.bLetter.layer.backgroundColor = UIColor.randomColor().cgColor
                     self.dLetter.layer.backgroundColor = UIColor.randomColor().cgColor
                     self.a2Letter.layer.backgroundColor = UIColor.randomColor().cgColor
-                 
+                    
                     
                     self.lLetter.textColor = UIColor.randomColor()
                     self.aLetter.textColor = UIColor.randomColor()
@@ -159,43 +159,43 @@ class ViewController: UIViewController {
                     self.bLetter.textColor = UIColor.randomColor()
                     self.dLetter.textColor = UIColor.randomColor()
                     self.a2Letter.textColor = UIColor.randomColor()
-        
+                    
                     self.imageView.alpha = 0.0
-
-//                    for i in letters {
-//                        i?.transform = rotate.concatenating(fall)
-//                    }
-        
+                    
+                    //                    for i in letters {
+                    //                        i?.transform = rotate.concatenating(fall)
+                    //                    }
+                    
                 }, completion: nil)
-        
-                } else {
-                    if isScattered == false {
-                        UIView.animate(withDuration: 5.0, delay: 0, options: [], animations: {
+                
+            } else {
+                if isScattered == false {
+                    UIView.animate(withDuration: 5.0, delay: 0, options: [], animations: {
                         
-                            self.lLetter.transform = .identity
-                            self.aLetter.transform = .identity
-                            self.mLetter.transform = .identity
-                            self.bLetter.transform = .identity
-                            self.dLetter.transform = .identity
-                            self.a2Letter.transform = .identity
-                            
-                            self.lLetter.layer.backgroundColor = UIColor.clear.cgColor
-                            self.aLetter.layer.backgroundColor = UIColor.clear.cgColor
-                            self.mLetter.layer.backgroundColor = UIColor.clear.cgColor
-                            self.bLetter.layer.backgroundColor = UIColor.clear.cgColor
-                            self.dLetter.layer.backgroundColor = UIColor.clear.cgColor
-                            self.a2Letter.layer.backgroundColor = UIColor.clear.cgColor
-                            
-                            self.lLetter.textColor = .black
-                            self.aLetter.textColor = .black
-                            self.mLetter.textColor = .black
-                            self.bLetter.textColor = .black
-                            self.dLetter.textColor = .black
-                            self.a2Letter.textColor = .black
-                            
-                            self.imageView.alpha = 1.0
-                            
-                        }, completion: nil)
+                        self.lLetter.transform = .identity
+                        self.aLetter.transform = .identity
+                        self.mLetter.transform = .identity
+                        self.bLetter.transform = .identity
+                        self.dLetter.transform = .identity
+                        self.a2Letter.transform = .identity
+                        
+                        self.lLetter.layer.backgroundColor = UIColor.clear.cgColor
+                        self.aLetter.layer.backgroundColor = UIColor.clear.cgColor
+                        self.mLetter.layer.backgroundColor = UIColor.clear.cgColor
+                        self.bLetter.layer.backgroundColor = UIColor.clear.cgColor
+                        self.dLetter.layer.backgroundColor = UIColor.clear.cgColor
+                        self.a2Letter.layer.backgroundColor = UIColor.clear.cgColor
+                        
+                        self.lLetter.textColor = .black
+                        self.aLetter.textColor = .black
+                        self.mLetter.textColor = .black
+                        self.bLetter.textColor = .black
+                        self.dLetter.textColor = .black
+                        self.a2Letter.textColor = .black
+                        
+                        self.imageView.alpha = 1.0
+                        
+                    }, completion: nil)
                     
                 }
             }
