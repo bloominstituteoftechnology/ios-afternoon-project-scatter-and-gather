@@ -53,18 +53,28 @@ class ViewController: UIViewController {
     // MARK: - Scatter Animation Methods
     
     private func fadeOutLogo(_ logo: UIImageView) {
-        UIView.animate(withDuration: 2) { logo.alpha = 0 }
+        UIView.animate(withDuration: 2.0) { logo.alpha = 0 }
     }
     
     private func moveLettersToRandomLocations() {
         for letterLabel in letterLabels {
-            
+
+            }
         }
-    }
     
     private func assignLettersRandomColors() {
         for letterLabel in letterLabels {
-            
+            UIView.animate(withDuration: 2.0) {
+                letterLabel.backgroundColor = UIColor(displayP3Red: CGFloat.random(in: 0/255...255/255),
+                                                      green: CGFloat.random(in: 0/255...255/255),
+                                                      blue: CGFloat.random(in: 0/255...255/255),
+                                                      alpha: 1)
+                
+                letterLabel.textColor = UIColor(displayP3Red: CGFloat.random(in: 0/255...255/255),
+                                                green: CGFloat.random(in: 0/255...255/255),
+                                                blue: CGFloat.random(in: 0/255...255/255),
+                                                alpha: 1)
+            }
         }
     }
     
@@ -79,7 +89,7 @@ class ViewController: UIViewController {
     // MARK: - Gather Animation Methods
     
     private func fadeInLogo(_ logo: UIImageView) {
-        UIView.animate(withDuration: 2) { logo.alpha = 1 }
+        UIView.animate(withDuration: 2.0) { logo.alpha = 1 }
     }
     
     private func resetLetters() {
@@ -91,4 +101,3 @@ class ViewController: UIViewController {
     }
     
 }
-
