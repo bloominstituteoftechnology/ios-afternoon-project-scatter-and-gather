@@ -10,11 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var lambdaLogoImageView: UIImageView!
     @IBOutlet weak var letterLabels: UILabel!
     
-    
-    private var isScattered = false
+    private var isScattered = false {
+        // dynamic toggle button title
+        didSet {
+            switch isScattered {
+            case true:
+                toggleButton.title = "Gather Letters"
+            default:
+                toggleButton.title = "Scatter Letters"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +50,6 @@ class ViewController: UIViewController {
         }
         
         // toggle isScattered
-        
         isScattered.toggle()
     }
     
