@@ -17,9 +17,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="s4J-rl-vwa"/>
                     </view>
-                    <navigationItem key="navigationItem" id="GO5-ak-F8q"/>
+                    <navigationItem key="navigationItem" id="GO5-ak-F8q">
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="Kft-QG-v01">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="1Ez-Go-vA1" id="XnU-5G-CBr"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Uy-Tq-Wl3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="1Ez-Go-vA1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1014.4927536231885" y="151.33928571428569"/>
         </scene>
