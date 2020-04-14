@@ -79,7 +79,8 @@ class ViewController: UIViewController {
     }
     
     private func resetLetters() {
-        // .identity <-resets to original state
+        lambdaLogoImageView.transform = .identity
+        letterLabels.transform = .identity
     }
     
 }
