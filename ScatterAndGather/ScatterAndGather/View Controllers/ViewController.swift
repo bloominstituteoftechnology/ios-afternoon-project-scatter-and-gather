@@ -48,16 +48,28 @@ class ViewController: UIViewController {
             self.image.alpha = 0.0
         })
         
-        // Scatter Letters
-        for letter in letters {
-            letter.textColor = colors[Int.random(in: 0...(colors.count-1))]
-            UIView.animate(withDuration: 2.0, animations: {
-                letter.transform = CGAffineTransform(rotationAngle: CGFloat(.pi/(Float.random(in: 0 ..< 3.5))))
-                letter.center.x = CGFloat(Int.random(in: 20...250))
-                letter.center.y = CGFloat(Int.random(in: 260...640))
+        if !isChained {
+            // Scatter Letters
+            for letter in letters {
+                letter.textColor = colors[Int.random(in: 0...(colors.count-1))]
+                UIView.animate(withDuration: 2.0, animations: {
+                    letter.transform = CGAffineTransform(rotationAngle: CGFloat(.pi/(Float.random(in: 0 ..< 3.5))))
+                    letter.center.x = CGFloat(Int.random(in: 20...250))
+                    letter.center.y = CGFloat(Int.random(in: 260...640))
+                }, completion: nil)
+            }
+        } else {
+            UIView.animateKeyframes(withDuration: 6.0, delay: 0, options: [.calculationModeCubic], animations: {
+                for i in 0...5 {
+                    self.letters[i].textColor = self.colors[Int.random(in: 0...(self.colors.count-1))]
+                    UIView.addKeyframe(withRelativeStartTime: Double(1*i)/6.0, relativeDuration: 1.0/6.0, animations: {
+                        self.letters[i].transform = CGAffineTransform(rotationAngle: CGFloat(.pi/(Float.random(in: 0 ..< 3.5))))
+                        self.letters[i].center.x = CGFloat(Int.random(in: 20...250))
+                        self.letters[i].center.y = CGFloat(Int.random(in: 260...640))
+                    })
+                }
             }, completion: nil)
         }
-        
     }
     
     func collect() {
@@ -72,7 +84,7 @@ class ViewController: UIViewController {
             letter.textColor = .black;
             UIView.animate(withDuration: 2.0) {
                 letter.transform = .identity
-                letter.center.x = self.originalX + CGFloat(50*i)
+                letter.center.x = self.originalX + CGFloat(45*i)
                 letter.center.y = self.originalY
             }
             i += 1
