@@ -76,9 +76,14 @@
                         <viewLayoutGuide key="safeArea" id="s4J-rl-vwa"/>
                     </view>
                     <navigationItem key="navigationItem" id="GO5-ak-F8q">
+                        <barButtonItem key="leftBarButtonItem" title="Chain Animations ❌" id="QFc-ai-Erf">
+                            <connections>
+                                <action selector="chainButtonPressed:" destination="GqJ-Gs-fWo" id="3HT-As-ZW8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Toggle" id="Kft-QG-v01">
                             <connections>
-                                <action selector="toggleButtonPressed:" destination="1Ez-Go-vA1" id="XnU-5G-CBr"/>
+                                <action selector="toggleButtonPressed:" destination="GqJ-Gs-fWo" id="e95-xc-qIr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -89,11 +94,11 @@
                         <outlet property="D" destination="vyK-By-lbS" id="IlN-1Y-QoT"/>
                         <outlet property="L" destination="rXV-Ez-YEx" id="eTW-la-KoN"/>
                         <outlet property="M" destination="GEr-0x-gHr" id="Dwn-ZE-nyj"/>
+                        <outlet property="chainButton" destination="QFc-ai-Erf" id="e0d-Bc-JhW"/>
                         <outlet property="image" destination="Ao2-s0-dLc" id="P8d-VD-OWW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Uy-Tq-Wl3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="1Ez-Go-vA1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1014.4927536231885" y="151.33928571428569"/>
         </scene>
