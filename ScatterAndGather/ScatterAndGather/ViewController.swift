@@ -69,7 +69,6 @@ class ViewController: UIViewController {
     }
     
     private func rotateLetters() {
-        
     }
     
     // MARK: - Gather Animation Methods
@@ -79,7 +78,6 @@ class ViewController: UIViewController {
     }
     
     private func resetLetters() {
-        lambdaLogoImageView.transform = .identity
         letterLabels.transform = .identity
     }
     
