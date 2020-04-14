@@ -18,7 +18,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="jx2-CT-TJ9">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="Yz9-0s-6yh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="Yz9-0s-6yh">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="zAE-nt-N15"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
