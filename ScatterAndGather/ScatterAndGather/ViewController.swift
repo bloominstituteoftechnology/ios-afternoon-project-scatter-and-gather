@@ -84,7 +84,9 @@ class ViewController: UIViewController {
     
     private func resetLetters() {
         for letterLabel in letterLabels {
-            letterLabel.transform = .identity
+            UIView.animate(withDuration: 2.0) {
+                letterLabel.transform = .identity
+            }
         }
     }
     
