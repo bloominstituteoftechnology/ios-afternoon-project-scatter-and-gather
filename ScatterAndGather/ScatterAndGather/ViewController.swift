@@ -26,16 +26,16 @@ class ViewController: UIViewController {
         case true:
             // perform gather animation sequence
             resetLetters()
-            DispatchQueue.main.asyncAfter(deadline: .now() + <#what time do I want for this?#>) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.fadeInLogo(self.lambdaLogoImageView)
             }
         default:
             // perform scatter animation sequence
             fadeOutLogo(lambdaLogoImageView)
-            DispatchQueue.main.asyncAfter(deadline: .now() + <#what time do I want for this?#>) {
-                moveLettersToRandomLocations()
-                assignLettersRandomColors()
-                rotateLetters()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.moveLettersToRandomLocations()
+                self.assignLettersRandomColors()
+                self.rotateLetters()
             }
         }
         
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
     // MARK: - Scatter Animation Methods
     
     private func fadeOutLogo(_ logo: UIImageView) {
-        UIView.animate(withDuration: 4) { logo.alpha = 0 }
+        UIView.animate(withDuration: 2) { logo.alpha = 0 }
     }
     
     private func moveLettersToRandomLocations() {
@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     // MARK: - Gather Animation Methods
     
     private func fadeInLogo(_ logo: UIImageView) {
-        
+        UIView.animate(withDuration: 2) { logo.alpha = 1 }
     }
     
     private func resetLetters() {
