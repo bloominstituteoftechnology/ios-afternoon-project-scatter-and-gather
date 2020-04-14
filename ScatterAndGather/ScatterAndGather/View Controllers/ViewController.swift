@@ -17,9 +17,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var A2: UILabel!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var chainButton: UIBarButtonItem!
+    
     var letters: [UILabel] = [UILabel()]
     var isScattered: Bool = false
-    var chained: Bool = false
+    var isChained: Bool = false
+    var colors: [UIColor] = [.systemRed, .systemBlue, .systemGreen, .systemOrange, .systemPurple, .systemTeal, .systemIndigo, .systemPink, .systemGray, .systemYellow]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,29 +30,50 @@ class ViewController: UIViewController {
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         if !isScattered {
-            for letter in letters {
-                UIView.animate(withDuration: 2.0, animations: {
-                    letter.transform = CGAffineTransform(rotationAngle: CGFloat(.pi/(Float.random(in: 0 ..< 3.5))))
-                }, completion: nil)
-            }
-            isScattered = true;
+            scatter(); isScattered = true
         } else {
-            for letter in letters {
-                UIView.animate(withDuration: 2.0) {
-                    letter.transform = .identity
-                }
+            collect(); isScattered = false
+        }
+    }
+    
+    func scatter() {
+        // Fade out image
+        UIView.animate(withDuration: 2.0, animations: {
+            self.image.alpha = 0.0
+        })
+        
+        // Scatter Letters
+        for letter in letters {
+            letter.textColor = colors[Int.random(in: 0...(colors.count-1))]
+            UIView.animate(withDuration: 2.0, animations: {
+                letter.transform = CGAffineTransform(rotationAngle: CGFloat(.pi/(Float.random(in: 0 ..< 3.5))))
+            }, completion: nil)
+        }
+        
+    }
+    
+    func collect() {
+        // Bring back image
+        UIView.animate(withDuration: 2.0, animations: {
+            self.image.alpha = 1.0
+        })
+        
+        // Reset Letters
+        for letter in letters {
+            letter.textColor = .black;
+            UIView.animate(withDuration: 2.0) {
+                letter.transform = .identity
             }
-            isScattered = false;
         }
     }
     
     @IBAction func chainButtonPressed(_ sender: UIBarButtonItem) {
-        if !chained {
+        if !isChained {
             chainButton.title = "Chain Animations ✅"
-            chained = true
+            isChained = true
         } else {
             chainButton.title = "Chain Animations ❌"
-            chained = false
+            isChained = false
         }
     }
 }
