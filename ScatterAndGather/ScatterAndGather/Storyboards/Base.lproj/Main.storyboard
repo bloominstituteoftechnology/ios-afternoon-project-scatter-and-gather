@@ -10,11 +10,69 @@
         <!--View Controller-->
         <scene sceneID="UKP-Qx-yJ2">
             <objects>
-                <viewController id="GqJ-Gs-fWo" sceneMemberID="viewController">
+                <viewController id="GqJ-Gs-fWo" customClass="ViewController" customModule="ScatterAndGather" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MDh-7D-xe3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lambda_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ao2-s0-dLc">
+                                <rect key="frame" x="40" y="-61" width="334" height="558"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXV-Ez-YEx">
+                                <rect key="frame" x="78" y="108" width="22" height="42"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pwi-Nf-pHk">
+                                <rect key="frame" x="128" y="108" width="22" height="42"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GEr-0x-gHr">
+                                <rect key="frame" x="176" y="108" width="22" height="42"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="B" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zDu-ro-UBw">
+                                <rect key="frame" x="223" y="108" width="22" height="42"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="D" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyK-By-lbS">
+                                <rect key="frame" x="272" y="108" width="22" height="42"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="beX-ea-jCE">
+                                <rect key="frame" x="315" y="108" width="22" height="42"/>
+                                <fontDescription key="fontDescription" name="Menlo-Regular" family="Menlo" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="Pwi-Nf-pHk" firstAttribute="centerX" secondItem="MDh-7D-xe3" secondAttribute="centerX" constant="-68" id="1jG-zh-h8V"/>
+                            <constraint firstItem="Pwi-Nf-pHk" firstAttribute="top" secondItem="s4J-rl-vwa" secondAttribute="top" constant="20" id="3sG-s3-uVZ"/>
+                            <constraint firstItem="vyK-By-lbS" firstAttribute="centerX" secondItem="MDh-7D-xe3" secondAttribute="centerX" constant="76" id="9b9-kY-l1C"/>
+                            <constraint firstItem="vyK-By-lbS" firstAttribute="top" secondItem="s4J-rl-vwa" secondAttribute="top" constant="20" id="9iO-NN-1yW"/>
+                            <constraint firstItem="zDu-ro-UBw" firstAttribute="top" secondItem="s4J-rl-vwa" secondAttribute="top" constant="20" id="Eou-Vb-N9W"/>
+                            <constraint firstItem="rXV-Ez-YEx" firstAttribute="centerX" secondItem="MDh-7D-xe3" secondAttribute="centerX" constant="-118" id="NBZ-NX-2Ak"/>
+                            <constraint firstItem="GEr-0x-gHr" firstAttribute="top" secondItem="s4J-rl-vwa" secondAttribute="top" constant="20" id="NSD-0s-By5"/>
+                            <constraint firstItem="zDu-ro-UBw" firstAttribute="centerX" secondItem="MDh-7D-xe3" secondAttribute="centerX" constant="27" id="Vp5-e0-vmI"/>
+                            <constraint firstItem="GEr-0x-gHr" firstAttribute="centerX" secondItem="MDh-7D-xe3" secondAttribute="centerX" constant="-20" id="Wbu-Cl-b8l"/>
+                            <constraint firstItem="rXV-Ez-YEx" firstAttribute="top" secondItem="s4J-rl-vwa" secondAttribute="top" constant="20" id="YTq-Jx-vQk"/>
+                            <constraint firstItem="beX-ea-jCE" firstAttribute="top" secondItem="s4J-rl-vwa" secondAttribute="top" constant="20" id="ajh-MY-YiF"/>
+                            <constraint firstItem="beX-ea-jCE" firstAttribute="centerX" secondItem="MDh-7D-xe3" secondAttribute="centerX" constant="119" id="dUH-g4-epf"/>
+                            <constraint firstItem="Ao2-s0-dLc" firstAttribute="centerX" secondItem="MDh-7D-xe3" secondAttribute="centerX" id="sgn-EP-6Vu"/>
+                            <constraint firstItem="Ao2-s0-dLc" firstAttribute="leading" secondItem="MDh-7D-xe3" secondAttribute="leading" constant="40" id="x5Z-wG-Gq2"/>
+                            <constraint firstItem="Ao2-s0-dLc" firstAttribute="centerY" secondItem="MDh-7D-xe3" secondAttribute="centerY" constant="-230" id="xnM-IJ-Xge"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="s4J-rl-vwa"/>
                     </view>
                     <navigationItem key="navigationItem" id="GO5-ak-F8q">
@@ -24,6 +82,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="A" destination="Pwi-Nf-pHk" id="jce-Gu-kTE"/>
+                        <outlet property="A2" destination="beX-ea-jCE" id="qL6-jY-c2V"/>
+                        <outlet property="B" destination="zDu-ro-UBw" id="71N-oe-48E"/>
+                        <outlet property="D" destination="vyK-By-lbS" id="IlN-1Y-QoT"/>
+                        <outlet property="L" destination="rXV-Ez-YEx" id="eTW-la-KoN"/>
+                        <outlet property="M" destination="GEr-0x-gHr" id="Dwn-ZE-nyj"/>
+                        <outlet property="image" destination="Ao2-s0-dLc" id="P8d-VD-OWW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Uy-Tq-Wl3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="1Ez-Go-vA1" userLabel="Exit" sceneMemberID="exit"/>
@@ -49,4 +116,7 @@
             <point key="canvasLocation" x="104.34782608695653" y="151.33928571428569"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="lambda_logo" width="2000" height="558"/>
+    </resources>
 </document>
