@@ -34,19 +34,15 @@ class ViewController: UIViewController {
         
         switch isScattered {
         case true:
-            // perform gather animation sequence
+            // perform "gather" animation sequence
             resetLetters()
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.fadeInLogo(self.lambdaLogoImageView)
-            }
+            fadeInLogo(lambdaLogoImageView)
         default:
-            // perform scatter animation sequence
+            // perform "scatter" animation sequence
             fadeOutLogo(lambdaLogoImageView)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.moveLettersToRandomLocations()
-                self.assignLettersRandomColors()
-                self.rotateLetters()
-            }
+            moveLettersToRandomLocations()
+            assignLettersRandomColors()
+            rotateLetters()
         }
         
         // toggle isScattered
