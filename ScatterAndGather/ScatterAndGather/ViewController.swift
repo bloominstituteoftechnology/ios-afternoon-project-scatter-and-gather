@@ -46,8 +46,9 @@ class ViewController: UIViewController {
     }
     
     func animateRandom() {
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: {
-            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 1.0) {
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, options: [], animations: {
+            //Translation and Alpha;
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
 
                 for i in self.labelHolder {
                     if let label = i {
@@ -56,12 +57,22 @@ class ViewController: UIViewController {
                 }
                 self.imageView.alpha = 0
             }
+            
+           /* UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1.0) {
+                for i in self.labelHolder {
+                    if let label = i {
+                        let angle = CGFloat.random(in: 0.0...360.0)
+                        label.transform = CGAffineTransform(rotationAngle: .pi/180 * angle)
+                    }
+                }
+            }*/
         }, completion: nil)
     }
     
     func animateReturn() {
+        
         //Return Animated Elements back to their original position
-        UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: {
+        UIView.animateKeyframes(withDuration: 2.5, delay: 0.0, options: [], animations: {
             UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 1.0) {
 
                 for i in self.labelHolder {
@@ -73,7 +84,6 @@ class ViewController: UIViewController {
                 self.imageView.alpha = 1
             }
         }, completion: nil)
-        
     }
     
     func changeLabelColor() {
@@ -89,5 +99,6 @@ class ViewController: UIViewController {
             }
         }
     }
+    
 }
 
