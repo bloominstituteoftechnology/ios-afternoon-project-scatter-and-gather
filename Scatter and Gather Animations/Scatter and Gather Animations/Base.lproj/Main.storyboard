@@ -75,17 +75,17 @@
                     <navigationItem key="navigationItem" title="Hello!" id="UOz-Fc-rv9">
                         <barButtonItem key="rightBarButtonItem" title="Toggle" id="qoS-vu-Kql">
                             <connections>
-                                <action selector="toggleButtonPressed:" destination="YqA-Ff-VBt" id="hRi-9f-ri4"/>
+                                <action selector="toggleButtonPressed:" destination="YqA-Ff-VBt" id="Cjj-Xb-EKH"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="a2Label" destination="mcV-X9-xKS" id="Oos-w3-F7O"/>
-                        <outlet property="aLabel" destination="mcV-X9-xKS" id="Yg1-Tf-YAo"/>
+                        <outlet property="aLabel" destination="pTw-Xh-v30" id="MWI-lM-WYO"/>
                         <outlet property="bLabel" destination="LxQ-8q-Ooc" id="7te-vF-Is2"/>
                         <outlet property="dLabel" destination="sGN-7a-Ffu" id="P76-Bs-ibH"/>
-                        <outlet property="imageView" destination="c8J-sg-1hP" id="im2-Hz-1mn"/>
                         <outlet property="lLabel" destination="fak-7Z-OHa" id="5xG-RS-tyO"/>
+                        <outlet property="lambdaLogo" destination="c8J-sg-1hP" id="Sf0-Vc-d1K"/>
                         <outlet property="mLabel" destination="YP1-E2-A63" id="jcf-rY-jyL"/>
                     </connections>
                 </viewController>
