@@ -21,20 +21,73 @@ class ViewController: UIViewController {
     
     //Variables
     var isScattered = false
+    lazy var labelHolder = [firstLabel, secondLabel, thirdLabel, fourthLabel, fifthLabel, sixthLabel]
+    var backgroundColorHolder: [UIColor] = [.blue, .orange, .cyan, .green, .magenta, .red, .yellow]
+    var textColorHolder: [UIColor] = [.brown, .white, .black]
+    lazy var maxX = view.bounds.maxX
+    lazy var maxY = view.bounds.maxY
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-    
 
     //Actions
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
         isScattered = !isScattered
+        
+        if isScattered == true {
+            changeLabelColor()
+            animateRandom()
+        } else {
+            changeLabelColor()
+            animateReturn()
+        }
     }
     
+    func animateRandom() {
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 1.0) {
+
+                for i in self.labelHolder {
+                    if let label = i {
+                        label.transform = CGAffineTransform(translationX: CGFloat.random(in: 0.0...self.maxX) - label.frame.origin.x, y: CGFloat.random(in: 0.0...self.maxY) - label.frame.origin.y)
+                    }
+                }
+                self.imageView.alpha = 0
+            }
+        }, completion: nil)
+    }
     
+    func animateReturn() {
+        //Return Animated Elements back to their original position
+        UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, options: [], animations: {
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 1.0) {
+
+                for i in self.labelHolder {
+                    if let label = i {
+                        label.transform = .identity
+                    }
+                }
+                
+                self.imageView.alpha = 1
+            }
+        }, completion: nil)
+        
+    }
     
+    func changeLabelColor() {
+        if isScattered == true {
+            for i in labelHolder {
+                i?.textColor = textColorHolder[Int.random(in: 0...textColorHolder.count - 1)]
+                i?.backgroundColor = backgroundColorHolder[Int.random(in: 0...backgroundColorHolder.count - 1)]
+            }
+        } else {
+            for i in labelHolder {
+                i?.textColor = .black
+                i?.backgroundColor = .clear
+            }
+        }
+    }
 }
 
