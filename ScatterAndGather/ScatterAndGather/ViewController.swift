@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var lambdaLogoImageView: UIImageView!
-    @IBOutlet weak var letterLabels: UILabel!
+    @IBOutlet var letterLabels: [UILabel]!
     
     private var isScattered = false {
         // dynamic toggle button title
@@ -61,14 +61,23 @@ class ViewController: UIViewController {
     }
     
     private func moveLettersToRandomLocations() {
-        
+        for letterLabel in letterLabels {
+            
+        }
     }
     
     private func assignLettersRandomColors() {
-        
+        for letterLabel in letterLabels {
+            
+        }
     }
     
     private func rotateLetters() {
+        for letterLabel in letterLabels {
+            UIView.animate(withDuration: 2.0) {
+                letterLabel.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: (CGFloat.pi / 2)...(CGFloat(UInt32(2)) * CGFloat.pi)))
+            }
+        }
     }
     
     // MARK: - Gather Animation Methods
@@ -78,7 +87,9 @@ class ViewController: UIViewController {
     }
     
     private func resetLetters() {
-        letterLabels.transform = .identity
+        for letterLabel in letterLabels {
+            letterLabel.transform = .identity
+        }
     }
     
 }

@@ -79,10 +79,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="lambdaImage" destination="Q6Z-Z7-rVd" id="6eJ-zA-jEM"/>
                         <outlet property="lambdaLogoImageView" destination="Q6Z-Z7-rVd" id="jyA-5J-s32"/>
-                        <outlet property="letterLabels" destination="AVB-pa-52G" id="qbr-Kx-Xrl"/>
                         <outlet property="toggleButton" destination="Yz9-0s-6yh" id="wp1-po-YU7"/>
+                        <outletCollection property="letterLabels" destination="N26-5d-Fs9" collectionClass="NSMutableArray" id="gdX-fS-3qO"/>
+                        <outletCollection property="letterLabels" destination="slm-fR-qGV" collectionClass="NSMutableArray" id="1wE-ZB-QHz"/>
+                        <outletCollection property="letterLabels" destination="cNu-Hh-eMf" collectionClass="NSMutableArray" id="SUy-j2-ou9"/>
+                        <outletCollection property="letterLabels" destination="LwU-Ox-dsF" collectionClass="NSMutableArray" id="hh1-Tr-iE9"/>
+                        <outletCollection property="letterLabels" destination="sT5-fR-rCV" collectionClass="NSMutableArray" id="3cc-wR-p7x"/>
+                        <outletCollection property="letterLabels" destination="AVB-pa-52G" collectionClass="NSMutableArray" id="PrQ-j6-awM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
