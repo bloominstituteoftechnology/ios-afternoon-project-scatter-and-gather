@@ -52,8 +52,8 @@ class ViewController: UIViewController {
 
         // https://www.hackingwithswift.com/articles/103/seven-useful-methods-from-cgrect
         let lettersFrame = view.safeAreaLayoutGuide.layoutFrame
-            .insetBy(dx: 50, dy: 0)
-            .divided(atDistance: 100, from: .minYEdge).slice
+            .insetBy(dx: 50, dy: 40)
+            .divided(atDistance: 70, from: .minYEdge).slice
         var remainingLettersFrame = lettersFrame
         let letterWidth = lettersFrame.width / CGFloat(letters.count)
 
@@ -78,7 +78,6 @@ class ViewController: UIViewController {
         }
     }
     
-    /// fade out logo
     /// move letters to random locations
     /// assign random background and text color
     /// custom transform to rotate
