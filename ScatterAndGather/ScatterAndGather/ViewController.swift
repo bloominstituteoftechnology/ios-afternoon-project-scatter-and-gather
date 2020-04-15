@@ -19,8 +19,8 @@ class ViewController: UIViewController {
     let b = UILabel()
     let d = UILabel()
     let aa = UILabel()
+    var letters: [UILabel] = []
     let logoImageView = UIImageView()
-    //let testView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +44,28 @@ class ViewController: UIViewController {
             logoImageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -50),
             logoImageView.heightAnchor.constraint(equalTo: logoImageView.widthAnchor, multiplier: 0.5)
         ])
-        
-        let layoutFrame = view.safeAreaLayoutGuide.layoutFrame
-        
-        
-        
-        
-        
-//        testView.frame = layoutFrame
-//        testView.backgroundColor = .blue
-//        view.addSubview(testView)
+
+        letters = [l, a, m, b, d, aa]
+        for (i, char) in "Lambda".enumerated() {
+            letters[i].text = String(char)
+        }
+
+        // https://www.hackingwithswift.com/articles/103/seven-useful-methods-from-cgrect
+        let lettersFrame = view.safeAreaLayoutGuide.layoutFrame
+            .insetBy(dx: 50, dy: 0)
+            .divided(atDistance: 100, from: .minYEdge).slice
+        var remainingLettersFrame = lettersFrame
+        let letterWidth = lettersFrame.width / CGFloat(letters.count)
+
+        letters.forEach {
+            let divided = remainingLettersFrame.divided(atDistance: letterWidth, from: .minXEdge)
+            remainingLettersFrame = divided.remainder
+            $0.frame = divided.slice
+
+            $0.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+            $0.textAlignment = .center
+            self.view.addSubview($0)
+        }
     }
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
