@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let duration = 0.3
+    let duration: TimeInterval = 1
     
     var isScattered = false
     let l = UILabel()
@@ -28,13 +28,10 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         setUpViews()
     }
     
     private func setUpViews() {
-        
-        // logo
         logoImageView.image = UIImage(named: "lambda_logo")
         logoImageView.contentMode = .scaleAspectFit
         view.addSubview(logoImageView)
@@ -65,7 +62,6 @@ class ViewController: UIViewController {
             .divided(atDistance: 70, from: .minYEdge).slice
         var remainingLettersFrame = lettersFrame
         let letterWidth = lettersFrame.width / CGFloat(letters.count)
-        
         letters.forEach {
             let divided = remainingLettersFrame.divided(atDistance: letterWidth, from: .minXEdge)
             remainingLettersFrame = divided.remainder
@@ -83,38 +79,51 @@ class ViewController: UIViewController {
         }
     }
 
-    /// assign random background and text color
-    /// custom transform to rotate
-    /// custom animations?
     private func animateScatter() {
         let layoutFrame = view.safeAreaLayoutGuide.layoutFrame
         let letterSize = letters[0].bounds.size
-        letters.forEach { letter in
-            UIView.animate(withDuration: duration) {
-                letter.frame.origin.x = CGFloat.random(in: 0..<(layoutFrame.width - letterSize.width))
-                letter.frame.origin.y = CGFloat.random(in: 0..<(layoutFrame.height - letterSize.height))
-                    + layoutFrame.minY
-            }
-        }
-        //Int.random(in: 0...)
-        
         UIView.animate(withDuration: duration) {
             self.logoImageView.alpha = 0
+            self.letters.forEach {
+                let randomRotation = CGAffineTransform(rotationAngle: .pi * CGFloat.random(in: 0..<2))
+                let randomTranslation = CGAffineTransform(
+                    translationX: CGFloat.random(in: 0..<(layoutFrame.width - letterSize.width)) - $0.frame.origin.x,
+                    y: CGFloat.random(in: 0..<(layoutFrame.height - letterSize.height)) - $0.frame.origin.y + layoutFrame.minY
+                )
+                $0.transform = randomRotation.concatenating(randomTranslation)
+                $0.layer.backgroundColor = UIColor.randomLightHue().cgColor
+                $0.textColor = UIColor.randomDarkHue()
+            }
         }
     }
-    
-    /// reset letter properties
+
     private func animateGather() {
         UIView.animate(withDuration: duration) {
-            self.positionLettersAtTop()
-        }
-        
-        letters.forEach {
-            $0.transform = .identity
-        }
-        
-        UIView.animate(withDuration: duration) {
             self.logoImageView.alpha = 1
+            self.letters.forEach {
+                $0.transform = .identity
+                $0.layer.backgroundColor = UIColor.white.cgColor
+                $0.textColor = .label
+            }
         }
+    }
+}
+
+extension UIColor {
+    static func randomDarkHue() -> UIColor {
+        UIColor(
+            hue: CGFloat.random(in: 0...1),
+            saturation: CGFloat.random(in: 0...1),
+            brightness: CGFloat.random(in: 0...0.5),
+            alpha: 1
+        )
+    }
+    static func randomLightHue() -> UIColor {
+        UIColor(
+            hue: CGFloat.random(in: 0...1),
+            saturation: CGFloat.random(in: 0...1),
+            brightness: CGFloat.random(in: 0.9...1.0),
+            alpha: 1
+        )
     }
 }
