@@ -21,15 +21,17 @@ class LambdaViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
         
-        
+        fadeLogo()
+        lettersRandom()
         
         
         
@@ -55,9 +57,30 @@ class LambdaViewController: UIViewController {
     
     // If I set constraints in storyboard... random locations?
     private func lettersRandom() {
-        // label.center = CGPoint(x: view.center.x, y: -label.bounds.size.height)
-        
-        CGFloat.random(in: 0...20)
+  
+        UIView.animateKeyframes(withDuration: 4.0, delay: 0, options: [], animations: {
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.labelL.transform = CGAffineTransform(translationX: 0, y: 20)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.labelA.transform = CGAffineTransform(translationX: 10, y: 40)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.labelM.transform = CGAffineTransform(translationX: 50, y: 100)
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
+                self.labelD.transform = CGAffineTransform(translationX: 45, y: 60)
+            }
+            
+            
+            
+            
+            
+        }, completion: nil)
         // array of labels
         //
 }
