@@ -95,13 +95,11 @@ class ViewController: UIViewController {
     // Scatter function
     @objc private func scatter() {
         if isScattered {
-            isScattered = false
+            isScattered = false // gathered
             UIView.animate(withDuration: 2.0) {
                 for view in self.stackView.arrangedSubviews {
                     if let label = view as? UILabel {
-                        label.alpha = 0
                         self.stackView.addArrangedSubview(label) //brings everything back into place
-                        label.alpha = 1
                         self.imageView.alpha = 1
                         label.textColor = .black
                         label.backgroundColor = .clear
@@ -110,7 +108,7 @@ class ViewController: UIViewController {
                 }
             }
         } else {
-            isScattered = true
+            isScattered = true // scattered
             UIView.animate(withDuration: 2.0) {
                 for view in self.stackView.arrangedSubviews {
                     if let label = view as? UILabel {
@@ -121,8 +119,15 @@ class ViewController: UIViewController {
                         let maxY = self.view.bounds.maxY - label.bounds.maxY - label.bounds.height - 50 // -50 because stack view is 50 points from the top of the view
                         let randomY = CGFloat.random(in: 0..<maxY)
                         
-                        label.layer.position = CGPoint(x: randomX, y: randomY)
-                        label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...8))
+//                        label.layer.position = CGPoint(x: randomX, y: randomY)
+                        UIView.animate(withDuration: 2.0, animations: { label.transform = CGAffineTransform(rotationAngle: 0) }, completion: nil)
+                        UIView.animateKeyframes(withDuration: 2.0, delay: 0, options: [], animations: {
+                            UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
+                                label.transform = CGAffineTransform(translationX: randomX, y: randomY).rotated(by: CGFloat.pi / CGFloat.random(in: -8...8))
+                            }
+                        }, completion: nil)
+//                        label.transform = CGAffineTransform(translationX: randomX, y: randomY)
+//                        label.transform = CGAffineTransform(rotationAngle: CGFloat.pi / CGFloat.random(in: 0...8))
                         self.imageView.alpha = 0
                     }
                 }
