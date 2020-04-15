@@ -18,19 +18,19 @@
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dyz-4J-X9I">
                                 <rect key="frame" x="37" y="406" width="340.5" height="84"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWW-Yu-tsd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWW-Yu-tsd">
                                         <rect key="frame" x="0.0" y="0.0" width="38.5" height="84"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsW-0f-osK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsW-0f-osK">
                                         <rect key="frame" x="54.5" y="0.0" width="38.5" height="84"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GN-RG-Bzj">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GN-RG-Bzj">
                                         <rect key="frame" x="109" y="0.0" width="61" height="84"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="70"/>
                                         <nil key="textColor"/>
@@ -55,9 +55,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Dyz-4J-X9I" secondAttribute="height" multiplier="85:21" id="daX-yR-aPv"/>
-                                </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lambda_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="950-zK-nac">
                                 <rect key="frame" x="0.0" y="498" width="414" height="128"/>
@@ -79,6 +76,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageView" destination="950-zK-nac" id="U19-e4-pvP"/>
                         <outlet property="lastALabel" destination="sTR-j1-l1K" id="uDI-Xs-D14"/>
                         <outlet property="letterALabel" destination="MsW-0f-osK" id="SDV-69-xJf"/>
                         <outlet property="letterBLabel" destination="ZyX-30-qdb" id="ra9-mw-jt0"/>
