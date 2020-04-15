@@ -34,6 +34,7 @@ class ViewController: UIViewController {
     
     private func setUpViews() {
         
+        // logo
         logoImageView.image = UIImage(named: "lambda_logo")
         logoImageView.contentMode = .scaleAspectFit
         view.addSubview(logoImageView)
@@ -49,22 +50,26 @@ class ViewController: UIViewController {
         for (i, char) in "Lambda".enumerated() {
             letters[i].text = String(char)
         }
-
+        letters.forEach {
+            $0.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
+            $0.textAlignment = .center
+            self.view.addSubview($0)
+        }
+        positionLettersAtTop()
+    }
+    
+    private func positionLettersAtTop() {
         // https://www.hackingwithswift.com/articles/103/seven-useful-methods-from-cgrect
         let lettersFrame = view.safeAreaLayoutGuide.layoutFrame
             .insetBy(dx: 50, dy: 40)
             .divided(atDistance: 70, from: .minYEdge).slice
         var remainingLettersFrame = lettersFrame
         let letterWidth = lettersFrame.width / CGFloat(letters.count)
-
+        
         letters.forEach {
             let divided = remainingLettersFrame.divided(atDistance: letterWidth, from: .minXEdge)
             remainingLettersFrame = divided.remainder
             $0.frame = divided.slice
-
-            $0.font = UIFont(name: "CourierNewPS-BoldMT", size: 50)
-            $0.textAlignment = .center
-            self.view.addSubview($0)
         }
     }
     
@@ -77,12 +82,20 @@ class ViewController: UIViewController {
             isScattered = true
         }
     }
-    
-    /// move letters to random locations
+
     /// assign random background and text color
     /// custom transform to rotate
     /// custom animations?
     private func animateScatter() {
+        let layoutFrame = view.safeAreaLayoutGuide.layoutFrame
+        let letterSize = letters[0].bounds.size
+        letters.forEach { letter in
+            UIView.animate(withDuration: duration) {
+                letter.frame.origin.x = CGFloat.random(in: 0..<(layoutFrame.width - letterSize.width))
+                letter.frame.origin.y = CGFloat.random(in: 0..<(layoutFrame.height - letterSize.height))
+                    + layoutFrame.minY
+            }
+        }
         //Int.random(in: 0...)
         
         UIView.animate(withDuration: duration) {
@@ -90,11 +103,15 @@ class ViewController: UIViewController {
         }
     }
     
-    /// fade in logo
     /// reset letter properties
-    /// move letters back to origin
     private func animateGather() {
+        UIView.animate(withDuration: duration) {
+            self.positionLettersAtTop()
+        }
         
+        letters.forEach {
+            $0.transform = .identity
+        }
         
         UIView.animate(withDuration: duration) {
             self.logoImageView.alpha = 1
