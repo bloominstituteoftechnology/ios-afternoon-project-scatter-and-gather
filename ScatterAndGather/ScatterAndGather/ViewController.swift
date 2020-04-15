@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var lambdaLogoImageView: UIImageView!
     @IBOutlet var letterLabels: [UILabel]!
+    @IBOutlet weak var movableView: UIView!
+    
+    private var originalLocationsOfLetterLabels = [CGPoint]()
     
     private var isScattered = false {
         // dynamic toggle button title
@@ -28,13 +31,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        storeOriginalLetterLabelLocations()
     }
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
-        
-        //        view.translatesAutoresizingMaskIntoConstraints = true
-        //        view.translatesAutoresizingMaskIntoConstraints = false
         
         switch isScattered {
         case true:
@@ -62,58 +62,35 @@ class ViewController: UIViewController {
     
     private func moveLettersToRandomLocations() {
         
-        let minX = (UIScreen.main.bounds.width / 2) * (-1)
-        let maxX = UIScreen.main.bounds.width / 2
-        let minY = UIScreen.main.bounds.height / 2
-        let maxY = (UIScreen.main.bounds.height / 2) * (-1)
-        
         for letterLabel in letterLabels {
             
-            //                        let letterLabelWidth = letterLabel.frame.width
-            //                        let letterLabelHeight = letterLabel.frame.height
-            //
-            //                        // Find the width and height of the enclosing view
-            //                        let viewWidth = letterLabel.superview!.bounds.width
-            //                        let viewHeight = letterLabel.superview!.bounds.height
-            //
-            //                        // Compute width and height of the area to contain the button's center
-            //                        let xwidth = viewWidth - letterLabelWidth
-            //                        let yheight = viewHeight - letterLabelHeight
-            //
-            //                        // Generate a random x and y offset
-            //                        let xoffset = CGFloat(arc4random_uniform(UInt32(xwidth)))
-            //                        let yoffset = CGFloat(arc4random_uniform(UInt32(yheight)))
-            //
-            //                        // Offset the button's center by the random offsets.
-            //                        letterLabel.center.x = xoffset + letterLabelWidth / 2
-            //                        letterLabel.center.y = yoffset + letterLabelHeight / 2
+            // Find width and height of labels
+            let letterLabelWidth = letterLabel.frame.width
+            let letterLabelHeight = letterLabel.frame.height
             
+            // Find the width and height of the enclosing view
+            let viewWidth = movableView.bounds.width
+            let viewHeight = movableView.bounds.height
+            
+            // Compute width and height of the area to contain the button's center
+            let xwidth = viewWidth - letterLabelWidth
+            let yheight = viewHeight - letterLabelHeight
+            
+            // Generate a random x and y offset
+            let xoffset = CGFloat(arc4random_uniform(UInt32(xwidth)))
+            let yoffset = CGFloat(arc4random_uniform(UInt32(yheight)))
             
             UIView.animate(withDuration: 2.0) {
                 
-                //                                letterLabel.transform = CGAffineTransform(translationX: xoffset + letterLabelWidth / 2,
-                //                                                                          y: yoffset + letterLabelHeight / 2)
-                
-                //                                letterLabel.center = CGPoint(x: CGFloat.random(in: minX...maxX),
-                //                                                             y: CGFloat.random(in: maxY...minY))
-                
-                letterLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: minX...maxX),
-                                                          y: CGFloat.random(in: maxY...minY))
-                
-                //                letterLabel.transform = CGAffineTransform(translationX: 100, y: 100)
-                
-                
-                //                letterLabel.translatedBy(x: CGFloat.random(in: 0...self.view.frame.size.width),
-                //                y: CGFloat.random(in: 0...self.view.frame.size.height)
-                
-                
+                letterLabel.center = CGPoint(x: xoffset + letterLabelWidth / 2,
+                                             y: yoffset + letterLabelHeight / 2)
             }
         }
-        
     }
     
     
     private func assignLettersRandomColors() {
+        
         for letterLabel in letterLabels {
             UIView.animate(withDuration: 2.0) {
                 letterLabel.backgroundColor = UIColor(displayP3Red: CGFloat.random(in: 0/255...255/255),
@@ -144,14 +121,28 @@ class ViewController: UIViewController {
     }
     
     private func resetLetters() {
+        
+        var index: Int = 0
+        
         for letterLabel in letterLabels {
             
             UIView.animate(withDuration: 2.0) {
                 
+                letterLabel.center = self.originalLocationsOfLetterLabels[index]
                 letterLabel.transform = CGAffineTransform.identity
                 letterLabel.backgroundColor = nil
                 letterLabel.textColor = .black
             }
+            
+            index += 1
+        }
+    }
+    
+    // MARK: - Helper Method
+    
+    private func storeOriginalLetterLabelLocations() {
+        for letterLabel in letterLabels {
+            originalLocationsOfLetterLabels.append(letterLabel.center)
         }
     }
     
