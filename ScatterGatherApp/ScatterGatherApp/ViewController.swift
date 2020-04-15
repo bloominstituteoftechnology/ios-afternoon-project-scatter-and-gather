@@ -16,8 +16,10 @@ class ViewController: UIViewController {
     var bLabel = UILabel()
     var dLabel = UILabel()
     var lastALabel = UILabel()
+    var hasRun = Bool()
     
     
+    @IBOutlet weak var lambdaLogo: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,13 +60,12 @@ class ViewController: UIViewController {
         
     }
     
-    
-    
     private func configureLambdaText() {
-        
+    
         label = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.borderWidth = 0.1
+        label.backgroundColor = .white
         label.layer.cornerRadius = 12
         label.text = "L"
         label.textAlignment = .center
@@ -110,7 +111,6 @@ class ViewController: UIViewController {
         lastALabel.textAlignment = .center
         lastALabel.font = UIFont.systemFont(ofSize: 48)
         
-        
         view.addSubview(label)
         view.addSubview(firstALabel)
         view.addSubview(mLabel)
@@ -118,23 +118,127 @@ class ViewController: UIViewController {
         view.addSubview(dLabel)
         view.addSubview(lastALabel)
         
-        
         label.widthAnchor.constraint(equalTo: label.heightAnchor).isActive = true
         
     }
     
-    private func rotateButtonTapped() {
-        UIView.animate(withDuration: 2.0, animations: {
-            self.label.transform = CGAffineTransform(rotationAngle: .pi/4) // 2 pi is a complete rotation.
-        }) { _ in
-            UIView.animate(withDuration: 2.0) {
-                self.label.transform = .identity // identity is the original state of the view which xcode remembers for us.
-            }
-        }
+    private func returnToStart() {
+        self.label.transform = .identity
+        self.firstALabel.transform = .identity
+        self.mLabel.transform = .identity
+        self.bLabel.transform = .identity
+        self.dLabel.transform = .identity
+        self.lastALabel.transform = .identity
+        self.lambdaLogo.transform = .identity
+        
+        
     }
     
+    private func lambdaLetterAnimation() {
+        hasRun = false
+        
+        
+        func scaleRandom() -> CGFloat {
+            let randomNumber = Float.random(in: 0.5 ..< 2)
+            let randomCGform = CGFloat(randomNumber)
+            return randomCGform
+        }
+        
+        func rotateRandom() -> CGFloat {
+            let randomNumber = Float.random(in: 8 ..< 16)
+            let randomCGform = CGFloat(.pi/randomNumber)
+            return randomCGform
+        }
+        
+        func translationRandom() -> CGFloat {
+            let randomNumber = Float.random(in: 0 ..< 200)
+            let randomCGform = CGFloat(randomNumber)
+            return randomCGform
+        }
+        
+        let animBlock = {
+            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.4) {
+                self.lambdaLogo.alpha = 1
+                self.label.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.firstALabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.bLabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.dLabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.mLabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.lastALabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+
+
+            }
+            
+            UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6) {
+                self.lambdaLogo.alpha = 0.0
+                self.label.transform = CGAffineTransform(translationX: translationRandom(), y: translationRandom()+200).concatenating(CGAffineTransform(scaleX: scaleRandom(), y: scaleRandom()))
+                self.firstALabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.bLabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.dLabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.mLabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: translationRandom()))
+                self.lastALabel.transform = CGAffineTransform(rotationAngle: rotateRandom()).concatenating(CGAffineTransform(translationX: translationRandom(), y: -translationRandom()))
+
+            }
+            
+        }
+        
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: animBlock, completion: nil)
+    }
+    
+    
     @IBAction func toggleBarTapped(_ sender: UIButton) {
-        rotateButtonTapped()
+        print(hasRun)
+        if hasRun == false {
+            lambdaLetterAnimation()
+            hasRun = true
+        } else {
+            returnToStart()
+            hasRun = false
+        }
+        
     }
 }
 
+
+
+
+
+
+//       let animBlock = {
+//            UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.5) {
+////                self.label.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber())
+//                self.label.backgroundColor = .blue
+//
+////                self.firstALabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber())
+////                self.mLabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber())
+////                self.bLabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber())
+////                self.dLabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber())
+////                self.lastALabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber())
+//            }
+//
+////            UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.7) {
+////                self.label.transform = CGAffineTransform(rotationAngle: rotateRandomNumber())
+////                self.firstALabel.transform = CGAffineTransform(rotationAngle: rotateRandomNumber())
+////                self.mLabel.transform = CGAffineTransform(rotationAngle: rotateRandomNumber())
+////                self.bLabel.transform = CGAffineTransform(rotationAngle: rotateRandomNumber())
+////                self.dLabel.transform = CGAffineTransform(rotationAngle: rotateRandomNumber())
+////                self.lastALabel.transform = CGAffineTransform(rotationAngle: rotateRandomNumber())
+////            }
+//
+//            UIView.addKeyframe(withRelativeStartTime: 0.4, relativeDuration: 0.6) {
+////                self.label.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber()+300)
+//                self.label.backgroundColor = .red
+////                self.label.transform = CGAffineTransform(scaleX: scaleRandomNumber(), y: scaleRandomNumber())
+//
+////                self.firstALabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber()+250)
+////                self.mLabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber()+175)
+////                self.bLabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber()+198)
+////                self.dLabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber()+120)
+////                self.lastALabel.transform = CGAffineTransform(translationX: translationRandomNumber(), y: translationRandomNumber()+500)
+//            }
+//
+//        }
+//
+//        UIView.animateKeyframes(withDuration: 3.0, delay: 0, options: [], animations: animBlock, completion: nil)
+//    }
+//
