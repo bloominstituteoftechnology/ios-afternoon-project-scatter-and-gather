@@ -50,8 +50,8 @@ class LambdaViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.labelL.transform = CGAffineTransform(translationX: CGFloat(Int.random(in: 1...100)), y: CGFloat(Int.random(in: 1...100)))
                 self.labelL.transform = CGAffineTransform(rotationAngle: .pi/0.8)
-                self.labelL.backgroundColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
-                self.labelL.textColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
+                self.labelL.backgroundColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
+                self.labelL.textColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
@@ -61,8 +61,8 @@ class LambdaViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.labelA.transform = CGAffineTransform(translationX: CGFloat(Int.random(in: 1...100)), y: CGFloat(Int.random(in: 1...100)))
                 self.labelA.transform = CGAffineTransform(rotationAngle: .pi/0.8)
-                self.labelA.backgroundColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
-                self.labelA.textColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
+                self.labelA.backgroundColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0...255), blue: .random(in: 0/255...255/255), alpha: 1.0)
+                self.labelA.textColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
@@ -72,8 +72,8 @@ class LambdaViewController: UIViewController {
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.labelM.transform = CGAffineTransform(translationX: CGFloat(Int.random(in: 1...100)), y: CGFloat(Int.random(in: 1...100)))
                 self.labelM.transform = CGAffineTransform(rotationAngle: .pi/0.8)
-                self.labelM.backgroundColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
-                self.labelM.textColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
+                self.labelM.backgroundColor = UIColor(red: .random(in: 0...255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
+                self.labelM.textColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
             }
             
             UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
@@ -82,8 +82,8 @@ class LambdaViewController: UIViewController {
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.labelD.transform = CGAffineTransform(translationX: CGFloat(Int.random(in: 1...100)), y: CGFloat(Int.random(in: 1...100)))
-                self.labelD.backgroundColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
-                self.labelD.textColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
+                self.labelD.backgroundColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
+                self.labelD.textColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
                 self.labelD.transform = CGAffineTransform(rotationAngle: .pi/16.0)
             }
             
@@ -94,8 +94,8 @@ class LambdaViewController: UIViewController {
             
             UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 0.5) {
                 self.labelA2.transform = CGAffineTransform(translationX: 15, y: 70)
-                self.labelA2.backgroundColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
-                self.labelA2.textColor = UIColor(red: .random(in: 0...255), green: .random(in: 0...255), blue: .random(in: 0...255), alpha: 1.0)
+                self.labelA2.backgroundColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
+                self.labelA2.textColor = UIColor(red: .random(in: 0/255...255/255), green: .random(in: 0/255...255/255), blue: .random(in: 0/255...255/255), alpha: 1.0)
                 self.labelA2.transform = CGAffineTransform(rotationAngle: .pi/4)
             }
             
