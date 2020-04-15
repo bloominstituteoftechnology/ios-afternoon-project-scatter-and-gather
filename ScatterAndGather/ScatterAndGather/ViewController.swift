@@ -28,6 +28,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for letterLabel in letterLabels {
+            letterLabel = CGAffineTransform.identity
+        }
     }
     
     @IBAction func toggleButtonPressed(_ sender: Any) {
@@ -57,10 +60,53 @@ class ViewController: UIViewController {
     }
     
     private func moveLettersToRandomLocations() {
+        
+                let minX = (UIScreen.main.bounds.width / 2) * (-1)
+                let maxX = UIScreen.main.bounds.width / 2
+                let minY = UIScreen.main.bounds.height / 2
+                let maxY = (UIScreen.main.bounds.height / 2) * (-1)
+        
         for letterLabel in letterLabels {
-
+            
+//                        let letterLabelWidth = letterLabel.frame.width
+//                        let letterLabelHeight = letterLabel.frame.height
+//
+//                        // Find the width and height of the enclosing view
+//                        let viewWidth = letterLabel.superview!.bounds.width
+//                        let viewHeight = letterLabel.superview!.bounds.height
+//
+//                        // Compute width and height of the area to contain the button's center
+//                        let xwidth = viewWidth - letterLabelWidth
+//                        let yheight = viewHeight - letterLabelHeight
+//
+//                        // Generate a random x and y offset
+//                        let xoffset = CGFloat(arc4random_uniform(UInt32(xwidth)))
+//                        let yoffset = CGFloat(arc4random_uniform(UInt32(yheight)))
+//
+//                        // Offset the button's center by the random offsets.
+//                        letterLabel.center.x = xoffset + letterLabelWidth / 2
+//                        letterLabel.center.y = yoffset + letterLabelHeight / 2
+            
+            
+            UIView.animate(withDuration: 2.0) {
+                
+//                                letterLabel.transform = CGAffineTransform(translationX: xoffset + letterLabelWidth / 2,
+//                                                                          y: yoffset + letterLabelHeight / 2)
+                
+//                                letterLabel.center = CGPoint(x: CGFloat.random(in: minX...maxX),
+//                                                             y: CGFloat.random(in: maxY...minY))
+                
+//                                letterLabel.transform = CGAffineTransform(translationX: CGFloat.random(in: minX...maxX),
+//                                                                          y: CGFloat.random(in: maxY...minY))
+                
+                letterLabel.translatedBy(x: CGFloat.random(in: 0...self.view.frame.size.width),
+                y: CGFloat.random(in: 0...self.view.frame.size.height)
+                
             }
         }
+
+    }
+    
     
     private func assignLettersRandomColors() {
         for letterLabel in letterLabels {
@@ -94,10 +140,19 @@ class ViewController: UIViewController {
     
     private func resetLetters() {
         for letterLabel in letterLabels {
+            
             UIView.animate(withDuration: 2.0) {
-                letterLabel.transform = .identity
+                
+                letterLabel.transform = CGAffineTransform(translationX: 0, y: 0)
+                letterLabel.transform = CGAffineTransform.identity
+                letterLabel.backgroundColor = nil
+                letterLabel.textColor = .black
             }
         }
     }
     
+
+
+
+
 }
