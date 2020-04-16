@@ -22,16 +22,22 @@ class LambdaViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+               fadeInLogo()
+         lettersRandom()
         
     }
 
     @IBAction func toggleButtonPressed(_ sender: Any) {
-        fadeLogo()
-        lettersRandom()
+        switch isScattered {
+        case true:
+            fadeInLogo()
+        default:
+            lettersRandom()
+        }
     }
     
     // alpha 1.0 - 0.0 ( fade out )
-    private func fadeLogo() {
+    private func fadeInLogo() {
         UIView.animate(withDuration: 2.0, delay: 0.0, options: UIView.AnimationOptions.curveLinear, animations: {
             self.imageView.alpha = 0.0
         }, completion: nil)
