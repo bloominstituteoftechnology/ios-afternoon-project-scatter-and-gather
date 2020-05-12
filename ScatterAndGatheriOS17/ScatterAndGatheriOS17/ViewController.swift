@@ -33,7 +33,10 @@ class ViewController: UIViewController {
     }
     
     func startAnimations() {
-        
+        lambdaImage.alpha = 0
+        UIView.animate(withDuration: 2.5) {
+            self.lambdaImage.alpha = 1
+        }
     }
 
 }
