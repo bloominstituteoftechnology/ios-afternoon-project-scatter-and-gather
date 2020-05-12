@@ -75,7 +75,11 @@
                         <viewLayoutGuide key="safeArea" id="sm1-hJ-Z6B"/>
                     </view>
                     <navigationItem key="navigationItem" id="6ss-wA-FGk">
-                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="7Wl-l3-Swh"/>
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="7Wl-l3-Swh">
+                            <connections>
+                                <action selector="toggleButtonTapped:" destination="PlW-7q-TFj" id="Hl3-15-Zez"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="lambdaImage" destination="2J7-kq-H56" id="Dxs-Z6-g5F"/>

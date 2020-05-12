@@ -26,7 +26,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
-
+    
+    @IBAction func toggleButtonTapped(_ sender: UIBarButtonItem) {
+        
+        startAnimations()
+    }
+    
+    func startAnimations() {
+        
+    }
 
 }
 
