@@ -10,9 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var isScattered: Bool = false
+    
+    @IBOutlet weak var letterLTextLabel: UILabel!
+    @IBOutlet weak var letterATextLabel: UILabel!
+    @IBOutlet weak var letterMTextLabel: UILabel!
+    @IBOutlet weak var letterBTextLabel: UILabel!
+    @IBOutlet weak var letterDTextLabel: UILabel!
+    @IBOutlet weak var secondLetterATextLabel: UILabel!
+    @IBOutlet weak var lambdaImage: UIImageView!
+    
+    @IBOutlet var lambdaLetters: [UILabel]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
 
 

@@ -77,6 +77,21 @@
                     <navigationItem key="navigationItem" id="6ss-wA-FGk">
                         <barButtonItem key="rightBarButtonItem" title="Toggle" id="7Wl-l3-Swh"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="lambdaImage" destination="2J7-kq-H56" id="Dxs-Z6-g5F"/>
+                        <outlet property="letterATextLabel" destination="LfI-aN-cvi" id="07e-Z0-hwR"/>
+                        <outlet property="letterBTextLabel" destination="NmF-Th-Ng4" id="LbK-Md-AVN"/>
+                        <outlet property="letterDTextLabel" destination="ika-Rr-TIE" id="bs6-TZ-gIu"/>
+                        <outlet property="letterLTextLabel" destination="vd2-NM-sVZ" id="buC-UQ-hgf"/>
+                        <outlet property="letterMTextLabel" destination="7Hs-jF-JHI" id="sJa-VJ-HnW"/>
+                        <outlet property="secondLetterATextLabel" destination="V7J-Xj-oqf" id="Y00-y9-vt7"/>
+                        <outletCollection property="lambdaLetters" destination="vd2-NM-sVZ" collectionClass="NSMutableArray" id="LjU-b0-hAU"/>
+                        <outletCollection property="lambdaLetters" destination="LfI-aN-cvi" collectionClass="NSMutableArray" id="WOb-SE-I8f"/>
+                        <outletCollection property="lambdaLetters" destination="7Hs-jF-JHI" collectionClass="NSMutableArray" id="XjP-g8-5pa"/>
+                        <outletCollection property="lambdaLetters" destination="NmF-Th-Ng4" collectionClass="NSMutableArray" id="byR-xy-61F"/>
+                        <outletCollection property="lambdaLetters" destination="ika-Rr-TIE" collectionClass="NSMutableArray" id="Cvy-7N-i2w"/>
+                        <outletCollection property="lambdaLetters" destination="V7J-Xj-oqf" collectionClass="NSMutableArray" id="xTX-tA-711"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uiu-5a-KZV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
