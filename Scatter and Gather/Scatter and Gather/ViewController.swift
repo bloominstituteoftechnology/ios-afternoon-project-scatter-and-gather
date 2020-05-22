@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     //MARK: - Properties
     var lLabel = UILabel()
     var aLabel = UILabel()
@@ -19,17 +19,24 @@ class ViewController: UIViewController {
     var a2Label = UILabel()
     var logoImageView = UIImageView()
     var stackView = UIStackView()
-
+    var isScattered: Bool = false
+    
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureLabels()
         configureImageView()
-        configureNavandButton()
+        configureNavButton()
     }
     
     //MARK: - Private Functions
+    func getRandomNum(in range: ClosedRange<Int>) -> Int{
+        let myNumber = Int.random(in: range)
+        return myNumber
+    }
+    
+    
     private func configureLabels(){
         // Creating stack view for labels
         stackView.translatesAutoresizingMaskIntoConstraints = false
@@ -87,9 +94,8 @@ class ViewController: UIViewController {
         a2Label.textColor = .purple
         stackView.addArrangedSubview(a2Label)
     }
-
+    
     private func configureImageView(){
-        
         // Setting up Image View
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         logoImageView.contentMode = .scaleAspectFit
@@ -105,39 +111,148 @@ class ViewController: UIViewController {
         ])
     }
     
-    private func configureNavandButton(){
-//        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 44, width: view.frame.size.width, height: 44))
-//        navigationBar.backgroundColor = .systemBackground
-        
-//        let navigationItem = UINavigationItem()
-//        navigationItem.title = "Animations"
+    private func configureNavButton(){
         let toggleButton = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonTapped))
         navigationItem.rightBarButtonItem = toggleButton
-//        navigationBar.items = [navigationItem]
-//
-//        view.addSubview(navigationBar)
     }
     
     @objc func toggleButtonTapped(){
+        if isScattered {
+            gatherAnimation()
+        } else {
+            scatterAnimation()
+        }
+        isScattered.toggle()
+    }
+    
+    private func scatterAnimation(){
         let animationBlock = {
             // Image view fade out
-            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
                 self.logoImageView.alpha = 0.0
             }
             
             //Scatter letters + random angles
+            // L label
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                // Random color generation
+                let red   = CGFloat((arc4random() % 256)) / 255.0
+                let green = CGFloat((arc4random() % 256)) / 255.0
+                let blue  = CGFloat((arc4random() % 256)) / 255.0
+                let alpha = CGFloat(1.0)
+                let randomX = CGFloat(self.getRandomNum(in: 1...90))
+                let randomY = CGFloat(self.getRandomNum(in: -1...500))
+                let randomRotation = CGFloat(self.getRandomNum(in: 10...50))
+                self.lLabel.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                self.lLabel.transform = CGAffineTransform(translationX: randomX, y: randomY).rotated(by: randomRotation)
+            }
+            // A label
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                // Random color generation
+                let red   = CGFloat((arc4random() % 256)) / 255.0
+                let green = CGFloat((arc4random() % 256)) / 255.0
+                let blue  = CGFloat((arc4random() % 256)) / 255.0
+                let alpha = CGFloat(1.0)
+                let randomX = CGFloat(self.getRandomNum(in: 1...90))
+                let randomY = CGFloat(self.getRandomNum(in: -1...500))
+                let randomRotation = CGFloat(self.getRandomNum(in: 10...50))
+                
+                self.aLabel.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                self.aLabel.transform = CGAffineTransform(translationX: randomX, y: randomY).rotated(by: randomRotation)
+            }
+            // M label
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                // Random color generation
+                let red   = CGFloat((arc4random() % 256)) / 255.0
+                let green = CGFloat((arc4random() % 256)) / 255.0
+                let blue  = CGFloat((arc4random() % 256)) / 255.0
+                let alpha = CGFloat(1.0)
+                let randomX = CGFloat(self.getRandomNum(in: 1...90))
+                let randomY = CGFloat(self.getRandomNum(in: -1...500))
+                let randomRotation = CGFloat(self.getRandomNum(in: 10...50))
+                
+                self.mLabel.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                self.mLabel.transform = CGAffineTransform(translationX: randomX, y: randomY).rotated(by: randomRotation)
+            }
+            // B label
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                // Random color generation
+                let red   = CGFloat((arc4random() % 256)) / 255.0
+                let green = CGFloat((arc4random() % 256)) / 255.0
+                let blue  = CGFloat((arc4random() % 256)) / 255.0
+                let alpha = CGFloat(1.0)
+                let randomX = CGFloat(self.getRandomNum(in: 1...90))
+                let randomY = CGFloat(self.getRandomNum(in: -1...500))
+                let randomRotation = CGFloat(self.getRandomNum(in: 10...50))
+                
+                self.bLabel.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                self.bLabel.transform = CGAffineTransform(translationX: randomX, y: randomY).rotated(by: randomRotation)
+            }
+            // D label
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                // Random color generation
+                let red   = CGFloat((arc4random() % 256)) / 255.0
+                let green = CGFloat((arc4random() % 256)) / 255.0
+                let blue  = CGFloat((arc4random() % 256)) / 255.0
+                let alpha = CGFloat(1.0)
+                let randomX = CGFloat(self.getRandomNum(in: 1...90))
+                let randomY = CGFloat(self.getRandomNum(in: -1...500))
+                let randomRotation = CGFloat(self.getRandomNum(in: 10...50))
+                
+                self.dLabel.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                self.dLabel.transform = CGAffineTransform(translationX: randomX, y: randomY).rotated(by: randomRotation)
+            }
+            // A label
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                let red   = CGFloat((arc4random() % 256)) / 255.0
+                let green = CGFloat((arc4random() % 256)) / 255.0
+                let blue  = CGFloat((arc4random() % 256)) / 255.0
+                let alpha = CGFloat(1.0)
+                let randomX = CGFloat(self.getRandomNum(in: 1...90))
+                let randomY = CGFloat(self.getRandomNum(in: -1...500))
+                let randomRotation = CGFloat(self.getRandomNum(in: 10...50))
+                
+                self.a2Label.backgroundColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
+                self.a2Label.transform = CGAffineTransform(translationX: randomX, y: randomY).rotated(by: randomRotation)
+            }
             
             
+        }
+        UIView.animateKeyframes(withDuration: 2.0,
+                                delay: 0.0,
+                                options: [],
+                                animations: animationBlock,
+                                completion: nil)
+        
+    }
+    
+    func gatherAnimation(){
+        let animationBlock = {
             // Image view fade in
-            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
                 self.logoImageView.alpha = 1.0
             }
+            // Return to starting position
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 1) {
+                self.lLabel.transform = .identity
+                self.aLabel.transform = .identity
+                self.mLabel.transform = .identity
+                self.bLabel.transform = .identity
+                self.dLabel.transform = .identity
+                self.a2Label.transform = .identity
+                self.lLabel.backgroundColor = .white
+                self.aLabel.backgroundColor = .white
+                self.mLabel.backgroundColor = .white
+                self.bLabel.backgroundColor = .white
+                self.dLabel.backgroundColor = .white
+                self.a2Label.backgroundColor = .white
+            }
         }
-        UIView.animateKeyframes(withDuration: 4.0,
-                                           delay: 0.0,
-                                           options: [],
-                                           animations: animationBlock,
-                                           completion: nil)
+        UIView.animateKeyframes(withDuration: 2.0,
+                                delay: 0.0,
+                                options: [],
+                                animations: animationBlock,
+                                completion: nil)
     }
 }
 
