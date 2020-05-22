@@ -12,7 +12,6 @@
 		0B5D4A9824784A0B00A83ED7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5D4A9724784A0B00A83ED7 /* ViewController.swift */; };
 		0B5D4A9D24784A0D00A83ED7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B5D4A9C24784A0D00A83ED7 /* Assets.xcassets */; };
 		0B5D4AA024784A0D00A83ED7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B5D4A9E24784A0D00A83ED7 /* LaunchScreen.storyboard */; };
-		0B5D4AA824784B8900A83ED7 /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 0B5D4AA724784B8900A83ED7 /* lambda_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +22,6 @@
 		0B5D4A9C24784A0D00A83ED7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0B5D4A9F24784A0D00A83ED7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0B5D4AA124784A0D00A83ED7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0B5D4AA724784B8900A83ED7 /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lambda_logo.png; path = ../../lambda_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +58,6 @@
 				0B5D4A9524784A0B00A83ED7 /* SceneDelegate.swift */,
 				0B5D4A9724784A0B00A83ED7 /* ViewController.swift */,
 				0B5D4A9C24784A0D00A83ED7 /* Assets.xcassets */,
-				0B5D4AA724784B8900A83ED7 /* lambda_logo.png */,
 				0B5D4A9E24784A0D00A83ED7 /* LaunchScreen.storyboard */,
 				0B5D4AA124784A0D00A83ED7 /* Info.plist */,
 			);
@@ -125,7 +122,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B5D4AA824784B8900A83ED7 /* lambda_logo.png in Resources */,
 				0B5D4AA024784A0D00A83ED7 /* LaunchScreen.storyboard in Resources */,
 				0B5D4A9D24784A0D00A83ED7 /* Assets.xcassets in Resources */,
 			);

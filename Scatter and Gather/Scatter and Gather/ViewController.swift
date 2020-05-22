@@ -39,7 +39,7 @@ class ViewController: UIViewController {
         
         // Stack View Constraints
         NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 60),
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
             stackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10)
         ])
@@ -106,21 +106,38 @@ class ViewController: UIViewController {
     }
     
     private func configureNavandButton(){
-        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 44, width: view.frame.size.width, height: 44))
-        navigationBar.backgroundColor = .systemBackground
+//        let navigationBar = UINavigationBar(frame: CGRect(x: 0, y: 44, width: view.frame.size.width, height: 44))
+//        navigationBar.backgroundColor = .systemBackground
         
-        let navigationItem = UINavigationItem()
-        navigationItem.title = "Animations"
+//        let navigationItem = UINavigationItem()
+//        navigationItem.title = "Animations"
         let toggleButton = UIBarButtonItem(title: "Toggle", style: .plain, target: self, action: #selector(toggleButtonTapped))
-        
         navigationItem.rightBarButtonItem = toggleButton
-        navigationBar.items = [navigationItem]
-        
-        view.addSubview(navigationBar)
+//        navigationBar.items = [navigationItem]
+//
+//        view.addSubview(navigationBar)
     }
     
     @objc func toggleButtonTapped(){
-        
+        let animationBlock = {
+            // Image view fade out
+            UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.5) {
+                self.logoImageView.alpha = 0.0
+            }
+            
+            //Scatter letters + random angles
+            
+            
+            // Image view fade in
+            UIView.addKeyframe(withRelativeStartTime: 0.5, relativeDuration: 0.5) {
+                self.logoImageView.alpha = 1.0
+            }
+        }
+        UIView.animateKeyframes(withDuration: 4.0,
+                                           delay: 0.0,
+                                           options: [],
+                                           animations: animationBlock,
+                                           completion: nil)
     }
 }
 
