@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E38F59662479FE0A00A4E672 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E38F59652479FE0A00A4E672 /* AnimationController.swift */; };
 		E3B48D37247891AB0026CF4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B48D36247891AB0026CF4A /* AppDelegate.swift */; };
 		E3B48D39247891AB0026CF4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B48D38247891AB0026CF4A /* SceneDelegate.swift */; };
 		E3B48D3E247891AB0026CF4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3B48D3C247891AB0026CF4A /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E38F59652479FE0A00A4E672 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		E3B48D33247891AB0026CF4A /* Scatter And Gather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scatter And Gather.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3B48D36247891AB0026CF4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3B48D38247891AB0026CF4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				E3B48D41247891AF0026CF4A /* LaunchScreen.storyboard */,
 				E3B48D44247891AF0026CF4A /* Info.plist */,
 				E3B48D4B2478949B0026CF4A /* AnimationViewController.swift */,
+				E38F59652479FE0A00A4E672 /* AnimationController.swift */,
 			);
 			path = "Scatter And Gather";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E38F59662479FE0A00A4E672 /* AnimationController.swift in Sources */,
 				E3B48D4C2478949B0026CF4A /* AnimationViewController.swift in Sources */,
 				E3B48D37247891AB0026CF4A /* AppDelegate.swift in Sources */,
 				E3B48D39247891AB0026CF4A /* SceneDelegate.swift in Sources */,
