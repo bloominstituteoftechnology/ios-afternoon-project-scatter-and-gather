@@ -47,11 +47,11 @@ class AnimationViewController: UIViewController {
             randomRotation()
             moveLetters()
         } else {
+            returnLetters()
             fadeIn()
-            returnBGColors()
             returnTextColors()
             returnRotation()
-            returnLetters()
+            returnBGColors()
         }
     }
     
