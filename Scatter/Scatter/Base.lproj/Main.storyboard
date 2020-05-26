@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KDd-pl-gOw">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Scatter" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleAspectFit" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="yXM-rb-kWI">
+                                <rect key="frame" x="49.5" y="148" width="315" height="55.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RO7-Q6-cQZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="31" height="55.5"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAu-3f-aiI">
+                                        <rect key="frame" x="61" y="0.0" width="22.5" height="55.5"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yO-8P-2m0">
+                                        <rect key="frame" x="113.5" y="0.0" width="39" height="55.5"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="b" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apV-3d-IQ8">
+                                        <rect key="frame" x="182.5" y="0.0" width="25" height="55.5"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="d" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WlG-3R-1JV">
+                                        <rect key="frame" x="237.5" y="0.0" width="25" height="55.5"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obR-vh-yme">
+                                        <rect key="frame" x="292.5" y="0.0" width="22.5" height="55.5"/>
+                                        <fontDescription key="fontDescription" name="TimesNewRomanPSMT" family="Times New Roman" pointSize="50"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lambda_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Mgd-MW-9bc">
+                                <rect key="frame" x="65" y="241" width="284" height="140"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yXM-rb-kWI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="14F-gW-1TV"/>
+                            <constraint firstItem="Mgd-MW-9bc" firstAttribute="top" secondItem="yXM-rb-kWI" secondAttribute="bottom" constant="37.5" id="22Y-tF-cPZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Mgd-MW-9bc" secondAttribute="bottom" constant="481" id="5LX-n9-dPH"/>
+                            <constraint firstItem="Mgd-MW-9bc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="DTb-60-zDM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Mgd-MW-9bc" secondAttribute="trailing" constant="65" id="GNk-03-dSr"/>
+                            <constraint firstItem="Mgd-MW-9bc" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="djg-Hb-c8Y"/>
+                            <constraint firstItem="yXM-rb-kWI" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="hsg-Xu-u9R"/>
+                            <constraint firstItem="Mgd-MW-9bc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="65" id="vyb-60-lUz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="7e6-gq-NL2">
+                        <barButtonItem key="rightBarButtonItem" title="Toggle" id="kPx-Eg-vl7">
+                            <connections>
+                                <action selector="toggleButtonPressed:" destination="BYZ-38-t0r" id="Qz3-4Y-cHZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="labelA" destination="pAu-3f-aiI" id="LsU-hr-XkM"/>
+                        <outlet property="labelA2" destination="obR-vh-yme" id="Kk8-kR-Ahb"/>
+                        <outlet property="labelB" destination="apV-3d-IQ8" id="B00-sh-eTZ"/>
+                        <outlet property="labelD" destination="WlG-3R-1JV" id="eJY-2M-sFM"/>
+                        <outlet property="labelL" destination="RO7-Q6-cQZ" id="aOm-nn-e6l"/>
+                        <outlet property="labelM" destination="6yO-8P-2m0" id="K1X-HX-sgF"/>
+                        <outlet property="logoView" destination="Mgd-MW-9bc" id="k2O-PC-hqN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1047.8260869565217" y="118.52678571428571"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="5dh-a1-xsh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KDd-pl-gOw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="D2D-wr-5uC">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gu0-yV-jEd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ujk-CO-B6N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="118.52678571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="lambda_logo" width="2000" height="558"/>
+    </resources>
+</document>
