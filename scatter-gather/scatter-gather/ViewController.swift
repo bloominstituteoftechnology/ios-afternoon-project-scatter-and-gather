@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         collectLettersForAnimation()
     }
     
-    //  MARK: - methods for project objective
+    //  MARK: - methods toward objective
     
     private func scatterAnimate() {
         //  one idea is to group labels together in order to perform animation via built loop
@@ -49,6 +49,10 @@ class ViewController: UIViewController {
                     label.transform = self.calculateScatterPlot(label: label)
                     label.transform = CGAffineTransform(rotationAngle: CGFloat.random(in: 0...358))
                     label.layer.backgroundColor = self.assignRandomBackColor().cgColor
+                    //  I may want to scatter via X & Y axis; give each label a new center
+                    //  via 1) set the minX / maxX; minY / maxY; X & Y; give each label a new center:
+                    //  newCenter = CGPoint(x: X, y: Y)
+                    //  label.center = newCenter
                 }
             }
             
