@@ -10,16 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var isScattered: Bool = false
+    var isScattered: Bool = true
         
     @IBOutlet weak var logoImageView: UIImageView!
     
     var letterLabels: [UILabel] = []
     
+    var currentRotationValues: [CGFloat] = [0, 0, 0, 0, 0, 0]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpView()
         takeYourPositions()
+        isScattered = false
     }
     
     @IBAction func toggleButtonPressed(_ sender: UIBarButtonItem) {
@@ -77,9 +80,11 @@ class ViewController: UIViewController {
                     }
                 }
                 UIView.addKeyframe(withRelativeStartTime: 0.8, relativeDuration: 0.2) {
+                    self.currentRotationValues = []
                     for label in self.letterLabels {
-                        let rotationAngle = CGFloat(Int.random(in: 1...20)) / 10
-                        label.transform = CGAffineTransform(rotationAngle: rotationAngle * .pi)
+                        let newRotationAngle = (CGFloat(Int.random(in: 1...20)) / 10) * .pi
+                        self.currentRotationValues.append(newRotationAngle)
+                        label.transform = CGAffineTransform(rotationAngle: newRotationAngle)
                         label.center.x = CGFloat(Int.random(in: 0...Int(self.view.bounds.size.width)))
                         label.center.y = CGFloat(Int.random(in: Int(self.view.bounds.size.height * 0.8)...Int(self.view.bounds.size.height)))
                     }
@@ -92,20 +97,15 @@ class ViewController: UIViewController {
             isScattered = true
             
         case true:
-            let animBlock = {
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                    self.logoImageView.alpha = 1
-                }
-                UIView.addKeyframe(withRelativeStartTime: 0, relativeDuration: 1) {
-                    self.takeYourPositions()
-                    for label in self.letterLabels {
-                        label.layer.backgroundColor = UIColor(hue: 349/359, saturation: 0.90, brightness: 0.73, alpha: 1).cgColor
-                        label.textColor = UIColor(hue: 180/359, saturation: 0, brightness: 1, alpha: 1)
-                        label.shadowColor = UIColor(hue: 349/359, saturation: 1, brightness: 0.5, alpha: 1)
-                    }
+            UIView.animate(withDuration: 2) {
+                self.logoImageView.alpha = 1
+                for label in self.letterLabels {
+                    label.layer.backgroundColor = UIColor(hue: 349/359, saturation: 0.90, brightness: 0.73, alpha: 1).cgColor
+                    label.textColor = UIColor(hue: 180/359, saturation: 0, brightness: 1, alpha: 1)
+                    label.shadowColor = UIColor(hue: 349/359, saturation: 1, brightness: 0.5, alpha: 1)
                 }
             }
-            UIView.animateKeyframes(withDuration: 2, delay: 0, options: [], animations: animBlock, completion: nil)
+            self.takeYourPositions()
             isScattered = false
         }
     }
@@ -128,17 +128,50 @@ class ViewController: UIViewController {
             label.widthAnchor.constraint(equalTo: label.heightAnchor).isActive = true
             letterLabels.append(label)
         }
+        
+        self.logoImageView.alpha = 0
+        UIView.animate(withDuration: 2) {
+            self.logoImageView.alpha = 1
+        }
     }
     
     func takeYourPositions() {
-        UIView.animate(withDuration: 2.0) {
-            let xModifier: [CGFloat] = [-150, -90, -30, 30, 90, 150]
-            for i in 0...5 {
-                self.letterLabels[i].transform = .identity
-                self.letterLabels[i].center.x = self.view.center.x + xModifier[i]
-                self.letterLabels[i].center.y = self.view.center.y - 200
-            }
+        let xModifier: [CGFloat] = [-150, -90, -30, 30, 90, 150]
+        for i in 0...5 {
+            let pathAnimation = CAKeyframeAnimation(keyPath: "position")
+            let curvedPath = CGMutablePath()
+            curvedPath.move(to: CGPoint(x: self.letterLabels[i].frame.origin.x + 27.5, y: self.letterLabels[i].frame.origin.y + 27.5))
+            curvedPath.addQuadCurve(to: CGPoint(x: self.view.center.x + xModifier[i], y: self.view.center.y - 200), control: CGPoint(x: self.view.center.x,  y: self.view.center.y - 100))
+            pathAnimation.path = curvedPath
+            pathAnimation.duration = 2
+
+            let scaleUpAnimation = CABasicAnimation(keyPath: "transform.scale")
+            scaleUpAnimation.toValue = 1.5
+            scaleUpAnimation.duration = 1
+
+            let scaleDownAnimation = CABasicAnimation(keyPath: "transform.scale")
+            scaleDownAnimation.fromValue = 1.5
+            scaleDownAnimation.toValue = 1
+            scaleDownAnimation.duration = 1
+            scaleDownAnimation.beginTime = 1
+            
+            let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+            rotationAnimation.fromValue = currentRotationValues[i]
+            rotationAnimation.toValue = 0
+            rotationAnimation.duration = 2
+
+            let group = CAAnimationGroup()
+            group.animations = [scaleUpAnimation, scaleDownAnimation, rotationAnimation, pathAnimation]
+            group.duration = 2
+            
+            self.letterLabels[i].layer.add(group, forKey: "labelBeingAnimated")
         }
+        
+        for i in 0...5 {
+            self.letterLabels[i].center = CGPoint(x: self.view.center.x + xModifier[i], y: self.view.center.y - 200)
+            self.letterLabels[i].transform = .identity
+        }
+        
     }
     
 }
