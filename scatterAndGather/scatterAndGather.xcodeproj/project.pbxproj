@@ -13,6 +13,7 @@
 		849725B724CE7DBA00711921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849725B624CE7DBA00711921 /* Assets.xcassets */; };
 		849725BA24CE7DBA00711921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849725B824CE7DBA00711921 /* LaunchScreen.storyboard */; };
 		849725C224CE810E00711921 /* ScatterAndGatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849725C124CE810E00711921 /* ScatterAndGatherViewController.swift */; };
+		849725C424CE856C00711921 /* lambda_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 849725C324CE856C00711921 /* lambda_logo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		849725B924CE7DBA00711921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		849725BB24CE7DBA00711921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		849725C124CE810E00711921 /* ScatterAndGatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScatterAndGatherViewController.swift; sourceTree = "<group>"; };
+		849725C324CE856C00711921 /* lambda_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = lambda_logo.png; path = ../../lambda_logo.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				849725B324CE7DB900711921 /* Main.storyboard */,
 				849725C124CE810E00711921 /* ScatterAndGatherViewController.swift */,
 				849725B624CE7DBA00711921 /* Assets.xcassets */,
+				849725C324CE856C00711921 /* lambda_logo.png */,
 				849725B824CE7DBA00711921 /* LaunchScreen.storyboard */,
 				849725BB24CE7DBA00711921 /* Info.plist */,
 			);
@@ -128,6 +131,7 @@
 				849725BA24CE7DBA00711921 /* LaunchScreen.storyboard in Resources */,
 				849725B724CE7DBA00711921 /* Assets.xcassets in Resources */,
 				849725B524CE7DB900711921 /* Main.storyboard in Resources */,
+				849725C424CE856C00711921 /* lambda_logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
