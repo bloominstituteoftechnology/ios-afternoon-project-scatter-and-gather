@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     var isScattered: Bool = false
     
     override func viewDidLoad() {
@@ -28,25 +28,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var toggle: UIBarButtonItem!
     
     @IBAction func toggleButton(_ sender: UIBarButtonItem) {
-      /*
-        func fadeIn(_ duration: TimeInterval = 0.5, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-            UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
-                   self.lambdaImage = 1
-           }, completion: completion)  }
-
-           func fadeOut(_ duration: TimeInterval = 0.5, delay: TimeInterval = 1.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
-            UIView.animate(withDuration: duration, delay: delay, options: UIView.AnimationOptions.curveEaseIn, animations: {
-                   self.lambdaImage = .3
-           }, completion: completion)
-          }
+        toggleButtonPressed()
         
-        UIImageView.animate(withDuration: 2.0, animations: {
-            self.lambdaImage.transform = CGAffineTransform(
-        }) { (_) in
-            <#code#>
-        }
-        */
-        
+    }
+    
+    func randomNumber() -> CGFloat {
+        let number = CGFloat(arc4random_uniform(300))
+        return number
     }
     
     private func updateViews() {
@@ -58,6 +46,28 @@ class ViewController: UIViewController {
         lambdaLastA.text = "A"
     }
     
-
+    @objc func toggleButtonPressed() {
+        let fade = {
+            UIView.animate(withDuration: 1.0, delay: 0.5, usingSpringWithDamping: 1.0, initialSpringVelocity: 5, options: [], animations: {
+                self.lambdaImage.alpha = 0
+            })
+            
+            UIView.addKeyframe(withRelativeStartTime: 1.0, relativeDuration: 1.0) {
+                self.lambdaL.transform = CGAffineTransform(scaleX: self.randomNumber() , y: self.randomNumber() )
+                self.lambdaL.backgroundColor = .green
+            }
+            
+            
+        }
+        UIView.animateKeyframes(withDuration: 3.0, delay: 0.0, options: [], animations: fade, completion: nil)
+    }
 }
+
+
+/*UIView.animateWithDuration(5, options: [.Repeat, .Autoreverse], animations: {
+    self.postPacketView.center.x = completionMethodX()
+    self.postPacketView.center.y = completionMethodY()
+
+    }, completion: nil
+})*/
 
